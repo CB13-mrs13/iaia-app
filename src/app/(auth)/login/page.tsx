@@ -6,7 +6,7 @@ import { signInWithEmail } from '@/lib/firebase/auth';
 import { useRouter } from 'next/navigation';
 import { useToast } from '@/hooks/use-toast';
 import { useAuth } from '@/hooks/use-auth';
-import { useEffect }_from 'react';
+import { useEffect } from 'react';
 
 export default function LoginPage() {
   const router = useRouter();
