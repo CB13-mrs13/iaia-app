@@ -53,7 +53,12 @@ export async function updateUserProfile(profileData: { displayName?: string; pho
 }
 
 // Upload Profile Avatar
-export async function uploadAvatar(user: User, file: File): Promise<string> {
+export async function uploadAvatar(file: File): Promise<string> {
+  if (!auth.currentUser) {
+    throw new Error("No user currently signed in to upload avatar.");
+  }
+  const user = auth.currentUser; // Use the definitive current user
+
   const oldPhotoURL = user.photoURL;
   // Delete old avatar if it exists and is a Firebase Storage URL
   if (oldPhotoURL && oldPhotoURL.includes("firebasestorage.googleapis.com")) {
@@ -71,7 +76,7 @@ export async function uploadAvatar(user: User, file: File): Promise<string> {
   const avatarRef = ref(storage, `avatars/${user.uid}/${file.name}`);
   await uploadBytes(avatarRef, file);
   const photoURL = await getDownloadURL(avatarRef);
-  await fbUpdateProfile(user, { photoURL });
+  await fbUpdateProfile(user, { photoURL }); // user here is auth.currentUser after reassignment
   return photoURL;
 }
 
@@ -79,17 +84,18 @@ export async function uploadAvatar(user: User, file: File): Promise<string> {
 // Delete User Account
 export async function deleteCurrentUserAccount() {
   if (auth.currentUser) {
+    const userToDelete = auth.currentUser;
     // Consider deleting user data from Firestore/Storage here as well
     // For example, delete avatar:
-    if (auth.currentUser.photoURL && auth.currentUser.photoURL.includes("firebasestorage.googleapis.com")) {
+    if (userToDelete.photoURL && userToDelete.photoURL.includes("firebasestorage.googleapis.com")) {
        try {
-        const avatarRef = ref(storage, auth.currentUser.photoURL);
+        const avatarRef = ref(storage, userToDelete.photoURL);
         await deleteObject(avatarRef);
       } catch (error) {
         console.warn("Could not delete avatar during account deletion:", error);
       }
     }
-    return fbDeleteUser(auth.currentUser);
+    return fbDeleteUser(userToDelete);
   }
   throw new Error("No user currently signed in.");
 }
@@ -98,3 +104,4 @@ export async function deleteCurrentUserAccount() {
 export function getCurrentUser(): User | null {
   return auth.currentUser;
 }
+
