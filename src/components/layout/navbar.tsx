@@ -40,13 +40,14 @@ export default function Navbar() {
           </DialogTrigger>
           <DialogContent className="p-0 bg-transparent border-none shadow-none max-w-3xl w-auto h-auto flex items-center justify-center">
             <DialogTitle className="sr-only">IAIA Logo Popup</DialogTitle>
-            <div className="relative w-[80vw] h-[80vh] max-w-[700px] max-h-[500px] opacity-80"> {/* Ajusté max-w et max-h pour mieux s'adapter, et opacité */}
+            {/* Applied opacity-80 directly to the Image component's wrapper if needed, or style prop */}
+            <div className="relative w-[80vw] h-[80vh] max-w-[700px] max-h-[500px]">
               <Image
-                src="/pop-up-logo-iaia.png"
+                src="/pop-up-logo-iaia.png" // Path must be relative to the public folder
                 alt="IAIA Popup Logo"
                 fill
-                style={{ objectFit: 'contain' }}
-                sizes="(max-width: 768px) 80vw, 700px" // Tailles ajustées
+                style={{ objectFit: 'contain', opacity: 0.8 }} // Opacity applied here
+                sizes="(max-width: 768px) 80vw, 700px"
               />
             </div>
           </DialogContent>
