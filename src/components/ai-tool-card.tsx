@@ -28,8 +28,9 @@ export default function AiToolCard({ tool }: AiToolCardProps) {
             <Image
               src={tool.imageUrl}
               alt={tool.name}
-              layout="fill"
-              objectFit="cover"
+              fill
+              style={{ objectFit: 'cover' }}
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               data-ai-hint={aiHint}
             />
           </div>
@@ -70,4 +71,3 @@ export default function AiToolCard({ tool }: AiToolCardProps) {
     </Card>
   );
 }
-
