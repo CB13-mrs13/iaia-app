@@ -9,10 +9,14 @@ import { aiTools } from '@/lib/data';
 import type { AiToolCategory } from '@/types';
 import { Input } from '@/components/ui/input';
 import { Search } from 'lucide-react';
+import { useLanguage } from '@/hooks/use-language';
+import { translations } from '@/lib/translations';
 
 export default function HomePage() {
   const [selectedCategory, setSelectedCategory] = useState<AiToolCategory | null>(null);
   const [searchTerm, setSearchTerm] = useState('');
+  const { language } = useLanguage();
+  const t = translations[language].home;
 
   const filteredTools = useMemo(() => {
     return aiTools
@@ -32,9 +36,9 @@ export default function HomePage() {
       
       <section id="tool-listing">
         <header className="mb-8 text-center">
-          <h1 className="text-4xl font-bold tracking-tight mb-2">Discover Top AI Tools</h1>
+          <h1 className="text-4xl font-bold tracking-tight mb-2">{t.discoverTitle}</h1>
           <p className="text-lg text-muted-foreground">
-            Browse our curated list of AI tools or use filters to find exactly what you need.
+            {t.discoverSubtitle}
           </p>
         </header>
 
@@ -44,7 +48,7 @@ export default function HomePage() {
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
           <Input
             type="text"
-            placeholder="Search tools by name, description, or tag..."
+            placeholder={t.searchPlaceholder}
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             className="pl-10 pr-4 py-2 text-base h-12 rounded-md shadow-sm focus:border-primary"
@@ -59,8 +63,8 @@ export default function HomePage() {
           </div>
         ) : (
           <div className="text-center py-12">
-            <p className="text-xl text-muted-foreground">No tools found matching your criteria.</p>
-            <p className="text-sm text-muted-foreground mt-2">Try adjusting your filters or search term.</p>
+            <p className="text-xl text-muted-foreground">{t.noToolsFound}</p>
+            <p className="text-sm text-muted-foreground mt-2">{t.tryAdjustingFilters}</p>
           </div>
         )}
       </section>
