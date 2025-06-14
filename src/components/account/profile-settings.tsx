@@ -11,26 +11,25 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { updateUserProfile, uploadAvatar } from '@/lib/firebase/auth';
 import { useToast } from '@/hooks/use-toast';
 import type { User } from 'firebase/auth';
-import { useState, useTransition, useRef } from 'react';
+import { useState, useTransition, useRef, useEffect } from 'react';
 import { Loader2, Upload } from 'lucide-react';
-import { useAuth } from '@/hooks/use-auth'; // Ensure useAuth is imported
-import { auth } from '@/lib/firebase/config'; // Direct import for auth.currentUser.reload()
+import { useAuth } from '@/hooks/use-auth'; 
+import { auth } from '@/lib/firebase/config'; 
 
 const profileSchema = z.object({
   displayName: z.string().min(2, "Display name must be at least 2 characters.").max(50, "Display name too long.").optional(),
-  // photoURL is handled separately via file input
 });
 
 type ProfileFormValues = z.infer<typeof profileSchema>;
 
 interface ProfileSettingsProps {
-  user: User; // This prop provides initial user data
+  user: User; 
 }
 
 export default function ProfileSettings({ user }: ProfileSettingsProps) {
   const { toast } = useToast();
   const [isPending, startTransition] = useTransition();
-  const { setUser: setAuthUser } = useAuth(); // To update context after profile change
+  const { setUser: setAuthUser } = useAuth(); 
   const [avatarFile, setAvatarFile] = useState<File | null>(null);
   const [avatarPreview, setAvatarPreview] = useState<string | null>(user.photoURL);
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -42,11 +41,10 @@ export default function ProfileSettings({ user }: ProfileSettingsProps) {
     },
   });
 
-  // Effect to update form and preview if user prop changes (e.g., from context update)
-  React.useEffect(() => {
+  useEffect(() => {
     form.reset({ displayName: user.displayName || "" });
     setAvatarPreview(user.photoURL);
-  }, [user, form]);
+  }, [user, form.reset]);
 
 
   const handleAvatarChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -64,38 +62,36 @@ export default function ProfileSettings({ user }: ProfileSettingsProps) {
   const onSubmit: SubmitHandler<ProfileFormValues> = async (data) => {
     startTransition(async () => {
       try {
-        // Step 1: Handle avatar upload if a new file is selected
+        let profileUpdated = false;
+        let newPhotoURL = user.photoURL; // Keep current photoURL unless changed
+
         if (avatarFile) {
-          // uploadAvatar updates user.photoURL in Firebase Auth & returns the new URL
-          // It now uses auth.currentUser internally, so no need to pass 'user'
-          await uploadAvatar(avatarFile); 
+          newPhotoURL = await uploadAvatar(avatarFile); 
+          profileUpdated = true;
         }
 
-        // Step 2: Handle display name update if it changed
-        // Compare with the initial displayName from the user prop
         if (data.displayName !== user.displayName) {
           await updateUserProfile({ displayName: data.displayName || undefined });
+          profileUpdated = true;
         }
 
-        // After all Firebase updates, reload the current user's state from Firebase
-        if (auth.currentUser) {
+        if (profileUpdated && auth.currentUser) {
           await auth.currentUser.reload();
-          // Get the freshly reloaded user object
           const refreshedUser = auth.currentUser; 
-          // Update the AuthContext with this most up-to-date user information
-          // The spread is important to ensure React sees a new object reference
           setAuthUser(refreshedUser ? { ...refreshedUser } : null); 
 
-          // Update local component state (form and avatar preview) based on the refreshed user
-          // This is redundant if the useEffect for 'user' prop handles it, but explicit update is fine.
           if (refreshedUser) {
             form.reset({ displayName: refreshedUser.displayName || "" });
-            setAvatarPreview(refreshedUser.photoURL);
+            setAvatarPreview(refreshedUser.photoURL); // Ensure preview uses the potentially new URL
           }
         }
         
-        setAvatarFile(null); // Clear selected file input
-        toast({ title: "Profile Updated", description: "Your profile has been successfully updated." });
+        setAvatarFile(null); 
+        if (profileUpdated) {
+          toast({ title: "Profile Updated", description: "Your profile has been successfully updated." });
+        } else {
+          toast({ title: "No Changes", description: "No changes were made to your profile." });
+        }
 
       } catch (error: any) {
         console.error("Profile update error:", error);
@@ -105,7 +101,6 @@ export default function ProfileSettings({ user }: ProfileSettingsProps) {
         } else if (error.code === 'storage/unauthorized') {
             description = "You are not authorized to upload this file. Please check your Firebase Storage rules.";
         } else if (error.code === 'storage/object-not-found' && avatarFile) {
-            // This might happen if old avatar deletion failed benignly
             console.warn("Old avatar not found for deletion, continuing profile update.");
         }
         toast({ variant: "destructive", title: "Update Failed", description });
@@ -114,7 +109,6 @@ export default function ProfileSettings({ user }: ProfileSettingsProps) {
   };
 
   const getInitials = (name?: string | null): string => {
-    // Use the name from the form first (being edited), then prop user, then email
     const currentDisplayName = form.watch('displayName') || user.displayName;
     if (currentDisplayName) {
       const names = currentDisplayName.split(' ');
@@ -167,4 +161,3 @@ export default function ProfileSettings({ user }: ProfileSettingsProps) {
     </form>
   );
 }
-
