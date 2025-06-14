@@ -1,35 +1,36 @@
 
 "use client";
 
-import type { Dispatch, ReactNode, SetStateAction } from 'react';
-import { createContext, useEffect, useState } from 'react';
+import type { ReactNode } from 'react';
+import { createContext, useEffect, useState, useCallback } from 'react';
 
 export type SupportedLanguage = 'en' | 'fr' | 'es';
 
 interface LanguageContextType {
   language: SupportedLanguage;
-  setLanguage: Dispatch<SetStateAction<SupportedLanguage>>;
+  setLanguage: (newLanguage: SupportedLanguage) => void;
 }
 
 export const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [language, setLanguage] = useState<SupportedLanguage>('en'); // Default to English
+  const [currentLanguage, setCurrentLanguageState] = useState<SupportedLanguage>('en');
 
   useEffect(() => {
+    // Runs only on the client after hydration
     const storedLanguage = localStorage.getItem('appLanguage') as SupportedLanguage | null;
     if (storedLanguage && ['en', 'fr', 'es'].includes(storedLanguage)) {
-      setLanguage(storedLanguage);
+      setCurrentLanguageState(storedLanguage);
     }
-  }, []);
+  }, []); // Empty dependency array: runs once on client mount
 
-  const handleSetLanguage = (lang: SupportedLanguage) => {
-    localStorage.setItem('appLanguage', lang);
-    setLanguage(lang);
-  };
+  const handleSetLanguage = useCallback((newLanguage: SupportedLanguage) => {
+    localStorage.setItem('appLanguage', newLanguage);
+    setCurrentLanguageState(newLanguage);
+  }, []); // Dependencies for useCallback: setCurrentLanguageState is stable
 
   return (
-    <LanguageContext.Provider value={{ language, setLanguage: handleSetLanguage as Dispatch<SetStateAction<SupportedLanguage>> }}>
+    <LanguageContext.Provider value={{ language: currentLanguage, setLanguage: handleSetLanguage }}>
       {children}
     </LanguageContext.Provider>
   );
