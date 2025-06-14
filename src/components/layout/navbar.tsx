@@ -19,11 +19,11 @@ export default function Navbar() {
           <Image 
             src="/iaia-logo.png" 
             alt="IAIA Logo" 
-            width={32} 
-            height={32} 
-            className="h-8 w-8" // You can adjust this if needed, or remove if width/height props are enough
+            width={40} 
+            height={40} 
+            className="h-10 w-10"
           />
-          <span className="font-bold text-xl sm:inline-block">IAIA</span>
+          <span className="font-bold text-2xl sm:inline-block">IAIA</span>
         </Link>
         <nav className="flex flex-1 items-center space-x-4">
           {/* Add nav links here if needed, e.g.,
@@ -35,7 +35,7 @@ export default function Navbar() {
         <div className="flex items-center space-x-2">
           <LanguageSwitcher /> 
           {loading ? (
-            <div className="h-8 w-20 animate-pulse rounded-md bg-muted"></div>
+            <div className="h-9 w-24 animate-pulse rounded-md bg-muted"></div> 
           ) : user ? (
             <UserNav user={user} />
           ) : (
