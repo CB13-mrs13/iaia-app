@@ -2,11 +2,12 @@
 "use client";
 
 import Link from 'next/link';
-import { BotIcon, LogIn } from 'lucide-react';
+import Image from 'next/image'; // Import next/image
+import { LogIn } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import UserNav from './user-nav';
 import { useAuth } from '@/hooks/use-auth';
-import LanguageSwitcher from './language-switcher'; // Import LanguageSwitcher
+import LanguageSwitcher from './language-switcher';
 
 export default function Navbar() {
   const { user, loading } = useAuth();
@@ -15,7 +16,13 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 max-w-screen-2xl items-center">
         <Link href="/" className="mr-6 flex items-center space-x-2">
-          <BotIcon className="h-6 w-6 text-primary" />
+          <Image 
+            src="/iaia-logo.png" 
+            alt="IAIA Logo" 
+            width={32} 
+            height={32} 
+            className="h-8 w-8" // You can adjust this if needed, or remove if width/height props are enough
+          />
           <span className="font-bold text-xl sm:inline-block">IAIA</span>
         </Link>
         <nav className="flex flex-1 items-center space-x-4">
