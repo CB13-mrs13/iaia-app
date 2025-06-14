@@ -29,7 +29,7 @@ export default function Navbar() {
               aria-label="Homepage and open logo popup"
             >
               <Image
-                src="/iaia-logo.png"
+                src="/iaia-logo.png" // This assumes iaia-logo.png is in public/
                 alt="IAIA Logo"
                 width={40}
                 height={40}
@@ -38,15 +38,14 @@ export default function Navbar() {
               <span className="font-bold text-2xl sm:inline-block">IAIA</span>
             </Link>
           </DialogTrigger>
-          <DialogContent className="p-0 bg-transparent border-none shadow-none max-w-3xl w-auto h-auto flex items-center justify-center">
+          <DialogContent className="bg-transparent border-none shadow-none max-w-3xl w-auto h-auto flex items-center justify-center p-0">
             <DialogTitle className="sr-only">IAIA Logo Popup</DialogTitle>
-            {/* Applied opacity-80 directly to the Image component's wrapper if needed, or style prop */}
             <div className="relative w-[80vw] h-[80vh] max-w-[700px] max-h-[500px]">
               <Image
-                src="/pop-up-logo-iaia.png" // Path must be relative to the public folder
+                src="/images/pop-up-logo-iaia.png" // Corrected path based on screenshot
                 alt="IAIA Popup Logo"
                 fill
-                style={{ objectFit: 'contain', opacity: 0.8 }} // Opacity applied here
+                style={{ objectFit: 'contain', opacity: 0.8 }}
                 sizes="(max-width: 768px) 80vw, 700px"
               />
             </div>
