@@ -5,6 +5,7 @@ import { AuthProvider } from '@/contexts/auth-context';
 import Navbar from '@/components/layout/navbar';
 import Footer from '@/components/layout/footer';
 import { Toaster } from '@/components/ui/toaster';
+import { LanguageProvider } from '@/contexts/language-context'; // Import LanguageProvider
 
 export const metadata: Metadata = {
   title: 'IAIA - Your AI Tool Companion',
@@ -24,14 +25,16 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
       </head>
       <body className="font-body antialiased flex flex-col min-h-screen" suppressHydrationWarning={true}>
-        <AuthProvider>
-          <Navbar />
-          <main className="flex-grow container mx-auto px-4 py-8">
-            {children}
-          </main>
-          <Footer />
-          <Toaster />
-        </AuthProvider>
+        <LanguageProvider> {/* Wrap AuthProvider with LanguageProvider */}
+          <AuthProvider>
+            <Navbar />
+            <main className="flex-grow container mx-auto px-4 py-8">
+              {children}
+            </main>
+            <Footer />
+            <Toaster />
+          </AuthProvider>
+        </LanguageProvider>
       </body>
     </html>
   );

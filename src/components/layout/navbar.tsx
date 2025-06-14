@@ -6,6 +6,7 @@ import { BotIcon, LogIn } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import UserNav from './user-nav';
 import { useAuth } from '@/hooks/use-auth';
+import LanguageSwitcher from './language-switcher'; // Import LanguageSwitcher
 
 export default function Navbar() {
   const { user, loading } = useAuth();
@@ -25,6 +26,7 @@ export default function Navbar() {
           */}
         </nav>
         <div className="flex items-center space-x-2">
+          <LanguageSwitcher /> 
           {loading ? (
             <div className="h-8 w-20 animate-pulse rounded-md bg-muted"></div>
           ) : user ? (
