@@ -36,12 +36,12 @@ export default function Navbar() {
           <DialogContent className="bg-transparent border-none shadow-none p-0 sm:max-w-2xl md:max-w-3xl lg:max-w-4xl">
             <div className="flex justify-center items-center">
               <Image
-                src="https://placehold.co/800x600.png" // Remplacez par l'URL de votre image
-                alt="Popup Image"
+                src="/pop-up-logo-iaia.png" 
+                alt="IAIA Popup Logo"
                 width={800}
                 height={600}
                 className="opacity-75 rounded-lg object-contain"
-                data-ai-hint="abstract creative" // Modifiez si vous voulez une autre image par IA
+                data-ai-hint="brand motif" 
               />
             </div>
           </DialogContent>
