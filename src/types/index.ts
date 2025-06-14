@@ -19,9 +19,11 @@ export interface AiTool {
   category: AiToolCategory;
   icon?: LucideIcon; // For category icon display, specific to tool or generic for category
   imageUrl?: string;
+  imageKeywords?: string; // One or two keywords for image search/hint
   website: string;
   rating?: number; // Optional rating 0-5
   tags?: string[];
   pricing?: 'Free' | 'Freemium' | 'Paid' | 'Contact for Pricing';
   features?: string[];
 }
+

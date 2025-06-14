@@ -17,6 +17,9 @@ interface AiToolCardProps {
 export default function AiToolCard({ tool }: AiToolCardProps) {
   const CategoryIcon = getCategoryIcon(tool.category);
 
+  // Construct a fallback hint if imageKeywords is not present or empty
+  const aiHint = tool.imageKeywords || tool.name.toLowerCase().split(' ').slice(0, 2).join(' ') || `${tool.category.toLowerCase()} abstract`;
+
   return (
     <Card className="flex flex-col h-full overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-lg">
       <CardHeader>
@@ -27,7 +30,7 @@ export default function AiToolCard({ tool }: AiToolCardProps) {
               alt={tool.name}
               layout="fill"
               objectFit="cover"
-              data-ai-hint={`${tool.category} technology`}
+              data-ai-hint={aiHint}
             />
           </div>
         )}
@@ -67,3 +70,4 @@ export default function AiToolCard({ tool }: AiToolCardProps) {
     </Card>
   );
 }
+
