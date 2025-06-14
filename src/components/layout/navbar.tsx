@@ -11,7 +11,7 @@ import LanguageSwitcher from './language-switcher';
 import {
   Dialog,
   DialogContent,
-  DialogTitle, // Import DialogTitle
+  DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
 
@@ -23,7 +23,11 @@ export default function Navbar() {
       <div className="container flex h-16 max-w-screen-2xl items-center">
         <Dialog>
           <DialogTrigger asChild>
-            <Link href="/" className="mr-6 flex items-center space-x-2 cursor-pointer" aria-label="Homepage and open logo popup">
+            <Link
+              href="/"
+              className="mr-6 flex items-center space-x-2 cursor-pointer"
+              aria-label="Homepage and open logo popup"
+            >
               <Image
                 src="/iaia-logo.png"
                 alt="IAIA Logo"
@@ -34,21 +38,16 @@ export default function Navbar() {
               <span className="font-bold text-2xl sm:inline-block">IAIA</span>
             </Link>
           </DialogTrigger>
-          <DialogContent className="bg-transparent border-none shadow-none p-0 sm:max-w-2xl md:max-w-3xl lg:max-w-4xl">
-            {/* Visually hidden DialogTitle for accessibility */}
-            <DialogTitle className="sr-only">IAIA Logo Popup</DialogTitle>
-            <div className="flex justify-center items-center">
-              <Image
-                src="/pop-up-logo-iaia.png" 
-                alt="IAIA Popup Logo"
-                width={800}
-                height={600}
-                className="opacity-75 rounded-lg object-contain"
-                data-ai-hint="brand motif" 
-              />
+          {/* TEMPORARY: Make dialog content very obvious for debugging */}
+          <DialogContent className="bg-primary text-primary-foreground p-8 rounded-lg shadow-xl sm:max-w-md">
+            <DialogTitle>IAIA Popup Test</DialogTitle>
+            <div className="mt-4">
+              <p className="text-lg">Si vous voyez ceci, le pop-up s'ouvre !</p>
+              <p className="mt-2 text-sm">Le problème pourrait venir du style du contenu original ou du chemin/affichage de l'image.</p>
             </div>
           </DialogContent>
         </Dialog>
+
         <nav className="flex flex-1 items-center space-x-4">
           {/* Add nav links here if needed, e.g.,
           <Link href="/features" className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary">
