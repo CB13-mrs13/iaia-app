@@ -11,6 +11,7 @@ import LanguageSwitcher from './language-switcher';
 import {
   Dialog,
   DialogContent,
+  DialogTitle, // Import DialogTitle
   DialogTrigger,
 } from "@/components/ui/dialog";
 
@@ -34,6 +35,8 @@ export default function Navbar() {
             </Link>
           </DialogTrigger>
           <DialogContent className="bg-transparent border-none shadow-none p-0 sm:max-w-2xl md:max-w-3xl lg:max-w-4xl">
+            {/* Visually hidden DialogTitle for accessibility */}
+            <DialogTitle className="sr-only">IAIA Logo Popup</DialogTitle>
             <div className="flex justify-center items-center">
               <Image
                 src="/pop-up-logo-iaia.png" 
