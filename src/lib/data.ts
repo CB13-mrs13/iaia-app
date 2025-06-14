@@ -1192,6 +1192,6 @@ export const aiTools: AiTool[] = [
     features: ['Open source libraries (H2O-3, Sparkling Water)', 'Driverless AI (AutoML)', 'AI AppStore', 'Industry-specific solutions'],
   },
 ];
-
+    
 
     
