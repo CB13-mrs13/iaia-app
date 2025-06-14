@@ -16,6 +16,7 @@ export const aiToolCategories: AiToolCategory[] = [
 const createSlug = (name: string) => {
   return name
     .toLowerCase()
+    .replace(/\./g, '-') // Replace dots with hyphens
     .replace(/\s+/g, '-') // Replace whitespace with hyphens
     .replace(/[^\w-]+/g, '') // Remove special characters except word characters and hyphens
     .replace(/--+/g, '-') // Replace multiple hyphens with single hyphen
@@ -241,7 +242,7 @@ export const aiTools: AiTool[] = [
     longDescription: 'Writesonic is an AI writing tool that helps generate various forms of content, from blog posts and ads to product descriptions. Chatsonic is its conversational AI component, similar to ChatGPT but with Google search integration.',
     category: 'LLM',
     website: 'https://writesonic.com',
-    imageUrl: `/ai-tools/${createSlug('Writesonic Chatsonic')}.png`,
+    imageUrl: `/ai-tools/${createSlug('Writesonic / Chatsonic')}.png`,
     imageKeywords: 'Writesonic AI',
     rating: 4.4,
     tags: ['content creation', 'seo', 'marketing'],
