@@ -38,12 +38,16 @@ export default function Navbar() {
               <span className="font-bold text-2xl sm:inline-block">IAIA</span>
             </Link>
           </DialogTrigger>
-          {/* TEMPORARY: Make dialog content very obvious for debugging */}
-          <DialogContent className="bg-primary text-primary-foreground p-8 rounded-lg shadow-xl sm:max-w-md">
-            <DialogTitle>IAIA Popup Test</DialogTitle>
-            <div className="mt-4">
-              <p className="text-lg">Si vous voyez ceci, le pop-up s'ouvre !</p>
-              <p className="mt-2 text-sm">Le problème pourrait venir du style du contenu original ou du chemin/affichage de l'image.</p>
+          <DialogContent className="p-0 bg-transparent border-none shadow-none max-w-3xl w-auto h-auto flex items-center justify-center">
+            <DialogTitle className="sr-only">IAIA Logo Popup</DialogTitle>
+            <div className="relative w-[80vw] h-[80vh] max-w-[700px] max-h-[500px] opacity-80"> {/* Ajusté max-w et max-h pour mieux s'adapter, et opacité */}
+              <Image
+                src="/pop-up-logo-iaia.png"
+                alt="IAIA Popup Logo"
+                fill
+                style={{ objectFit: 'contain' }}
+                sizes="(max-width: 768px) 80vw, 700px" // Tailles ajustées
+              />
             </div>
           </DialogContent>
         </Dialog>
