@@ -13,8 +13,8 @@ import { useToast } from '@/hooks/use-toast';
 import type { User } from 'firebase/auth';
 import { useState, useTransition, useRef, useEffect } from 'react';
 import { Loader2, Upload } from 'lucide-react';
-import { useAuth } from '@/hooks/use-auth'; 
-import { auth } from '@/lib/firebase/config'; 
+import { useAuth } from '@/hooks/use-auth';
+import { auth } from '@/lib/firebase/config';
 import ReactConfetti from 'react-confetti';
 import { useWindowSize } from '@/hooks/use-window-size';
 
@@ -25,13 +25,13 @@ const profileSchema = z.object({
 type ProfileFormValues = z.infer<typeof profileSchema>;
 
 interface ProfileSettingsProps {
-  user: User; 
+  user: User;
 }
 
 export default function ProfileSettings({ user }: ProfileSettingsProps) {
   const { toast } = useToast();
   const [isPending, startTransition] = useTransition();
-  const { setUser: setAuthUser } = useAuth(); 
+  const { setUser: setAuthUser } = useAuth();
   const [avatarFile, setAvatarFile] = useState<File | null>(null);
   const [avatarPreview, setAvatarPreview] = useState<string | null>(user.photoURL);
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -57,7 +57,7 @@ export default function ProfileSettings({ user }: ProfileSettingsProps) {
     if (showConfetti) {
       timer = setTimeout(() => {
         setShowConfetti(false);
-      }, 7000); 
+      }, 7000);
     }
     return () => clearTimeout(timer);
   }, [showConfetti]);
@@ -81,39 +81,53 @@ export default function ProfileSettings({ user }: ProfileSettingsProps) {
         const currentFirebaseUser = auth.currentUser;
         if (!currentFirebaseUser) {
           toast({ variant: "destructive", title: "Error", description: "User not authenticated. Please log in again." });
+          setAvatarFile(null);
           return;
         }
 
-        let profileWasUpdated = false;
+        let actualDisplayNameChanged = false;
+        let actualAvatarChanged = false;
+
         const initialDisplayName = currentFirebaseUser.displayName || "";
         const formDisplayName = data.displayName || "";
 
-        // Avatar change
-        if (avatarFile) {
-          await uploadAvatar(avatarFile, currentFirebaseUser);
-          profileWasUpdated = true;
+        if (formDisplayName !== initialDisplayName) {
+          actualDisplayNameChanged = true;
         }
 
-        // Display name change
-        if (formDisplayName !== initialDisplayName) {
-          await updateUserProfile({ displayName: formDisplayName });
-          profileWasUpdated = true;
+        if (avatarFile) {
+          actualAvatarChanged = true;
         }
-        
-        if (profileWasUpdated) {
-          await currentFirebaseUser.reload(); 
-          const refreshedUser = auth.currentUser; 
-          
-          setAuthUser(refreshedUser ? { ...refreshedUser } : null); 
-          
-          toast({ title: "Profile Updated", description: "Your profile has been successfully updated." });
-          setShowConfetti(true);
-          setAvatarFile(null); // Clear staged file after successful upload
-          // Form will be reset by useEffect when `user` prop updates
-        } else {
+
+        if (!actualDisplayNameChanged && !actualAvatarChanged) {
           toast({ title: "No Changes", description: "No changes were made to your profile." });
-          setAvatarFile(null); // Clear staged file if no changes were made overall
+          setAvatarFile(null);
+          return;
         }
+
+        if (actualAvatarChanged && avatarFile) {
+          await uploadAvatar(avatarFile, currentFirebaseUser);
+        }
+
+        if (actualDisplayNameChanged) {
+          await updateUserProfile({ displayName: formDisplayName });
+        }
+
+        // If any change was made and successful
+        await currentFirebaseUser.reload();
+        const refreshedUser = auth.currentUser;
+
+        if (refreshedUser) {
+           // Create a new object for the user state to ensure context updates
+          setAuthUser({ ...refreshedUser });
+        } else {
+          // Fallback if refreshedUser is null, though unlikely if reload succeeds
+          setAuthUser(null);
+        }
+
+        toast({ title: "Profile Updated", description: "Your profile has been successfully updated." });
+        setShowConfetti(true);
+        setAvatarFile(null); // Clear staged file after successful upload
 
       } catch (error: any) {
         console.error("Profile update error:", error);
@@ -126,13 +140,13 @@ export default function ProfileSettings({ user }: ProfileSettingsProps) {
             }
         }
         toast({ variant: "destructive", title: "Update Failed", description });
-        // Ensure avatarFile is reset even on error if it was set
-        setAvatarFile(null);
+        setAvatarFile(null); // Ensure avatarFile is reset even on error
       }
     });
   };
 
   const getInitials = (name?: string | null): string => {
+    // Watch the current form value for displayName, fallback to user prop
     const currentDisplayName = form.watch('displayName') || user?.displayName;
     if (currentDisplayName) {
       const names = currentDisplayName.split(' ');
@@ -147,16 +161,16 @@ export default function ProfileSettings({ user }: ProfileSettingsProps) {
   return (
     <>
       {showConfetti && width && height && (
-        <ReactConfetti 
-          width={width} 
-          height={height} 
-          recycle={false} 
-          numberOfPieces={350} 
-          gravity={0.2} 
-          initialVelocityY={{ min: -30, max: -15 }}
-          initialVelocityX={{ min: -10, max: 10 }}
-          angle={270} 
-          spread={120} 
+        <ReactConfetti
+          width={width}
+          height={height}
+          recycle={false}
+          numberOfPieces={500}
+          gravity={0.2}
+          initialVelocityY={{ min: -30, max: -20 }}
+          initialVelocityX={{ min: -15, max: 15 }}
+          angle={270}
+          spread={120}
           origin={{ y: 0.95 }}
         />
       )}
@@ -171,12 +185,12 @@ export default function ProfileSettings({ user }: ProfileSettingsProps) {
             <Button type="button" variant="outline" onClick={() => fileInputRef.current?.click()}>
               <Upload className="mr-2 h-4 w-4" /> Change Avatar
             </Button>
-            <Input 
-              type="file" 
+            <Input
+              type="file"
               ref={fileInputRef}
               className="hidden"
               accept="image/png, image/jpeg, image/gif"
-              onChange={handleAvatarChange} 
+              onChange={handleAvatarChange}
             />
           </div>
         </div>
@@ -201,4 +215,3 @@ export default function ProfileSettings({ user }: ProfileSettingsProps) {
     </>
   );
 }
-
