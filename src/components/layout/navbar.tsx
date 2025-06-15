@@ -34,21 +34,21 @@ export default function Navbar() {
                 width={40}
                 height={40}
                 className="h-10 w-10"
+                priority // Ajout de la propriété priority pour le LCP
               />
               <span className="font-bold text-2xl sm:inline-block">IAIA</span>
             </Link>
           </DialogTrigger>
-          <DialogContent className="bg-transparent border-none shadow-none max-w-3xl w-auto h-auto flex items-center justify-center p-0">
+          <DialogContent className="bg-transparent border-none shadow-none p-4 flex items-center justify-center">
             <DialogTitle className="sr-only">IAIA Logo Popup</DialogTitle>
-            <div className="relative w-[80vw] h-[80vh] max-w-[700px] max-h-[500px]">
-              <Image
-                src="/pop-up-logo-iaia.png" 
-                alt="IAIA Popup Logo"
-                fill
-                style={{ objectFit: 'contain', opacity: 0.8 }}
-                sizes="(max-width: 768px) 80vw, 700px"
-              />
-            </div>
+            <Image
+              src="/pop-up-logo-iaia.png" 
+              alt="IAIA Popup Logo"
+              width={600} // Largeur fixe pour le test
+              height={400} // Hauteur fixe pour le test
+              style={{ objectFit: 'contain', opacity: 0.9 }} // Opacité légèrement augmentée
+              sizes="(max-width: 768px) 80vw, 600px"
+            />
           </DialogContent>
         </Dialog>
 
