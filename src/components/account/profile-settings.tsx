@@ -78,31 +78,29 @@ export default function ProfileSettings({ user }: ProfileSettingsProps) {
   const onSubmit: SubmitHandler<ProfileFormValues> = async (data) => {
     startTransition(async () => {
       try {
-        let profileUpdated = false;
-        
         const currentFirebaseUser = auth.currentUser;
         if (!currentFirebaseUser) {
           toast({ variant: "destructive", title: "Error", description: "User not authenticated. Please log in again." });
           return;
         }
 
-        //let newPhotoURL = currentFirebaseUser.photoURL; // Not used directly, uploadAvatar returns the new URL
+        let profileWasUpdated = false;
+        const initialDisplayName = currentFirebaseUser.displayName || "";
+        const formDisplayName = data.displayName || "";
 
+        // Avatar change
         if (avatarFile) {
-          await uploadAvatar(avatarFile, currentFirebaseUser); 
-          profileUpdated = true;
+          await uploadAvatar(avatarFile, currentFirebaseUser);
+          profileWasUpdated = true;
         }
 
-        const nameChanged = data.displayName !== currentFirebaseUser.displayName && 
-                           (data.displayName || "") !== (currentFirebaseUser.displayName || "");
-
-
-        if (nameChanged) {
-           await updateUserProfile({ displayName: data.displayName || undefined });
-           profileUpdated = true; 
+        // Display name change
+        if (formDisplayName !== initialDisplayName) {
+          await updateUserProfile({ displayName: formDisplayName });
+          profileWasUpdated = true;
         }
         
-        if (profileUpdated) {
+        if (profileWasUpdated) {
           await currentFirebaseUser.reload(); 
           const refreshedUser = auth.currentUser; 
           
@@ -110,10 +108,12 @@ export default function ProfileSettings({ user }: ProfileSettingsProps) {
           
           toast({ title: "Profile Updated", description: "Your profile has been successfully updated." });
           setShowConfetti(true);
+          setAvatarFile(null); // Clear staged file after successful upload
+          // Form will be reset by useEffect when `user` prop updates
         } else {
           toast({ title: "No Changes", description: "No changes were made to your profile." });
+          setAvatarFile(null); // Clear staged file if no changes were made overall
         }
-        setAvatarFile(null); 
 
       } catch (error: any) {
         console.error("Profile update error:", error);
@@ -126,6 +126,8 @@ export default function ProfileSettings({ user }: ProfileSettingsProps) {
             }
         }
         toast({ variant: "destructive", title: "Update Failed", description });
+        // Ensure avatarFile is reset even on error if it was set
+        setAvatarFile(null);
       }
     });
   };
@@ -199,3 +201,4 @@ export default function ProfileSettings({ user }: ProfileSettingsProps) {
     </>
   );
 }
+
