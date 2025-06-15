@@ -29,7 +29,7 @@ export default function Navbar() {
               aria-label="Homepage and open logo popup"
             >
               <Image
-                src="/iaia-logo.png" // This assumes iaia-logo.png is in public/
+                src="/iaia-logo.png"
                 alt="IAIA Logo"
                 width={40}
                 height={40}
@@ -42,7 +42,7 @@ export default function Navbar() {
             <DialogTitle className="sr-only">IAIA Logo Popup</DialogTitle>
             <div className="relative w-[80vw] h-[80vh] max-w-[700px] max-h-[500px]">
               <Image
-                src="/images/pop-up-logo-iaia.png" // Corrected path based on screenshot
+                src="/pop-up-logo-iaia.png" 
                 alt="IAIA Popup Logo"
                 fill
                 style={{ objectFit: 'contain', opacity: 0.8 }}
