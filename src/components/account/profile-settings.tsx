@@ -8,7 +8,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { updateUserProfile, uploadAvatar } from '@/lib/firebase/auth'; // Corrected: Removed fbUpdateProfile, using updateUserProfile from lib for consistency
+import { updateUserProfile, uploadAvatar } from '@/lib/firebase/auth';
 import { useToast } from '@/hooks/use-toast';
 import type { User } from 'firebase/auth';
 import { useState, useTransition, useRef, useEffect } from 'react';
@@ -46,20 +46,18 @@ export default function ProfileSettings({ user }: ProfileSettingsProps) {
   });
 
   useEffect(() => {
-    // Reset form and avatar preview if the user prop changes (e.g., after external update)
-    // This ensures the form is in sync if user data changes elsewhere
     if (user) {
         form.reset({ displayName: user.displayName || "" });
         setAvatarPreview(user.photoURL);
     }
-  }, [user, form]); // form added to dependency array as form.reset is used
+  }, [user, form]);
 
   useEffect(() => {
     let timer: NodeJS.Timeout;
     if (showConfetti) {
       timer = setTimeout(() => {
         setShowConfetti(false);
-      }, 7000); // Confetti lasts for 7 seconds
+      }, 7000); 
     }
     return () => clearTimeout(timer);
   }, [showConfetti]);
@@ -88,10 +86,10 @@ export default function ProfileSettings({ user }: ProfileSettingsProps) {
           return;
         }
 
-        let newPhotoURL = currentFirebaseUser.photoURL;
+        //let newPhotoURL = currentFirebaseUser.photoURL; // Not used directly, uploadAvatar returns the new URL
 
         if (avatarFile) {
-          newPhotoURL = await uploadAvatar(avatarFile, currentFirebaseUser); 
+          await uploadAvatar(avatarFile, currentFirebaseUser); 
           profileUpdated = true;
         }
 
@@ -101,40 +99,32 @@ export default function ProfileSettings({ user }: ProfileSettingsProps) {
 
         if (nameChanged) {
            await updateUserProfile({ displayName: data.displayName || undefined });
-           profileUpdated = true; // Ensure this is set if only name changed
+           profileUpdated = true; 
         }
         
-        // If avatar was uploaded, but name wasn't, we still need to update profile with new photoURL
-        // This situation is less common if uploadAvatar already calls updateUserProfile internally,
-        // but it's safer to ensure the profile is updated if an avatar was definitely uploaded.
-        // However, uploadAvatar already calls updateUserProfile internally, so this might be redundant
-        // unless uploadAvatar's internal updateProfile fails or is structured differently.
-        // For now, we rely on uploadAvatar and the nameChanged block.
-
         if (profileUpdated) {
           await currentFirebaseUser.reload(); 
           const refreshedUser = auth.currentUser; 
           
           setAuthUser(refreshedUser ? { ...refreshedUser } : null); 
-          // form.reset and setAvatarPreview will be handled by the useEffect listening to 'user' prop changes
           
           toast({ title: "Profile Updated", description: "Your profile has been successfully updated." });
-          setShowConfetti(true); // Trigger confetti
+          setShowConfetti(true);
         } else {
           toast({ title: "No Changes", description: "No changes were made to your profile." });
         }
-        setAvatarFile(null); // Clear the selected file regardless of update status
+        setAvatarFile(null); 
 
       } catch (error: any) {
         console.error("Profile update error:", error);
         let description = "Could not update your profile. Please try again.";
-        if (error.code === 'auth/requires-recent-login') {
-            description = "This operation requires recent authentication. Please log out and log back in before trying again.";
-        } else if (error.code === 'storage/unauthorized') {
-            description = "You are not authorized to upload this file. Please check your Firebase Storage rules.";
+        if (error && typeof error === 'object' && 'code' in error) {
+            if (error.code === 'auth/requires-recent-login') {
+                description = "This operation requires recent authentication. Please log out and log back in before trying again.";
+            } else if (error.code === 'storage/unauthorized') {
+                description = "You are not authorized to upload this file. Please check your Firebase Storage rules.";
+            }
         }
-        // Removed the specific handling for storage/object-not-found to simplify,
-        // as uploadAvatar should ideally handle its own errors or the outer catch will get it.
         toast({ variant: "destructive", title: "Update Failed", description });
       }
     });
@@ -160,12 +150,12 @@ export default function ProfileSettings({ user }: ProfileSettingsProps) {
           height={height} 
           recycle={false} 
           numberOfPieces={350} 
-          gravity={0.2} // Slow fall
-          initialVelocityY={{ min: -30, max: -15 }} // Upward burst
+          gravity={0.2} 
+          initialVelocityY={{ min: -30, max: -15 }}
           initialVelocityX={{ min: -10, max: 10 }}
-          angle={270} // Direction: up
-          spread={120} // Spread angle
-          origin={{ y: 0.95 }} // Erupt from near bottom
+          angle={270} 
+          spread={120} 
+          origin={{ y: 0.95 }}
         />
       )}
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">

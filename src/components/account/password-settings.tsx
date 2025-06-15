@@ -58,7 +58,7 @@ export default function PasswordSettings() {
       } catch (error: any) {
         console.error("Password update error:", error);
         let description = "Could not update your password. Please try again.";
-        if (error.code === 'auth/requires-recent-login') {
+        if (error && typeof error === 'object' && 'code' in error && error.code === 'auth/requires-recent-login') {
           description = "This operation is sensitive and requires recent authentication. Please log out and log back in before updating your password.";
         }
         toast({ variant: "destructive", title: "Update Failed", description });
@@ -73,13 +73,13 @@ export default function PasswordSettings() {
             width={width} 
             height={height} 
             recycle={false} 
-            numberOfPieces={350} // Increased pieces
-            gravity={0.2} // Slower fall
-            initialVelocityY={{ min: -30, max: -15 }} // Upward burst
-            initialVelocityX={{ min: -10, max: 10 }} // Sideways spread
-            angle={270} // Direction: mostly up
-            spread={120} // Spread angle
-            origin={{ y: 0.95 }} // Erupt from near bottom of screen
+            numberOfPieces={350}
+            gravity={0.2}
+            initialVelocityY={{ min: -30, max: -15 }}
+            initialVelocityX={{ min: -10, max: 10 }}
+            angle={270}
+            spread={120}
+            origin={{ y: 0.95 }}
           />
       )}
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">

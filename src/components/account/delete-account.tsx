@@ -30,13 +30,13 @@ export default function DeleteAccount() {
       try {
         await deleteCurrentUserAccount();
         toast({ title: "Account Deleted", description: "Your account has been permanently deleted." });
-        router.push('/'); // Redirect to home or login page
+        router.push('/'); 
         router.refresh();
         setIsOpen(false);
       } catch (error: any) {
         console.error("Account deletion error:", error);
         let description = "Could not delete your account. Please try again.";
-        if (error.code === 'auth/requires-recent-login') {
+        if (error && typeof error === 'object' && 'code' in error && error.code === 'auth/requires-recent-login') {
           description = "This operation is sensitive and requires recent authentication. Please log out and log back in before deleting your account.";
         }
         toast({ variant: "destructive", title: "Deletion Failed", description });
