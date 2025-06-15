@@ -9,8 +9,10 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { updateUserPassword } from '@/lib/firebase/auth';
 import { useToast } from '@/hooks/use-toast';
-import { useState, useTransition } from 'react';
+import { useState, useTransition, useEffect } from 'react';
 import { Loader2 } from 'lucide-react';
+import ReactConfetti from 'react-confetti';
+import { useWindowSize } from '@/hooks/use-window-size';
 
 const passwordSchema = z.object({
   newPassword: z.string().min(6, "Password must be at least 6 characters."),
@@ -25,6 +27,8 @@ type PasswordFormValues = z.infer<typeof passwordSchema>;
 export default function PasswordSettings() {
   const { toast } = useToast();
   const [isPending, startTransition] = useTransition();
+  const [showConfetti, setShowConfetti] = useState(false);
+  const { width, height } = useWindowSize();
   
   const form = useForm<PasswordFormValues>({
     resolver: zodResolver(passwordSchema),
@@ -34,11 +38,22 @@ export default function PasswordSettings() {
     },
   });
 
+  useEffect(() => {
+    let timer: NodeJS.Timeout;
+    if (showConfetti) {
+      timer = setTimeout(() => {
+        setShowConfetti(false);
+      }, 5000); // Confetti lasts for 5 seconds
+    }
+    return () => clearTimeout(timer);
+  }, [showConfetti]);
+
   const onSubmit: SubmitHandler<PasswordFormValues> = async (data) => {
     startTransition(async () => {
       try {
         await updateUserPassword(data.newPassword);
         toast({ title: "Password Updated", description: "Your password has been successfully changed." });
+        setShowConfetti(true);
         form.reset();
       } catch (error: any) {
         console.error("Password update error:", error);
@@ -52,25 +67,28 @@ export default function PasswordSettings() {
   };
 
   return (
-    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-      <div className="space-y-1">
-        <Label htmlFor="newPassword">New Password</Label>
-        <Input id="newPassword" type="password" {...form.register('newPassword')} placeholder="Enter new password" />
-        {form.formState.errors.newPassword && (
-          <p className="text-sm text-destructive">{form.formState.errors.newPassword.message}</p>
-        )}
-      </div>
-      <div className="space-y-1">
-        <Label htmlFor="confirmPassword">Confirm New Password</Label>
-        <Input id="confirmPassword" type="password" {...form.register('confirmPassword')} placeholder="Confirm new password" />
-        {form.formState.errors.confirmPassword && (
-          <p className="text-sm text-destructive">{form.formState.errors.confirmPassword.message}</p>
-        )}
-      </div>
-      <Button type="submit" disabled={isPending}>
-        {isPending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-        Change Password
-      </Button>
-    </form>
+    <>
+      {showConfetti && width && height && <ReactConfetti width={width} height={height} recycle={false} numberOfPieces={300} />}
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+        <div className="space-y-1">
+          <Label htmlFor="newPassword">New Password</Label>
+          <Input id="newPassword" type="password" {...form.register('newPassword')} placeholder="Enter new password" />
+          {form.formState.errors.newPassword && (
+            <p className="text-sm text-destructive">{form.formState.errors.newPassword.message}</p>
+          )}
+        </div>
+        <div className="space-y-1">
+          <Label htmlFor="confirmPassword">Confirm New Password</Label>
+          <Input id="confirmPassword" type="password" {...form.register('confirmPassword')} placeholder="Confirm new password" />
+          {form.formState.errors.confirmPassword && (
+            <p className="text-sm text-destructive">{form.formState.errors.confirmPassword.message}</p>
+          )}
+        </div>
+        <Button type="submit" disabled={isPending}>
+          {isPending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+          Change Password
+        </Button>
+      </form>
+    </>
   );
 }

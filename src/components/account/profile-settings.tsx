@@ -15,6 +15,8 @@ import { useState, useTransition, useRef, useEffect } from 'react';
 import { Loader2, Upload } from 'lucide-react';
 import { useAuth } from '@/hooks/use-auth'; 
 import { auth } from '@/lib/firebase/config'; 
+import ReactConfetti from 'react-confetti';
+import { useWindowSize } from '@/hooks/use-window-size';
 
 const profileSchema = z.object({
   displayName: z.string().min(2, "Display name must be at least 2 characters.").max(50, "Display name too long.").optional(),
@@ -33,6 +35,8 @@ export default function ProfileSettings({ user }: ProfileSettingsProps) {
   const [avatarFile, setAvatarFile] = useState<File | null>(null);
   const [avatarPreview, setAvatarPreview] = useState<string | null>(user.photoURL);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const [showConfetti, setShowConfetti] = useState(false);
+  const { width, height } = useWindowSize();
 
   const form = useForm<ProfileFormValues>({
     resolver: zodResolver(profileSchema),
@@ -45,6 +49,16 @@ export default function ProfileSettings({ user }: ProfileSettingsProps) {
     form.reset({ displayName: user.displayName || "" });
     setAvatarPreview(user.photoURL);
   }, [user, form.reset]);
+
+  useEffect(() => {
+    let timer: NodeJS.Timeout;
+    if (showConfetti) {
+      timer = setTimeout(() => {
+        setShowConfetti(false);
+      }, 5000); 
+    }
+    return () => clearTimeout(timer);
+  }, [showConfetti]);
 
 
   const handleAvatarChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -63,7 +77,7 @@ export default function ProfileSettings({ user }: ProfileSettingsProps) {
     startTransition(async () => {
       try {
         let profileUpdated = false;
-        let newPhotoURL = user.photoURL; // Keep current photoURL unless changed
+        let newPhotoURL = user.photoURL; 
 
         if (avatarFile) {
           newPhotoURL = await uploadAvatar(avatarFile); 
@@ -82,13 +96,14 @@ export default function ProfileSettings({ user }: ProfileSettingsProps) {
 
           if (refreshedUser) {
             form.reset({ displayName: refreshedUser.displayName || "" });
-            setAvatarPreview(refreshedUser.photoURL); // Ensure preview uses the potentially new URL
+            setAvatarPreview(refreshedUser.photoURL); 
           }
         }
         
         setAvatarFile(null); 
         if (profileUpdated) {
           toast({ title: "Profile Updated", description: "Your profile has been successfully updated." });
+          setShowConfetti(true);
         } else {
           toast({ title: "No Changes", description: "No changes were made to your profile." });
         }
@@ -121,43 +136,46 @@ export default function ProfileSettings({ user }: ProfileSettingsProps) {
   };
 
   return (
-    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-      <div className="space-y-2">
-        <Label>Avatar</Label>
-        <div className="flex items-center gap-4">
-          <Avatar className="h-20 w-20">
-            <AvatarImage src={avatarPreview || undefined} alt="User avatar" />
-            <AvatarFallback className="text-2xl">{getInitials()}</AvatarFallback>
-          </Avatar>
-          <Button type="button" variant="outline" onClick={() => fileInputRef.current?.click()}>
-            <Upload className="mr-2 h-4 w-4" /> Change Avatar
-          </Button>
-          <Input 
-            type="file" 
-            ref={fileInputRef}
-            className="hidden"
-            accept="image/png, image/jpeg, image/gif"
-            onChange={handleAvatarChange} 
-          />
+    <>
+      {showConfetti && width && height && <ReactConfetti width={width} height={height} recycle={false} numberOfPieces={300} />}
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+        <div className="space-y-2">
+          <Label>Avatar</Label>
+          <div className="flex items-center gap-4">
+            <Avatar className="h-20 w-20">
+              <AvatarImage src={avatarPreview || undefined} alt="User avatar" />
+              <AvatarFallback className="text-2xl">{getInitials()}</AvatarFallback>
+            </Avatar>
+            <Button type="button" variant="outline" onClick={() => fileInputRef.current?.click()}>
+              <Upload className="mr-2 h-4 w-4" /> Change Avatar
+            </Button>
+            <Input 
+              type="file" 
+              ref={fileInputRef}
+              className="hidden"
+              accept="image/png, image/jpeg, image/gif"
+              onChange={handleAvatarChange} 
+            />
+          </div>
         </div>
-      </div>
 
-      <div className="space-y-1">
-        <Label htmlFor="displayName">Display Name</Label>
-        <Input id="displayName" {...form.register('displayName')} placeholder="Your display name" />
-        {form.formState.errors.displayName && (
-          <p className="text-sm text-destructive">{form.formState.errors.displayName.message}</p>
-        )}
-      </div>
-      <div className="space-y-1">
-        <Label htmlFor="email">Email</Label>
-        <Input id="email" type="email" value={user.email || ""} disabled className="bg-muted/50" />
-        <p className="text-xs text-muted-foreground">Email cannot be changed.</p>
-      </div>
-      <Button type="submit" disabled={isPending}>
-        {isPending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-        Save Changes
-      </Button>
-    </form>
+        <div className="space-y-1">
+          <Label htmlFor="displayName">Display Name</Label>
+          <Input id="displayName" {...form.register('displayName')} placeholder="Your display name" />
+          {form.formState.errors.displayName && (
+            <p className="text-sm text-destructive">{form.formState.errors.displayName.message}</p>
+          )}
+        </div>
+        <div className="space-y-1">
+          <Label htmlFor="email">Email</Label>
+          <Input id="email" type="email" value={user.email || ""} disabled className="bg-muted/50" />
+          <p className="text-xs text-muted-foreground">Email cannot be changed.</p>
+        </div>
+        <Button type="submit" disabled={isPending}>
+          {isPending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+          Save Changes
+        </Button>
+      </form>
+    </>
   );
 }
