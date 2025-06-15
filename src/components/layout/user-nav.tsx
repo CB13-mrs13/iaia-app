@@ -41,7 +41,7 @@ export default function UserNav({ user }: UserNavProps) {
   const getInitials = (displayName?: string | null, email?: string | null): string => {
     if (displayName) {
       const names = displayName.split(' ');
-      if (names.length > 1) {
+      if (names.length > 1 && names[0] && names[names.length -1]) {
         return `${names[0][0]}${names[names.length - 1][0]}`.toUpperCase();
       }
       return displayName.substring(0, 2).toUpperCase();

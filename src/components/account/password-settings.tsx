@@ -43,7 +43,7 @@ export default function PasswordSettings() {
     if (showConfetti) {
       timer = setTimeout(() => {
         setShowConfetti(false);
-      }, 5000); // Confetti lasts for 5 seconds
+      }, 7000); // Confetti lasts for 7 seconds
     }
     return () => clearTimeout(timer);
   }, [showConfetti]);
@@ -73,8 +73,13 @@ export default function PasswordSettings() {
             width={width} 
             height={height} 
             recycle={false} 
-            numberOfPieces={300} 
-            gravity={0.1}
+            numberOfPieces={350} // Increased pieces
+            gravity={0.2} // Slower fall
+            initialVelocityY={{ min: -30, max: -15 }} // Upward burst
+            initialVelocityX={{ min: -10, max: 10 }} // Sideways spread
+            angle={270} // Direction: mostly up
+            spread={120} // Spread angle
+            origin={{ y: 0.95 }} // Erupt from near bottom of screen
           />
       )}
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">

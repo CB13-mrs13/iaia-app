@@ -56,7 +56,12 @@ export default function SignUpPage() {
           height={height}
           recycle={false}
           numberOfPieces={500} 
-          gravity={0.15}
+          gravity={0.2} // Slower fall
+          initialVelocityY={{ min: -30, max: -20 }} // Upward burst
+          initialVelocityX={{ min: -15, max: 15 }}
+          angle={270} // Direction: up
+          spread={120} // Spread angle
+          origin={{ y: 0.95 }} // Erupt from near bottom
         />
       )}
       <AuthForm mode="signup" onSubmit={handleSignUp} />

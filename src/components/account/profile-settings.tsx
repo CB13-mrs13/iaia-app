@@ -8,7 +8,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { updateUserProfile, uploadAvatar } from '@/lib/firebase/auth';
+import { updateUserProfile, uploadAvatar } from '@/lib/firebase/auth'; // Corrected: Removed fbUpdateProfile, using updateUserProfile from lib for consistency
 import { useToast } from '@/hooks/use-toast';
 import type { User } from 'firebase/auth';
 import { useState, useTransition, useRef, useEffect } from 'react';
@@ -47,16 +47,19 @@ export default function ProfileSettings({ user }: ProfileSettingsProps) {
 
   useEffect(() => {
     // Reset form and avatar preview if the user prop changes (e.g., after external update)
-    form.reset({ displayName: user.displayName || "" });
-    setAvatarPreview(user.photoURL);
-  }, [user, form.reset]);
+    // This ensures the form is in sync if user data changes elsewhere
+    if (user) {
+        form.reset({ displayName: user.displayName || "" });
+        setAvatarPreview(user.photoURL);
+    }
+  }, [user, form]); // form added to dependency array as form.reset is used
 
   useEffect(() => {
     let timer: NodeJS.Timeout;
     if (showConfetti) {
       timer = setTimeout(() => {
         setShowConfetti(false);
-      }, 5000); // Confetti lasts for 5 seconds
+      }, 7000); // Confetti lasts for 7 seconds
     }
     return () => clearTimeout(timer);
   }, [showConfetti]);
@@ -79,41 +82,48 @@ export default function ProfileSettings({ user }: ProfileSettingsProps) {
       try {
         let profileUpdated = false;
         
-        // Ensure auth.currentUser is available before proceeding
-        if (!auth.currentUser) {
+        const currentFirebaseUser = auth.currentUser;
+        if (!currentFirebaseUser) {
           toast({ variant: "destructive", title: "Error", description: "User not authenticated. Please log in again." });
           return;
         }
-        let currentFirebaseUser = auth.currentUser;
 
+        let newPhotoURL = currentFirebaseUser.photoURL;
 
         if (avatarFile) {
-          // Pass currentFirebaseUser to uploadAvatar
-          const newPhotoURL = await uploadAvatar(avatarFile, currentFirebaseUser); 
-          await fbUpdateProfile(currentFirebaseUser, { photoURL: newPhotoURL });
+          newPhotoURL = await uploadAvatar(avatarFile, currentFirebaseUser); 
           profileUpdated = true;
         }
 
-        if (data.displayName !== currentFirebaseUser.displayName) {
-          await updateUserProfile({ displayName: data.displayName || undefined });
-          profileUpdated = true;
+        const nameChanged = data.displayName !== currentFirebaseUser.displayName && 
+                           (data.displayName || "") !== (currentFirebaseUser.displayName || "");
+
+
+        if (nameChanged) {
+           await updateUserProfile({ displayName: data.displayName || undefined });
+           profileUpdated = true; // Ensure this is set if only name changed
         }
         
-        if (profileUpdated) {
-          await currentFirebaseUser.reload(); // Reload to get the latest user data including photoURL
-          const refreshedUser = auth.currentUser; // Get the truly refreshed user
-          setAuthUser(refreshedUser ? { ...refreshedUser } : null); 
+        // If avatar was uploaded, but name wasn't, we still need to update profile with new photoURL
+        // This situation is less common if uploadAvatar already calls updateUserProfile internally,
+        // but it's safer to ensure the profile is updated if an avatar was definitely uploaded.
+        // However, uploadAvatar already calls updateUserProfile internally, so this might be redundant
+        // unless uploadAvatar's internal updateProfile fails or is structured differently.
+        // For now, we rely on uploadAvatar and the nameChanged block.
 
-          if (refreshedUser) {
-            form.reset({ displayName: refreshedUser.displayName || "" });
-            setAvatarPreview(refreshedUser.photoURL); 
-          }
+        if (profileUpdated) {
+          await currentFirebaseUser.reload(); 
+          const refreshedUser = auth.currentUser; 
+          
+          setAuthUser(refreshedUser ? { ...refreshedUser } : null); 
+          // form.reset and setAvatarPreview will be handled by the useEffect listening to 'user' prop changes
+          
           toast({ title: "Profile Updated", description: "Your profile has been successfully updated." });
-          setShowConfetti(true);
+          setShowConfetti(true); // Trigger confetti
         } else {
           toast({ title: "No Changes", description: "No changes were made to your profile." });
         }
-        setAvatarFile(null);
+        setAvatarFile(null); // Clear the selected file regardless of update status
 
       } catch (error: any) {
         console.error("Profile update error:", error);
@@ -122,35 +132,16 @@ export default function ProfileSettings({ user }: ProfileSettingsProps) {
             description = "This operation requires recent authentication. Please log out and log back in before trying again.";
         } else if (error.code === 'storage/unauthorized') {
             description = "You are not authorized to upload this file. Please check your Firebase Storage rules.";
-        } else if (error.code === 'storage/object-not-found' && avatarFile) {
-            // This case can be common if old avatar was null or not a storage object
-            console.warn("Old avatar not found for deletion (this might be normal), continuing profile update.");
-             // Attempt to update profile anyway if an avatar was being uploaded.
-            if (auth.currentUser && data.displayName !== auth.currentUser.displayName) {
-                 await updateUserProfile({ displayName: data.displayName || undefined });
-            }
-            if (auth.currentUser) {
-              await auth.currentUser.reload();
-              const refreshedUser = auth.currentUser;
-              setAuthUser(refreshedUser ? { ...refreshedUser } : null);
-              if (refreshedUser) {
-                form.reset({ displayName: refreshedUser.displayName || "" });
-                setAvatarPreview(refreshedUser.photoURL);
-              }
-            }
-            toast({ title: "Profile Updated", description: "Your profile details have been updated." });
-            setShowConfetti(true);
-
-        } else {
-          toast({ variant: "destructive", title: "Update Failed", description });
         }
+        // Removed the specific handling for storage/object-not-found to simplify,
+        // as uploadAvatar should ideally handle its own errors or the outer catch will get it.
+        toast({ variant: "destructive", title: "Update Failed", description });
       }
     });
   };
 
   const getInitials = (name?: string | null): string => {
-    // Use form.watch for immediate feedback if display name changes, otherwise fall back to user prop
-    const currentDisplayName = form.watch('displayName') || user.displayName;
+    const currentDisplayName = form.watch('displayName') || user?.displayName;
     if (currentDisplayName) {
       const names = currentDisplayName.split(' ');
       if (names.length > 1 && names[0] && names[names.length -1]) {
@@ -158,7 +149,7 @@ export default function ProfileSettings({ user }: ProfileSettingsProps) {
       }
       return currentDisplayName.substring(0, 2).toUpperCase();
     }
-    return user.email?.substring(0,2).toUpperCase() || 'U';
+    return user?.email?.substring(0,2).toUpperCase() || 'U';
   };
 
   return (
@@ -168,8 +159,13 @@ export default function ProfileSettings({ user }: ProfileSettingsProps) {
           width={width} 
           height={height} 
           recycle={false} 
-          numberOfPieces={300} 
-          gravity={0.1}
+          numberOfPieces={350} 
+          gravity={0.2} // Slow fall
+          initialVelocityY={{ min: -30, max: -15 }} // Upward burst
+          initialVelocityX={{ min: -10, max: 10 }}
+          angle={270} // Direction: up
+          spread={120} // Spread angle
+          origin={{ y: 0.95 }} // Erupt from near bottom
         />
       )}
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
@@ -202,7 +198,7 @@ export default function ProfileSettings({ user }: ProfileSettingsProps) {
         </div>
         <div className="space-y-1">
           <Label htmlFor="email">Email</Label>
-          <Input id="email" type="email" value={user.email || ""} disabled className="bg-muted/50" />
+          <Input id="email" type="email" value={user?.email || ""} disabled className="bg-muted/50" />
           <p className="text-xs text-muted-foreground">Email cannot be changed.</p>
         </div>
         <Button type="submit" disabled={isPending}>
