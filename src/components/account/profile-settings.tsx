@@ -46,6 +46,7 @@ export default function ProfileSettings({ user }: ProfileSettingsProps) {
   });
 
   useEffect(() => {
+    // Reset form and avatar preview if the user prop changes (e.g., after external update)
     form.reset({ displayName: user.displayName || "" });
     setAvatarPreview(user.photoURL);
   }, [user, form.reset]);
@@ -55,7 +56,7 @@ export default function ProfileSettings({ user }: ProfileSettingsProps) {
     if (showConfetti) {
       timer = setTimeout(() => {
         setShowConfetti(false);
-      }, 5000); 
+      }, 5000); // Confetti lasts for 5 seconds
     }
     return () => clearTimeout(timer);
   }, [showConfetti]);
@@ -77,36 +78,42 @@ export default function ProfileSettings({ user }: ProfileSettingsProps) {
     startTransition(async () => {
       try {
         let profileUpdated = false;
-        let newPhotoURL = user.photoURL; 
+        
+        // Ensure auth.currentUser is available before proceeding
+        if (!auth.currentUser) {
+          toast({ variant: "destructive", title: "Error", description: "User not authenticated. Please log in again." });
+          return;
+        }
+        let currentFirebaseUser = auth.currentUser;
+
 
         if (avatarFile) {
-          newPhotoURL = await uploadAvatar(avatarFile); 
+          // Pass currentFirebaseUser to uploadAvatar
+          const newPhotoURL = await uploadAvatar(avatarFile, currentFirebaseUser); 
+          await fbUpdateProfile(currentFirebaseUser, { photoURL: newPhotoURL });
           profileUpdated = true;
         }
 
-        if (data.displayName !== user.displayName) {
+        if (data.displayName !== currentFirebaseUser.displayName) {
           await updateUserProfile({ displayName: data.displayName || undefined });
           profileUpdated = true;
         }
-
-        if (profileUpdated && auth.currentUser) {
-          await auth.currentUser.reload();
-          const refreshedUser = auth.currentUser; 
+        
+        if (profileUpdated) {
+          await currentFirebaseUser.reload(); // Reload to get the latest user data including photoURL
+          const refreshedUser = auth.currentUser; // Get the truly refreshed user
           setAuthUser(refreshedUser ? { ...refreshedUser } : null); 
 
           if (refreshedUser) {
             form.reset({ displayName: refreshedUser.displayName || "" });
             setAvatarPreview(refreshedUser.photoURL); 
           }
-        }
-        
-        setAvatarFile(null); 
-        if (profileUpdated) {
           toast({ title: "Profile Updated", description: "Your profile has been successfully updated." });
           setShowConfetti(true);
         } else {
           toast({ title: "No Changes", description: "No changes were made to your profile." });
         }
+        setAvatarFile(null);
 
       } catch (error: any) {
         console.error("Profile update error:", error);
@@ -116,18 +123,37 @@ export default function ProfileSettings({ user }: ProfileSettingsProps) {
         } else if (error.code === 'storage/unauthorized') {
             description = "You are not authorized to upload this file. Please check your Firebase Storage rules.";
         } else if (error.code === 'storage/object-not-found' && avatarFile) {
-            console.warn("Old avatar not found for deletion, continuing profile update.");
+            // This case can be common if old avatar was null or not a storage object
+            console.warn("Old avatar not found for deletion (this might be normal), continuing profile update.");
+             // Attempt to update profile anyway if an avatar was being uploaded.
+            if (auth.currentUser && data.displayName !== auth.currentUser.displayName) {
+                 await updateUserProfile({ displayName: data.displayName || undefined });
+            }
+            if (auth.currentUser) {
+              await auth.currentUser.reload();
+              const refreshedUser = auth.currentUser;
+              setAuthUser(refreshedUser ? { ...refreshedUser } : null);
+              if (refreshedUser) {
+                form.reset({ displayName: refreshedUser.displayName || "" });
+                setAvatarPreview(refreshedUser.photoURL);
+              }
+            }
+            toast({ title: "Profile Updated", description: "Your profile details have been updated." });
+            setShowConfetti(true);
+
+        } else {
+          toast({ variant: "destructive", title: "Update Failed", description });
         }
-        toast({ variant: "destructive", title: "Update Failed", description });
       }
     });
   };
 
   const getInitials = (name?: string | null): string => {
+    // Use form.watch for immediate feedback if display name changes, otherwise fall back to user prop
     const currentDisplayName = form.watch('displayName') || user.displayName;
     if (currentDisplayName) {
       const names = currentDisplayName.split(' ');
-      if (names.length > 1) {
+      if (names.length > 1 && names[0] && names[names.length -1]) {
         return `${names[0][0]}${names[names.length - 1][0]}`.toUpperCase();
       }
       return currentDisplayName.substring(0, 2).toUpperCase();
@@ -137,7 +163,15 @@ export default function ProfileSettings({ user }: ProfileSettingsProps) {
 
   return (
     <>
-      {showConfetti && width && height && <ReactConfetti width={width} height={height} recycle={false} numberOfPieces={300} />}
+      {showConfetti && width && height && (
+        <ReactConfetti 
+          width={width} 
+          height={height} 
+          recycle={false} 
+          numberOfPieces={300} 
+          gravity={0.1}
+        />
+      )}
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
         <div className="space-y-2">
           <Label>Avatar</Label>

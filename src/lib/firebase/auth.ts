@@ -44,7 +44,7 @@ export async function updateUserPassword(newPassword: string) {
   throw new Error("No user currently signed in.");
 }
 
-// Update Profile (displayName, photoURL)
+// Update Profile (displayName, photoURL for the currently authenticated user)
 export async function updateUserProfile(profileData: { displayName?: string; photoURL?: string }) {
   if (auth.currentUser) {
     return fbUpdateProfile(auth.currentUser, profileData);
@@ -52,12 +52,12 @@ export async function updateUserProfile(profileData: { displayName?: string; pho
   throw new Error("No user currently signed in.");
 }
 
-// Upload Profile Avatar
-export async function uploadAvatar(file: File): Promise<string> {
-  if (!auth.currentUser) {
-    throw new Error("No user currently signed in to upload avatar.");
+// Upload Profile Avatar for a specific user (typically the current user)
+export async function uploadAvatar(file: File, user: User): Promise<string> {
+  // user parameter is the Firebase User object for whom to upload the avatar.
+  if (!user) {
+    throw new Error("User object not provided for avatar upload.");
   }
-  const user = auth.currentUser; // Use the definitive current user
 
   const oldPhotoURL = user.photoURL;
   // Delete old avatar if it exists and is a Firebase Storage URL
@@ -66,7 +66,6 @@ export async function uploadAvatar(file: File): Promise<string> {
       const oldAvatarRef = ref(storage, oldPhotoURL);
       await deleteObject(oldAvatarRef);
     } catch (error: any) {
-      // Ignore "object-not-found" error, means it was already deleted or not a storage object
       if (error.code !== 'storage/object-not-found') {
         console.warn("Could not delete old avatar:", error);
       }
@@ -76,7 +75,11 @@ export async function uploadAvatar(file: File): Promise<string> {
   const avatarRef = ref(storage, `avatars/${user.uid}/${file.name}`);
   await uploadBytes(avatarRef, file);
   const photoURL = await getDownloadURL(avatarRef);
-  await fbUpdateProfile(user, { photoURL }); // user here is auth.currentUser after reassignment
+  // Note: fbUpdateProfile on the user object passed in might not be necessary
+  // if the calling function handles updating the user's profile with the new photoURL.
+  // However, it's good practice to update it here as well to ensure consistency.
+  // This will update the auth.currentUser object if 'user' is indeed auth.currentUser.
+  await fbUpdateProfile(user, { photoURL }); 
   return photoURL;
 }
 
@@ -86,13 +89,15 @@ export async function deleteCurrentUserAccount() {
   if (auth.currentUser) {
     const userToDelete = auth.currentUser;
     // Consider deleting user data from Firestore/Storage here as well
-    // For example, delete avatar:
     if (userToDelete.photoURL && userToDelete.photoURL.includes("firebasestorage.googleapis.com")) {
        try {
         const avatarRef = ref(storage, userToDelete.photoURL);
         await deleteObject(avatarRef);
-      } catch (error) {
-        console.warn("Could not delete avatar during account deletion:", error);
+      } catch (error: any) {
+        // Ignore object-not-found, it might have been deleted or was not a storage object
+        if (error.code !== 'storage/object-not-found') {
+          console.warn("Could not delete avatar during account deletion:", error);
+        }
       }
     }
     return fbDeleteUser(userToDelete);
@@ -104,4 +109,3 @@ export async function deleteCurrentUserAccount() {
 export function getCurrentUser(): User | null {
   return auth.currentUser;
 }
-

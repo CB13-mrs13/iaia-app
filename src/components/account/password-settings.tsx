@@ -68,7 +68,15 @@ export default function PasswordSettings() {
 
   return (
     <>
-      {showConfetti && width && height && <ReactConfetti width={width} height={height} recycle={false} numberOfPieces={300} />}
+      {showConfetti && width && height && (
+          <ReactConfetti 
+            width={width} 
+            height={height} 
+            recycle={false} 
+            numberOfPieces={300} 
+            gravity={0.1}
+          />
+      )}
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
         <div className="space-y-1">
           <Label htmlFor="newPassword">New Password</Label>

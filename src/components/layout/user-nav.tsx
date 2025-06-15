@@ -31,8 +31,8 @@ export default function UserNav({ user }: UserNavProps) {
     try {
       await signOutUser();
       toast({ title: 'Signed Out', description: 'You have been successfully signed out.' });
-      router.push('/');
-      router.refresh(); // Ensure layout re-renders with new auth state
+      router.push('/'); // Redirect to home page
+      router.refresh(); // Crucial to re-fetch server components and update client components
     } catch (error) {
       toast({ variant: 'destructive', title: 'Sign Out Error', description: 'Failed to sign out. Please try again.' });
     }
