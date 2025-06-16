@@ -85,11 +85,10 @@ export default function ProfileSettings({ user }: ProfileSettingsProps) {
           return;
         }
 
-        let actualDisplayNameChanged = false;
-        let actualAvatarChanged = false;
-
         const initialDisplayName = currentFirebaseUser.displayName || "";
         const formDisplayName = data.displayName || "";
+        let actualDisplayNameChanged = false;
+        let actualAvatarChanged = false;
 
         if (formDisplayName !== initialDisplayName) {
           actualDisplayNameChanged = true;
@@ -113,21 +112,18 @@ export default function ProfileSettings({ user }: ProfileSettingsProps) {
           await updateUserProfile({ displayName: formDisplayName });
         }
 
-        // If any change was made and successful
         await currentFirebaseUser.reload();
         const refreshedUser = auth.currentUser;
 
         if (refreshedUser) {
-           // Create a new object for the user state to ensure context updates
           setAuthUser({ ...refreshedUser });
         } else {
-          // Fallback if refreshedUser is null, though unlikely if reload succeeds
           setAuthUser(null);
         }
 
         toast({ title: "Profile Updated", description: "Your profile has been successfully updated." });
         setShowConfetti(true);
-        setAvatarFile(null); // Clear staged file after successful upload
+        setAvatarFile(null);
 
       } catch (error: any) {
         console.error("Profile update error:", error);
@@ -140,13 +136,12 @@ export default function ProfileSettings({ user }: ProfileSettingsProps) {
             }
         }
         toast({ variant: "destructive", title: "Update Failed", description });
-        setAvatarFile(null); // Ensure avatarFile is reset even on error
+        setAvatarFile(null);
       }
     });
   };
 
   const getInitials = (name?: string | null): string => {
-    // Watch the current form value for displayName, fallback to user prop
     const currentDisplayName = form.watch('displayName') || user?.displayName;
     if (currentDisplayName) {
       const names = currentDisplayName.split(' ');

@@ -19,7 +19,7 @@ const passwordSchema = z.object({
   confirmPassword: z.string(),
 }).refine(data => data.newPassword === data.confirmPassword, {
   message: "Passwords do not match.",
-  path: ["confirmPassword"], // path of error
+  path: ["confirmPassword"],
 });
 
 type PasswordFormValues = z.infer<typeof passwordSchema>;
@@ -43,7 +43,7 @@ export default function PasswordSettings() {
     if (showConfetti) {
       timer = setTimeout(() => {
         setShowConfetti(false);
-      }, 7000); // Confetti lasts for 7 seconds
+      }, 7000);
     }
     return () => clearTimeout(timer);
   }, [showConfetti]);
