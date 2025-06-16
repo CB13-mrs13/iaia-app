@@ -44,10 +44,9 @@ export async function updateUserPassword(newPassword: string) {
   throw new Error("No user currently signed in.");
 }
 
-// Update Profile (displayName, photoURL for the currently authenticated user)
-// This function now specifically targets auth.currentUser if no user is passed.
-export async function updateUserProfile(profileData: { displayName?: string; photoURL?: string }, user?: User | null) {
-  const targetUser = user || auth.currentUser;
+// Update Profile (displayName, photoURL for the currently authenticated user or a specific user)
+export async function updateUserProfile(profileData: { displayName?: string; photoURL?: string }, userToUpdate?: User | null) {
+  const targetUser = userToUpdate || auth.currentUser;
   if (targetUser) {
     return fbUpdateProfile(targetUser, profileData);
   }
@@ -56,21 +55,22 @@ export async function updateUserProfile(profileData: { displayName?: string; pho
 
 // Upload Profile Avatar for a specific user (typically the current user)
 export async function uploadAvatar(file: File, user: User): Promise<string> {
-  // user parameter IS the Firebase User object (typically auth.currentUser)
-  if (!user) { // Should ideally not happen if called correctly
+  if (!user) {
     throw new Error("User object not provided for avatar upload.");
   }
 
   const oldPhotoURL = user.photoURL;
-  // Delete old avatar if it exists and is a Firebase Storage URL
+  
+  // Attempt to delete old avatar if it exists and is a Firebase Storage URL
   if (oldPhotoURL && oldPhotoURL.includes("firebasestorage.googleapis.com")) {
     try {
       const oldAvatarRef = ref(storage, oldPhotoURL);
       await deleteObject(oldAvatarRef);
     } catch (error: any) {
+      // If old avatar not found, it's not critical, log and continue.
+      // For other errors, also log and continue, prioritizing new avatar upload.
       if (error.code !== 'storage/object-not-found') {
-        // Log warning but don't let this block the new avatar upload
-        console.warn("Could not delete old avatar:", error);
+        console.warn("Could not delete old avatar, but proceeding with new upload:", error);
       }
     }
   }
@@ -79,7 +79,7 @@ export async function uploadAvatar(file: File, user: User): Promise<string> {
   await uploadBytes(avatarRef, file);
   const newPhotoURL = await getDownloadURL(avatarRef);
   
-  // Update the photoURL on the Firebase Auth user object
+  // Update the photoURL on the provided Firebase Auth user object
   await fbUpdateProfile(user, { photoURL: newPhotoURL }); 
   
   return newPhotoURL;
@@ -111,3 +111,4 @@ export async function deleteCurrentUserAccount() {
 export function getCurrentUser(): User | null {
   return auth.currentUser;
 }
+
