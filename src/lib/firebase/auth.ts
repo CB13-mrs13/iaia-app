@@ -45,17 +45,19 @@ export async function updateUserPassword(newPassword: string) {
 }
 
 // Update Profile (displayName, photoURL for the currently authenticated user)
-export async function updateUserProfile(profileData: { displayName?: string; photoURL?: string }) {
-  if (auth.currentUser) {
-    return fbUpdateProfile(auth.currentUser, profileData);
+// This function now specifically targets auth.currentUser if no user is passed.
+export async function updateUserProfile(profileData: { displayName?: string; photoURL?: string }, user?: User | null) {
+  const targetUser = user || auth.currentUser;
+  if (targetUser) {
+    return fbUpdateProfile(targetUser, profileData);
   }
-  throw new Error("No user currently signed in.");
+  throw new Error("No user available to update profile.");
 }
 
 // Upload Profile Avatar for a specific user (typically the current user)
 export async function uploadAvatar(file: File, user: User): Promise<string> {
-  // user parameter is the Firebase User object for whom to upload the avatar.
-  if (!user) {
+  // user parameter IS the Firebase User object (typically auth.currentUser)
+  if (!user) { // Should ideally not happen if called correctly
     throw new Error("User object not provided for avatar upload.");
   }
 
@@ -67,6 +69,7 @@ export async function uploadAvatar(file: File, user: User): Promise<string> {
       await deleteObject(oldAvatarRef);
     } catch (error: any) {
       if (error.code !== 'storage/object-not-found') {
+        // Log warning but don't let this block the new avatar upload
         console.warn("Could not delete old avatar:", error);
       }
     }
@@ -74,20 +77,19 @@ export async function uploadAvatar(file: File, user: User): Promise<string> {
 
   const avatarRef = ref(storage, `avatars/${user.uid}/${file.name}`);
   await uploadBytes(avatarRef, file);
-  const photoURL = await getDownloadURL(avatarRef);
-  // Note: fbUpdateProfile on the user object passed in might not be necessary
-  // if the calling function handles updating the user's profile with the new photoURL.
-  // However, it's good practice to update it here as well to ensure consistency.
-  // This will update the auth.currentUser object if 'user' is indeed auth.currentUser.
-  await fbUpdateProfile(user, { photoURL }); 
-  return photoURL;
+  const newPhotoURL = await getDownloadURL(avatarRef);
+  
+  // Update the photoURL on the Firebase Auth user object
+  await fbUpdateProfile(user, { photoURL: newPhotoURL }); 
+  
+  return newPhotoURL;
 }
 
 
 // Delete User Account
 export async function deleteCurrentUserAccount() {
-  if (auth.currentUser) {
-    const userToDelete = auth.currentUser;
+  const userToDelete = auth.currentUser;
+  if (userToDelete) {
     // Consider deleting user data from Firestore/Storage here as well
     if (userToDelete.photoURL && userToDelete.photoURL.includes("firebasestorage.googleapis.com")) {
        try {

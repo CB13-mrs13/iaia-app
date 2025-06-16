@@ -25,15 +25,15 @@ const profileSchema = z.object({
 type ProfileFormValues = z.infer<typeof profileSchema>;
 
 interface ProfileSettingsProps {
-  user: User;
+  user: User; // This prop is from AuthContext, initially
 }
 
-export default function ProfileSettings({ user }: ProfileSettingsProps) {
+export default function ProfileSettings({ user: initialUserFromContext }: ProfileSettingsProps) {
   const { toast } = useToast();
   const [isPending, startTransition] = useTransition();
-  const { setUser: setAuthUser } = useAuth();
+  const { setUser: setAuthUser } = useAuth(); // setUser from AuthContext
   const [avatarFile, setAvatarFile] = useState<File | null>(null);
-  const [avatarPreview, setAvatarPreview] = useState<string | null>(user.photoURL);
+  const [avatarPreview, setAvatarPreview] = useState<string | null>(initialUserFromContext.photoURL);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [showConfetti, setShowConfetti] = useState(false);
   const { width, height } = useWindowSize();
@@ -41,16 +41,18 @@ export default function ProfileSettings({ user }: ProfileSettingsProps) {
   const form = useForm<ProfileFormValues>({
     resolver: zodResolver(profileSchema),
     defaultValues: {
-      displayName: user.displayName || "",
+      displayName: initialUserFromContext.displayName || "",
     },
   });
 
   useEffect(() => {
-    if (user) {
-        form.reset({ displayName: user.displayName || "" });
-        setAvatarPreview(user.photoURL);
+    // This effect syncs the form with the user from AuthContext.
+    // Useful if the user prop updates from elsewhere or on initial load.
+    if (initialUserFromContext) {
+        form.reset({ displayName: initialUserFromContext.displayName || "" });
+        setAvatarPreview(initialUserFromContext.photoURL);
     }
-  }, [user, form]);
+  }, [initialUserFromContext, form]);
 
   useEffect(() => {
     let timer: NodeJS.Timeout;
@@ -75,56 +77,44 @@ export default function ProfileSettings({ user }: ProfileSettingsProps) {
     }
   };
 
-  const onSubmit: SubmitHandler<ProfileFormValues> = async (data) => {
+  const onSubmit: SubmitHandler<ProfileFormValues> = (data) => {
     startTransition(async () => {
-      try {
-        const currentFirebaseUser = auth.currentUser;
-        if (!currentFirebaseUser) {
-          toast({ variant: "destructive", title: "Error", description: "User not authenticated. Please log in again." });
-          setAvatarFile(null);
-          return;
-        }
-
-        const initialDisplayName = currentFirebaseUser.displayName || "";
-        const formDisplayName = data.displayName || "";
-        let actualDisplayNameChanged = false;
-        let actualAvatarChanged = false;
-
-        if (formDisplayName !== initialDisplayName) {
-          actualDisplayNameChanged = true;
-        }
-
-        if (avatarFile) {
-          actualAvatarChanged = true;
-        }
-
-        if (!actualDisplayNameChanged && !actualAvatarChanged) {
-          toast({ title: "No Changes", description: "No changes were made to your profile." });
-          setAvatarFile(null);
-          return;
-        }
-
-        if (actualAvatarChanged && avatarFile) {
-          await uploadAvatar(avatarFile, currentFirebaseUser);
-        }
-
-        if (actualDisplayNameChanged) {
-          await updateUserProfile({ displayName: formDisplayName });
-        }
-
-        await currentFirebaseUser.reload();
-        const refreshedUser = auth.currentUser;
-
-        if (refreshedUser) {
-          setAuthUser({ ...refreshedUser });
-        } else {
-          setAuthUser(null);
-        }
-
-        toast({ title: "Profile Updated", description: "Your profile has been successfully updated." });
-        setShowConfetti(true);
+      const currentUser = auth.currentUser; // Get the most current Firebase auth user state
+      if (!currentUser) {
+        toast({ variant: "destructive", title: "Error", description: "User not authenticated. Please log in again." });
         setAvatarFile(null);
+        return;
+      }
 
+      let profileUpdated = false;
+      const formDisplayName = data.displayName || "";
+      const initialDisplayNameFromAuth = currentUser.displayName || "";
+      
+      try {
+        // Handle avatar update
+        if (avatarFile) {
+          await uploadAvatar(avatarFile, currentUser); // uploadAvatar updates auth.currentUser.photoURL
+          profileUpdated = true;
+        }
+
+        // Handle display name update
+        if (formDisplayName !== initialDisplayNameFromAuth) {
+          await updateUserProfile({ displayName: formDisplayName }); // updates auth.currentUser.displayName
+          profileUpdated = true;
+        }
+
+        if (!profileUpdated) {
+          toast({ title: "No Changes", description: "No changes were made to your profile." });
+        } else {
+          await currentUser.reload(); // Crucial: reload to get the absolute latest state from Firebase backend
+          const refreshedUser = auth.currentUser; // auth.currentUser is now the refreshed user
+
+          if (refreshedUser) {
+            setAuthUser({ ...refreshedUser }); // Update AuthContext, which triggers useEffect to update form
+          }
+          toast({ title: "Profile Updated", description: "Your profile has been successfully updated." });
+          setShowConfetti(true);
+        }
       } catch (error: any) {
         console.error("Profile update error:", error);
         let description = "Could not update your profile. Please try again.";
@@ -132,25 +122,27 @@ export default function ProfileSettings({ user }: ProfileSettingsProps) {
             if (error.code === 'auth/requires-recent-login') {
                 description = "This operation requires recent authentication. Please log out and log back in before trying again.";
             } else if (error.code === 'storage/unauthorized') {
-                description = "You are not authorized to upload this file. Please check your Firebase Storage rules.";
+                description = "You are not authorized to upload this file. Check Firebase Storage rules.";
             }
         }
         toast({ variant: "destructive", title: "Update Failed", description });
-        setAvatarFile(null);
+      } finally {
+        setAvatarFile(null); // Always clear the selected file after attempt
       }
     });
   };
-
-  const getInitials = (name?: string | null): string => {
-    const currentDisplayName = form.watch('displayName') || user?.displayName;
+  
+  const getInitials = (): string => {
+    // Use form value for display name first, then context user, then email
+    const currentDisplayName = form.watch('displayName') || initialUserFromContext?.displayName;
     if (currentDisplayName) {
       const names = currentDisplayName.split(' ');
       if (names.length > 1 && names[0] && names[names.length -1]) {
         return `${names[0][0]}${names[names.length - 1][0]}`.toUpperCase();
       }
-      return currentDisplayName.substring(0, 2).toUpperCase();
+      if (names[0]) return names[0].substring(0, 2).toUpperCase();
     }
-    return user?.email?.substring(0,2).toUpperCase() || 'U';
+    return initialUserFromContext?.email?.substring(0,2).toUpperCase() || 'U';
   };
 
   return (
@@ -199,7 +191,7 @@ export default function ProfileSettings({ user }: ProfileSettingsProps) {
         </div>
         <div className="space-y-1">
           <Label htmlFor="email">Email</Label>
-          <Input id="email" type="email" value={user?.email || ""} disabled className="bg-muted/50" />
+          <Input id="email" type="email" value={initialUserFromContext?.email || ""} disabled className="bg-muted/50" />
           <p className="text-xs text-muted-foreground">Email cannot be changed.</p>
         </div>
         <Button type="submit" disabled={isPending}>
