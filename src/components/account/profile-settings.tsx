@@ -48,16 +48,18 @@ export default function ProfileSettings({ user: initialUserFromContext }: Profil
       displayName: initialUserFromContext.displayName || "",
     },
   });
-
+  
   const { formState: { isDirty } } = form;
   const hasAvatarChanged = avatarFile !== null;
 
+  // This effect syncs the form if the user prop changes from the outside
   useEffect(() => {
     if (initialUserFromContext) {
       form.reset({ displayName: initialUserFromContext.displayName || "" });
       setAvatarPreview(initialUserFromContext.photoURL);
     }
-  }, [initialUserFromContext, form.reset]);
+  }, [initialUserFromContext, form]);
+
 
   useEffect(() => {
     let timer: NodeJS.Timeout;
@@ -76,47 +78,59 @@ export default function ProfileSettings({ user: initialUserFromContext }: Profil
   };
   
   const onSubmit: SubmitHandler<ProfileFormValues> = (data) => {
-    if (!isDirty && !hasAvatarChanged) {
-      toast({ title: t.noChangesToastTitle, description: t.noChangesToastDesc });
-      return;
-    }
-
     startTransition(async () => {
-      const currentFirebaseUser = auth.currentUser;
-      if (!currentFirebaseUser) {
+      const currentUser = auth.currentUser;
+      if (!currentUser) {
         toast({ variant: "destructive", title: t.errorToastTitle, description: t.unauthenticatedToastDesc });
+        return;
+      }
+      
+      const displayNameChanged = data.displayName !== initialUserFromContext.displayName;
+      
+      if (!displayNameChanged && !hasAvatarChanged) {
+        toast({ title: t.noChangesToastTitle, description: t.noChangesToastDesc });
         return;
       }
 
       try {
-        if (hasAvatarChanged) {
-          await uploadAvatar(avatarFile!, currentFirebaseUser);
+        // Step 1: Upload avatar if changed. It will also update the profile URL internally.
+        if (hasAvatarChanged && avatarFile) {
+          await uploadAvatar(avatarFile, currentUser);
         }
 
-        if (isDirty) {
-          await updateUserProfile({ displayName: data.displayName || "" }, currentFirebaseUser);
+        // Step 2: Update display name if changed
+        if (displayNameChanged) {
+          await updateUserProfile({ displayName: data.displayName || "" }, currentUser);
         }
         
-        await currentFirebaseUser.reload();
-        const refreshedUser = auth.currentUser;
-        if (refreshedUser) {
-          setAuthUser({ ...refreshedUser });
-        }
+        // Step 3: Reload user to get the latest profile data from Firebase services
+        await currentUser.reload();
+        
+        // Step 4: Update the application's auth context with the fresh user object
+        const refreshedUser = auth.currentUser!;
+        setAuthUser({ ...refreshedUser });
 
+        // Step 5: Manually reset the form to its new default state to clear isDirty
+        form.reset({ displayName: refreshedUser.displayName || "" });
+
+        // Step 6: Trigger success UI
         toast({ title: t.profileUpdatedToastTitle, description: t.profileUpdatedToastDesc });
         setShowConfetti(true);
 
       } catch (error: any) {
         console.error("Profile update error:", error);
         let description = t.updateFailedToastDesc;
-        if (error?.code === 'auth/requires-recent-login') {
-          description = t.reauthToastDesc;
-        } else if (error?.code === 'storage/unauthorized') {
-          description = t.storageUnauthorizedToastDesc;
+        if (error && typeof error === 'object' && 'code' in error) {
+            if (error.code === 'auth/requires-recent-login') {
+                description = t.reauthToastDesc;
+            } else if (error.code === 'storage/unauthorized') {
+                description = t.storageUnauthorizedToastDesc;
+            }
         }
         toast({ variant: "destructive", title: t.updateFailedToastTitle, description });
       } finally {
-        if (avatarFile && avatarPreview) {
+        // Step 7: Clean up local state
+        if (avatarFile && avatarPreview?.startsWith('blob:')) {
             URL.revokeObjectURL(avatarPreview);
         }
         setAvatarFile(null);
@@ -125,19 +139,15 @@ export default function ProfileSettings({ user: initialUserFromContext }: Profil
   };
 
   const getInitials = (): string => {
-    const currentDisplayNameInForm = form.watch('displayName');
-    const authUserDisplayName = initialUserFromContext?.displayName;
-    const authUserEmail = initialUserFromContext?.email;
-    const nameToUse = currentDisplayNameInForm || authUserDisplayName;
-
+    const nameToUse = form.watch('displayName') || initialUserFromContext?.displayName;
     if (nameToUse) {
-      const names = nameToUse.split(' ');
+      const names = nameToUse.split(' ').filter(Boolean);
       if (names.length > 1 && names[0] && names[names.length - 1]) {
         return `${names[0][0]}${names[names.length - 1][0]}`.toUpperCase();
       }
       if (names[0]) return names[0].substring(0, 2).toUpperCase();
     }
-    return authUserEmail?.substring(0, 2).toUpperCase() || 'U';
+    return initialUserFromContext?.email?.substring(0, 2).toUpperCase() || 'U';
   };
 
   return (
