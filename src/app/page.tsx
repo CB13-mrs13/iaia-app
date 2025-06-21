@@ -75,7 +75,7 @@ export default function HomePage() {
             <Button asChild variant="outline">
               <Link href="#ai-search">
                 <ArrowUp className="mr-2 h-4 w-4" />
-                Retour en haut
+                {t.backToTop}
               </Link>
             </Button>
           </div>

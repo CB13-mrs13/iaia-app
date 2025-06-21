@@ -18,6 +18,8 @@ import type { User } from 'firebase/auth';
 import { signOutUser } from '@/lib/firebase/auth';
 import { useToast } from '@/hooks/use-toast';
 import { useRouter } from 'next/navigation';
+import { useLanguage } from '@/hooks/use-language';
+import { translations } from '@/lib/translations';
 
 interface UserNavProps {
   user: User;
@@ -26,15 +28,17 @@ interface UserNavProps {
 export default function UserNav({ user }: UserNavProps) {
   const { toast } = useToast();
   const router = useRouter();
+  const { language } = useLanguage();
+  const t = translations[language].userNav;
 
   const handleSignOut = async () => {
     try {
       await signOutUser();
-      toast({ title: 'Signed Out', description: 'You have been successfully signed out.' });
+      toast({ title: t.signOutSuccessToastTitle, description: t.signOutSuccessToastDesc });
       router.push('/'); // Redirect to home page
       router.refresh(); // Crucial to re-fetch server components and update client components
     } catch (error) {
-      toast({ variant: 'destructive', title: 'Sign Out Error', description: 'Failed to sign out. Please try again.' });
+      toast({ variant: 'destructive', title: t.signOutErrorToastTitle, description: t.signOutErrorToastDesc });
     }
   };
 
@@ -65,7 +69,7 @@ export default function UserNav({ user }: UserNavProps) {
       <DropdownMenuContent className="w-56" align="end" forceMount>
         <DropdownMenuLabel className="font-normal">
           <div className="flex flex-col space-y-1">
-            <p className="text-sm font-medium leading-none">{user.displayName || 'User'}</p>
+            <p className="text-sm font-medium leading-none">{user.displayName || t.user}</p>
             <p className="text-xs leading-none text-muted-foreground">
               {user.email}
             </p>
@@ -76,20 +80,20 @@ export default function UserNav({ user }: UserNavProps) {
           <DropdownMenuItem asChild>
             <Link href="/">
               <Home className="mr-2 h-4 w-4" />
-              <span>Accueil</span>
+              <span>{t.home}</span>
             </Link>
           </DropdownMenuItem>
           <DropdownMenuItem asChild>
             <Link href="/account">
               <Settings className="mr-2 h-4 w-4" />
-              <span>Paramètres du compte</span>
+              <span>{t.accountSettings}</span>
             </Link>
           </DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
         <DropdownMenuItem onClick={handleSignOut}>
           <LogOut className="mr-2 h-4 w-4" />
-          <span>Se déconnecter</span>
+          <span>{t.signOut}</span>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

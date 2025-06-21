@@ -9,10 +9,14 @@ import DeleteAccount from "@/components/account/delete-account";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { Loader2 } from "lucide-react";
+import { useLanguage } from "@/hooks/use-language";
+import { translations } from "@/lib/translations";
 
 export default function AccountPage() {
   const { user, loading } = useAuth();
   const router = useRouter();
+  const { language } = useLanguage();
+  const t = translations[language].account;
 
   useEffect(() => {
     if (!loading && !user) {
@@ -31,14 +35,14 @@ export default function AccountPage() {
   return (
     <div className="space-y-8 max-w-3xl mx-auto animate-fadeIn">
       <header>
-        <h1 className="text-3xl font-bold tracking-tight">Paramètres du compte</h1>
-        <p className="text-muted-foreground">Gérez les détails et préférences de votre compte.</p>
+        <h1 className="text-3xl font-bold tracking-tight">{t.title}</h1>
+        <p className="text-muted-foreground">{t.subtitle}</p>
       </header>
 
       <Card className="shadow-md">
         <CardHeader>
-          <CardTitle>Informations de profil</CardTitle>
-          <CardDescription>Mettez à jour vos informations personnelles et votre avatar.</CardDescription>
+          <CardTitle>{t.profileTitle}</CardTitle>
+          <CardDescription>{t.profileSubtitle}</CardDescription>
         </CardHeader>
         <CardContent>
           <ProfileSettings user={user} />
@@ -49,8 +53,8 @@ export default function AccountPage() {
 
       <Card className="shadow-md">
         <CardHeader>
-          <CardTitle>Paramètres du mot de passe</CardTitle>
-          <CardDescription>Changez le mot de passe de votre compte.</CardDescription>
+          <CardTitle>{t.passwordTitle}</CardTitle>
+          <CardDescription>{t.passwordSubtitle}</CardDescription>
         </CardHeader>
         <CardContent>
           <PasswordSettings />
@@ -61,8 +65,8 @@ export default function AccountPage() {
 
       <Card className="border-destructive shadow-md">
         <CardHeader>
-          <CardTitle className="text-destructive">Zone de danger</CardTitle>
-          <CardDescription>Les actions dans cette zone sont irréversibles.</CardDescription>
+          <CardTitle className="text-destructive">{t.dangerZoneTitle}</CardTitle>
+          <CardDescription>{t.dangerZoneSubtitle}</CardDescription>
         </CardHeader>
         <CardContent>
           <DeleteAccount />

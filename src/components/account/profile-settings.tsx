@@ -17,6 +17,8 @@ import { useAuth } from '@/hooks/use-auth';
 import { auth } from '@/lib/firebase/config';
 import ReactConfetti from 'react-confetti';
 import { useWindowSize } from '@/hooks/use-window-size';
+import { useLanguage } from '@/hooks/use-language';
+import { translations } from '@/lib/translations';
 
 const profileSchema = z.object({
   displayName: z.string().min(2, "Display name must be at least 2 characters.").max(50, "Display name too long.").optional(),
@@ -37,6 +39,8 @@ export default function ProfileSettings({ user: initialUserFromContext }: Profil
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [showConfetti, setShowConfetti] = useState(false);
   const { width, height } = useWindowSize();
+  const { language } = useLanguage();
+  const t = translations[language].account;
 
   const form = useForm<ProfileFormValues>({
     resolver: zodResolver(profileSchema),
@@ -73,14 +77,14 @@ export default function ProfileSettings({ user: initialUserFromContext }: Profil
   
   const onSubmit: SubmitHandler<ProfileFormValues> = (data) => {
     if (!isDirty && !hasAvatarChanged) {
-      toast({ title: "Aucun changement", description: "Aucune modification n'a été apportée à votre profil." });
+      toast({ title: t.noChangesToastTitle, description: t.noChangesToastDesc });
       return;
     }
 
     startTransition(async () => {
       const currentFirebaseUser = auth.currentUser;
       if (!currentFirebaseUser) {
-        toast({ variant: "destructive", title: "Erreur", description: "Utilisateur non authentifié." });
+        toast({ variant: "destructive", title: t.errorToastTitle, description: t.unauthenticatedToastDesc });
         return;
       }
 
@@ -99,18 +103,18 @@ export default function ProfileSettings({ user: initialUserFromContext }: Profil
           setAuthUser({ ...refreshedUser });
         }
 
-        toast({ title: "Profil mis à jour", description: "Votre profil a été mis à jour avec succès." });
+        toast({ title: t.profileUpdatedToastTitle, description: t.profileUpdatedToastDesc });
         setShowConfetti(true);
 
       } catch (error: any) {
         console.error("Profile update error:", error);
-        let description = "Impossible de mettre à jour votre profil. Veuillez réessayer.";
+        let description = t.updateFailedToastDesc;
         if (error?.code === 'auth/requires-recent-login') {
-          description = "Cette opération nécessite une authentification récente. Veuillez vous déconnecter et vous reconnecter.";
+          description = t.reauthToastDesc;
         } else if (error?.code === 'storage/unauthorized') {
-          description = "Vous n'êtes pas autorisé à téléverser ce fichier. Vérifiez les règles de sécurité de Firebase Storage.";
+          description = t.storageUnauthorizedToastDesc;
         }
-        toast({ variant: "destructive", title: "Échec de la mise à jour", description });
+        toast({ variant: "destructive", title: t.updateFailedToastTitle, description });
       } finally {
         if (avatarFile && avatarPreview) {
             URL.revokeObjectURL(avatarPreview);
@@ -154,14 +158,14 @@ export default function ProfileSettings({ user: initialUserFromContext }: Profil
       )}
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
         <div className="space-y-2">
-          <Label>Avatar</Label>
+          <Label>{t.avatar}</Label>
           <div className="flex items-center gap-4">
             <Avatar className="h-20 w-20">
               <AvatarImage src={avatarPreview || undefined} alt="User avatar" />
               <AvatarFallback className="text-2xl">{getInitials()}</AvatarFallback>
             </Avatar>
             <Button type="button" variant="outline" onClick={() => fileInputRef.current?.click()}>
-              <Upload className="mr-2 h-4 w-4" /> Changer d'Avatar
+              <Upload className="mr-2 h-4 w-4" /> {t.changeAvatar}
             </Button>
             <Input
               type="file"
@@ -174,23 +178,22 @@ export default function ProfileSettings({ user: initialUserFromContext }: Profil
         </div>
 
         <div className="space-y-1">
-          <Label htmlFor="displayName">Nom d'affichage</Label>
-          <Input id="displayName" {...form.register('displayName')} placeholder="Votre nom d'affichage" />
+          <Label htmlFor="displayName">{t.displayName}</Label>
+          <Input id="displayName" {...form.register('displayName')} placeholder={t.displayNamePlaceholder} />
           {form.formState.errors.displayName && (
             <p className="text-sm text-destructive">{form.formState.errors.displayName.message}</p>
           )}
         </div>
         <div className="space-y-1">
-          <Label htmlFor="email">Email</Label>
+          <Label htmlFor="email">{t.email}</Label>
           <Input id="email" type="email" value={initialUserFromContext?.email || ""} disabled className="bg-muted/50" />
-          <p className="text-xs text-muted-foreground">L'email ne peut pas être modifié.</p>
+          <p className="text-xs text-muted-foreground">{t.emailCannotBeChanged}</p>
         </div>
         <Button type="submit" disabled={isPending || (!isDirty && !hasAvatarChanged)}>
           {isPending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-          Enregistrer les modifications
+          {t.saveChanges}
         </Button>
       </form>
     </>
   );
 }
-

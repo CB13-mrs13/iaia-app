@@ -13,6 +13,8 @@ import { useState, useTransition, useEffect } from 'react';
 import { Loader2 } from 'lucide-react';
 import ReactConfetti from 'react-confetti';
 import { useWindowSize } from '@/hooks/use-window-size';
+import { useLanguage } from '@/hooks/use-language';
+import { translations } from '@/lib/translations';
 
 const passwordSchema = z.object({
   newPassword: z.string().min(6, "Password must be at least 6 characters."),
@@ -29,6 +31,8 @@ export default function PasswordSettings() {
   const [isPending, startTransition] = useTransition();
   const [showConfetti, setShowConfetti] = useState(false);
   const { width, height } = useWindowSize();
+  const { language } = useLanguage();
+  const t = translations[language].account;
   
   const form = useForm<PasswordFormValues>({
     resolver: zodResolver(passwordSchema),
@@ -52,16 +56,16 @@ export default function PasswordSettings() {
     startTransition(async () => {
       try {
         await updateUserPassword(data.newPassword);
-        toast({ title: "Password Updated", description: "Your password has been successfully changed." });
+        toast({ title: t.passwordUpdatedToastTitle, description: t.passwordUpdatedToastDesc });
         setShowConfetti(true);
         form.reset();
       } catch (error: any) {
         console.error("Password update error:", error);
-        let description = "Could not update your password. Please try again.";
+        let description = t.updateFailedToastDesc;
         if (error && typeof error === 'object' && 'code' in error && error.code === 'auth/requires-recent-login') {
-          description = "This operation is sensitive and requires recent authentication. Please log out and log back in before updating your password.";
+          description = t.reauthToastDesc;
         }
-        toast({ variant: "destructive", title: "Update Failed", description });
+        toast({ variant: "destructive", title: t.updateFailedToastTitle, description });
       }
     });
   };
@@ -84,22 +88,22 @@ export default function PasswordSettings() {
       )}
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
         <div className="space-y-1">
-          <Label htmlFor="newPassword">New Password</Label>
-          <Input id="newPassword" type="password" {...form.register('newPassword')} placeholder="Enter new password" />
+          <Label htmlFor="newPassword">{t.newPassword}</Label>
+          <Input id="newPassword" type="password" {...form.register('newPassword')} placeholder={t.newPasswordPlaceholder} />
           {form.formState.errors.newPassword && (
             <p className="text-sm text-destructive">{form.formState.errors.newPassword.message}</p>
           )}
         </div>
         <div className="space-y-1">
-          <Label htmlFor="confirmPassword">Confirm New Password</Label>
-          <Input id="confirmPassword" type="password" {...form.register('confirmPassword')} placeholder="Confirm new password" />
+          <Label htmlFor="confirmPassword">{t.confirmNewPassword}</Label>
+          <Input id="confirmPassword" type="password" {...form.register('confirmPassword')} placeholder={t.confirmNewPasswordPlaceholder} />
           {form.formState.errors.confirmPassword && (
             <p className="text-sm text-destructive">{form.formState.errors.confirmPassword.message}</p>
           )}
         </div>
         <Button type="submit" disabled={isPending}>
           {isPending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-          Change Password
+          {t.changePassword}
         </Button>
       </form>
     </>
