@@ -55,13 +55,11 @@ export default function SignUpPage() {
           width={width}
           height={height}
           recycle={false}
-          numberOfPieces={500} 
-          gravity={0.2} // Slower fall
-          initialVelocityY={{ min: -30, max: -20 }} // Upward burst
-          initialVelocityX={{ min: -15, max: 15 }}
-          angle={270} // Direction: up
-          spread={120} // Spread angle
-          origin={{ y: 0.95 }} // Erupt from near bottom
+          numberOfPieces={600}
+          gravity={0.2}
+          spread={180}
+          initialVelocityY={-30}
+          origin={{ y: 0.95 }}
         />
       )}
       <AuthForm mode="signup" onSubmit={handleSignUp} />
