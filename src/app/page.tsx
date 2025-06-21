@@ -8,9 +8,11 @@ import AiSearchForm from '@/components/ai-search-form';
 import { aiTools } from '@/lib/data';
 import type { AiToolCategory } from '@/types';
 import { Input } from '@/components/ui/input';
-import { Search } from 'lucide-react';
+import { Search, ArrowUp } from 'lucide-react';
 import { useLanguage } from '@/hooks/use-language';
 import { translations } from '@/lib/translations';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 
 export default function HomePage() {
   const [selectedCategory, setSelectedCategory] = useState<AiToolCategory | null>(null);
@@ -65,6 +67,17 @@ export default function HomePage() {
           <div className="text-center py-12">
             <p className="text-xl text-muted-foreground">{t.noToolsFound}</p>
             <p className="text-sm text-muted-foreground mt-2">{t.tryAdjustingFilters}</p>
+          </div>
+        )}
+
+        {filteredTools.length > 0 && (
+          <div className="mt-12 flex justify-center">
+            <Button asChild variant="outline">
+              <Link href="#ai-search">
+                <ArrowUp className="mr-2 h-4 w-4" />
+                Retour en haut
+              </Link>
+            </Button>
           </div>
         )}
       </section>
