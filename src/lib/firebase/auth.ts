@@ -53,35 +53,35 @@ export async function updateUserProfile(profileData: { displayName?: string; pho
   throw new Error("No user available to update profile.");
 }
 
-// Upload Profile Avatar for a specific user (typically the current user)
+// Uploads an avatar, deletes the old one, and returns the new URL.
 export async function uploadAvatar(file: File, user: User): Promise<string> {
   if (!user) {
     throw new Error("User object not provided for avatar upload.");
   }
-
-  const oldPhotoURL = user.photoURL;
   
-  // Attempt to delete old avatar if it exists and is a Firebase Storage URL
+  const oldPhotoURL = user.photoURL;
+
+  // Define reference for new avatar
+  const avatarRef = ref(storage, `avatars/${user.uid}/${Date.now()}_${file.name}`);
+  
+  // Upload the new file
+  await uploadBytes(avatarRef, file);
+  const newPhotoURL = await getDownloadURL(avatarRef);
+
+  // After successful upload of the new avatar, try to delete the old one.
   if (oldPhotoURL && oldPhotoURL.includes("firebasestorage.googleapis.com")) {
     try {
       const oldAvatarRef = ref(storage, oldPhotoURL);
       await deleteObject(oldAvatarRef);
     } catch (error: any) {
-      // If old avatar not found, it's not critical, log and continue.
-      // For other errors, also log and continue, prioritizing new avatar upload.
+      // If the old avatar doesn't exist, that's fine.
+      // For other errors, we log them but don't fail the whole operation since the new avatar is already uploaded.
       if (error.code !== 'storage/object-not-found') {
-        console.warn("Could not delete old avatar, but proceeding with new upload:", error);
+        console.warn("Could not delete old avatar, but new upload was successful:", error);
       }
     }
   }
 
-  const avatarRef = ref(storage, `avatars/${user.uid}/${file.name}`);
-  await uploadBytes(avatarRef, file);
-  const newPhotoURL = await getDownloadURL(avatarRef);
-  
-  // Update the photoURL on the provided Firebase Auth user object
-  await fbUpdateProfile(user, { photoURL: newPhotoURL }); 
-  
   return newPhotoURL;
 }
 
@@ -111,4 +111,3 @@ export async function deleteCurrentUserAccount() {
 export function getCurrentUser(): User | null {
   return auth.currentUser;
 }
-

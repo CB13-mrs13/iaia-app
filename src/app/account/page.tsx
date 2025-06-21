@@ -22,7 +22,7 @@ export default function AccountPage() {
 
   if (loading || !user) {
     return (
-      <div className="flex items-center justify-center h-full">
+      <div className="flex items-center justify-center min-h-[calc(100vh-theme(spacing.32))]">
         <Loader2 className="h-8 w-8 animate-spin text-primary" />
       </div>
     );
@@ -31,14 +31,14 @@ export default function AccountPage() {
   return (
     <div className="space-y-8 max-w-3xl mx-auto animate-fadeIn">
       <header>
-        <h1 className="text-3xl font-bold tracking-tight">Account Settings</h1>
-        <p className="text-muted-foreground">Manage your account details and preferences.</p>
+        <h1 className="text-3xl font-bold tracking-tight">Paramètres du compte</h1>
+        <p className="text-muted-foreground">Gérez les détails et préférences de votre compte.</p>
       </header>
 
       <Card className="shadow-md">
         <CardHeader>
-          <CardTitle>Profile Information</CardTitle>
-          <CardDescription>Update your personal details and avatar.</CardDescription>
+          <CardTitle>Informations de profil</CardTitle>
+          <CardDescription>Mettez à jour vos informations personnelles et votre avatar.</CardDescription>
         </CardHeader>
         <CardContent>
           <ProfileSettings user={user} />
@@ -49,8 +49,8 @@ export default function AccountPage() {
 
       <Card className="shadow-md">
         <CardHeader>
-          <CardTitle>Password Settings</CardTitle>
-          <CardDescription>Change your account password.</CardDescription>
+          <CardTitle>Paramètres du mot de passe</CardTitle>
+          <CardDescription>Changez le mot de passe de votre compte.</CardDescription>
         </CardHeader>
         <CardContent>
           <PasswordSettings />
@@ -61,8 +61,8 @@ export default function AccountPage() {
 
       <Card className="border-destructive shadow-md">
         <CardHeader>
-          <CardTitle className="text-destructive">Danger Zone</CardTitle>
-          <CardDescription>Actions in this zone are irreversible.</CardDescription>
+          <CardTitle className="text-destructive">Zone de danger</CardTitle>
+          <CardDescription>Les actions dans cette zone sont irréversibles.</CardDescription>
         </CardHeader>
         <CardContent>
           <DeleteAccount />
