@@ -35,7 +35,7 @@ export default function UserNav({ user }: UserNavProps) {
     try {
       await signOutUser();
       toast({ title: t.signOutSuccessToastTitle, description: t.signOutSuccessToastDesc });
-      router.push('/'); // Redirect to home page
+      router.push('/login'); // Redirect to login page
       router.refresh(); // Crucial to re-fetch server components and update client components
     } catch (error) {
       toast({ variant: 'destructive', title: t.signOutErrorToastTitle, description: t.signOutErrorToastDesc });
