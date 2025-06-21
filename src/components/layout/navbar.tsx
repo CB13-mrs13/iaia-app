@@ -1,4 +1,3 @@
-
 "use client";
 
 import Link from 'next/link';
@@ -8,12 +7,6 @@ import { Button } from '@/components/ui/button';
 import UserNav from './user-nav';
 import { useAuth } from '@/hooks/use-auth';
 import LanguageSwitcher from './language-switcher';
-import {
-  Dialog,
-  DialogContent,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
 
 export default function Navbar() {
   const { user, loading } = useAuth();
@@ -21,36 +14,21 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 max-w-screen-2xl items-center">
-        <Dialog>
-          <DialogTrigger asChild>
-            <Link
-              href="/"
-              className="mr-6 flex items-center space-x-2 cursor-pointer"
-              aria-label="Homepage and open logo popup"
-            >
-              <Image
-                src="/iaia-logo.png"
-                alt="IAIA Logo"
-                width={40}
-                height={40}
-                className="h-10 w-10"
-                priority // Ajout de la propriété priority pour le LCP
-              />
-              <span className="font-bold text-2xl sm:inline-block">IAIA</span>
-            </Link>
-          </DialogTrigger>
-          <DialogContent className="bg-transparent border-none shadow-none p-4 flex items-center justify-center">
-            <DialogTitle className="sr-only">IAIA Logo Popup</DialogTitle>
-            <Image
-              src="/pop-up-logo-iaia.png" 
-              alt="IAIA Popup Logo"
-              width={600} // Largeur fixe pour le test
-              height={400} // Hauteur fixe pour le test
-              style={{ objectFit: 'contain', opacity: 0.9 }} // Opacité légèrement augmentée
-              sizes="(max-width: 768px) 80vw, 600px"
-            />
-          </DialogContent>
-        </Dialog>
+        <Link
+          href="/"
+          className="mr-6 flex items-center space-x-2"
+          aria-label="Homepage"
+        >
+          <Image
+            src="/iaia-logo.png"
+            alt="IAIA Logo"
+            width={40}
+            height={40}
+            className="h-10 w-10"
+            priority // Ajout de la propriété priority pour le LCP
+          />
+          <span className="font-bold text-2xl sm:inline-block">IAIA</span>
+        </Link>
 
         <nav className="flex flex-1 items-center space-x-4">
           {/* Add nav links here if needed, e.g.,
