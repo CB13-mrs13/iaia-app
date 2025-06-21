@@ -45,12 +45,15 @@ export default function ProfileSettings({ user: initialUserFromContext }: Profil
     },
   });
 
+  const { formState: { isDirty } } = form;
+  const hasAvatarChanged = avatarFile !== null;
+
   useEffect(() => {
     if (initialUserFromContext) {
       form.reset({ displayName: initialUserFromContext.displayName || "" });
       setAvatarPreview(initialUserFromContext.photoURL);
     }
-  }, [initialUserFromContext, form]);
+  }, [initialUserFromContext, form.reset]);
 
   useEffect(() => {
     let timer: NodeJS.Timeout;
@@ -69,6 +72,11 @@ export default function ProfileSettings({ user: initialUserFromContext }: Profil
   };
   
   const onSubmit: SubmitHandler<ProfileFormValues> = (data) => {
+    if (!isDirty && !hasAvatarChanged) {
+      toast({ title: "Aucun changement", description: "Aucune modification n'a été apportée à votre profil." });
+      return;
+    }
+
     startTransition(async () => {
       const currentFirebaseUser = auth.currentUser;
       if (!currentFirebaseUser) {
@@ -77,38 +85,23 @@ export default function ProfileSettings({ user: initialUserFromContext }: Profil
       }
 
       try {
-        const updates: { displayName?: string; photoURL?: string } = {};
-        let profileHasChanged = false;
-
-        // 1. Handle avatar upload if a new file is selected
-        if (avatarFile) {
-          const newPhotoURL = await uploadAvatar(avatarFile, currentFirebaseUser);
-          updates.photoURL = newPhotoURL;
-          profileHasChanged = true;
+        if (hasAvatarChanged) {
+          await uploadAvatar(avatarFile!, currentFirebaseUser);
         }
 
-        // 2. Handle display name change if it's different
-        const formDisplayName = data.displayName || "";
-        if (formDisplayName !== currentFirebaseUser.displayName) {
-          updates.displayName = formDisplayName;
-          profileHasChanged = true;
+        if (isDirty) {
+          await updateUserProfile({ displayName: data.displayName || "" }, currentFirebaseUser);
+        }
+        
+        await currentFirebaseUser.reload();
+        const refreshedUser = auth.currentUser;
+        if (refreshedUser) {
+          setAuthUser({ ...refreshedUser });
         }
 
-        // 3. Apply updates only if there are actual changes
-        if (profileHasChanged) {
-          await updateUserProfile(updates, currentFirebaseUser);
-          
-          await currentFirebaseUser.reload();
-          const refreshedUser = auth.currentUser;
-          if (refreshedUser) {
-            setAuthUser({ ...refreshedUser });
-          }
+        toast({ title: "Profil mis à jour", description: "Votre profil a été mis à jour avec succès." });
+        setShowConfetti(true);
 
-          toast({ title: "Profil mis à jour", description: "Votre profil a été mis à jour avec succès." });
-          setShowConfetti(true);
-        } else {
-          toast({ title: "Aucun changement", description: "Aucune modification n'a été apportée à votre profil." });
-        }
       } catch (error: any) {
         console.error("Profile update error:", error);
         let description = "Impossible de mettre à jour votre profil. Veuillez réessayer.";
@@ -119,9 +112,8 @@ export default function ProfileSettings({ user: initialUserFromContext }: Profil
         }
         toast({ variant: "destructive", title: "Échec de la mise à jour", description });
       } finally {
-        // Clean up the selected file and object URL regardless of outcome
-        if (avatarFile) {
-          URL.revokeObjectURL(avatarPreview!);
+        if (avatarFile && avatarPreview) {
+            URL.revokeObjectURL(avatarPreview);
         }
         setAvatarFile(null);
       }
@@ -193,7 +185,7 @@ export default function ProfileSettings({ user: initialUserFromContext }: Profil
           <Input id="email" type="email" value={initialUserFromContext?.email || ""} disabled className="bg-muted/50" />
           <p className="text-xs text-muted-foreground">L'email ne peut pas être modifié.</p>
         </div>
-        <Button type="submit" disabled={isPending}>
+        <Button type="submit" disabled={isPending || (!isDirty && !hasAvatarChanged)}>
           {isPending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
           Enregistrer les modifications
         </Button>
@@ -201,3 +193,4 @@ export default function ProfileSettings({ user: initialUserFromContext }: Profil
     </>
   );
 }
+

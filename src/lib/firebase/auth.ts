@@ -53,7 +53,7 @@ export async function updateUserProfile(profileData: { displayName?: string; pho
   throw new Error("No user available to update profile.");
 }
 
-// Uploads an avatar, deletes the old one, and returns the new URL.
+// Uploads an avatar, sets it on the user profile, deletes the old one, and returns the new URL.
 export async function uploadAvatar(file: File, user: User): Promise<string> {
   if (!user) {
     throw new Error("User object not provided for avatar upload.");
@@ -68,14 +68,15 @@ export async function uploadAvatar(file: File, user: User): Promise<string> {
   await uploadBytes(avatarRef, file);
   const newPhotoURL = await getDownloadURL(avatarRef);
 
-  // After successful upload of the new avatar, try to delete the old one.
+  // **Crucial Step**: Update the user's profile with the new photoURL
+  await fbUpdateProfile(user, { photoURL: newPhotoURL });
+
+  // After successful upload and profile update, try to delete the old one.
   if (oldPhotoURL && oldPhotoURL.includes("firebasestorage.googleapis.com")) {
     try {
       const oldAvatarRef = ref(storage, oldPhotoURL);
       await deleteObject(oldAvatarRef);
     } catch (error: any) {
-      // If the old avatar doesn't exist, that's fine.
-      // For other errors, we log them but don't fail the whole operation since the new avatar is already uploaded.
       if (error.code !== 'storage/object-not-found') {
         console.warn("Could not delete old avatar, but new upload was successful:", error);
       }
