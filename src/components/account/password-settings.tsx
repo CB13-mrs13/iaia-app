@@ -10,7 +10,7 @@ import { Label } from '@/components/ui/label';
 import { updateUserPassword } from '@/lib/firebase/auth';
 import { useToast } from '@/hooks/use-toast';
 import { useState, useTransition, useEffect } from 'react';
-import { Loader2 } from 'lucide-react';
+import { Loader2, Eye, EyeOff } from 'lucide-react';
 import ReactConfetti from 'react-confetti';
 import { useWindowSize } from '@/hooks/use-window-size';
 import { useLanguage } from '@/hooks/use-language';
@@ -33,6 +33,8 @@ export default function PasswordSettings() {
   const { width, height } = useWindowSize();
   const { language } = useLanguage();
   const t = translations[language].account;
+  const [showNewPassword, setShowNewPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   
   const form = useForm<PasswordFormValues>({
     resolver: zodResolver(passwordSchema),
@@ -47,7 +49,7 @@ export default function PasswordSettings() {
     if (showConfetti) {
       timer = setTimeout(() => {
         setShowConfetti(false);
-      }, 7000);
+      }, 5000);
     }
     return () => clearTimeout(timer);
   }, [showConfetti]);
@@ -87,14 +89,46 @@ export default function PasswordSettings() {
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
         <div className="space-y-1">
           <Label htmlFor="newPassword">{t.newPassword}</Label>
-          <Input id="newPassword" type="password" {...form.register('newPassword')} placeholder={t.newPasswordPlaceholder} />
+          <div className="relative">
+            <Input
+              id="newPassword"
+              type={showNewPassword ? 'text' : 'password'}
+              {...form.register('newPassword')}
+              placeholder={t.newPasswordPlaceholder}
+              className="pr-10"
+            />
+            <button
+              type="button"
+              onClick={() => setShowNewPassword(!showNewPassword)}
+              className="absolute inset-y-0 right-0 flex items-center pr-3 text-muted-foreground hover:text-foreground"
+              aria-label={showNewPassword ? "Hide password" : "Show password"}
+            >
+              {showNewPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+            </button>
+          </div>
           {form.formState.errors.newPassword && (
             <p className="text-sm text-destructive">{form.formState.errors.newPassword.message}</p>
           )}
         </div>
         <div className="space-y-1">
           <Label htmlFor="confirmPassword">{t.confirmNewPassword}</Label>
-          <Input id="confirmPassword" type="password" {...form.register('confirmPassword')} placeholder={t.confirmNewPasswordPlaceholder} />
+          <div className="relative">
+            <Input
+              id="confirmPassword"
+              type={showConfirmPassword ? 'text' : 'password'}
+              {...form.register('confirmPassword')}
+              placeholder={t.confirmNewPasswordPlaceholder}
+              className="pr-10"
+            />
+            <button
+              type="button"
+              onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+              className="absolute inset-y-0 right-0 flex items-center pr-3 text-muted-foreground hover:text-foreground"
+              aria-label={showConfirmPassword ? "Hide password" : "Show password"}
+            >
+              {showConfirmPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+            </button>
+          </div>
           {form.formState.errors.confirmPassword && (
             <p className="text-sm text-destructive">{form.formState.errors.confirmPassword.message}</p>
           )}
