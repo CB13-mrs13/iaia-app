@@ -18,11 +18,19 @@ export default function SignUpPage() {
   const { width, height } = useWindowSize();
 
   useEffect(() => {
+    // Redirect if user is already logged in, but not if we're in the middle of showing confetti for a new signup.
+    if (!loading && user && !showConfetti) {
+      router.push('/');
+    }
+  }, [user, loading, router, showConfetti]);
+
+  useEffect(() => {
     let timer: NodeJS.Timeout;
     if (showConfetti) {
+      // This timer is just to stop rendering confetti after a while to save resources
       timer = setTimeout(() => {
         setShowConfetti(false);
-      }, 7000); // Confetti lasts for 7 seconds for new sign-ups
+      }, 7000); 
     }
     return () => clearTimeout(timer);
   }, [showConfetti]);
@@ -35,14 +43,16 @@ export default function SignUpPage() {
     setTimeout(() => {
       router.push('/');
       router.refresh();
-    }, 2500); 
+    }, 5000); 
   };
   
-  if (loading || (!loading && user)) {
-     // Show loading or prevent rendering form if already logged in and redirecting
+  if (loading) {
+    // Prevent rendering form during initial auth check
     return null;
   }
-
+  
+  // If a user is logged in, the useEffect will handle redirection.
+  // This structure allows the confetti to display after a new signup without the component unmounting.
   return (
     <>
       {showConfetti && width && height && (
@@ -50,10 +60,10 @@ export default function SignUpPage() {
           width={width}
           height={height}
           recycle={false}
-          numberOfPieces={500}
-          gravity={0.2}
+          numberOfPieces={800}
+          gravity={0.1}
+          initialVelocity={50}
           spread={360}
-          initialVelocity={40}
           origin={{ x: 0.5, y: 0.5 }}
         />
       )}

@@ -77,10 +77,10 @@ export default function PasswordSettings() {
             width={width}
             height={height}
             recycle={false}
-            numberOfPieces={500}
-            gravity={0.2}
+            numberOfPieces={800}
+            gravity={0.1}
+            initialVelocity={50}
             spread={360}
-            initialVelocity={40}
             origin={{ x: 0.5, y: 0.5 }}
           />
       )}
