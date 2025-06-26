@@ -13,7 +13,7 @@ export const aiToolCategories: AiToolCategory[] = [
 ];
 
 // Helper function to create a slug from a name
-const createSlug = (name: string) => {
+export const createSlug = (name: string) => {
   return name
     .toLowerCase()
     .replace(/\./g, '-') // Replace dots with hyphens
