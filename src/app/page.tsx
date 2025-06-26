@@ -31,15 +31,14 @@ export default function HomePage() {
 
   const filteredTools = useMemo(() => {
     return aiTools
-      // Exclude featured tools from the main list to avoid duplication
-      .filter(tool => !featuredToolsList.includes(tool.name))
+      // This no longer excludes featured tools, so they appear in their categories.
       .filter(tool => selectedCategory ? tool.category === selectedCategory : true)
       .filter(tool => 
         tool.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
         tool.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
         (tool.tags && tool.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase())))
       );
-  }, [selectedCategory, searchTerm, featuredToolsList]);
+  }, [selectedCategory, searchTerm]);
 
   return (
     <div className="space-y-12 animate-slideInUp">
@@ -91,7 +90,11 @@ export default function HomePage() {
         {filteredTools.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredTools.map((tool) => (
-              <AiToolCard key={tool.id} tool={tool} />
+              <AiToolCard 
+                key={tool.id} 
+                tool={tool} 
+                featured={featuredToolsList.includes(tool.name)} 
+              />
             ))}
           </div>
         ) : (
