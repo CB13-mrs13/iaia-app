@@ -4,15 +4,6 @@ import { getAuth, type Auth } from "firebase/auth";
 import { getFirestore, type Firestore } from "firebase/firestore";
 import { getStorage, type FirebaseStorage } from "firebase/storage";
 
-
-// IMPORTANT: Add your Firebase project configuration to .env.local
-// NEXT_PUBLIC_FIREBASE_API_KEY=your_api_key
-// NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your_auth_domain
-// NEXT_PUBLIC_FIREBASE_PROJECT_ID=your_project_id
-// NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your_storage_bucket
-// NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your_messaging_sender_id
-// NEXT_PUBLIC_FIREBASE_APP_ID=your_app_id
-
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
   authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
@@ -21,6 +12,11 @@ const firebaseConfig = {
   messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };
+
+// This check provides a more specific error message if the API key is missing.
+if (!firebaseConfig.apiKey) {
+  throw new Error("Your Firebase API key is missing. Please check your .env file and ensure NEXT_PUBLIC_FIREBASE_API_KEY is set correctly. You may need to restart the development server.");
+}
 
 let app: FirebaseApp;
 if (!getApps().length) {
