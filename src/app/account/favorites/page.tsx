@@ -40,9 +40,17 @@ export default function FavoritesPage() {
 
   return (
     <div className="space-y-8 max-w-5xl mx-auto animate-fadeIn">
-      <header>
-        <h1 className="text-3xl font-bold tracking-tight">{t.title}</h1>
-        <p className="text-muted-foreground">{t.subtitle}</p>
+      <header className="flex flex-col sm:flex-row justify-between sm:items-center gap-4">
+        <div>
+          <h1 className="text-3xl font-bold tracking-tight">{t.title}</h1>
+          <p className="text-muted-foreground">{t.subtitle}</p>
+        </div>
+        <Button asChild variant="outline">
+          <Link href="/">
+            <Home className="mr-2 h-4 w-4" />
+            {t.discoverTools}
+          </Link>
+        </Button>
       </header>
       
       {favoriteTools.length > 0 ? (
@@ -56,12 +64,6 @@ export default function FavoritesPage() {
           <Star className="mx-auto h-12 w-12 text-muted-foreground" />
           <h3 className="mt-2 text-lg font-medium">{t.noFavoritesTitle}</h3>
           <p className="mt-1 text-sm text-muted-foreground">{t.noFavoritesSubtitle}</p>
-          <Button asChild variant="outline" className="mt-4">
-            <Link href="/">
-              <Home className="mr-2 h-4 w-4" />
-              {t.discoverTools}
-            </Link>
-          </Button>
         </div>
       )}
     </div>
