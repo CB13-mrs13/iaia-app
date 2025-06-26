@@ -73,15 +73,14 @@ export default function PasswordSettings() {
   return (
     <>
       {showConfetti && width && height && (
-          <ReactConfetti 
-            width={width} 
-            height={height} 
-            recycle={false} 
-            numberOfPieces={600}
-            gravity={0.2}
-            spread={180}
-            initialVelocityY={-30}
-            origin={{ y: 0.95 }}
+          <ReactConfetti
+            width={width}
+            height={height}
+            recycle={false}
+            numberOfPieces={500}
+            gravity={0.3}
+            spread={360}
+            origin={{ x: 0.5, y: 0.5 }}
           />
       )}
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">

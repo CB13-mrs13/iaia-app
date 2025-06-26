@@ -18,12 +18,6 @@ export default function SignUpPage() {
   const { width, height } = useWindowSize();
 
   useEffect(() => {
-    if (!loading && user) {
-      router.push('/'); // Redirect if already logged in
-    }
-  }, [user, loading, router]);
-
-  useEffect(() => {
     let timer: NodeJS.Timeout;
     if (showConfetti) {
       timer = setTimeout(() => {
@@ -55,11 +49,10 @@ export default function SignUpPage() {
           width={width}
           height={height}
           recycle={false}
-          numberOfPieces={600}
-          gravity={0.2}
-          spread={180}
-          initialVelocityY={-30}
-          origin={{ y: 0.95 }}
+          numberOfPieces={500}
+          gravity={0.3}
+          spread={360}
+          origin={{ x: 0.5, y: 0.5 }}
         />
       )}
       <AuthForm mode="signup" onSubmit={handleSignUp} />
