@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState, useTransition } from 'react';
@@ -43,9 +42,10 @@ export default function StudioPage() {
       try {
         const generatedResult = await generateImage(data.prompt);
         setResult(generatedResult);
-      } catch (e) {
+      } catch (e: any) {
         console.error("AI Image Generation Error:", e);
-        const errorMessage = t.errorDescription;
+        // Use the actual error message from the server if it exists, otherwise use the generic one.
+        const errorMessage = e?.message || t.errorDescription;
         setError(errorMessage);
         toast({
           variant: "destructive",
@@ -102,7 +102,16 @@ export default function StudioPage() {
          </Card>
       )}
 
-      {error && <p className="mt-4 text-center text-lg text-destructive">{error}</p>}
+      {error && (
+        <Card className="mt-4 border-destructive bg-destructive/10">
+            <CardHeader>
+                <CardTitle className="text-destructive text-lg">Error</CardTitle>
+            </CardHeader>
+            <CardContent>
+                <p className="text-destructive">{error}</p>
+            </CardContent>
+        </Card>
+      )}
       
       {result?.imageUrl && (
         <Card className="animate-fadeIn">

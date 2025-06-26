@@ -31,13 +31,10 @@ const generateImageFlow = ai.defineFlow(
     outputSchema: GenerateImageOutputSchema,
   },
   async (prompt) => {
-    // Enhance the user's prompt with more context to guide the AI model.
-    const enhancedPrompt = `A high-quality, cinematic photograph of: ${prompt}.`;
-    
     const {media} = await ai.generate({
       // IMPORTANT: This specific model is required for image generation.
       model: 'googleai/gemini-2.0-flash-preview-image-generation',
-      prompt: enhancedPrompt, // Use the enhanced prompt
+      prompt: prompt, // Use the user's prompt directly
       config: {
         // IMPORTANT: Both TEXT and IMAGE modalities are required.
         responseModalities: ['TEXT', 'IMAGE'],
