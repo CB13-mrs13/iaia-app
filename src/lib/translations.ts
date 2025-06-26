@@ -97,6 +97,20 @@ type PageTranslations = {
     noFavoritesSubtitle: string;
     discoverTools: string;
   };
+  studio: {
+    title: string;
+    subtitle: string;
+    cardTitle: string;
+    cardDescription: string;
+    promptPlaceholder: string;
+    button: string;
+    loadingText: string;
+    errorTitle: string;
+    errorDescription: string;
+    resultTitle: string;
+    waitingTitle: string;
+    waitingDescription: string;
+  };
 };
 
 export const translations: Record<SupportedLanguage, PageTranslations> = {
@@ -193,6 +207,20 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       noFavoritesSubtitle: "Click the star icon on any tool to add it to your favorites.",
       discoverTools: "Discover Tools",
     },
+    studio: {
+      title: "AI Image Studio",
+      subtitle: "Bring your ideas to life. Describe an image and let AI create it for you.",
+      cardTitle: "Image Prompt",
+      cardDescription: "Be as descriptive as possible for the best results.",
+      promptPlaceholder: "e.g., 'A photorealistic image of a cat wearing a tiny wizard hat, sitting in a library'",
+      button: "Generate Image",
+      loadingText: "Your masterpiece is being generated...",
+      errorTitle: "Generation Error",
+      errorDescription: "The AI was unable to generate an image. This could be due to a safety filter or a temporary issue. Please try a different prompt.",
+      resultTitle: "Your Generated Image",
+      waitingTitle: "Your canvas is ready.",
+      waitingDescription: "What will you create today?",
+    },
   },
   fr: {
     searchForm: {
@@ -287,6 +315,20 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       noFavoritesSubtitle: "Cliquez sur l'icône étoile sur n'importe quel outil pour l'ajouter à vos favoris.",
       discoverTools: "Découvrir des outils",
     },
+    studio: {
+      title: "Atelier d'Images par IA",
+      subtitle: "Donnez vie à vos idées. Décrivez une image et laissez l'IA la créer pour vous.",
+      cardTitle: "Prompt pour l'image",
+      cardDescription: "Soyez aussi descriptif que possible pour obtenir les meilleurs résultats.",
+      promptPlaceholder: "ex: 'Une image photoréaliste d'un chat portant un petit chapeau de sorcier, assis dans une bibliothèque'",
+      button: "Générer l'image",
+      loadingText: "Votre chef-d'œuvre est en cours de création...",
+      errorTitle: "Erreur de génération",
+      errorDescription: "L'IA n'a pas pu générer d'image. Cela peut être dû à un filtre de sécurité ou à un problème temporaire. Veuillez essayer un autre prompt.",
+      resultTitle: "Votre Image Générée",
+      waitingTitle: "Votre toile est prête.",
+      waitingDescription: "Qu'allez-vous créer aujourd'hui ?",
+    },
   },
   es: {
     searchForm: {
@@ -380,6 +422,20 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       noFavoritesTitle: "Aún no hay favoritos",
       noFavoritesSubtitle: "Haz clic en el icono de estrella en cualquier herramienta para agregarla a tus favoritos.",
       discoverTools: "Descubrir herramientas",
+    },
+    studio: {
+      title: "Estudio de Imágenes con IA",
+      subtitle: "Da vida a tus ideas. Describe una imagen y deja que la IA la cree por ti.",
+      cardTitle: "Prompt de imagen",
+      cardDescription: "Sé lo más descriptivo posible para obtener los mejores resultados.",
+      promptPlaceholder: "ej: 'Una imagen fotorrealista de un gato con un pequeño sombrero de mago, sentado en una biblioteca'",
+      button: "Generar Imagen",
+      loadingText: "Tu obra maestra se está generando...",
+      errorTitle: "Error de Generación",
+      errorDescription: "La IA no pudo generar una imagen. Esto podría deberse a un filtro de seguridad o a un problema temporal. Por favor, intenta con un prompt diferente.",
+      resultTitle: "Tu Imagen Generada",
+      waitingTitle: "Tu lienzo está listo.",
+      waitingDescription: "¿Qué crearás hoy?",
     },
   },
 };

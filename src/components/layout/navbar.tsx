@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { LogIn } from 'lucide-react';
+import { LogIn, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import UserNav from './user-nav';
 import { useAuth } from '@/hooks/use-auth';
@@ -30,12 +30,13 @@ export default function Navbar() {
           <span className="hidden font-bold text-2xl sm:inline-block">IAIA</span>
         </Link>
 
-        <nav className="flex flex-1 items-center space-x-4">
-          {/* Add nav links here if needed, e.g.,
-          <Link href="/features" className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary">
-            Features
-          </Link>
-          */}
+        <nav className="flex flex-1 items-center space-x-2">
+           <Button variant="ghost" asChild>
+                <Link href="/studio">
+                  <Sparkles className="h-5 w-5 sm:mr-2" />
+                  <span className="hidden sm:inline">Studio</span>
+                </Link>
+            </Button>
         </nav>
         <div className="flex items-center space-x-1 sm:space-x-2">
           <LanguageSwitcher />
