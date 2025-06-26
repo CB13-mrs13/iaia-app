@@ -80,6 +80,7 @@ export default function PasswordSettings() {
             numberOfPieces={500}
             gravity={0.3}
             spread={360}
+            initialVelocity={30}
             origin={{ x: 0.5, y: 0.5 }}
           />
       )}

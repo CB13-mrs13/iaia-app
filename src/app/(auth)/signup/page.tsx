@@ -35,12 +35,13 @@ export default function SignUpPage() {
     setTimeout(() => {
       router.push('/');
       router.refresh();
-    }, 1500); 
+    }, 2500); 
   };
   
-  if (loading || (!loading && user)) {
-    return null;
-  }
+  // This check is removed to allow the confetti to display during the signup process.
+  // if (loading || (!loading && user)) {
+  //   return null;
+  // }
 
   return (
     <>
@@ -52,6 +53,7 @@ export default function SignUpPage() {
           numberOfPieces={500}
           gravity={0.3}
           spread={360}
+          initialVelocity={30}
           origin={{ x: 0.5, y: 0.5 }}
         />
       )}
