@@ -6,13 +6,15 @@ import type { SuggestAiToolOutput } from '@/ai/flows/suggest-ai-tool';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { CheckCircle, Info } from 'lucide-react';
-import { aiTools } from '@/lib/data'; // To find the tool's website
+import { aiTools, createSlug } from '@/lib/data';
+import { useLanguage } from '@/hooks/use-language';
 
 interface AiSearchResultsProps {
   result: SuggestAiToolOutput;
 }
 
 export default function AiSearchResults({ result }: AiSearchResultsProps) {
+  const { language } = useLanguage();
   const suggestedToolDetails = aiTools.find(tool => tool.name === result.suggestedTool);
 
   return (
@@ -27,7 +29,7 @@ export default function AiSearchResults({ result }: AiSearchResultsProps) {
         <div>
           <h3 className="font-semibold text-lg">Suggested Tool: <span className="text-primary">{result.suggestedTool}</span></h3>
           {suggestedToolDetails && (
-            <p className="text-sm text-muted-foreground">{suggestedToolDetails.description}</p>
+            <p className="text-sm text-muted-foreground">{suggestedToolDetails.description[language] || suggestedToolDetails.description.en}</p>
           )}
         </div>
         <div>
@@ -36,8 +38,8 @@ export default function AiSearchResults({ result }: AiSearchResultsProps) {
         </div>
         {suggestedToolDetails && (
           <Button asChild variant="default" className="mt-2">
-            <Link href={suggestedToolDetails.website} target="_blank" rel="noopener noreferrer">
-              Visit {result.suggestedTool}
+            <Link href={`/tool/${createSlug(suggestedToolDetails.name)}`}>
+              Learn more about {result.suggestedTool}
             </Link>
           </Button>
         )}

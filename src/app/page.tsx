@@ -33,12 +33,15 @@ export default function HomePage() {
     return aiTools
       // This no longer excludes featured tools, so they appear in their categories.
       .filter(tool => selectedCategory ? tool.category === selectedCategory : true)
-      .filter(tool => 
-        tool.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        tool.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        (tool.tags && tool.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase())))
-      );
-  }, [selectedCategory, searchTerm]);
+      .filter(tool => {
+        const description = tool.description[language] || tool.description.en;
+        return (
+          tool.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          (tool.tags && tool.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase())))
+        );
+      });
+  }, [selectedCategory, searchTerm, language]);
 
   return (
     <div className="space-y-12 animate-slideInUp">
@@ -50,8 +53,7 @@ export default function HomePage() {
       {featuredTools.length > 0 && (
         <section id="featured-ais">
           <header className="mb-8 text-center">
-            <h2 className="text-3xl font-bold tracking-tight mb-2">
-              <Zap className="inline-block -mt-1 mr-2 h-7 w-7" />
+            <h2 className="text-3xl font-bold tracking-tight mb-2 text-foreground">
               {t.featuredTitle}
             </h2>
             <p className="text-lg text-muted-foreground">
@@ -68,7 +70,7 @@ export default function HomePage() {
       
       <section id="tool-listing">
         <header className="mb-8 text-center">
-          <h1 className="text-3xl font-bold tracking-tight mb-2">{t.discoverTitle}</h1>
+          <h1 className="text-3xl font-bold tracking-tight mb-2 text-foreground">{t.discoverTitle}</h1>
           <p className="text-lg text-muted-foreground">
             {t.discoverSubtitle}
           </p>

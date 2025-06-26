@@ -1,5 +1,6 @@
 
 import type { LucideIcon } from 'lucide-react';
+import type { SupportedLanguage } from '@/contexts/language-context';
 
 export type AiToolCategory =
   | 'LLM'
@@ -14,8 +15,8 @@ export type AiToolCategory =
 export interface AiTool {
   id: string;
   name: string;
-  description: string;
-  longDescription?: string;
+  description: Record<SupportedLanguage, string>;
+  longDescription?: Record<SupportedLanguage, string>;
   category: AiToolCategory;
   icon?: LucideIcon; // For category icon display, specific to tool or generic for category
   imageUrl?: string;
@@ -24,6 +25,6 @@ export interface AiTool {
   rating?: number; // Optional rating 0-5
   tags?: string[];
   pricing?: 'Free' | 'Freemium' | 'Paid' | 'Contact for Pricing';
-  features?: string[];
+  features?: Record<SupportedLanguage, string[]>;
   isSponsored?: boolean;
 }

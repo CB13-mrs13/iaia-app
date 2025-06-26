@@ -3,14 +3,15 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowUpRight, Star } from 'lucide-react';
+import { Star } from 'lucide-react';
 import type { AiTool } from '@/types';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
 import { getCategoryIcon } from '@/lib/icons';
 import { cn } from '@/lib/utils';
 import { createSlug } from '@/lib/data';
+import { useLanguage } from '@/hooks/use-language';
+import { translations } from '@/lib/translations';
 
 interface AiToolCardProps {
   tool: AiTool;
@@ -18,11 +19,13 @@ interface AiToolCardProps {
 }
 
 export default function AiToolCard({ tool, featured = false }: AiToolCardProps) {
+  const { language } = useLanguage();
+  const t = translations[language].toolPage;
   const CategoryIcon = getCategoryIcon(tool.category);
   const slug = createSlug(tool.name);
 
-  // Construct a fallback hint if imageKeywords is not present or empty
   const aiHint = tool.imageKeywords || tool.name.toLowerCase().split(' ').slice(0, 2).join(' ') || `${tool.category.toLowerCase()} abstract`;
+  const description = tool.description[language] || tool.description.en;
 
   return (
     <Link href={`/tool/${slug}`} className="flex h-full">
@@ -46,11 +49,11 @@ export default function AiToolCard({ tool, featured = false }: AiToolCardProps) 
           <div className="flex items-start justify-between">
             <div className="flex flex-col gap-1">
                <CardTitle className="text-xl font-semibold">{tool.name}</CardTitle>
-               {tool.isSponsored && <Badge variant="default">Sponsorisé</Badge>}
+               {tool.isSponsored && <Badge variant="default">{t.sponsored}</Badge>}
             </div>
             {CategoryIcon && <CategoryIcon className="h-6 w-6 text-primary" />}
           </div>
-          <CardDescription className="text-sm text-muted-foreground min-h-[3rem] pt-2">{tool.description}</CardDescription>
+          <CardDescription className="text-sm text-muted-foreground min-h-[3rem] pt-2">{description}</CardDescription>
         </CardHeader>
         <CardContent className="flex-grow">
           <div className="space-y-2">
@@ -62,7 +65,7 @@ export default function AiToolCard({ tool, featured = false }: AiToolCardProps) 
               </div>
             )}
             {tool.pricing && (
-              <p className="text-xs text-muted-foreground">Pricing: <Badge variant="outline" className="text-xs">{tool.pricing}</Badge></p>
+              <p className="text-xs text-muted-foreground">{t.pricingLabel}: <Badge variant="outline" className="text-xs">{tool.pricing}</Badge></p>
             )}
             {tool.rating && (
               <div className="flex items-center text-xs text-muted-foreground">

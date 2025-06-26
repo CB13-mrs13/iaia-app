@@ -24,6 +24,16 @@ type PageTranslations = {
     title: string;
     allToolsButton: string;
   };
+  toolPage: {
+    backToAllTools: string;
+    sponsored: string;
+    ratingLabel: string;
+    pricingLabel: string;
+    tagsLabel: string;
+    visitWebsite: string;
+    aboutTitle: string;
+    featuresTitle: string;
+  };
   account: {
     title: string;
     subtitle: string;
@@ -100,6 +110,16 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       title: "Filter by Category",
       allToolsButton: "All Tools",
     },
+    toolPage: {
+      backToAllTools: "Back to All Tools",
+      sponsored: "Sponsored",
+      ratingLabel: "Rating",
+      pricingLabel: "Pricing",
+      tagsLabel: "Tags",
+      visitWebsite: "Visit Website",
+      aboutTitle: "About {toolName}",
+      featuresTitle: "Key Features",
+    },
     account: {
       title: "Account Settings",
       subtitle: "Manage your account details and preferences.",
@@ -172,6 +192,16 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       title: "Filtrer par catégorie",
       allToolsButton: "Tous les outils",
     },
+    toolPage: {
+      backToAllTools: "Retour à tous les outils",
+      sponsored: "Sponsorisé",
+      ratingLabel: "Évaluation",
+      pricingLabel: "Tarifs",
+      tagsLabel: "Mots-clés",
+      visitWebsite: "Visiter le site web",
+      aboutTitle: "À propos de {toolName}",
+      featuresTitle: "Fonctionnalités clés",
+    },
     account: {
       title: "Paramètres du compte",
       subtitle: "Gérez les détails et préférences de votre compte.",
@@ -243,6 +273,16 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
     filters: {
       title: "Filtrar por Categoría",
       allToolsButton: "Todas las Herramientas",
+    },
+    toolPage: {
+      backToAllTools: "Volver a todas las herramientas",
+      sponsored: "Patrocinado",
+      ratingLabel: "Valoración",
+      pricingLabel: "Precios",
+      tagsLabel: "Etiquetas",
+      visitWebsite: "Visitar el sitio web",
+      aboutTitle: "Acerca de {toolName}",
+      featuresTitle: "Características principales",
     },
     account: {
       title: "Configuración de la cuenta",
