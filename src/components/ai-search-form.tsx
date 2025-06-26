@@ -60,7 +60,7 @@ export default function AiSearchForm() {
   return (
     <Card className="mb-12 shadow-lg border border-primary/20">
       <CardHeader>
-        <CardTitle className="text-2xl font-semibold text-primary">{t.title}</CardTitle>
+        <CardTitle className="text-3xl font-bold tracking-tight">{t.title}</CardTitle>
         <CardDescription>{t.description}</CardDescription>
       </CardHeader>
       <CardContent>

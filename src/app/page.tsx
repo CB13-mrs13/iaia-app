@@ -50,7 +50,7 @@ export default function HomePage() {
       {featuredTools.length > 0 && (
         <section id="featured-ais">
           <header className="mb-8 text-center">
-            <h2 className="text-3xl font-bold tracking-tight mb-2 text-accent">
+            <h2 className="text-3xl font-bold tracking-tight mb-2">
               <Zap className="inline-block -mt-1 mr-2 h-7 w-7" />
               {t.featuredTitle}
             </h2>
@@ -68,7 +68,7 @@ export default function HomePage() {
       
       <section id="tool-listing">
         <header className="mb-8 text-center">
-          <h1 className="text-4xl font-bold tracking-tight mb-2">{t.discoverTitle}</h1>
+          <h1 className="text-3xl font-bold tracking-tight mb-2">{t.discoverTitle}</h1>
           <p className="text-lg text-muted-foreground">
             {t.discoverSubtitle}
           </p>
