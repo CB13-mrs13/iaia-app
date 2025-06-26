@@ -4,12 +4,14 @@
 import { useAuth } from "@/hooks/use-auth";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
-import { Loader2, Star } from "lucide-react";
+import { Loader2, Star, Home } from "lucide-react";
 import { useLanguage } from "@/hooks/use-language";
 import { translations } from "@/lib/translations";
 import { useFavorites } from "@/hooks/use-favorites";
 import { aiTools } from "@/lib/data";
 import AiToolCard from "@/components/ai-tool-card";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export default function FavoritesPage() {
   const { user, loading: authLoading } = useAuth();
@@ -50,10 +52,16 @@ export default function FavoritesPage() {
           ))}
         </div>
       ) : (
-        <div className="text-center py-12 border-2 border-dashed rounded-lg">
+        <div className="text-center py-12 border-2 border-dashed rounded-lg flex flex-col items-center gap-4">
           <Star className="mx-auto h-12 w-12 text-muted-foreground" />
-          <h3 className="mt-4 text-lg font-medium">{t.noFavoritesTitle}</h3>
+          <h3 className="mt-2 text-lg font-medium">{t.noFavoritesTitle}</h3>
           <p className="mt-1 text-sm text-muted-foreground">{t.noFavoritesSubtitle}</p>
+          <Button asChild variant="outline" className="mt-4">
+            <Link href="/">
+              <Home className="mr-2 h-4 w-4" />
+              {t.discoverTools}
+            </Link>
+          </Button>
         </div>
       )}
     </div>

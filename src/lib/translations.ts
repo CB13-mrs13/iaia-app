@@ -95,6 +95,7 @@ type PageTranslations = {
     subtitle: string;
     noFavoritesTitle: string;
     noFavoritesSubtitle: string;
+    discoverTools: string;
   };
 };
 
@@ -190,6 +191,7 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       subtitle: "Your handpicked collection of top AI tools.",
       noFavoritesTitle: "No favorites yet",
       noFavoritesSubtitle: "Click the star icon on any tool to add it to your favorites.",
+      discoverTools: "Discover Tools",
     },
   },
   fr: {
@@ -203,7 +205,7 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       featuredTitle: "Les IA à la Une",
       featuredSubtitle: "Les outils IA les plus en vogue du moment, sélectionnés pour vous.",
       discoverTitle: "Découvrez les meilleurs outils d'IA",
-      discoverSubtitle: "Parcourez notre liste d'outils d'IA ou utilisez les filtres pour trouver exactement ce dont vous avez besoin.",
+      discoverSubtitle: "Parcourez notre liste d'outils d'IA ou utilisez les filtres pour trouver exactly ce dont vous avez besoin.",
       searchPlaceholder: "Rechercher des outils par nom, description ou mot-clé...",
       noToolsFound: "Aucun outil ne correspond à vos critères.",
       tryAdjustingFilters: "Essayez de modifier vos filtres ou votre terme de recherche.",
@@ -283,6 +285,7 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       subtitle: "Votre collection personnelle des meilleurs outils IA.",
       noFavoritesTitle: "Aucun favori pour le moment",
       noFavoritesSubtitle: "Cliquez sur l'icône étoile sur n'importe quel outil pour l'ajouter à vos favoris.",
+      discoverTools: "Découvrir des outils",
     },
   },
   es: {
@@ -376,6 +379,7 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       subtitle: "Tu colección personal de las mejores herramientas de IA.",
       noFavoritesTitle: "Aún no hay favoritos",
       noFavoritesSubtitle: "Haz clic en el icono de estrella en cualquier herramienta para agregarla a tus favoritos.",
+      discoverTools: "Descubrir herramientas",
     },
   },
 };
