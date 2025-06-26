@@ -11,6 +11,8 @@ type PageTranslations = {
     button: string;
   };
   home: {
+    featuredTitle: string;
+    featuredSubtitle: string;
     discoverTitle: string;
     discoverSubtitle: string;
     searchPlaceholder: string;
@@ -31,8 +33,6 @@ type PageTranslations = {
     passwordSubtitle: string;
     dangerZoneTitle: string;
     dangerZoneSubtitle: string;
-    avatar: string;
-    changeAvatar: string;
     displayName: string;
     displayNamePlaceholder: string;
     email: string;
@@ -58,7 +58,6 @@ type PageTranslations = {
     updateFailedToastTitle: string;
     updateFailedToastDesc: string;
     reauthToastDesc: string;
-    storageUnauthorizedToastDesc: string;
     passwordUpdatedToastTitle: string;
     passwordUpdatedToastDesc: string;
     accountDeletedToastTitle: string;
@@ -88,6 +87,8 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       button: "Get Suggestion",
     },
     home: {
+      featuredTitle: "Featured AIs",
+      featuredSubtitle: "The hottest AI tools of the moment, selected for you.",
       discoverTitle: "Discover Top AI Tools",
       discoverSubtitle: "Browse our curated list of AI tools or use filters to find exactly what you need.",
       searchPlaceholder: "Search tools by name, description, or tag...",
@@ -103,13 +104,11 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       title: "Account Settings",
       subtitle: "Manage your account details and preferences.",
       profileTitle: "Profile Information",
-      profileSubtitle: "Update your personal information and avatar.",
+      profileSubtitle: "Update your personal information.",
       passwordTitle: "Password Settings",
       passwordSubtitle: "Change your account password.",
       dangerZoneTitle: "Danger Zone",
       dangerZoneSubtitle: "Actions in this zone are irreversible.",
-      avatar: "Avatar",
-      changeAvatar: "Change Avatar",
       displayName: "Display Name",
       displayNamePlaceholder: "Your display name",
       email: "Email",
@@ -134,7 +133,6 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       updateFailedToastTitle: "Update Failed",
       updateFailedToastDesc: "Could not update your profile. Please try again.",
       reauthToastDesc: "This operation is sensitive and requires recent authentication. Please log out and log back in.",
-      storageUnauthorizedToastDesc: "You are not authorized to upload this file. Check your Firebase Storage security rules.",
       passwordUpdatedToastTitle: "Password Updated",
       passwordUpdatedToastDesc: "Your password has been successfully changed.",
       accountDeletedToastTitle: "Account Deleted",
@@ -161,6 +159,8 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       button: "Obtenir une suggestion",
     },
     home: {
+      featuredTitle: "Les IA à la Une",
+      featuredSubtitle: "Les outils IA les plus en vogue du moment, sélectionnés pour vous.",
       discoverTitle: "Découvrez les meilleurs outils d'IA",
       discoverSubtitle: "Parcourez notre liste d'outils d'IA ou utilisez les filtres pour trouver exactement ce dont vous avez besoin.",
       searchPlaceholder: "Rechercher des outils par nom, description ou mot-clé...",
@@ -176,13 +176,11 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       title: "Paramètres du compte",
       subtitle: "Gérez les détails et préférences de votre compte.",
       profileTitle: "Informations de profil",
-      profileSubtitle: "Mettez à jour vos informations personnelles et votre avatar.",
+      profileSubtitle: "Mettez à jour vos informations personnelles.",
       passwordTitle: "Paramètres du mot de passe",
       passwordSubtitle: "Changez le mot de passe de votre compte.",
       dangerZoneTitle: "Zone de danger",
       dangerZoneSubtitle: "Les actions dans cette zone sont irréversibles.",
-      avatar: "Avatar",
-      changeAvatar: "Changer d'Avatar",
       displayName: "Nom d'affichage",
       displayNamePlaceholder: "Votre nom d'affichage",
       email: "Email",
@@ -207,7 +205,6 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       updateFailedToastTitle: "Échec de la mise à jour",
       updateFailedToastDesc: "Impossible de mettre à jour votre profil. Veuillez réessayer.",
       reauthToastDesc: "Cette opération nécessite une authentification récente. Veuillez vous déconnecter et vous reconnecter.",
-      storageUnauthorizedToastDesc: "Vous n'êtes pas autorisé à téléverser ce fichier. Vérifiez les règles de sécurité de Firebase Storage.",
       passwordUpdatedToastTitle: "Mot de passe mis à jour",
       passwordUpdatedToastDesc: "Votre mot de passe a été changé avec succès.",
       accountDeletedToastTitle: "Compte supprimé",
@@ -234,6 +231,8 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       button: "Obtener Sugerencia",
     },
     home: {
+      featuredTitle: "IA Destacadas",
+      featuredSubtitle: "Las herramientas de IA más populares del momento, seleccionadas para ti.",
       discoverTitle: "Descubre las Mejores Herramientas de IA",
       discoverSubtitle: "Navega por nuestra lista de herramientas de IA o usa filtros para encontrar exactamente lo que necesitas.",
       searchPlaceholder: "Buscar herramientas por nombre, descripción o etiqueta...",
@@ -249,13 +248,11 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       title: "Configuración de la cuenta",
       subtitle: "Gestiona los detalles y preferencias de tu cuenta.",
       profileTitle: "Información del perfil",
-      profileSubtitle: "Actualiza tu información personal y tu avatar.",
+      profileSubtitle: "Actualiza tu información personal.",
       passwordTitle: "Configuración de la contraseña",
       passwordSubtitle: "Cambia la contraseña de tu cuenta.",
       dangerZoneTitle: "Zona de peligro",
       dangerZoneSubtitle: "Las acciones en esta zona son irreversibles.",
-      avatar: "Avatar",
-      changeAvatar: "Cambiar avatar",
       displayName: "Nombre de usuario",
       displayNamePlaceholder: "Tu nombre de usuario",
       email: "Correo electrónico",
@@ -280,7 +277,6 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       updateFailedToastTitle: "Error al actualizar",
       updateFailedToastDesc: "No se pudo actualizar tu perfil. Por favor, inténtalo de nuevo.",
       reauthToastDesc: "Esta operación es sensible y requiere autenticación reciente. Cierra sesión y vuelve a iniciar sesión.",
-      storageUnauthorizedToastDesc: "No tienes autorización para subir este archivo. Revisa tus reglas de seguridad de Firebase Storage.",
       passwordUpdatedToastTitle: "Contraseña actualizada",
       passwordUpdatedToastDesc: "Tu contraseña ha sido cambiada exitosamente.",
       accountDeletedToastTitle: "Cuenta eliminada",

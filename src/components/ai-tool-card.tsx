@@ -9,19 +9,24 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { getCategoryIcon } from '@/lib/icons';
+import { cn } from '@/lib/utils';
 
 interface AiToolCardProps {
   tool: AiTool;
+  featured?: boolean;
 }
 
-export default function AiToolCard({ tool }: AiToolCardProps) {
+export default function AiToolCard({ tool, featured = false }: AiToolCardProps) {
   const CategoryIcon = getCategoryIcon(tool.category);
 
   // Construct a fallback hint if imageKeywords is not present or empty
   const aiHint = tool.imageKeywords || tool.name.toLowerCase().split(' ').slice(0, 2).join(' ') || `${tool.category.toLowerCase()} abstract`;
 
   return (
-    <Card className="flex flex-col h-full overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-lg">
+    <Card className={cn(
+        "flex flex-col h-full overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-lg",
+        featured && "border-2 border-accent shadow-accent/20"
+      )}>
       <CardHeader>
         {tool.imageUrl && (
           <div className="relative w-full h-40 mb-4 overflow-hidden rounded-t-lg">
