@@ -25,16 +25,16 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
       </head>
       <body className="font-body antialiased flex flex-col min-h-screen" suppressHydrationWarning={true}>
-        <LanguageProvider> {/* Wrap AuthProvider with LanguageProvider */}
-          <AuthProvider>
+        <AuthProvider>
+          <LanguageProvider>
             <Navbar />
             <main className="flex-grow container mx-auto px-4 py-8">
               {children}
             </main>
             <Footer />
             <Toaster />
-          </AuthProvider>
-        </LanguageProvider>
+          </LanguageProvider>
+        </AuthProvider>
       </body>
     </html>
   );
