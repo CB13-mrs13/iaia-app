@@ -74,17 +74,27 @@ type PageTranslations = {
     accountDeletedToastDesc: string;
     deleteFailedToastTitle: string;
     deleteFailedToastDesc: string;
+    favoriteAddedToastTitle: string;
+    favoriteRemovedToastTitle: string;
+    favoriteErrorToastDesc: string;
   };
   userNav: {
     home: string;
     accountSettings: string;
     signOut: string;
     user: string;
+    myFavorites: string;
     // Toasts
     signOutSuccessToastTitle: string;
     signOutSuccessToastDesc: string;
     signOutErrorToastTitle: string;
     signOutErrorToastDesc: string;
+  };
+  favoritesPage: {
+    title: string;
+    subtitle: string;
+    noFavoritesTitle: string;
+    noFavoritesSubtitle: string;
   };
 };
 
@@ -159,16 +169,27 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       accountDeletedToastDesc: "Your account has been permanently deleted.",
       deleteFailedToastTitle: "Deletion Failed",
       deleteFailedToastDesc: "Could not delete your account. Please try again.",
+      favoriteAddedToastTitle: "Added to Favorites",
+      favoriteRemovedToastTitle: "Removed from Favorites",
+      favoriteErrorToastDesc: "Could not update favorites. Please try again.",
     },
     userNav: {
       home: "Home",
       accountSettings: "Account Settings",
       signOut: "Sign Out",
       user: "User",
+      myFavorites: "My Favorites",
+      // Toasts
       signOutSuccessToastTitle: "Signed Out",
       signOutSuccessToastDesc: "You have been successfully signed out.",
       signOutErrorToastTitle: "Sign Out Error",
       signOutErrorToastDesc: "Failed to sign out. Please try again.",
+    },
+    favoritesPage: {
+      title: "My Favorites",
+      subtitle: "Your handpicked collection of top AI tools.",
+      noFavoritesTitle: "No favorites yet",
+      noFavoritesSubtitle: "Click the star icon on any tool to add it to your favorites.",
     },
   },
   fr: {
@@ -241,16 +262,27 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       accountDeletedToastDesc: "Votre compte a été supprimé définitivement.",
       deleteFailedToastTitle: "Échec de la suppression",
       deleteFailedToastDesc: "Impossible de supprimer votre compte. Veuillez réessayer.",
+      favoriteAddedToastTitle: "Ajouté aux favoris",
+      favoriteRemovedToastTitle: "Retiré des favoris",
+      favoriteErrorToastDesc: "Impossible de mettre à jour les favoris. Veuillez réessayer.",
     },
     userNav: {
       home: "Accueil",
       accountSettings: "Paramètres du compte",
       signOut: "Se déconnecter",
       user: "Utilisateur",
+      myFavorites: "Mes Favoris",
+      // Toasts
       signOutSuccessToastTitle: "Déconnecté",
       signOutSuccessToastDesc: "Vous avez été déconnecté avec succès.",
       signOutErrorToastTitle: "Erreur de déconnexion",
       signOutErrorToastDesc: "Échec de la déconnexion. Veuillez réessayer.",
+    },
+    favoritesPage: {
+      title: "Mes Favoris",
+      subtitle: "Votre collection personnelle des meilleurs outils IA.",
+      noFavoritesTitle: "Aucun favori pour le moment",
+      noFavoritesSubtitle: "Cliquez sur l'icône étoile sur n'importe quel outil pour l'ajouter à vos favoris.",
     },
   },
   es: {
@@ -323,16 +355,27 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       accountDeletedToastDesc: "Tu cuenta ha sido eliminada permanentemente.",
       deleteFailedToastTitle: "Error al eliminar",
       deleteFailedToastDesc: "No se pudo eliminar tu cuenta. Por favor, inténtalo de nuevo.",
+      favoriteAddedToastTitle: "Añadido a favoritos",
+      favoriteRemovedToastTitle: "Eliminado de favoritos",
+      favoriteErrorToastDesc: "No se pudieron actualizar los favoritos. Por favor, inténtalo de nuevo.",
     },
     userNav: {
       home: "Inicio",
       accountSettings: "Configuración de la cuenta",
       signOut: "Cerrar sesión",
       user: "Usuario",
+      myFavorites: "Mis Favoritos",
+      // Toasts
       signOutSuccessToastTitle: "Sesión cerrada",
       signOutSuccessToastDesc: "Has cerrado sesión correctamente.",
       signOutErrorToastTitle: "Error al cerrar sesión",
       signOutErrorToastDesc: "No se pudo cerrar la sesión. Por favor, inténtalo de nuevo.",
+    },
+    favoritesPage: {
+      title: "Mis Favoritos",
+      subtitle: "Tu colección personal de las mejores herramientas de IA.",
+      noFavoritesTitle: "Aún no hay favoritos",
+      noFavoritesSubtitle: "Haz clic en el icono de estrella en cualquier herramienta para agregarla a tus favoritos.",
     },
   },
 };

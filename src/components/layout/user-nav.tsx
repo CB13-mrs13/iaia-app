@@ -13,7 +13,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { LogOut, User as UserIcon, Settings, Home } from 'lucide-react';
+import { LogOut, User as UserIcon, Settings, Home, Star } from 'lucide-react';
 import type { User } from 'firebase/auth';
 import { signOutUser } from '@/lib/firebase/auth';
 import { useToast } from '@/hooks/use-toast';
@@ -81,6 +81,12 @@ export default function UserNav({ user }: UserNavProps) {
             <Link href="/">
               <Home className="mr-2 h-4 w-4" />
               <span>{t.home}</span>
+            </Link>
+          </DropdownMenuItem>
+          <DropdownMenuItem asChild>
+            <Link href="/account/favorites">
+              <Star className="mr-2 h-4 w-4" />
+              <span>{t.myFavorites}</span>
             </Link>
           </DropdownMenuItem>
           <DropdownMenuItem asChild>

@@ -6,11 +6,14 @@ import Link from 'next/link';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { ArrowLeft, ArrowUpRight, CheckCircle, Star } from 'lucide-react';
+import { ArrowLeft, ArrowUpRight, CheckCircle, Star, Loader2 } from 'lucide-react';
 import { getCategoryIcon } from '@/lib/icons';
 import { useLanguage } from '@/hooks/use-language';
 import { translations } from '@/lib/translations';
 import type { AiTool } from '@/types';
+import { useAuth } from '@/hooks/use-auth';
+import { useFavorites } from '@/hooks/use-favorites';
+import { cn } from '@/lib/utils';
 
 interface ToolPageClientProps {
   tool: AiTool;
@@ -18,6 +21,8 @@ interface ToolPageClientProps {
 
 export default function ToolPageClient({ tool }: ToolPageClientProps) {
   const { language } = useLanguage();
+  const { user } = useAuth();
+  const { isFavorite, toggleFavorite, isToggling } = useFavorites();
   
   const t = translations[language].toolPage;
   const CategoryIcon = getCategoryIcon(tool.category);
@@ -25,6 +30,7 @@ export default function ToolPageClient({ tool }: ToolPageClientProps) {
   const description = tool.description[language] || tool.description.en;
   const longDescription = tool.longDescription?.[language] || tool.longDescription?.en;
   const features = tool.features?.[language] || tool.features?.en;
+  const isToolFavorite = isFavorite(tool.id);
 
   return (
     <div className="max-w-4xl mx-auto animate-fadeIn space-y-8">
@@ -64,7 +70,28 @@ export default function ToolPageClient({ tool }: ToolPageClientProps) {
                 <Badge variant="secondary">{tool.category}</Badge>
                 {tool.isSponsored && <Badge variant="default">{t.sponsored}</Badge>}
               </div>
-              <CardTitle className="text-3xl font-bold">{tool.name}</CardTitle>
+              <div className="flex items-center gap-4">
+                <CardTitle className="text-3xl font-bold">{tool.name}</CardTitle>
+                {user && (
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    className="h-9 w-9 flex-shrink-0 rounded-full"
+                    onClick={() => !isToggling && toggleFavorite(tool.id)}
+                    disabled={isToggling}
+                    aria-label="Toggle Favorite"
+                  >
+                    {isToggling ? (
+                      <Loader2 className="h-5 w-5 animate-spin" />
+                    ) : (
+                      <Star className={cn(
+                        "h-5 w-5 transition-all",
+                        isToolFavorite ? "text-primary fill-primary" : "text-muted-foreground"
+                      )} />
+                    )}
+                  </Button>
+                )}
+              </div>
               <CardDescription className="pt-2">{description}</CardDescription>
             </CardHeader>
             
