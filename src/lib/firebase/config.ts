@@ -13,9 +13,9 @@ const firebaseConfig = {
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };
 
-// This check provides a more specific error message if the API key is missing.
-if (!firebaseConfig.apiKey) {
-  throw new Error("Your Firebase API key is missing. Please check your .env file and ensure NEXT_PUBLIC_FIREBASE_API_KEY is set correctly. You may need to restart the development server.");
+// This check provides a more specific error message if the API key is missing or is a placeholder.
+if (!firebaseConfig.apiKey || firebaseConfig.apiKey.includes("paste_your")) {
+  throw new Error("Firebase API key not loaded. Please check your .env file at the project root. Ensure NEXT_PUBLIC_FIREBASE_API_KEY is pasted correctly. IMPORTANT: You must restart the development server after editing the .env file.");
 }
 
 let app: FirebaseApp;
