@@ -5,7 +5,6 @@ import type { User } from 'firebase/auth';
 import { onAuthStateChanged } from 'firebase/auth';
 import { createContext, useEffect, useState, type ReactNode } from 'react';
 import { auth } from '@/lib/firebase/config';
-import { Loader2 } from 'lucide-react';
 
 interface AuthContextType {
   user: User | null;
@@ -31,14 +30,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     return () => unsubscribe();
   }, []);
 
-  if (loading) {
-    return (
-      <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-background">
-        <Loader2 className="h-12 w-12 animate-spin text-primary" />
-      </div>
-    );
-  }
-
+  // By removing the global loader, the page content renders immediately.
+  // Components that rely on auth state will handle their own loading state.
   return (
     <AuthContext.Provider value={{ user, loading, setUser }}>
       {children}
