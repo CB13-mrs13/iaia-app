@@ -105,9 +105,9 @@ export default function ProfileSettings({ user }: ProfileSettingsProps) {
           height={height}
           recycle={false}
           numberOfPieces={500}
-          gravity={0.3}
+          gravity={0.2}
           spread={360}
-          initialVelocity={30}
+          initialVelocity={40}
           origin={{ x: 0.5, y: 0.5 }}
         />
       )}

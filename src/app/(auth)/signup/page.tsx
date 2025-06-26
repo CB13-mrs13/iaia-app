@@ -38,10 +38,10 @@ export default function SignUpPage() {
     }, 2500); 
   };
   
-  // This check is removed to allow the confetti to display during the signup process.
-  // if (loading || (!loading && user)) {
-  //   return null;
-  // }
+  if (loading || (!loading && user)) {
+     // Show loading or prevent rendering form if already logged in and redirecting
+    return null;
+  }
 
   return (
     <>
@@ -51,9 +51,9 @@ export default function SignUpPage() {
           height={height}
           recycle={false}
           numberOfPieces={500}
-          gravity={0.3}
+          gravity={0.2}
           spread={360}
-          initialVelocity={30}
+          initialVelocity={40}
           origin={{ x: 0.5, y: 0.5 }}
         />
       )}
