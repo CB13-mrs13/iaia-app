@@ -25,5 +25,5 @@ export interface AiTool {
   tags?: string[];
   pricing?: 'Free' | 'Freemium' | 'Paid' | 'Contact for Pricing';
   features?: string[];
+  isSponsored?: boolean;
 }
-

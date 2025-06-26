@@ -40,11 +40,14 @@ export default function AiToolCard({ tool, featured = false }: AiToolCardProps) 
             />
           </div>
         )}
-        <div className="flex items-center justify-between">
-          <CardTitle className="text-xl font-semibold">{tool.name}</CardTitle>
+        <div className="flex items-start justify-between">
+          <div className="flex flex-col gap-1">
+             <CardTitle className="text-xl font-semibold">{tool.name}</CardTitle>
+             {tool.isSponsored && <Badge variant="default">Sponsorisé</Badge>}
+          </div>
           {CategoryIcon && <CategoryIcon className="h-6 w-6 text-primary" />}
         </div>
-        <CardDescription className="text-sm text-muted-foreground min-h-[3rem]">{tool.description}</CardDescription>
+        <CardDescription className="text-sm text-muted-foreground min-h-[3rem] pt-2">{tool.description}</CardDescription>
       </CardHeader>
       <CardContent className="flex-grow">
         <div className="space-y-2">
