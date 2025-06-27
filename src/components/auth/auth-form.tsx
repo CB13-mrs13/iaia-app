@@ -8,13 +8,13 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { Loader2, Eye, EyeOff, Bot } from 'lucide-react';
+import { Loader2, Eye, EyeOff, Bot, Mail, User, LockKeyhole } from 'lucide-react';
 import { useState, useTransition } from 'react';
 import Link from 'next/link';
 import { useToast } from '@/hooks/use-toast';
 
 const commonSchema = {
-  email: z.string().email({ message: "Invalid email address." }),
+  email: z.string().trim().email({ message: "Invalid email address." }),
   password: z.string().min(6, { message: "Password must be at least 6 characters." }),
 };
 
@@ -56,6 +56,9 @@ export default function AuthForm({ mode, onSubmit }: AuthFormProps) {
             errorMessage = "Firebase API Key is not valid. Check your .env.local file and ensure all NEXT_PUBLIC_FIREBASE_* variables are correct. You MUST restart the dev server after making changes.";
         } else if (err.code) {
           switch (err.code) {
+            case 'auth/invalid-email':
+              errorMessage = "The email address is not valid. Please check and try again.";
+              break;
             case 'auth/user-not-found':
             case 'auth/wrong-password':
               errorMessage = "Invalid email or password.";
@@ -97,7 +100,10 @@ export default function AuthForm({ mode, onSubmit }: AuthFormProps) {
           {mode === 'signup' && (
             <div className="space-y-1">
               <Label htmlFor="displayName">Display Name (Optional)</Label>
-              <Input id="displayName" type="text" {...form.register('displayName')} placeholder="Your Name" />
+               <div className="relative">
+                <User className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                <Input id="displayName" type="text" {...form.register('displayName')} placeholder="Your Name" className="pl-10" />
+              </div>
               {form.formState.errors.displayName && (
                 <p className="text-sm text-destructive">{form.formState.errors.displayName.message}</p>
               )}
@@ -105,7 +111,10 @@ export default function AuthForm({ mode, onSubmit }: AuthFormProps) {
           )}
           <div className="space-y-1">
             <Label htmlFor="email">Email</Label>
-            <Input id="email" type="email" {...form.register('email')} placeholder="you@example.com" />
+            <div className="relative">
+              <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+              <Input id="email" type="email" {...form.register('email')} placeholder="you@example.com" className="pl-10" />
+            </div>
             {form.formState.errors.email && (
               <p className="text-sm text-destructive">{form.formState.errors.email.message}</p>
             )}
@@ -113,12 +122,13 @@ export default function AuthForm({ mode, onSubmit }: AuthFormProps) {
           <div className="space-y-1">
             <Label htmlFor="password">Password</Label>
             <div className="relative">
+              <LockKeyhole className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
               <Input
                 id="password"
                 type={showPassword ? 'text' : 'password'}
                 {...form.register('password')}
                 placeholder="••••••••"
-                className="pr-10"
+                className="pl-10 pr-10"
               />
               <button
                 type="button"
