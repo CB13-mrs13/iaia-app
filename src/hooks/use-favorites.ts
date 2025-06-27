@@ -7,6 +7,7 @@ import { getUserFavorites, toggleFavoriteTool } from '@/lib/firebase/firestore';
 import { useToast } from './use-toast';
 import { useLanguage } from './use-language';
 import { translations } from '@/lib/translations';
+import { useEffect } from 'react';
 
 export function useFavorites() {
   const { user } = useAuth();
@@ -17,11 +18,27 @@ export function useFavorites() {
 
   const queryKey = ['favorites', user?.uid];
 
-  const { data: favorites = [], isLoading, isError } = useQuery<string[]>({
+  const { data: favorites = [], isLoading, isError, error } = useQuery<string[], Error>({
     queryKey,
-    queryFn: () => getUserFavorites(user!.uid),
+    queryFn: () => {
+      if (!user) return Promise.resolve([]); // Should not happen due to `enabled`
+      return getUserFavorites(user.uid)
+    },
     enabled: !!user, // Only run the query if the user is logged in
+    retry: false, // Don't retry on auth/permission errors
   });
+
+  // Effect to show a toast when the initial fetch fails
+  useEffect(() => {
+    if (isError && error) {
+      toast({
+        variant: 'destructive',
+        title: t.updateFailedToastTitle,
+        description: error.message,
+      });
+    }
+  }, [isError, error, toast, t.updateFailedToastTitle]);
+
 
   const toggleMutation = useMutation({
     mutationFn: (toolId: string) => {
@@ -45,12 +62,12 @@ export function useFavorites() {
       queryClient.setQueryData(queryKey, newFavorites);
       return { previousFavorites };
     },
-    onError: (err, toolId, context) => {
+    onError: (err: Error, toolId, context) => {
       // Rollback on error
       if (context?.previousFavorites) {
         queryClient.setQueryData(queryKey, context.previousFavorites);
       }
-      toast({ variant: 'destructive', title: t.updateFailedToastTitle, description: t.favoriteErrorToastDesc });
+      toast({ variant: 'destructive', title: t.updateFailedToastTitle, description: err.message || t.favoriteErrorToastDesc });
     },
     onSettled: () => {
       // Invalidate to refetch from server and ensure consistency
