@@ -186,7 +186,7 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       deleteFailedToastDesc: "Could not delete your account. Please try again.",
       favoriteAddedToastTitle: "Added to Favorites",
       favoriteRemovedToastTitle: "Removed from Favorites",
-      favoriteErrorToastDesc: "Could not update favorites. Please try again.",
+      favoriteErrorToastDesc: "Could not update favorites. Check your Firestore rules to ensure you have write permissions.",
     },
     userNav: {
       home: "Home",
@@ -294,7 +294,7 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       deleteFailedToastDesc: "Impossible de supprimer votre compte. Veuillez réessayer.",
       favoriteAddedToastTitle: "Ajouté aux favoris",
       favoriteRemovedToastTitle: "Retiré des favoris",
-      favoriteErrorToastDesc: "Impossible de mettre à jour les favoris. Veuillez réessayer.",
+      favoriteErrorToastDesc: "Impossible de mettre à jour les favoris. Vérifiez vos règles Firestore pour vous assurer que vous avez les droits d'écriture.",
     },
     userNav: {
       home: "Accueil",
@@ -402,7 +402,7 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       deleteFailedToastDesc: "No se pudo eliminar tu cuenta. Por favor, inténtalo de nuevo.",
       favoriteAddedToastTitle: "Añadido a favoritos",
       favoriteRemovedToastTitle: "Eliminado de favoritos",
-      favoriteErrorToastDesc: "No se pudieron actualizar los favoritos. Por favor, inténtalo de nuevo.",
+      favoriteErrorToastDesc: "No se pudieron actualizar los favoritos. Revisa tus reglas de Firestore para asegurarte de que tienes permisos de escritura.",
     },
     userNav: {
       home: "Inicio",

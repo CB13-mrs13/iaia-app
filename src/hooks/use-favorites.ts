@@ -50,7 +50,7 @@ export function useFavorites() {
       if (context?.previousFavorites) {
         queryClient.setQueryData(queryKey, context.previousFavorites);
       }
-      toast({ variant: 'destructive', title: t.errorToastTitle, description: t.favoriteErrorToastDesc });
+      toast({ variant: 'destructive', title: t.updateFailedToastTitle, description: t.favoriteErrorToastDesc });
     },
     onSettled: () => {
       // Invalidate to refetch from server and ensure consistency
