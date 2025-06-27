@@ -8,7 +8,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { Loader2, Mail, BotIcon } from 'lucide-react';
+import { Loader2, Mail, Bot } from 'lucide-react';
 import { useState, useTransition } from 'react';
 import Link from 'next/link';
 import { useToast } from '@/hooks/use-toast';
@@ -54,7 +54,7 @@ export default function ForgotPasswordPage() {
     <Card className="w-full max-w-md shadow-xl">
       <CardHeader className="text-center">
         <div className="mx-auto mb-4">
-           <BotIcon className="h-12 w-12 text-primary" />
+           <Bot className="h-12 w-12 text-primary" />
         </div>
         <CardTitle className="text-2xl font-bold">Forgot Your Password?</CardTitle>
         <CardDescription>

@@ -14,7 +14,22 @@ const firebaseConfig = {
 
 // This check provides a more specific error message if the API key is missing or is a placeholder.
 if (!firebaseConfig.apiKey || firebaseConfig.apiKey.includes("paste_your")) {
-  throw new Error("Firebase configuration is missing or incomplete. Please check your .env or .env.local file. Ensure all NEXT_PUBLIC_FIREBASE_* values are copied from your Firebase project config and are not the default \"paste_your_..._here\" placeholders. IMPORTANT: You must restart the development server after editing the .env file.");
+  // Instead of throwing an error that crashes the server, we'll log a prominent error.
+  // The app will likely fail later when trying to use Firebase, but this allows the page to load.
+  console.error(`
+
+🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+  Firebase configuration is MISSING or INCOMPLETE!
+  
+  Please check your .env.local file in the project's
+  root directory and ensure all NEXT_PUBLIC_FIREBASE_*
+  values are copied from your Firebase project config.
+  
+  IMPORTANT: You must RESTART the development server
+  after editing the file.
+🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+
+`);
 }
 
 let app: FirebaseApp;

@@ -1,8 +1,8 @@
+
 "use client";
 
 import Link from 'next/link';
-import Image from 'next/image';
-import { LogIn, Sparkles } from 'lucide-react';
+import { LogIn, Sparkles, Bot } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import UserNav from './user-nav';
 import { useAuth } from '@/hooks/use-auth';
@@ -19,14 +19,7 @@ export default function Navbar() {
           className="mr-2 flex items-center space-x-2 sm:mr-6"
           aria-label="Homepage"
         >
-          <Image
-            src="/iaia-logo.png"
-            alt="IAIA Logo"
-            width={40}
-            height={40}
-            className="h-10 w-10"
-            priority // Ajout de la propriété priority pour le LCP
-          />
+          <Bot className="h-8 w-8 text-primary" />
           <span className="hidden font-bold text-2xl sm:inline-block">IAIA</span>
         </Link>
 

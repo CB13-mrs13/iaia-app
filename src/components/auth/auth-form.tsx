@@ -8,11 +8,10 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { Loader2, Eye, EyeOff } from 'lucide-react';
+import { Loader2, Eye, EyeOff, Bot } from 'lucide-react';
 import { useState, useTransition } from 'react';
 import Link from 'next/link';
 import { useToast } from '@/hooks/use-toast';
-import Image from 'next/image'; // Import Image
 
 const commonSchema = {
   email: z.string().email({ message: "Invalid email address." }),
@@ -79,14 +78,7 @@ export default function AuthForm({ mode, onSubmit }: AuthFormProps) {
     <Card className="w-full max-w-md shadow-xl">
       <CardHeader className="text-center">
         <div className="mx-auto mb-4">
-          {/* Replace BotIcon with Image component */}
-          <Image 
-            src="/iaia-logo.png" 
-            alt="IAIA Logo" 
-            width={48} 
-            height={48} 
-            className="h-12 w-12" 
-          />
+          <Bot className="h-12 w-12 text-primary" />
         </div>
         <CardTitle className="text-2xl font-bold">
           {mode === 'login' ? 'Welcome Back to IAIA!' : 'Create your IAIA Account'}
