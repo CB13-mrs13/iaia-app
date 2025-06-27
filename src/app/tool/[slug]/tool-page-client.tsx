@@ -36,7 +36,7 @@ export default function ToolPageClient({ tool }: ToolPageClientProps) {
     <div className="max-w-4xl mx-auto animate-fadeIn space-y-8">
       <div>
         <Button variant="outline" asChild>
-          <Link href="/">
+          <Link href="/discover">
             <ArrowLeft className="mr-2 h-4 w-4" />
             {t.backToAllTools}
           </Link>

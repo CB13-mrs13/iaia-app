@@ -78,7 +78,7 @@ export default function UserNav({ user }: UserNavProps) {
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
           <DropdownMenuItem asChild>
-            <Link href="/">
+            <Link href="/discover">
               <Home className="mr-2 h-4 w-4" />
               <span>{t.home}</span>
             </Link>

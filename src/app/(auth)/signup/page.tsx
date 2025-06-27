@@ -20,7 +20,7 @@ export default function SignUpPage() {
   useEffect(() => {
     // Redirect if user is already logged in, but not if we're in the middle of showing confetti for a new signup.
     if (!loading && user && !showConfetti) {
-      router.push('/');
+      router.push('/discover');
     }
   }, [user, loading, router, showConfetti]);
 
@@ -41,7 +41,7 @@ export default function SignUpPage() {
     setShowConfetti(true);
     // Wait for confetti to be visible briefly before redirecting and refreshing
     setTimeout(() => {
-      router.push('/');
+      router.push('/discover');
       router.refresh();
     }, 5000); 
   };

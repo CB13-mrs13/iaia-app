@@ -46,7 +46,7 @@ export default function FavoritesPage() {
           <p className="text-muted-foreground">{t.subtitle}</p>
         </div>
         <Button asChild variant="outline">
-          <Link href="/">
+          <Link href="/discover">
             <Home className="mr-2 h-4 w-4" />
             {t.discoverTools}
           </Link>

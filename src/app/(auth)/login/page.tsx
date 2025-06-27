@@ -15,14 +15,14 @@ export default function LoginPage() {
 
   useEffect(() => {
     if (!loading && user) {
-      router.push('/'); // Redirect if already logged in
+      router.push('/discover'); // Redirect if already logged in
     }
   }, [user, loading, router]);
 
   const handleLogin = async (values: any) => { // eslint-disable-line @typescript-eslint/no-explicit-any
     await signInWithEmail(values.email, values.password);
     toast({ title: 'Login Successful', description: 'Welcome back!' });
-    router.push('/');
+    router.push('/discover');
     router.refresh(); // Ensure layout reflects new auth state
   };
 
