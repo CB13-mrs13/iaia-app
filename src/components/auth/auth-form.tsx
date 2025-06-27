@@ -62,6 +62,9 @@ export default function AuthForm({ mode, onSubmit }: AuthFormProps) {
             case 'auth/weak-password':
               errorMessage = "Password is too weak.";
               break;
+            case 'auth/api-key-not-valid':
+              errorMessage = "Firebase API Key is not valid. Please check your .env or .env.local file and ensure all NEXT_PUBLIC_FIREBASE_* variables are set correctly.";
+              break;
             default:
               errorMessage = err.message || errorMessage;
           }
