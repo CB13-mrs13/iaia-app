@@ -8,10 +8,11 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { Loader2, Eye, EyeOff, Bot, Mail, User, LockKeyhole } from 'lucide-react';
+import { Loader2, Eye, EyeOff, Bot, Mail, User, LockKeyhole, AlertTriangle } from 'lucide-react';
 import { useState, useTransition } from 'react';
 import Link from 'next/link';
 import { useToast } from '@/hooks/use-toast';
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 
 const commonSchema = {
   email: z.string().trim().email({ message: "Invalid email address." }),
@@ -50,10 +51,12 @@ export default function AuthForm({ mode, onSubmit }: AuthFormProps) {
         await onSubmit(data);
       } catch (err: any) { // eslint-disable-line @typescript-eslint/no-explicit-any
         let errorMessage = "An unexpected error occurred. Please try again.";
+        let errorTitle = mode === 'login' ? 'Login Failed' : 'Sign Up Failed';
 
         // This is a common and critical setup error, so we check for it first with a more robust method.
         if ( (err.code && String(err.code).includes('api-key-not-valid')) || (err.message && String(err.message).includes('api-key-not-valid')) ) {
             errorMessage = "Firebase API Key is not valid. Check your .env.local file and ensure all NEXT_PUBLIC_FIREBASE_* variables are correct. You MUST restart the dev server after making changes.";
+            errorTitle = "Configuration Error";
         } else if (err.code) {
           switch (err.code) {
             case 'auth/invalid-email':
@@ -77,7 +80,7 @@ export default function AuthForm({ mode, onSubmit }: AuthFormProps) {
         }
 
         setError(errorMessage);
-        toast({ variant: 'destructive', title: mode === 'login' ? 'Login Failed' : 'Sign Up Failed', description: errorMessage });
+        toast({ variant: 'destructive', title: errorTitle, description: errorMessage });
       }
     });
   };
@@ -143,7 +146,15 @@ export default function AuthForm({ mode, onSubmit }: AuthFormProps) {
               <p className="text-sm text-destructive">{form.formState.errors.password.message}</p>
             )}
           </div>
-          {error && <p className="text-sm text-destructive text-center">{error}</p>}
+          {error && (
+            <Alert variant="destructive" className="text-left">
+                <AlertTriangle className="h-4 w-4" />
+                <AlertTitle>Authentication Error</AlertTitle>
+                <AlertDescription>
+                {error}
+                </AlertDescription>
+            </Alert>
+          )}
           <Button type="submit" className="w-full" disabled={isPending}>
             {isPending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
             {mode === 'login' ? 'Login' : 'Sign Up'}
