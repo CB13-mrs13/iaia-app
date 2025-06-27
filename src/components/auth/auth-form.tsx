@@ -50,7 +50,11 @@ export default function AuthForm({ mode, onSubmit }: AuthFormProps) {
         await onSubmit(data);
       } catch (err: any) { // eslint-disable-line @typescript-eslint/no-explicit-any
         let errorMessage = "An unexpected error occurred. Please try again.";
-        if (err.code) {
+
+        // This is a common and critical setup error, so we check for it first with a more robust method.
+        if ( (err.code && String(err.code).includes('api-key-not-valid')) || (err.message && String(err.message).includes('api-key-not-valid')) ) {
+            errorMessage = "Firebase API Key is not valid. Check your .env.local file and ensure all NEXT_PUBLIC_FIREBASE_* variables are correct. You MUST restart the dev server after making changes.";
+        } else if (err.code) {
           switch (err.code) {
             case 'auth/user-not-found':
             case 'auth/wrong-password':
@@ -62,15 +66,13 @@ export default function AuthForm({ mode, onSubmit }: AuthFormProps) {
             case 'auth/weak-password':
               errorMessage = "Password is too weak.";
               break;
-            case 'auth/api-key-not-valid':
-              errorMessage = "Firebase API Key is not valid. Please check your .env or .env.local file and ensure all NEXT_PUBLIC_FIREBASE_* variables are set correctly.";
-              break;
             default:
               errorMessage = err.message || errorMessage;
           }
         } else if (err.message) {
           errorMessage = err.message;
         }
+
         setError(errorMessage);
         toast({ variant: 'destructive', title: mode === 'login' ? 'Login Failed' : 'Sign Up Failed', description: errorMessage });
       }
