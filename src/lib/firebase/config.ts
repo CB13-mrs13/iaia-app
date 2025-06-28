@@ -12,17 +12,28 @@ const firebaseConfig = {
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };
 
-// This check provides a more specific error message if the API key is missing or is a placeholder.
-if (!firebaseConfig.apiKey || firebaseConfig.apiKey.includes("paste_your")) {
-  console.error(`
+// This function checks if a value is missing or a placeholder.
+const isInvalidConfig = (value: string | undefined) => !value || value.includes("paste_your");
 
+// Check all required keys.
+const missingKeys = Object.entries(firebaseConfig)
+  .filter(([, value]) => isInvalidConfig(value))
+  .map(([key]) => `NEXT_PUBLIC_FIREBASE_${key.replace(/([A-Z])/g, '_$1').toUpperCase()}`);
+
+if (missingKeys.length > 0) {
+  console.error(`
 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
   Firebase configuration is MISSING or INCOMPLETE!
-  Authentication and database features will FAIL.
+  Authentication and database features will FAIL,
+  likely causing the app to hang on a loading screen.
   
-  Please check your .env.local file in the project's
-  root directory and ensure all NEXT_PUBLIC_FIREBASE_*
-  values are copied from your Firebase project config.
+  The following environment variables are missing or are
+  placeholders in your .env or .env.local file:
+  - ${missingKeys.join('\n  - ')}
+  
+  Please copy these values from your Firebase project's
+  web app configuration and add them to your .env.local
+  file in the project's root directory.
   
   IMPORTANT: You must RESTART the development server
   after editing the file.
@@ -31,7 +42,9 @@ if (!firebaseConfig.apiKey || firebaseConfig.apiKey.includes("paste_your")) {
 `);
 }
 
+
 let app: FirebaseApp;
+// Initialize Firebase only if it hasn't been initialized yet
 if (!getApps().length) {
   app = initializeApp(firebaseConfig);
 } else {
