@@ -14,6 +14,7 @@ import { useToast } from '@/hooks/use-toast';
 import { useLanguage } from '@/hooks/use-language';
 import { translations } from '@/lib/translations';
 import Image from 'next/image';
+import ModelAccessError from '@/components/studio/model-access-error';
 
 const studioSchema = z.object({
   prompt: z.string().min(10, "Please describe the image in at least 10 characters.").max(1000, "Prompt is too long."),
@@ -25,6 +26,7 @@ export default function StudioPage() {
   const [isPending, startTransition] = useTransition();
   const [result, setResult] = useState<GenerateImageOutput | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [isModelAccessError, setIsModelAccessError] = useState(false);
   const { toast } = useToast();
   const { language } = useLanguage();
   const t = translations[language].studio;
@@ -38,6 +40,7 @@ export default function StudioPage() {
 
   const onSubmit: SubmitHandler<StudioFormValues> = async (data) => {
     setError(null);
+    setIsModelAccessError(false);
     setResult(null);
     startTransition(async () => {
       try {
@@ -46,12 +49,17 @@ export default function StudioPage() {
       } catch (e: any) {
         console.error("AI Image Generation Error:", e);
         
-        let errorMessage = e?.message || t.errorDescription;
-
         if (e?.message && e.message.includes("NOT_FOUND: Model 'googleai/gemini-2.0-flash-preview-image-generation' not found")) {
-            errorMessage = t.imageModelUnavailableError;
+            setIsModelAccessError(true);
+            toast({
+              variant: "destructive",
+              title: t.errorTitle,
+              description: t.modelAccessToastDesc,
+            });
+            return; 
         }
         
+        const errorMessage = e?.message || t.errorDescription;
         setError(errorMessage);
         toast({
           variant: "destructive",
@@ -108,10 +116,12 @@ export default function StudioPage() {
          </Card>
       )}
 
+      {isModelAccessError && <ModelAccessError />}
+
       {error && (
         <Card className="mt-4 border-destructive bg-destructive/10">
             <CardHeader>
-                <CardTitle className="text-destructive text-lg">Error</CardTitle>
+                <CardTitle className="text-destructive text-lg">{t.errorTitle}</CardTitle>
             </CardHeader>
             <CardContent>
                 <p className="text-destructive">{error}</p>
@@ -138,7 +148,7 @@ export default function StudioPage() {
         </Card>
       )}
 
-      {!isPending && !result && !error && (
+      {!isPending && !result && !error && !isModelAccessError && (
         <div className="text-center py-12 border-2 border-dashed rounded-lg flex flex-col items-center gap-4 text-muted-foreground">
             <ImageIcon className="h-12 w-12" />
             <h3 className="mt-2 text-lg font-medium">{t.waitingTitle}</h3>
