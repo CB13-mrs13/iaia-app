@@ -43,7 +43,7 @@ export default function AiSearchForm() {
     startTransition(async () => {
       try {
         const toolNames = aiTools.map(tool => tool.name);
-        const result = await suggestAiTool({ prompt: data.prompt, aiToolList: toolNames });
+        const result = await suggestAiTool({ prompt: data.prompt, aiToolList: toolNames, language: language });
         setSearchResult(result);
       } catch (e) {
         console.error("AI Search Error:", e);

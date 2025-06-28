@@ -10,6 +10,12 @@ type PageTranslations = {
     promptPlaceholder: string;
     button: string;
   };
+  aiSearchResults: {
+      title: string;
+      suggestedToolLabel: string;
+      reasoningLabel: string;
+      learnMoreButton: string;
+  };
   home: {
     featuredTitle: string;
     featuredSubtitle: string;
@@ -121,6 +127,12 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       promptPlaceholder: "e.g., 'I need to create a professional presentation with animated charts' or 'Help me write a blog post about climate change'",
       button: "Get Suggestion",
     },
+    aiSearchResults: {
+        title: "AI Suggestion",
+        suggestedToolLabel: "Suggested Tool",
+        reasoningLabel: "Reasoning",
+        learnMoreButton: "Learn more about {toolName}"
+    },
     home: {
       featuredTitle: "Featured AIs",
       featuredSubtitle: "The hottest AI tools of the moment, selected for you.",
@@ -229,6 +241,12 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       promptPlaceholder: "ex : 'Je dois créer une présentation professionnelle avec des graphiques animés' ou 'Aidez-moi à écrire un article de blog sur le changement climatique'",
       button: "Obtenir une suggestion",
     },
+     aiSearchResults: {
+        title: "Suggestion de l'IA",
+        suggestedToolLabel: "Outil suggéré",
+        reasoningLabel: "Raisonnement",
+        learnMoreButton: "En savoir plus sur {toolName}"
+    },
     home: {
       featuredTitle: "Les IA à la Une",
       featuredSubtitle: "Les outils IA les plus en vogue du moment, sélectionnés pour vous.",
@@ -336,6 +354,12 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       description: "¡Describe lo que quieres lograr y nuestra IA te sugerirá la mejor herramienta para el trabajo!",
       promptPlaceholder: "ej: 'Necesito crear una presentación profesional con gráficos animados' o 'Ayúdame a escribir una entrada de blog sobre el cambio climático'",
       button: "Obtener Sugerencia",
+    },
+    aiSearchResults: {
+        title: "Sugerencia de IA",
+        suggestedToolLabel: "Herramienta sugerida",
+        reasoningLabel: "Razonamiento",
+        learnMoreButton: "Aprender más sobre {toolName}"
     },
     home: {
       featuredTitle: "IA Destacadas",
