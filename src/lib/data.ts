@@ -62,7 +62,7 @@ export const aiTools: AiTool[] = [
     longDescription: {
       en: 'Midjourney is an independent research lab exploring new mediums of thought and expanding the imaginative powers of the human species. It generates images from textual descriptions, known as "prompts".',
       fr: 'Midjourney est un laboratoire de recherche indépendant qui explore de nouveaux moyens de pensée et étend les pouvoirs imaginatifs de l\'espèce humaine. Il génère des images à partir de descriptions textuelles, appelées "prompts".',
-      es: 'Midjourney es un laboratorio de investigación independiente que explora nuevos medios de pensamiento y expande los poderes imaginativos de la especie humana. Genera imágenes a partir de descripciones textuales, conocidas como "prompts".',
+      es: 'Midjourney es un laboratorio de investigación independiente que explora nuevos medios de pensamiento y expande los poderes imaginativos de la especie humana. Genera imágenes a partir de descripciones textuais, conocidas como "prompts".',
     },
     category: 'Photo',
     website: 'https://www.midjourney.com',
@@ -2512,7 +2512,7 @@ export const aiTools: AiTool[] = [
       es: 'Mammouth AI ayuda a los equipos empresariales a abordar proyectos complejos proporcionando una base de conocimientos centralizada, programación de tareas impulsada por IA y análisis predictivos para identificar posibles cuellos de botella antes de que ocurran.',
     },
     category: 'Productivity',
-    website: 'https://www.mammouth.ai',
+    website: 'https://mammouth.ai/',
     imageUrl: `/ai-tools/${createSlug('Mammouth AI')}.png`,
     imageKeywords: 'mammoth productivity',
     rating: 4.6,
