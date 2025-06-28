@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useLanguage } from "@/hooks/use-language";
@@ -25,7 +26,7 @@ export default function UserManualPage() {
         <CardContent className="space-y-6 prose prose-sm max-w-none text-foreground/90">
             <section>
                 <h2 className="font-semibold text-lg flex items-center gap-2"><Compass className="h-5 w-5 text-primary" />{t.discoverTitle}</h2>
-                <p>{t.discoverText1}</p>
+                <p dangerouslySetInnerHTML={{ __html: t.discoverText1 }} />
                 <div className="text-sm" dangerouslySetInnerHTML={{ __html: t.discoverText2 }} />
             </section>
 
