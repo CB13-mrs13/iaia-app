@@ -20,7 +20,12 @@ export default function DiscoverPage() {
   const { language } = useLanguage();
   const t = translations[language].home;
 
-  const featuredToolsList = useMemo(() => ['VEO3', 'BOLT', 'n8n', 'Lovable', 'Canva AI Image Generator', 'Deepseek'], []);
+  // The full history of featured tools, newest at the end.
+  const fullFeaturedList = useMemo(() => ['VEO3', 'BOLT', 'n8n', 'Lovable', 'Canva AI Image Generator', 'Deepseek'], []);
+  
+  // The list of tools to actually feature, limited to the latest 6.
+  const featuredToolsList = useMemo(() => fullFeaturedList.slice(-6), [fullFeaturedList]);
+
   const featuredTools = useMemo(() => {
     // Find the featured tools and sort them in the desired order
     return aiTools

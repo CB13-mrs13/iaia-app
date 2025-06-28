@@ -2458,7 +2458,7 @@ export const aiTools: AiTool[] = [
       es: 'Lovable es un compañero de IA diseñado para proporcionar orientación sobre relaciones, comunicación y bienestar personal. Ofrece consejos personalizados y ejercicios para fomentar el crecimiento personal y vínculos más fuertes.',
     },
     category: 'Other',
-    website: '#',
+    website: 'https://www.lovable.ai/',
     imageUrl: `/ai-tools/lovable.png`,
     imageKeywords: 'heart relationship',
     rating: 4.3,
