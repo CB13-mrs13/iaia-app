@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useTransition } from 'react';
@@ -44,8 +45,13 @@ export default function StudioPage() {
         setResult(generatedResult);
       } catch (e: any) {
         console.error("AI Image Generation Error:", e);
-        // Use the actual error message from the server if it exists, otherwise use the generic one.
-        const errorMessage = e?.message || t.errorDescription;
+        
+        let errorMessage = e?.message || t.errorDescription;
+
+        if (e?.message && e.message.includes("NOT_FOUND: Model 'googleai/gemini-2.0-flash-preview-image-generation' not found")) {
+            errorMessage = t.imageModelUnavailableError;
+        }
+        
         setError(errorMessage);
         toast({
           variant: "destructive",

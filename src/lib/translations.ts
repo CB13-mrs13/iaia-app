@@ -116,6 +116,7 @@ type PageTranslations = {
     resultTitle: string;
     waitingTitle: string;
     waitingDescription: string;
+    imageModelUnavailableError: string;
   };
 };
 
@@ -232,6 +233,7 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       resultTitle: "Your Generated Image",
       waitingTitle: "Your canvas is ready.",
       waitingDescription: "What will you create today?",
+      imageModelUnavailableError: "The image generation model is not available for your API key. Please ensure your Google AI project has access to the 'Gemini 2.0 Flash Image Generation' model and that the API is enabled. This model may be in a preview state and require specific authorization.",
     },
   },
   fr: {
@@ -346,6 +348,7 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       resultTitle: "Votre Image Générée",
       waitingTitle: "Votre toile est prête.",
       waitingDescription: "Qu'allez-vous créer aujourd'hui ?",
+      imageModelUnavailableError: "Le modèle de génération d'images n'est pas disponible pour votre clé API. Veuillez vous assurer que votre projet Google AI a accès au modèle 'Gemini 2.0 Flash Image Generation' et que l'API est activée. Il est possible que ce modèle soit en 'preview' et nécessite une autorisation spécifique.",
     },
   },
   es: {
@@ -460,6 +463,7 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       resultTitle: "Tu Imagen Generada",
       waitingTitle: "Tu lienzo está listo.",
       waitingDescription: "¿Qué crearás hoy?",
+      imageModelUnavailableError: "El modelo de generación de imágenes no está disponible para su clave de API. Asegúrese de que su proyecto de Google AI tenga acceso al modelo 'Gemini 2.0 Flash Image Generation' y que la API esté habilitada. Es posible que este modelo se encuentre en estado de vista previa y requiera una autorización específica.",
     },
   },
 };
