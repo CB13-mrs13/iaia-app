@@ -1,2 +1,2 @@
 import '@/ai/flows/suggest-ai-tool.ts';
-import '@/ai/flows/generate-image-flow.ts';
+// The import for generate-image-flow.ts has been removed as the feature is disabled.

@@ -1,8 +1,7 @@
-
 "use client";
 
 import Link from 'next/link';
-import { LogIn, Sparkles, Bot } from 'lucide-react';
+import { LogIn, Bot } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import UserNav from './user-nav';
 import { useAuth } from '@/hooks/use-auth';
@@ -24,12 +23,7 @@ export default function Navbar() {
         </Link>
 
         <nav className="flex flex-1 items-center space-x-2">
-           <Button variant="ghost" asChild>
-                <Link href="/studio">
-                  <Sparkles className="h-5 w-5 sm:mr-2" />
-                  <span className="hidden sm:inline">Studio</span>
-                </Link>
-            </Button>
+          {/* The Studio link has been removed as requested. */}
         </nav>
         <div className="flex items-center space-x-1 sm:space-x-2">
           <LanguageSwitcher />
