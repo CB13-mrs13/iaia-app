@@ -118,7 +118,7 @@ export default function StudioPage() {
 
       {isModelAccessError && <ModelAccessError />}
 
-      {error && (
+      {error && !isModelAccessError && (
         <Card className="mt-4 border-destructive bg-destructive/10">
             <CardHeader>
                 <CardTitle className="text-destructive text-lg">{t.errorTitle}</CardTitle>
