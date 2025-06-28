@@ -5,7 +5,7 @@ export default function AuthLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex min-h-[calc(100vh-theme(spacing.32))] items-center justify-center py-12 animate-fadeIn">
+    <div className="flex min-h-screen items-center justify-center p-4">
       {children}
     </div>
   );
