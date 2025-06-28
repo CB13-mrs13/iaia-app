@@ -123,6 +123,7 @@ type PageTranslations = {
   legal: {
     privacyPolicy: string;
     termsOfService: string;
+    userManual: string;
     privacyTitle: string;
     privacySubtitle: string;
     termsTitle: string;
@@ -141,6 +142,25 @@ type PageTranslations = {
   cookieConsent: {
     message: string;
     accept: string;
+  },
+  userManualPage: {
+    title: string;
+    subtitle: string;
+    introTitle: string;
+    introText: string;
+    discoverTitle: string;
+    discoverText1: string;
+    discoverText2: string;
+    aiSearchTitle: string;
+    aiSearchText1: string;
+    aiSearchText2: string;
+    favoritesTitle: string;
+    favoritesText1: string;
+    favoritesText2: string;
+    accountTitle: string;
+    accountText1: string;
+    tipTitle: string;
+    tipText: string;
   }
 };
 
@@ -264,6 +284,7 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
     legal: {
       privacyPolicy: "Privacy Policy",
       termsOfService: "Terms of Service",
+      userManual: "User Manual",
       privacyTitle: "Privacy Policy",
       privacySubtitle: "How we handle your data.",
       termsTitle: "Terms of Service",
@@ -282,6 +303,25 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
     cookieConsent: {
       message: "We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies.",
       accept: "Accept",
+    },
+    userManualPage: {
+      title: "User Manual",
+      subtitle: "How to get the most out of your IAIA experience.",
+      introTitle: "Welcome to IAIA!",
+      introText: "This guide will walk you through the main features of the application to help you discover and manage the best AI tools for your needs.",
+      discoverTitle: "1. Discovering Tools",
+      discoverText1: "The main 'Discover' page is your gateway to our entire catalog of AI tools. You can:",
+      discoverText2: "<ul><li><b>Browse</b> the full list of curated tools.</li><li><b>Filter</b> by category (e.g., 'Photo', 'Coding') to narrow down your search.</li><li><b>Use the search bar</b> to find tools by name, keyword, or description.</li></ul>",
+      aiSearchTitle: "2. AI-Powered Search",
+      aiSearchText1: "Don't know which tool you need? Let our AI help! In the 'AI-Powered Tool Finder' section, simply describe your task or goal in plain language.",
+      aiSearchText2: "For example, you could write: <i>'I need to make a video from a blog post'</i>. The AI will analyze your request and suggest the most suitable tool, along with its reasoning.",
+      favoritesTitle: "3. Managing Your Favorites",
+      favoritesText1: "To keep track of tools you find interesting, you can add them to your favorites. You must be logged in to use this feature.",
+      favoritesText2: "Simply click the <b>star icon (☆)</b> on any tool card or tool page. To view all your saved tools, navigate to 'My Favorites' from the user menu in the top-right corner.",
+      accountTitle: "4. Managing Your Account",
+      accountText1: "In the 'Account Settings' page, you can easily update your display name and change your password to keep your account secure.",
+      tipTitle: "Pro Tip",
+      tipText: "This application supports multiple languages! You can switch between English, French, and Spanish at any time using the globe icon in the navigation bar."
     },
   },
   fr: {
@@ -403,6 +443,7 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
     legal: {
       privacyPolicy: "Politique de confidentialité",
       termsOfService: "Conditions d'utilisation",
+      userManual: "Manuel d'utilisation",
       privacyTitle: "Politique de confidentialité",
       privacySubtitle: "Comment nous traitons vos données.",
       termsTitle: "Conditions d'utilisation",
@@ -421,6 +462,25 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
     cookieConsent: {
       message: "Nous utilisons des cookies pour améliorer votre expérience. En continuant à visiter ce site, vous acceptez notre utilisation des cookies.",
       accept: "Accepter",
+    },
+    userManualPage: {
+      title: "Manuel d'utilisation",
+      subtitle: "Comment tirer le meilleur parti de votre expérience IAIA.",
+      introTitle: "Bienvenue sur IAIA !",
+      introText: "Ce guide vous présentera les principales fonctionnalités de l'application pour vous aider à découvrir et à gérer les meilleurs outils d'IA pour vos besoins.",
+      discoverTitle: "1. Découvrir les outils",
+      discoverText1: "La page principale 'Découvrir' est votre porte d'entrée vers notre catalogue complet d'outils d'IA. Vous pouvez :",
+      discoverText2: "<ul><li><b>Parcourir</b> la liste complète des outils sélectionnés.</li><li><b>Filtrer</b> par catégorie (par ex., 'Photo', 'Codage') pour affiner votre recherche.</li><li><b>Utiliser la barre de recherche</b> pour trouver des outils par nom, mot-clé ou description.</li></ul>",
+      aiSearchTitle: "2. Recherche par IA",
+      aiSearchText1: "Vous ne savez pas quel outil il vous faut ? Laissez notre IA vous aider ! Dans la section 'Découverte d'outils par IA', décrivez simplement votre tâche ou votre objectif en langage clair.",
+      aiSearchText2: "Par exemple, vous pourriez écrire : <i>'Je dois faire une vidéo à partir d'un article de blog'</i>. L'IA analysera votre demande et vous suggérera l'outil le plus approprié, ainsi que son raisonnement.",
+      favoritesTitle: "3. Gérer vos favoris",
+      favoritesText1: "Pour garder une trace des outils que vous trouvez intéressants, vous pouvez les ajouter à vos favoris. Vous devez être connecté pour utiliser cette fonctionnalité.",
+      favoritesText2: "Cliquez simplement sur l'icône <b>étoile (☆)</b> sur n'importe quelle carte d'outil ou page d'outil. Pour voir tous vos outils enregistrés, accédez à 'Mes Favoris' depuis le menu utilisateur en haut à droite.",
+      accountTitle: "4. Gérer votre compte",
+      accountText1: "Sur la page 'Paramètres du compte', vous pouvez facilement mettre à jour votre nom d'affichage et changer votre mot de passe pour sécuriser votre compte.",
+      tipTitle: "Astuce de pro",
+      tipText: "Cette application prend en charge plusieurs langues ! Vous pouvez basculer entre l'anglais, le français et l'espagnol à tout moment en utilisant l'icône du globe dans la barre de navigation."
     },
   },
   es: {
@@ -542,6 +602,7 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
      legal: {
       privacyPolicy: "Política de privacidad",
       termsOfService: "Términos de servicio",
+      userManual: "Manual de Usuario",
       privacyTitle: "Política de privacidad",
       privacySubtitle: "Cómo manejamos tus datos.",
       termsTitle: "Términos de servicio",
@@ -560,6 +621,25 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
     cookieConsent: {
       message: "Usamos cookies para mejorar tu experiencia. Al continuar visitando este sitio, aceptas nuestro uso de cookies.",
       accept: "Aceptar",
+    },
+    userManualPage: {
+      title: "Manual de Usuario",
+      subtitle: "Cómo aprovechar al máximo tu experiencia en IAIA.",
+      introTitle: "¡Bienvenido a IAIA!",
+      introText: "Esta guía te mostrará las características principales de la aplicación para ayudarte a descubrir y gestionar las mejores herramientas de IA para tus necesidades.",
+      discoverTitle: "1. Descubrir Herramientas",
+      discoverText1: "La página principal 'Descubrir' es tu puerta de entrada a nuestro catálogo completo de herramientas de IA. Puedes:",
+      discoverText2: "<ul><li><b>Explorar</b> la lista completa de herramientas seleccionadas.</li><li><b>Filtrar</b> por categoría (p. ej., 'Foto', 'Codificación') para acotar tu búsqueda.</li><li><b>Usar la barra de búsqueda</b> para encontrar herramientas por nombre, palabra clave o descripción.</li></ul>",
+      aiSearchTitle: "2. Búsqueda con IA",
+      aiSearchText1: "¿No sabes qué herramienta necesitas? ¡Deja que nuestra IA te ayude! En la sección 'Buscador de Herramientas con IA', simplemente describe tu tarea u objetivo en lenguaje sencillo.",
+      aiSearchText2: "Por ejemplo, podrías escribir: <i>'Necesito hacer un video a partir de una publicación de blog'</i>. La IA analizará tu solicitud y te sugerirá la herramienta más adecuada, junto con su razonamiento.",
+      favoritesTitle: "3. Gestionar tus Favoritos",
+      favoritesText1: "Para hacer un seguimiento de las herramientas que te parecen interesantes, puedes agregarlas a tus favoritos. Debes iniciar sesión para usar esta función.",
+      favoritesText2: "Simplemente haz clic en el icono de la <b>estrella (☆)</b> en cualquier tarjeta de herramienta o página de herramienta. Para ver todas tus herramientas guardadas, ve a 'Mis Favoritos' desde el menú de usuario en la esquina superior derecha.",
+      accountTitle: "4. Gestionar tu Cuenta",
+      accountText1: "En la página 'Configuración de la cuenta', puedes actualizar fácilmente tu nombre de usuario y cambiar tu contraseña para mantener tu cuenta segura.",
+      tipTitle: "Consejo profesional",
+      tipText: "¡Esta aplicación es compatible con varios idiomas! Puedes cambiar entre inglés, francés y español en cualquier momento usando el icono del globo en la barra de navegación."
     },
   },
 };

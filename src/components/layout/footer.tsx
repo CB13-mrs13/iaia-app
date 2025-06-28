@@ -22,6 +22,9 @@ export default function Footer() {
           <Link href="/privacy-policy" className="text-muted-foreground hover:text-foreground transition-colors">
             {t.privacyPolicy}
           </Link>
+          <Link href="/user-manual" className="text-muted-foreground hover:text-foreground transition-colors">
+            {t.userManual}
+          </Link>
         </div>
       </div>
     </footer>
