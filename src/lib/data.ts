@@ -2512,7 +2512,7 @@ export const aiTools: AiTool[] = [
       es: 'Mammouth AI ayuda a los equipos empresariales a abordar proyectos complejos proporcionando una base de conocimientos centralizada, programación de tareas impulsada por IA y análisis predictivos para identificar posibles cuellos de botella antes de que ocurran.',
     },
     category: 'Productivity',
-    website: '#',
+    website: 'https://www.mammouth.ai',
     imageUrl: `/ai-tools/${createSlug('Mammouth AI')}.png`,
     imageKeywords: 'mammoth productivity',
     rating: 4.6,
