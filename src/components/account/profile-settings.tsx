@@ -17,6 +17,7 @@ import ReactConfetti from 'react-confetti';
 import { useWindowSize } from '@/hooks/use-window-size';
 import { useLanguage } from '@/hooks/use-language';
 import { translations } from '@/lib/translations';
+import { FirebaseError } from 'firebase/app';
 
 const profileSchema = z.object({
   displayName: z.string().min(2, "Display name must be at least 2 characters.").max(50, "Display name too long.").optional(),
@@ -86,10 +87,10 @@ export default function ProfileSettings({ user }: ProfileSettingsProps) {
         toast({ title: t.profileUpdatedToastTitle, description: t.profileUpdatedToastDesc });
         setShowConfetti(true);
 
-      } catch (error: any) {
+      } catch (error) {
         console.error("Profile update error:", error);
         let description = t.updateFailedToastDesc;
-        if (error?.code === 'auth/requires-recent-login') {
+        if (error instanceof FirebaseError && error.code === 'auth/requires-recent-login') {
             description = t.reauthToastDesc;
         }
         toast({ variant: "destructive", title: t.updateFailedToastTitle, description });

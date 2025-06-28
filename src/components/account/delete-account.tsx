@@ -20,6 +20,7 @@ import { useState, useTransition } from 'react';
 import { Loader2, Trash2 } from 'lucide-react';
 import { useLanguage } from '@/hooks/use-language';
 import { translations } from '@/lib/translations';
+import { FirebaseError } from 'firebase/app';
 
 export default function DeleteAccount() {
   const { toast } = useToast();
@@ -37,10 +38,10 @@ export default function DeleteAccount() {
         router.push('/'); 
         router.refresh();
         setIsOpen(false);
-      } catch (error: any) {
+      } catch (error) {
         console.error("Account deletion error:", error);
         let description = t.deleteFailedToastDesc;
-        if (error && typeof error === 'object' && 'code' in error && error.code === 'auth/requires-recent-login') {
+        if (error instanceof FirebaseError && error.code === 'auth/requires-recent-login') {
           description = t.reauthToastDesc;
         }
         toast({ variant: "destructive", title: t.deleteFailedToastTitle, description });

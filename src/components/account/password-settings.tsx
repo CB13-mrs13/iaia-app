@@ -15,6 +15,7 @@ import ReactConfetti from 'react-confetti';
 import { useWindowSize } from '@/hooks/use-window-size';
 import { useLanguage } from '@/hooks/use-language';
 import { translations } from '@/lib/translations';
+import { FirebaseError } from 'firebase/app';
 
 const passwordSchema = z.object({
   newPassword: z.string().min(6, "Password must be at least 6 characters."),
@@ -61,10 +62,10 @@ export default function PasswordSettings() {
         toast({ title: t.passwordUpdatedToastTitle, description: t.passwordUpdatedToastDesc });
         setShowConfetti(true);
         form.reset();
-      } catch (error: any) {
+      } catch (error) {
         console.error("Password update error:", error);
         let description = t.updateFailedToastDesc;
-        if (error && typeof error === 'object' && 'code' in error && error.code === 'auth/requires-recent-login') {
+        if (error instanceof FirebaseError && error.code === 'auth/requires-recent-login') {
           description = t.reauthToastDesc;
         }
         toast({ variant: "destructive", title: t.updateFailedToastTitle, description });
