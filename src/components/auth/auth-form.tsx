@@ -55,7 +55,7 @@ export default function AuthForm({ mode, onSubmit }: AuthFormProps) {
 
         // This is a common and critical setup error, so we check for it first with a more robust method.
         if ( (err.code && String(err.code).includes('api-key-not-valid')) || (err.message && String(err.message).includes('api-key-not-valid')) ) {
-            errorMessage = "Firebase API Key is not valid. Check your .env.local file and ensure all NEXT_PUBLIC_FIREBASE_* variables are correct. You MUST restart the dev server after making changes.";
+            errorMessage = "Firebase API Key is not valid. Check your .env.local file against the .env.local.example template and ensure all NEXT_PUBLIC_FIREBASE_* variables are correct. You MUST restart the dev server after making changes.";
             errorTitle = "Configuration Error";
         } else if (err.code) {
           switch (err.code) {
