@@ -1,7 +1,8 @@
 "use client";
 
 import Link from 'next/link';
-import { LogIn, Bot } from 'lucide-react';
+import Image from 'next/image';
+import { LogIn } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import UserNav from './user-nav';
 import { useAuth } from '@/hooks/use-auth';
@@ -18,7 +19,7 @@ export default function Navbar() {
           className="mr-2 flex items-center space-x-2 sm:mr-6"
           aria-label="Homepage"
         >
-          <Bot className="h-8 w-8 text-primary" />
+          <Image src="/iaia-logo.png" alt="IAIA Logo" width={32} height={32} className="h-8 w-8" />
           <span className="hidden font-bold text-2xl sm:inline-block">IAIA</span>
         </Link>
 
