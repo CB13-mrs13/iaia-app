@@ -7,6 +7,7 @@ import Footer from '@/components/layout/footer';
 import { Toaster } from '@/components/ui/toaster';
 import { LanguageProvider } from '@/contexts/language-context';
 import QueryProvider from '@/contexts/query-provider';
+import CookieConsentBanner from '@/components/layout/cookie-consent-banner';
 
 export const metadata: Metadata = {
   title: 'IAIA - Your AI Tool Companion',
@@ -35,6 +36,7 @@ export default function RootLayout({
               </main>
               <Footer />
               <Toaster />
+              <CookieConsentBanner />
             </AuthProvider>
           </LanguageProvider>
         </QueryProvider>
@@ -42,3 +44,5 @@ export default function RootLayout({
     </html>
   );
 }
+
+    
