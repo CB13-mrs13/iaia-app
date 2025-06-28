@@ -5,17 +5,28 @@ import { useLanguage } from "@/hooks/use-language";
 import { translations } from "@/lib/translations";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { BookUser, Compass, Sparkles, Star, UserCog, Info } from "lucide-react";
+import { BookUser, Compass, Sparkles, Star, UserCog, Info, Home } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export default function UserManualPage() {
   const { language } = useLanguage();
   const t = translations[language].userManualPage;
+  const userNavT = translations[language].userNav;
 
   return (
     <div className="max-w-4xl mx-auto space-y-8 animate-fadeIn">
-      <header>
-        <h1 className="text-3xl font-bold tracking-tight">{t.title}</h1>
-        <p className="text-muted-foreground">{t.subtitle}</p>
+      <header className="flex flex-col sm:flex-row justify-between sm:items-center gap-4">
+        <div>
+          <h1 className="text-3xl font-bold tracking-tight">{t.title}</h1>
+          <p className="text-muted-foreground">{t.subtitle}</p>
+        </div>
+        <Button asChild variant="outline">
+          <Link href="/discover">
+            <Home className="mr-2 h-4 w-4" />
+            {userNavT.home}
+          </Link>
+        </Button>
       </header>
 
       <Card className="shadow-md">

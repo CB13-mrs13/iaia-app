@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { LogIn } from 'lucide-react';
+import { LogIn, Wrench } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import UserNav from './user-nav';
 import { useAuth } from '@/hooks/use-auth';
@@ -27,6 +27,11 @@ export default function Navbar() {
           {/* The Studio link has been removed as requested. */}
         </nav>
         <div className="flex items-center space-x-1 sm:space-x-2">
+          <Button variant="ghost" size="icon" asChild>
+              <Link href="/user-manual" aria-label="User Manual">
+                  <Wrench className="h-5 w-5" />
+              </Link>
+          </Button>
           <LanguageSwitcher />
           {loading ? (
             <div className="h-9 w-24 animate-pulse rounded-md bg-muted"></div>
