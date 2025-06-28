@@ -4,10 +4,11 @@
 import { useLanguage } from '@/hooks/use-language';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { AlertTriangle } from 'lucide-react';
+import { translations } from '@/lib/translations';
 
-const translations = {
+const componentTranslations = {
     en: {
-        title: "Model Access Error (Step 2)",
+        title: "Model Access Error (Region Lock)",
         p1: "Thank you for enabling the Vertex AI API. Unfortunately, the error persists, which is common with preview models.",
         p2: "The most likely cause is that your Firebase project was created in a <strong>geographic region</strong> where this specific image model is not yet available.",
         step1: "Check your region:",
@@ -20,12 +21,12 @@ const translations = {
         p4: "This is a limitation of early-access models and is outside the application's control.",
     },
     fr: {
-        title: "Erreur d'Accès au Modèle (Étape 2)",
-        p1: "Merci d'avoir activé l'API Vertex AI. Malheureusement, l'erreur persiste, ce qui est courant avec les modèles en avant-première ('preview').",
-        p2: "La cause la plus probable est que votre projet Firebase a été créé dans une <strong>région géographique</strong> où ce modèle d'image n'est pas encore disponible.",
+        title: "Erreur d'Accès au Modèle (Région)",
+        p1: "Merci d'avoir activé l'API Vertex AI. Malheureusement, l'erreur persiste, ce qui est fréquent avec les modèles en avant-première ('preview').",
+        p2: "La cause la plus probable est que votre projet Firebase a été créé dans une <strong>région géographique</strong> où ce modèle d'image spécifique n'est pas encore disponible.",
         step1: "Vérifiez votre région :",
         step1_link: "Allez dans les paramètres de votre projet Firebase",
-        step1_text: "et notez votre 'Default GCP resource location'.",
+        step1_text: "et notez votre 'Emplacement des ressources GCP par défaut'.",
         step2: "Vérifiez la disponibilité du modèle :",
         step2_link: "Consultez la liste des régions pour les modèles Gemini",
         step2_text: "et assurez-vous que votre région est listée pour les modèles `gemini-2.0-flash`.",
@@ -33,12 +34,12 @@ const translations = {
         p4: "Ceci est une limitation des modèles en accès anticipé et est hors du contrôle de l'application.",
     },
     es: {
-        title: "Error de Acceso al Modelo (Paso 2)",
+        title: "Error de Acceso al Modelo (Bloqueo de Región)",
         p1: "Gracias por habilitar la API de Vertex AI. Desafortunadamente, el error persiste, lo cual es común con los modelos en vista previa ('preview').",
         p2: "La causa más probable es que su proyecto de Firebase fue creado en una <strong>región geográfica</strong> donde este modelo de imagen específico aún no está disponible.",
         step1: "Verifique su región:",
         step1_link: "Vaya a la configuración de su proyecto de Firebase",
-        step1_text: "y anote la 'Default GCP resource location'.",
+        step1_text: "y anote la 'Ubicación de recursos de GCP predeterminada'.",
         step2: "Verifique la disponibilidad del modelo:",
         step2_link: "Consulte la lista de regiones para los modelos Gemini",
         step2_text: "y asegúrese de que su región esté en la lista para los modelos `gemini-2.0-flash`.",
@@ -49,9 +50,12 @@ const translations = {
 
 export default function ModelAccessError() {
     const { language } = useLanguage();
-    const t = translations[language] || translations.en;
+    const t = componentTranslations[language] || componentTranslations.en;
     // Dynamically create a direct link to the user's specific Firebase project settings
-    const firebaseSettingsLink = `https://console.firebase.google.com/project/${process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID}/settings/general`;
+    const firebaseProjectId = process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID;
+    const firebaseSettingsLink = firebaseProjectId 
+      ? `https://console.firebase.google.com/project/${firebaseProjectId}/settings/general`
+      : `https://console.firebase.google.com/`;
 
     return (
         <Card className="mt-4 border-destructive bg-destructive/10">
@@ -62,7 +66,6 @@ export default function ModelAccessError() {
             </div>
           </CardHeader>
           <CardContent className="space-y-3 text-destructive/90">
-              <p>{t.p1}</p>
               <p dangerouslySetInnerHTML={{ __html: t.p2 }} />
               <ol className="list-decimal list-inside space-y-2 pt-1">
                 <li>
@@ -86,3 +89,5 @@ export default function ModelAccessError() {
         </Card>
     )
 }
+
+    
