@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState, useTransition } from 'react';
@@ -10,7 +9,6 @@ import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Loader2, Search } from 'lucide-react';
 import { suggestAiTool, type SuggestAiToolOutput } from '@/ai/flows/suggest-ai-tool';
-import { aiTools } from '@/lib/data'; // To provide list of tools to the AI
 import AiSearchResults from './ai-search-results';
 import { useToast } from '@/hooks/use-toast';
 import { useLanguage } from '@/hooks/use-language';
@@ -42,8 +40,7 @@ export default function AiSearchForm() {
     setSearchResult(null);
     startTransition(async () => {
       try {
-        const toolNames = aiTools.map(tool => tool.name);
-        const result = await suggestAiTool({ prompt: data.prompt, aiToolList: toolNames, language: language });
+        const result = await suggestAiTool({ prompt: data.prompt, language: language });
         setSearchResult(result);
       } catch (e) {
         console.error("AI Search Error:", e);

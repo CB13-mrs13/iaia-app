@@ -12,10 +12,10 @@
 import {ai} from '@/ai/genkit';
 import {z} from 'genkit';
 import type { SupportedLanguage } from '@/contexts/language-context';
+import { aiTools } from '@/lib/data';
 
 const SuggestAiToolInputSchema = z.object({
   prompt: z.string().describe('A description of the user’s needs.'),
-  aiToolList: z.array(z.string()).describe('A list of available AI tools.'),
   language: z.string().describe('The language for the response (e.g., "en", "fr", "es").'),
 });
 export type SuggestAiToolInput = z.infer<typeof SuggestAiToolInputSchema>;
@@ -38,7 +38,7 @@ const languageMap: Record<SupportedLanguage, string> = {
 
 const prompt = ai.definePrompt({
   name: 'suggestAiToolPrompt',
-  input: {schema: SuggestAiToolInputSchema.extend({ languageName: z.string() })},
+  input: {schema: SuggestAiToolInputSchema.extend({ languageName: z.string(), aiToolList: z.array(z.string()) })},
   output: {schema: SuggestAiToolOutputSchema},
   prompt: `You are an AI tool suggestion expert. You MUST generate your entire response, including the reasoning, in the following language: {{{languageName}}}.
 
@@ -56,7 +56,8 @@ const suggestAiToolFlow = ai.defineFlow(
   },
   async (input) => {
     const languageName = languageMap[input.language as SupportedLanguage] || 'English';
-    const finalInput = {...input, languageName};
+    const toolNames = aiTools.map(tool => tool.name);
+    const finalInput = {...input, languageName, aiToolList: toolNames};
     const {output} = await prompt(finalInput);
     return output!;
   }
