@@ -37,7 +37,7 @@ export default function ForgotPasswordPage() {
       try {
         await sendPasswordResetEmail(data.email);
         setSuccess(`Password reset email sent to ${data.email}. Please check your inbox (and spam folder).`);
-        toast({ title: 'Email Sent', description: `Password reset instructions sent to ${data.email}.` });
+        toast({ title: 'Email Sent', description: `Password reset instructions sent to ${data.email}. Please also check your spam folder.` });
         form.reset();
       } catch (err: any) {
         let errorMessage = "Failed to send password reset email. Please try again.";

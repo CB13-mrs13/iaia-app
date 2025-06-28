@@ -2443,5 +2443,59 @@ export const aiTools: AiTool[] = [
       fr: ['Plus de 350 intégrations natives', 'Création de nœuds personnalisés', 'Option d\'auto-hébergement', 'Licence fair-code'],
       es: ['Más de 350 integraciones nativas', 'Creación de nodos personalizados', 'Opción de auto-alojamiento', 'Licencia de código justo'],
     }
+  },
+  {
+    id: '94',
+    name: 'Lovable',
+    description: {
+      en: 'AI-powered relationship and wellness coach to help you build healthier connections.',
+      fr: 'Coach en relations et bien-être alimenté par l\'IA pour vous aider à établir des liens plus sains.',
+      es: 'Entrenador de relaciones y bienestar impulsado por IA para ayudarte a construir conexiones más saludables.',
+    },
+    longDescription: {
+      en: 'Lovable is an AI companion designed to provide guidance on relationships, communication, and personal well-being. It offers personalized advice and exercises to foster self-growth and stronger bonds.',
+      fr: 'Lovable est un compagnon IA conçu pour fournir des conseils sur les relations, la communication et le bien-être personnel. Il propose des conseils personnalisés et des exercices pour favoriser la croissance personnelle et des liens plus solides.',
+      es: 'Lovable es un compañero de IA diseñado para proporcionar orientación sobre relaciones, comunicación y bienestar personal. Ofrece consejos personalizados y ejercicios para fomentar el crecimiento personal y vínculos más fuertes.',
+    },
+    category: 'Other',
+    website: '#',
+    imageUrl: `/ai-tools/lovable.png`,
+    imageKeywords: 'heart relationship',
+    rating: 4.3,
+    tags: ['relationship coach', 'wellness', 'ai companion'],
+    pricing: 'Freemium',
+    isSponsored: true,
+    features: {
+      en: ['Personalized relationship advice', 'Guided wellness exercises', 'Communication analysis', 'Mood journaling'],
+      fr: ['Conseils relationnels personnalisés', 'Exercices de bien-être guidés', 'Analyse de la communication', 'Journal de l\'humeur'],
+      es: ['Consejos de relación personalizados', 'Ejercicios de bienestar guiados', 'Análisis de la comunicación', 'Diario del estado de ánimo'],
+    }
+  },
+  {
+    id: '95',
+    name: 'Deepseek',
+    description: {
+      en: 'A family of powerful open-source LLMs from DeepSeek AI, excelling in coding and reasoning.',
+      fr: 'Une famille de puissants LLM open-source de DeepSeek AI, excellant dans le codage et le raisonnement.',
+      es: 'Una familia de potentes LLM de código abierto de DeepSeek AI, que sobresalen en codificación y razonamiento.',
+    },
+    longDescription: {
+      en: 'DeepSeek offers a range of open-source language and coding models that have been trained from scratch on a vast dataset. They are known for their strong performance, particularly in programming-related tasks.',
+      fr: 'DeepSeek propose une gamme de modèles de langage et de codage open-source qui ont été entraînés à partir de zéro sur un vaste ensemble de données. Ils sont connus pour leurs solides performances, en particulier dans les tâches liées à la programmation.',
+      es: 'DeepSeek ofrece una gama de modelos de lenguaje y codificación de código abierto que han sido entrenados desde cero en un vasto conjunto de datos. Son conocidos por su sólido rendimiento, particularmente en tareas relacionadas con la programación.',
+    },
+    category: 'Coding',
+    website: 'https://www.deepseek.com/',
+    imageUrl: `/ai-tools/deepseek.png`,
+    imageKeywords: 'deepseek logo',
+    rating: 4.7,
+    tags: ['open source', 'coding llm', 'reasoning', 'research'],
+    pricing: 'Free',
+    isSponsored: true,
+    features: {
+      en: ['High-performance coding models', 'Strong general reasoning', 'Open-source and commercially friendly', 'Multiple model sizes'],
+      fr: ['Modèles de codage haute performance', 'Raisonnement général solide', 'Open-source et commercialement utilisable', 'Plusieurs tailles de modèle'],
+      es: ['Modelos de codificación de alto rendimiento', 'Razonamiento general sólido', 'Código abierto y comercialmente amigable', 'Múltiples tamaños de modelo'],
+    }
   }
 ];

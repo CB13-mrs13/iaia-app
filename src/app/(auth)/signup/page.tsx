@@ -39,10 +39,9 @@ export default function SignUpPage() {
     await signUpWithEmail(values.email, values.password, values.displayName);
     toast({ title: 'Sign Up Successful', description: 'Welcome to IAIA! Your account has been created.' });
     setShowConfetti(true);
-    // Wait for confetti to be visible briefly before redirecting and refreshing
+    // Wait for confetti to be visible briefly before redirecting
     setTimeout(() => {
       router.push('/discover');
-      router.refresh();
     }, 5000); 
   };
   

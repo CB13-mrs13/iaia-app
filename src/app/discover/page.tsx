@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useMemo } from 'react';
@@ -19,7 +20,7 @@ export default function DiscoverPage() {
   const { language } = useLanguage();
   const t = translations[language].home;
 
-  const featuredToolsList = useMemo(() => ['VEO3', 'BOLT', 'n8n'], []);
+  const featuredToolsList = useMemo(() => ['VEO3', 'BOLT', 'n8n', 'Lovable', 'Canva AI Image Generator', 'Deepseek'], []);
   const featuredTools = useMemo(() => {
     // Find the featured tools and sort them in the desired order
     return aiTools
