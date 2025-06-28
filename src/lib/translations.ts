@@ -25,6 +25,8 @@ type PageTranslations = {
     noToolsFound: string;
     tryAdjustingFilters: string;
     backToTop: string;
+    toolboxTitle: string;
+    toolboxText: string;
   };
   filters: {
     title: string;
@@ -143,6 +145,8 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       noToolsFound: "No tools found matching your criteria.",
       tryAdjustingFilters: "Try adjusting your filters or search term.",
       backToTop: "Back to Top",
+      toolboxTitle: "Toolbox",
+      toolboxText: "Tips and tricks to help you on your AI learning journey.",
     },
     filters: {
       title: "Filter by Category",
@@ -258,6 +262,8 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       noToolsFound: "Aucun outil ne correspond à vos critères.",
       tryAdjustingFilters: "Essayez de modifier vos filtres ou votre terme de recherche.",
       backToTop: "Retour en haut",
+      toolboxTitle: "Boîte à outils",
+      toolboxText: "trucs et astuces pour vous aider dans votre apprentissage sur les IA",
     },
     filters: {
       title: "Filtrer par catégorie",
@@ -373,6 +379,8 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       noToolsFound: "No se encontraron herramientas que coincidan con sus criterios.",
       tryAdjustingFilters: "Intenta ajustar tus filtros o término de búsqueda.",
       backToTop: "Volver Arriba",
+      toolboxTitle: "Caja de Herramientas",
+      toolboxText: "Consejos y trucos para ayudarte en tu viaje de aprendizaje de IA.",
     },
     filters: {
       title: "Filtrar por Categoría",

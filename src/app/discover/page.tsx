@@ -8,7 +8,7 @@ import AiSearchForm from '@/components/ai-search-form';
 import { aiTools } from '@/lib/data';
 import type { AiToolCategory } from '@/types';
 import { Input } from '@/components/ui/input';
-import { Search, ArrowUp, Zap } from 'lucide-react';
+import { Search, ArrowUp, Wrench } from 'lucide-react';
 import { useLanguage } from '@/hooks/use-language';
 import { translations } from '@/lib/translations';
 import { Button } from '@/components/ui/button';
@@ -72,6 +72,15 @@ export default function DiscoverPage() {
           </div>
         </section>
       )}
+
+      {/* Beta Toolbox Section */}
+      <section id="toolbox-beta">
+        <div className="bg-accent text-accent-foreground rounded-lg p-8 shadow-lg text-center flex flex-col items-center gap-2">
+          <Wrench className="h-8 w-8" />
+          <h3 className="text-2xl font-bold">{t.toolboxTitle}</h3>
+          <p className="mt-1 text-lg">{t.toolboxText}</p>
+        </div>
+      </section>
       
       <section id="tool-listing">
         <header className="mb-8 text-center">
