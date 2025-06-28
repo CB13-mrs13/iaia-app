@@ -2458,7 +2458,7 @@ export const aiTools: AiTool[] = [
       es: 'Lovable es un compañero de IA diseñado para proporcionar orientación sobre relaciones, comunicación y bienestar personal. Ofrece consejos personalizados y ejercicios para fomentar el crecimiento personal y vínculos más fuertes.',
     },
     category: 'Other',
-    website: 'https://www.lovable.ai/',
+    website: 'https://lovable.app/',
     imageUrl: `/ai-tools/lovable.png`,
     imageKeywords: 'heart relationship',
     rating: 4.3,
@@ -2496,6 +2496,33 @@ export const aiTools: AiTool[] = [
       en: ['High-performance coding models', 'Strong general reasoning', 'Open-source and commercially friendly', 'Multiple model sizes'],
       fr: ['Modèles de codage haute performance', 'Raisonnement général solide', 'Open-source et commercialement utilisable', 'Plusieurs tailles de modèle'],
       es: ['Modelos de codificación de alto rendimiento', 'Razonamiento general sólido', 'Código abierto y comercialmente amigable', 'Múltiples tamaños de modelo'],
+    }
+  },
+  {
+    id: '96',
+    name: 'Mammouth AI',
+    description: {
+      en: 'An AI powerhouse for organizing and managing large-scale projects with intelligent insights.',
+      fr: 'Un colosse IA pour organiser et gérer des projets à grande échelle avec des informations intelligentes.',
+      es: 'Una potencia de IA para organizar y gestionar proyectos a gran escala con conocimientos inteligentes.',
+    },
+    longDescription: {
+      en: 'Mammouth AI helps enterprise teams tackle complex projects by providing a centralized knowledge base, AI-powered task scheduling, and predictive analytics to identify potential bottlenecks before they occur.',
+      fr: 'Mammouth AI aide les équipes d\'entreprise à aborder des projets complexes en fournissant une base de connaissances centralisée, une planification des tâches alimentée par l\'IA et des analyses prédictives pour identifier les goulots d\'étranglement potentiels avant qu\'ils ne surviennent.',
+      es: 'Mammouth AI ayuda a los equipos empresariales a abordar proyectos complejos proporcionando una base de conocimientos centralizada, programación de tareas impulsada por IA y análisis predictivos para identificar posibles cuellos de botella antes de que ocurran.',
+    },
+    category: 'Productivity',
+    website: '#',
+    imageUrl: `/ai-tools/${createSlug('Mammouth AI')}.png`,
+    imageKeywords: 'mammoth productivity',
+    rating: 4.6,
+    tags: ['project management', 'enterprise', 'analytics'],
+    pricing: 'Paid',
+    isSponsored: true,
+    features: {
+      en: ['Predictive project analytics', 'Centralized knowledge base', 'AI-powered task delegation', 'Risk assessment dashboard'],
+      fr: ['Analyse prédictive de projet', 'Base de connaissances centralisée', 'Délégation de tâches par IA', 'Tableau de bord d\'évaluation des risques'],
+      es: ['Análisis predictivo de proyectos', 'Base de conocimientos centralizada', 'Delegación de tareas con IA', 'Panel de evaluación de riesgos'],
     }
   }
 ];
