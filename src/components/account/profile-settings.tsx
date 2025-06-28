@@ -106,7 +106,6 @@ export default function ProfileSettings({ user }: ProfileSettingsProps) {
           recycle={false}
           numberOfPieces={800}
           gravity={0.1}
-          initialVelocity={50}
           spread={360}
           origin={{ x: 0.5, y: 0.5 }}
         />
