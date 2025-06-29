@@ -19,6 +19,23 @@ This is a Next.js starter project built in Firebase Studio. It's a curated direc
 
 ---
 
+## Code Quality
+
+This project is configured with tools to ensure code quality and consistency:
+
+- **ESLint:** For identifying and fixing problems in JavaScript/TypeScript code.
+- **Prettier:** For automatically formatting code to maintain a consistent style.
+- **TypeScript:** For static type checking.
+
+You can run the following commands to maintain code quality:
+
+- `npm run lint`: Check for linting errors.
+- `npm run lint:fix`: Automatically fix linting errors.
+- `npm run format`: Format all files with Prettier.
+- `npm run typecheck`: Run the TypeScript compiler to check for type errors.
+
+---
+
 ## Deployment
 
 The simplest and most cost-effective way to deploy this application is using **Firebase App Hosting**. The project is already configured for it.
