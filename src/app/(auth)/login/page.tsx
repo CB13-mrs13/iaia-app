@@ -22,8 +22,9 @@ export default function LoginPage() {
   const handleLogin = async (values: any) => { // eslint-disable-line @typescript-eslint/no-explicit-any
     await signInWithEmail(values.email, values.password);
     toast({ title: 'Login Successful', description: 'Welcome back!' });
-    router.push('/discover');
-    router.refresh(); // Ensure layout reflects new auth state
+    // The redirect is now handled by the useEffect hook.
+    // This prevents a race condition where navigation happens before the auth state
+    // has propagated to all components, such as the Navbar.
   };
 
   if (loading || (!loading && user)) {
