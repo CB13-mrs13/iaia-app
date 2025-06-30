@@ -14,9 +14,13 @@ export async function getUserFavorites(userId: string): Promise<string[]> {
     }
     return [];
   } catch (error) {
-    console.error("Error fetching user favorites:", error);
-    // Re-throw with a more descriptive message for the user.
-    throw new Error("Could not fetch favorites. Please check your Firestore security rules to ensure you are allowed to read from the 'users' collection.");
+    console.error("--- FAVORITES FETCH ERROR ---");
+    console.error("Could not fetch user favorites. This is likely due to Firestore security rules.");
+    console.error("Your default 30-day open access may have expired.");
+    console.error("To fix this, deploy the rules defined in 'firestore.rules' by running `firebase deploy --only firestore` in your terminal.");
+    console.error("The app will continue to function, but favorites will be unavailable until the rules are deployed. Error details:", error);
+    // Return an empty array to prevent the app from crashing.
+    return [];
   }
 }
 
