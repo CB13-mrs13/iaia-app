@@ -8,15 +8,18 @@ import PasswordSettings from "@/components/account/password-settings";
 import DeleteAccount from "@/components/account/delete-account";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { Loader2 } from "lucide-react";
+import { Loader2, Home } from "lucide-react";
 import { useLanguage } from "@/hooks/use-language";
 import { translations } from "@/lib/translations";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export default function AccountPage() {
   const { user, loading } = useAuth();
   const router = useRouter();
   const { language } = useLanguage();
   const t = translations[language].account;
+  const userNavT = translations[language].userNav;
 
   useEffect(() => {
     if (!loading && !user) {
@@ -34,9 +37,17 @@ export default function AccountPage() {
 
   return (
     <div className="space-y-8 max-w-3xl mx-auto animate-fadeIn">
-      <header>
-        <h1 className="text-3xl font-bold tracking-tight">{t.title}</h1>
-        <p className="text-muted-foreground">{t.subtitle}</p>
+      <header className="flex flex-col sm:flex-row justify-between sm:items-center gap-4">
+        <div>
+          <h1 className="text-3xl font-bold tracking-tight">{t.title}</h1>
+          <p className="text-muted-foreground">{t.subtitle}</p>
+        </div>
+        <Button asChild variant="outline">
+          <Link href="/discover">
+            <Home className="mr-2 h-4 w-4" />
+            {userNavT.home}
+          </Link>
+        </Button>
       </header>
 
       <Card className="shadow-md">
