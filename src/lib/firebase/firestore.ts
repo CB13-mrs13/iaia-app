@@ -1,6 +1,3 @@
-
-'use server';
-
 import { db } from './config';
 import { doc, getDoc, updateDoc, arrayUnion, arrayRemove, setDoc } from "firebase/firestore";
 
