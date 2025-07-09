@@ -133,12 +133,12 @@ export default function LandingPage() {
           </div>
           <div className="relative h-96 w-full rounded-lg overflow-hidden shadow-xl">
              <Image
-                src="https://placehold.co/600x800.png"
-                alt="Femme de ménage masquée"
+                src="/images/logo-iaia-txt.jpg"
+                alt="Logo IAIA avec slogan"
                 width={600}
                 height={800}
                 className="object-cover w-full h-full"
-                data-ai-hint="masked cleaner"
+                data-ai-hint="iaia logo"
               />
           </div>
         </div>
