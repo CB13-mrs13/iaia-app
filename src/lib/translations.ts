@@ -11,6 +11,7 @@ type PageTranslations = {
     section1Title: string;
     section1Text1: string;
     section1Text2: string;
+    logoSlogan: string;
     section1Button: string;
     section2Title: string;
     carouselCaption1: string;
@@ -212,6 +213,7 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       section1Title: "What is IAIA?",
       section1Text1: "A smart assistant that tells you which AI to use based on what you want to create.",
       section1Text2: "Text, image, voice, code, video: 👉 IAIA knows them all. And guides you to the right one, every time.",
+      logoSlogan: "The smart assistant that tells you which AI to use.",
       section1Button: "→ See examples",
       section2Title: "You take control.",
       carouselCaption1: "“You are the King.”",
@@ -410,6 +412,7 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       section1Title: "IAIA, c’est quoi ?",
       section1Text1: "Un assistant intelligent qui te dit quelle IA utiliser selon ce que tu veux créer.",
       section1Text2: "Texte, image, voix, code, vidéo : 👉 IAIA les connaît toutes. Et te guide vers la bonne, à chaque fois.",
+      logoSlogan: "L'assistant intelligent qui vous dit quelle IA utiliser.",
       section1Button: "→ Voir des exemples",
       section2Title: "Tu prends le pouvoir.",
       carouselCaption1: "“C’est toi le Roi.”",
@@ -608,6 +611,7 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       section1Title: "¿Qué es IAIA?",
       section1Text1: "Un asistente inteligente que te dice qué IA usar según lo que quieras crear.",
       section1Text2: "Texto, imagen, voz, código, video: 👉 IAIA los conoce todos. Y te guía al correcto, cada vez.",
+      logoSlogan: "El asistente inteligente que te dice qué IA usar.",
       section1Button: "→ Ver ejemplos",
       section2Title: "Tú tomas el poder.",
       carouselCaption1: "“Tú eres el Rey.”",

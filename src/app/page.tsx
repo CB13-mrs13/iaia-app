@@ -46,7 +46,7 @@ const Carousel = ({ items }: { items: { image: string; caption: string; hint: st
               src={item.image}
               alt={item.caption}
               fill
-              objectFit="cover"
+              style={{ objectFit: 'cover' }}
               className="w-full h-full"
               data-ai-hint={item.hint}
             />
@@ -136,22 +136,22 @@ export default function LandingPage() {
             </Button>
           </div>
           <Link href="/signup" className="block transition-transform duration-300 hover:scale-105">
-            <div className="relative h-96 w-full rounded-lg overflow-hidden shadow-xl">
-               <Image
-                  src="/images/logo-iaia-txt.jpg"
-                  alt="Logo IAIA avec slogan"
-                  width={600}
-                  height={800}
-                  className="object-cover w-full h-full"
-                  data-ai-hint="iaia logo"
-                />
+            <div 
+              className="relative h-96 w-full rounded-lg overflow-hidden shadow-xl bg-cover bg-center flex items-center justify-center p-8"
+              style={{ backgroundImage: "url('/images/logo-iaia-sstxt.jpg')" }}
+              data-ai-hint="iaia logo abstract"
+            >
+              <div className="absolute inset-0 bg-black/30"></div>
+              <p className="relative z-10 text-center text-2xl font-bold text-white leading-relaxed drop-shadow-lg">
+                {t.logoSlogan}
+              </p>
             </div>
           </Link>
         </div>
       </section>
 
       {/* Section 2: Storytelling */}
-      <section className="py-20 bg-background text-center">
+       <section className="py-20 bg-background text-center">
         <div className="container mx-auto max-w-none px-0">
           <h2 className="text-4xl font-bold mb-12 px-4">{t.section2Title}</h2>
           <Carousel items={carouselItems} />
