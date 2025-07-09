@@ -11,6 +11,7 @@ import { Input } from '@/components/ui/input';
 import { Card, CardContent } from '@/components/ui/card';
 import { Check, Mail, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import LanguageSwitcher from '@/components/layout/language-switcher';
 
 // Helper component for Carousel
 const Carousel = ({ items }: { items: { image: string; caption: string; hint: string }[] }) => {
@@ -244,7 +245,8 @@ export default function LandingPage() {
         <div className="container mx-auto text-center">
           <Image src="/iaia-logo.png" alt="IAIA Logo" width={40} height={40} className="h-10 w-10 mx-auto mb-4" />
           <p className="text-sm">Built by CBT3 - Cousinbruno. © {new Date().getFullYear()} IAIA. All rights reserved.</p>
-          <div className="flex justify-center gap-4 mt-4">
+          <div className="flex justify-center items-center gap-4 mt-4">
+            <LanguageSwitcher />
             <Link href="#" className="hover:text-white">Réseaux sociaux</Link>
             <Link href="#" className="hover:text-white">Contact</Link>
             <Link href="/privacy-policy" className="hover:text-white">Politique IA</Link>
@@ -254,5 +256,3 @@ export default function LandingPage() {
     </div>
   );
 }
-
-    
