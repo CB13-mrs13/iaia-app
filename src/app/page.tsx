@@ -42,8 +42,9 @@ const Carousel = ({ items }: { items: { image: string; caption: string; hint: st
             <Image
               src={item.image}
               alt={item.caption}
-              fill
-              className="object-cover"
+              width={800}
+              height={600}
+              className="object-cover w-full h-full"
               data-ai-hint={item.hint}
             />
             <div className="absolute inset-0 bg-black/40" />
@@ -84,23 +85,18 @@ export default function LandingPage() {
   }
 
   const carouselItems = [
-    { image: '/catcheur-iaia.jpg', caption: '“C’est toi le Roi.”', hint: 'wrestler champion' },
-    { image: '/ballerine-iaia.jpg', caption: '“C’est toi la Reine.”', hint: 'ballerina queen' },
-    { image: '/ceo-iaia.jpg', caption: '“Maintenant, c’est toi le Boss.”', hint: 'boss commanding' },
+    { image: '/images/catcheur-iaia.jpg', caption: '“C’est toi le Roi.”', hint: 'wrestler champion' },
+    { image: '/images/ballerine-iaia.jpg', caption: '“C’est toi la Reine.”', hint: 'ballerina queen' },
+    { image: '/images/ceo-iaia.jpg', caption: '“Maintenant, c’est toi le Boss.”', hint: 'boss commanding' },
   ];
 
   return (
     <div className="bg-background text-foreground">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center text-center text-white overflow-hidden">
-        <Image
-          src="/catcheur-iaia.jpg"
-          alt="Lutteur IAIA dominant le ring"
-          fill
-          className="object-cover -z-10"
-          data-ai-hint="wrestler jumping"
-          priority
-        />
+      <section 
+        className="relative min-h-screen flex items-center justify-center text-center text-white overflow-hidden bg-cover bg-center"
+        style={{ backgroundImage: "url('/images/catcheur-iaia.jpg')" }}
+      >
         <div className="absolute inset-0 bg-black/60 -z-10" />
         <div className="z-10 p-4 animate-fadeIn">
           <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-4 animate-slideInUp" style={{ animationDelay: '0.2s' }}>
@@ -139,8 +135,9 @@ export default function LandingPage() {
              <Image
                 src="https://placehold.co/600x800.png"
                 alt="Femme de ménage masquée"
-                fill
-                className="object-cover"
+                width={600}
+                height={800}
+                className="object-cover w-full h-full"
                 data-ai-hint="masked cleaner"
               />
           </div>
@@ -257,3 +254,5 @@ export default function LandingPage() {
     </div>
   );
 }
+
+    
