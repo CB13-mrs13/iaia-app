@@ -137,12 +137,12 @@ export default function LandingPage() {
           </div>
           <Link href="/signup" className="block transition-transform duration-300 hover:scale-105">
             <div 
-              className="relative h-96 w-full rounded-lg overflow-hidden shadow-xl bg-cover bg-center flex items-center justify-center p-8"
+              className="relative h-96 w-full rounded-lg overflow-hidden shadow-xl bg-cover bg-center flex items-center p-8"
               style={{ backgroundImage: "url('/images/logo-iaia-sstxt.jpg')" }}
               data-ai-hint="iaia logo abstract"
             >
               <div className="absolute inset-0 bg-black/30"></div>
-              <p className="relative z-10 text-left text-2xl font-bold text-white leading-relaxed drop-shadow-lg">
+              <p className="relative z-10 text-left text-2xl font-bold text-white leading-relaxed drop-shadow-lg pl-[40%]">
                 {t.logoSlogan}
               </p>
             </div>
