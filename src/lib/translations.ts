@@ -208,7 +208,7 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
   en: {
     landingPage: {
       heroTitle: "Thought you knew everything about AI?",
-      heroSubtitle: "With IAIA, you're the boss.",
+      heroSubtitle: "You are the King.",
       heroButton: "👉 Try IAIA for free",
       section1Title: "What is IAIA?",
       section1Text1: "A smart assistant that tells you which AI to use based on what you want to create.",
@@ -407,7 +407,7 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
   fr: {
     landingPage: {
       heroTitle: "Tu croyais tout savoir sur l’IA ?",
-      heroSubtitle: "Avec IAIA, c’est toi le boss.",
+      heroSubtitle: "c'est toi le roi.",
       heroButton: "👉 Testez IAIA gratuitement",
       section1Title: "IAIA, c’est quoi ?",
       section1Text1: "Un assistant intelligent qui te dit quelle IA utiliser selon ce que tu veux créer.",
@@ -606,7 +606,7 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
   es: {
     landingPage: {
       heroTitle: "¿Creías que lo sabías todo sobre la IA?",
-      heroSubtitle: "Con IAIA, tú eres el jefe.",
+      heroSubtitle: "Tú eres el Rey.",
       heroButton: "👉 Prueba IAIA gratis",
       section1Title: "¿Qué es IAIA?",
       section1Text1: "Un asistente inteligente que te dice qué IA usar según lo que quieras crear.",
