@@ -93,13 +93,24 @@ export default {
         "slideInUp": {
           "0%": { transform: "translateY(20px)", opacity: "0" },
           "100%": { transform: "translateY(0)", opacity: "1" },
-        }
+        },
+        "ken-burns": {
+          "0%": {
+            transform: "scale(1) translateY(0)",
+            transformOrigin: "center center",
+          },
+          "100%": {
+            transform: "scale(1.1) translateY(-15px)",
+            transformOrigin: "center center",
+          },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
         "fadeIn": "fadeIn 0.5s ease-in-out",
         "slideInUp": "slideInUp 0.5s ease-out",
+        "ken-burns": "ken-burns 8s ease-out forwards",
       },
     },
   },

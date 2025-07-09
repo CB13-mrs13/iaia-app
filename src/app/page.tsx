@@ -67,6 +67,44 @@ const Carousel = ({ items }: { items: { image: string; caption: string; hint: st
   );
 };
 
+const HeroSlideshow = ({ images }: { images: { src: string; alt: string; }[] }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 7000); // Change image every 7 seconds
+
+    return () => clearInterval(interval);
+  }, [images.length]);
+
+  return (
+    <>
+      {images.map((image, index) => (
+        <div
+          key={image.src}
+          className={cn(
+            'absolute inset-0 h-full w-full bg-cover bg-center transition-opacity duration-1000 ease-in-out',
+            index === currentIndex ? 'opacity-100' : 'opacity-0'
+          )}
+        >
+          <Image
+            src={image.src}
+            alt={image.alt}
+            fill
+            style={{ objectFit: 'cover' }}
+            className={cn(
+              'animate-ken-burns',
+               index === currentIndex ? 'opacity-100' : 'opacity-0'
+            )}
+            priority={index === 0}
+          />
+        </div>
+      ))}
+    </>
+  );
+};
+
 
 export default function LandingPage() {
   const { user, loading } = useAuth();
@@ -95,13 +133,19 @@ export default function LandingPage() {
     { image: '/images/ceo-iaia.jpg', caption: t.carouselCaption3, hint: 'boss commanding' },
   ];
 
+  const heroImages = [
+    { src: '/images/catcheur-iaia.jpg', alt: 'A powerful wrestler celebrating victory' },
+    { src: '/images/ballerine-iaia.jpg', alt: 'An elegant ballerina performing' },
+    { src: '/images/ceo-iaia.jpg', alt: 'A confident businessperson in command' },
+  ];
+
   return (
     <div className="bg-background text-foreground">
       {/* Hero Section */}
       <section 
-        className="relative min-h-screen flex items-center justify-center text-center text-white overflow-hidden bg-cover bg-center"
-        style={{ backgroundImage: "url('/images/catcheur-iaia.jpg')" }}
+        className="relative min-h-screen flex items-center justify-center text-center text-white overflow-hidden"
       >
+        <HeroSlideshow images={heroImages} />
         <div className="absolute inset-0 bg-black/60" />
         <div className="z-10 p-4 animate-fadeIn">
           <h1 className="text-8xl md:text-9xl font-bold leading-none mb-4 animate-slideInUp" style={{ animationDelay: '0.2s' }}>
