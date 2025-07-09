@@ -39,7 +39,7 @@ export default function DeleteAccount() {
         router.refresh();
         setIsOpen(false);
       } catch (error) {
-        console.error("Account deletion error:", error);
+        console.warn("Account deletion error:", error);
         let description = t.deleteFailedToastDesc;
         if (error instanceof FirebaseError && error.code === 'auth/requires-recent-login') {
           description = t.reauthToastDesc;

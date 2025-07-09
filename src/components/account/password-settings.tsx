@@ -63,7 +63,7 @@ export default function PasswordSettings() {
         setShowConfetti(true);
         form.reset();
       } catch (error) {
-        console.error("Password update error:", error);
+        console.warn("Password update error:", error);
         let description = t.updateFailedToastDesc;
         if (error instanceof FirebaseError && error.code === 'auth/requires-recent-login') {
           description = t.reauthToastDesc;

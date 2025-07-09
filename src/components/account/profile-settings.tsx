@@ -88,7 +88,7 @@ export default function ProfileSettings({ user }: ProfileSettingsProps) {
         setShowConfetti(true);
 
       } catch (error) {
-        console.error("Profile update error:", error);
+        console.warn("Profile update error:", error);
         let description = t.updateFailedToastDesc;
         if (error instanceof FirebaseError && error.code === 'auth/requires-recent-login') {
             description = t.reauthToastDesc;
