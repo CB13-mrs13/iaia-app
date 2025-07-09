@@ -17,6 +17,13 @@ const nextConfig = {
       },
     ],
   },
+  // We need to opt-in to this experimental feature to allow local images.
+  experimental: {
+    serverComponentsExternalPackages: ['@react-pdf/renderer'],
+    outputFileTracingIncludes: {
+      '/**': ['./public/**/*'],
+    },
+  },
 };
 
 module.exports = nextConfig;
