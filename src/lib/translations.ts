@@ -4,6 +4,45 @@ import type { SupportedLanguage } from '@/contexts/language-context';
 // Define a general structure for your translations
 // You can expand this as your app grows
 type PageTranslations = {
+  landingPage: {
+    heroTitle: string;
+    heroSubtitle: string;
+    heroButton: string;
+    section1Title: string;
+    section1Text1: string;
+    section1Text2: string;
+    section1Button: string;
+    section2Title: string;
+    carouselCaption1: string;
+    carouselCaption2: string;
+    carouselCaption3: string;
+    section2Text1: string;
+    section2Text2: string;
+    section2Text3: string;
+    section3Title: string;
+    step1Title: string;
+    step1Text: string;
+    step2Title: string;
+    step2Text: string;
+    step3Title: string;
+    step3Text: string;
+    section3Benefit: string;
+    section4Title: string;
+    feature1: string;
+    feature2: string;
+    feature3: string;
+    feature4: string;
+    section4Quote: string;
+    section5Title: string;
+    formPlaceholder: string;
+    formButton: string;
+    formDisclaimer: string;
+    formOr: string;
+    formButton2: string;
+    footerSocials: string;
+    footerContact: string;
+    footerPolicy: string;
+  };
   searchForm: {
     title: string;
     description: string;
@@ -166,6 +205,45 @@ type PageTranslations = {
 
 export const translations: Record<SupportedLanguage, PageTranslations> = {
   en: {
+    landingPage: {
+      heroTitle: "Thought you knew everything about AI?",
+      heroSubtitle: "With IAIA, you're the boss.",
+      heroButton: "👉 Try IAIA for free",
+      section1Title: "What is IAIA?",
+      section1Text1: "A smart assistant that tells you which AI to use based on what you want to create.",
+      section1Text2: "Text, image, voice, code, video: 👉 IAIA knows them all. And guides you to the right one, every time.",
+      section1Button: "→ See examples",
+      section2Title: "You take control.",
+      carouselCaption1: "“You are the King.”",
+      carouselCaption2: "“You are the Queen.”",
+      carouselCaption3: "“Now, you're the Boss.”",
+      section2Text1: "Each image is a metaphor for what IAIA does for you.",
+      section2Text2: "IAIA arms you. IAIA propels you. IAIA elevates you.",
+      section2Text3: "🔥 No matter your technical level, IAIA puts you in command.",
+      section3Title: "How does it work?",
+      step1Title: "1. You say what you want to create",
+      step1Text: "“I want to generate a realistic female voice for a podcast”",
+      step2Title: "2. IAIA analyzes and selects",
+      step2Text: "e.g., ElevenLabs with the right voice setting",
+      step3Title: "3. You take action",
+      step3Text: "...without getting lost in 100 tools.",
+      section3Benefit: "🎯 Gain: time, clarity, creative efficiency.",
+      section4Title: "Why is IAIA different?",
+      feature1: "IAIA doesn't replace you: it amplifies you",
+      feature2: "IAIA isn't an AI, it's your AI coach",
+      feature3: "IAIA adapts to you: novice or expert",
+      feature4: "IAIA believes AI should be accessible to everyone",
+      section4Quote: "💡 “No need to be a dev or a prompt master. You want to create? IAIA shows you how.”",
+      section5Title: "You're in charge now.",
+      formPlaceholder: "Leave your email and get access to the beta version",
+      formButton: "Join the beta",
+      formDisclaimer: "🔐 No spam, just creative power",
+      formOr: "OR",
+      formButton2: "👉 Try IAIA now",
+      footerSocials: "Social Media",
+      footerContact: "Contact",
+      footerPolicy: "AI Policy",
+    },
     searchForm: {
       title: "AI-Powered Tool Finder",
       description: "Describe what you want to achieve, and our AI will suggest the best tool for the job!",
@@ -325,6 +403,45 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
     },
   },
   fr: {
+    landingPage: {
+      heroTitle: "Tu croyais tout savoir sur l’IA ?",
+      heroSubtitle: "Avec IAIA, c’est toi le boss.",
+      heroButton: "👉 Testez IAIA gratuitement",
+      section1Title: "IAIA, c’est quoi ?",
+      section1Text1: "Un assistant intelligent qui te dit quelle IA utiliser selon ce que tu veux créer.",
+      section1Text2: "Texte, image, voix, code, vidéo : 👉 IAIA les connaît toutes. Et te guide vers la bonne, à chaque fois.",
+      section1Button: "→ Voir des exemples",
+      section2Title: "Tu prends le pouvoir.",
+      carouselCaption1: "“C’est toi le Roi.”",
+      carouselCaption2: "“C’est toi la Reine.”",
+      carouselCaption3: "“Maintenant, c’est toi le Boss.”",
+      section2Text1: "Chaque image est une métaphore de ce que fait IAIA pour toi.",
+      section2Text2: "IAIA t’arme. IAIA te propulse. IAIA t’élève.",
+      section2Text3: "🔥 Peu importe ton niveau technique, IAIA te met aux commandes.",
+      section3Title: "Comment ça marche ?",
+      step1Title: "1. Tu dis ce que tu veux créer",
+      step1Text: "“Je veux générer une voix féminine réaliste pour un podcast”",
+      step2Title: "2. IAIA analyse et sélectionne",
+      step2Text: "Ex : ElevenLabs avec le bon réglage vocal",
+      step3Title: "3. Tu passes à l’action",
+      step3Text: "...sans te perdre dans 100 outils.",
+      section3Benefit: "🎯 Gain : temps, clarté, efficacité créative.",
+      section4Title: "Pourquoi IAIA est différent ?",
+      feature1: "IAIA ne te remplace pas : il t’amplifie",
+      feature2: "IAIA n’est pas une IA, c’est ton coach IA",
+      feature3: "IAIA s’adapte à toi : novice ou expert",
+      feature4: "IAIA croit que l’IA doit être accessible à tous",
+      section4Quote: "💡 “Pas besoin d’être un dev, ni prompt master. Tu veux créer ? IAIA te montre comment.”",
+      section5Title: "C’est toi qui commandes maintenant.",
+      formPlaceholder: "Laisse ton email et accède à la version beta",
+      formButton: "Rejoindre la beta",
+      formDisclaimer: "🔐 Pas de spam, juste du pouvoir créatif",
+      formOr: "OU",
+      formButton2: "👉 Tester IAIA maintenant",
+      footerSocials: "Réseaux sociaux",
+      footerContact: "Contact",
+      footerPolicy: "Politique IA",
+    },
     searchForm: {
       title: "Découverte d'outils par IA",
       description: "Décrivez ce que vous voulez accomplir, et notre IA vous suggérera le meilleur outil !",
@@ -484,6 +601,45 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
     },
   },
   es: {
+    landingPage: {
+      heroTitle: "¿Creías que lo sabías todo sobre la IA?",
+      heroSubtitle: "Con IAIA, tú eres el jefe.",
+      heroButton: "👉 Prueba IAIA gratis",
+      section1Title: "¿Qué es IAIA?",
+      section1Text1: "Un asistente inteligente que te dice qué IA usar según lo que quieras crear.",
+      section1Text2: "Texto, imagen, voz, código, video: 👉 IAIA los conoce todos. Y te guía al correcto, cada vez.",
+      section1Button: "→ Ver ejemplos",
+      section2Title: "Tú tomas el poder.",
+      carouselCaption1: "“Tú eres el Rey.”",
+      carouselCaption2: "“Tú eres la Reina.”",
+      carouselCaption3: "“Ahora, tú eres el Jefe.”",
+      section2Text1: "Cada imagen es una metáfora de lo que IAIA hace por ti.",
+      section2Text2: "IAIA te arma. IAIA te impulsa. IAIA te eleva.",
+      section2Text3: "🔥 No importa tu nivel técnico, IAIA te pone al mando.",
+      section3Title: "¿Cómo funciona?",
+      step1Title: "1. Dices lo que quieres crear",
+      step1Text: "“Quiero generar una voz femenina realista para un podcast”",
+      step2Title: "2. IAIA analiza y selecciona",
+      step2Text: "Ej: ElevenLabs con la configuración de voz correcta",
+      step3Title: "3. Pasas a la acción",
+      step3Text: "...sin perderte en 100 herramientas.",
+      section3Benefit: "🎯 Ganancia: tiempo, claridad, eficiencia creativa.",
+      section4Title: "¿Por qué IAIA es diferente?",
+      feature1: "IAIA no te reemplaza: te amplifica",
+      feature2: "IAIA no es una IA, es tu coach de IA",
+      feature3: "IAIA se adapta a ti: novato o experto",
+      feature4: "IAIA cree que la IA debe ser accesible para todos",
+      section4Quote: "💡 “No necesitas ser un desarrollador ni un maestro de los prompts. ¿Quieres crear? IAIA te muestra cómo.”",
+      section5Title: "Tú mandas ahora.",
+      formPlaceholder: "Deja tu correo electrónico y accede a la versión beta",
+      formButton: "Unirse a la beta",
+      formDisclaimer: "🔐 Sin spam, solo poder creativo",
+      formOr: "O",
+      formButton2: "👉 Probar IAIA ahora",
+      footerSocials: "Redes Sociales",
+      footerContact: "Contacto",
+      footerPolicy: "Política de IA",
+    },
     searchForm: {
       title: "Buscador de Herramientas con IA",
       description: "¡Describe lo que quieres lograr y nuestra IA te sugerirá la mejor herramienta para el trabajo!",
@@ -643,5 +799,3 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
     },
   },
 };
-
-    

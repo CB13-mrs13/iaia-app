@@ -12,6 +12,8 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Check, Mail, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import LanguageSwitcher from '@/components/layout/language-switcher';
+import { useLanguage } from '@/hooks/use-language';
+import { translations } from '@/lib/translations';
 
 // Helper component for Carousel
 const Carousel = ({ items }: { items: { image: string; caption: string; hint: string }[] }) => {
@@ -69,6 +71,8 @@ const Carousel = ({ items }: { items: { image: string; caption: string; hint: st
 export default function LandingPage() {
   const { user, loading } = useAuth();
   const router = useRouter();
+  const { language } = useLanguage();
+  const t = translations[language].landingPage;
 
   useEffect(() => {
     if (!loading && user) {
@@ -86,9 +90,9 @@ export default function LandingPage() {
   }
 
   const carouselItems = [
-    { image: '/images/catcheur-iaia.jpg', caption: '“C’est toi le Roi.”', hint: 'wrestler champion' },
-    { image: '/images/ballerine-iaia.jpg', caption: '“C’est toi la Reine.”', hint: 'ballerina queen' },
-    { image: '/images/ceo-iaia.jpg', caption: '“Maintenant, c’est toi le Boss.”', hint: 'boss commanding' },
+    { image: '/images/catcheur-iaia.jpg', caption: t.carouselCaption1, hint: 'wrestler champion' },
+    { image: '/images/ballerine-iaia.jpg', caption: t.carouselCaption2, hint: 'ballerina queen' },
+    { image: '/images/ceo-iaia.jpg', caption: t.carouselCaption3, hint: 'boss commanding' },
   ];
 
   return (
@@ -101,14 +105,14 @@ export default function LandingPage() {
         <div className="absolute inset-0 bg-black/60 -z-10" />
         <div className="z-10 p-4 animate-fadeIn">
           <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-4 animate-slideInUp" style={{ animationDelay: '0.2s' }}>
-            Tu croyais tout savoir sur l’IA ?
+            {t.heroTitle}
           </h1>
           <h2 className="text-5xl md:text-7xl font-extrabold text-primary animate-slideInUp" style={{ animationDelay: '0.5s' }}>
-            Avec IAIA, c’est toi le boss.
+            {t.heroSubtitle}
           </h2>
           <Button asChild size="lg" className="mt-8 text-lg animate-slideInUp" style={{ animationDelay: '0.8s' }}>
             <Link href="/signup">
-              👉 Testez IAIA gratuitement
+              {t.heroButton}
             </Link>
           </Button>
         </div>
@@ -118,17 +122,16 @@ export default function LandingPage() {
       <section className="py-20 px-4 bg-card">
         <div className="container mx-auto grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-4">
-            <h2 className="text-4xl font-bold">IAIA, c’est quoi ?</h2>
+            <h2 className="text-4xl font-bold">{t.section1Title}</h2>
             <p className="text-lg text-muted-foreground">
-              Un assistant intelligent qui te dit quelle IA utiliser selon ce que tu veux créer.
-              Texte, image, voix, code, vidéo :
+              {t.section1Text1}
             </p>
             <p className="text-xl font-semibold text-primary">
-              👉 IAIA les connaît toutes. Et te guide vers la bonne, à chaque fois.
+              {t.section1Text2}
             </p>
              <Button variant="secondary" asChild>
                 <Link href="#how-it-works">
-                  → Voir des exemples <ArrowRight className="ml-2 h-4 w-4" />
+                  {t.section1Button} <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
             </Button>
           </div>
@@ -148,17 +151,17 @@ export default function LandingPage() {
       {/* Section 2: Storytelling */}
       <section className="py-20 px-4">
         <div className="container mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-12">Tu prends le pouvoir.</h2>
+          <h2 className="text-4xl font-bold mb-12">{t.section2Title}</h2>
           <Carousel items={carouselItems} />
           <div className="mt-8 max-w-3xl mx-auto space-y-4">
             <p className="text-lg text-muted-foreground">
-              Chaque image est une métaphore de ce que fait IAIA pour toi.
+              {t.section2Text1}
             </p>
             <p className="text-2xl font-semibold">
-              IAIA t’arme. IAIA te propulse. IAIA t’élève.
+              {t.section2Text2}
             </p>
             <p className="text-lg font-medium bg-accent text-accent-foreground p-4 rounded-lg shadow-md">
-              🔥 Peu importe ton niveau technique, IAIA te met aux commandes.
+              {t.section2Text3}
             </p>
           </div>
         </div>
@@ -167,46 +170,46 @@ export default function LandingPage() {
       {/* Section 3: How it works? */}
       <section id="how-it-works" className="py-20 px-4 bg-card">
         <div className="container mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-12">Comment ça marche ?</h2>
+          <h2 className="text-4xl font-bold mb-12">{t.section3Title}</h2>
           <div className="grid md:grid-cols-3 gap-8 text-left">
             <Card>
               <CardContent className="p-6">
                 <div className="text-5xl font-extrabold text-primary mb-4">1.</div>
-                <h3 className="text-xl font-semibold mb-2">Tu dis ce que tu veux créer</h3>
-                <p className="text-muted-foreground bg-muted p-3 rounded-md italic">“Je veux générer une voix féminine réaliste pour un podcast”</p>
+                <h3 className="text-xl font-semibold mb-2">{t.step1Title}</h3>
+                <p className="text-muted-foreground bg-muted p-3 rounded-md italic">{t.step1Text}</p>
               </CardContent>
             </Card>
              <Card>
               <CardContent className="p-6">
                 <div className="text-5xl font-extrabold text-primary mb-4">2.</div>
-                <h3 className="text-xl font-semibold mb-2">IAIA analyse et sélectionne</h3>
-                <p className="text-muted-foreground bg-muted p-3 rounded-md italic">Ex : ElevenLabs avec le bon réglage vocal</p>
+                <h3 className="text-xl font-semibold mb-2">{t.step2Title}</h3>
+                <p className="text-muted-foreground bg-muted p-3 rounded-md italic">{t.step2Text}</p>
               </CardContent>
             </Card>
              <Card>
               <CardContent className="p-6">
                 <div className="text-5xl font-extrabold text-primary mb-4">3.</div>
-                <h3 className="text-xl font-semibold mb-2">Tu passes à l’action</h3>
-                <p className="text-muted-foreground bg-muted p-3 rounded-md italic">...sans te perdre dans 100 outils.</p>
+                <h3 className="text-xl font-semibold mb-2">{t.step3Title}</h3>
+                <p className="text-muted-foreground bg-muted p-3 rounded-md italic">{t.step3Text}</p>
               </CardContent>
             </Card>
           </div>
-          <p className="mt-8 text-xl font-bold text-primary">🎯 Gain : temps, clarté, efficacité créative.</p>
+          <p className="mt-8 text-xl font-bold text-primary">{t.section3Benefit}</p>
         </div>
       </section>
 
       {/* Section 4: Why IAIA is different? */}
       <section className="py-20 px-4">
         <div className="container mx-auto max-w-3xl">
-          <h2 className="text-4xl font-bold text-center mb-12">Pourquoi IAIA est différent ?</h2>
+          <h2 className="text-4xl font-bold text-center mb-12">{t.section4Title}</h2>
           <ul className="space-y-4 text-lg">
-            <li className="flex items-start"><Check className="h-6 w-6 text-green-500 mr-3 mt-1 flex-shrink-0" /><span>IAIA ne te remplace pas : il <b>t’amplifie</b></span></li>
-            <li className="flex items-start"><Check className="h-6 w-6 text-green-500 mr-3 mt-1 flex-shrink-0" /><span>IAIA n’est pas une IA, c’est ton <b>coach IA</b></span></li>
-            <li className="flex items-start"><Check className="h-6 w-6 text-green-500 mr-3 mt-1 flex-shrink-0" /><span>IAIA s’adapte à toi : <b>novice ou expert</b></span></li>
-            <li className="flex items-start"><Check className="h-6 w-6 text-green-500 mr-3 mt-1 flex-shrink-0" /><span>IAIA croit que l’IA doit être <b>accessible à tous</b></span></li>
+            <li className="flex items-start"><Check className="h-6 w-6 text-green-500 mr-3 mt-1 flex-shrink-0" /><span>{t.feature1}</span></li>
+            <li className="flex items-start"><Check className="h-6 w-6 text-green-500 mr-3 mt-1 flex-shrink-0" /><span>{t.feature2}</span></li>
+            <li className="flex items-start"><Check className="h-6 w-6 text-green-500 mr-3 mt-1 flex-shrink-0" /><span>{t.feature3}</span></li>
+            <li className="flex items-start"><Check className="h-6 w-6 text-green-500 mr-3 mt-1 flex-shrink-0" /><span>{t.feature4}</span></li>
           </ul>
           <div className="mt-12 p-6 bg-primary/10 border border-primary/20 rounded-lg text-center">
-            <p className="text-lg font-medium">💡 “Pas besoin d’être un dev, ni prompt master. Tu veux créer ? IAIA te montre comment.”</p>
+            <p className="text-lg font-medium">{t.section4Quote}</p>
           </div>
         </div>
       </section>
@@ -214,26 +217,26 @@ export default function LandingPage() {
       {/* Section 5: Final CTA */}
       <section className="py-20 px-4 bg-accent text-accent-foreground">
         <div className="container mx-auto text-center max-w-2xl">
-          <h2 className="text-5xl font-extrabold mb-8">C’est toi qui commandes maintenant.</h2>
+          <h2 className="text-5xl font-extrabold mb-8">{t.section5Title}</h2>
           <div className="bg-card text-card-foreground p-8 rounded-lg shadow-2xl">
             <form onSubmit={(e) => e.preventDefault()} className="space-y-4">
               <div className="relative">
                  <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-                 <Input type="email" placeholder="Laisse ton email et accède à la version beta" className="pl-10 h-12 text-base" />
+                 <Input type="email" placeholder={t.formPlaceholder} className="pl-10 h-12 text-base" />
               </div>
                <Button type="submit" size="lg" className="w-full text-lg">
-                  Rejoindre la beta
+                  {t.formButton}
                 </Button>
             </form>
-             <p className="text-xs text-muted-foreground mt-2">🔐 Pas de spam, juste du pouvoir créatif</p>
+             <p className="text-xs text-muted-foreground mt-2">{t.formDisclaimer}</p>
              <div className="my-4 flex items-center">
               <div className="flex-grow border-t border-border"></div>
-              <span className="flex-shrink mx-4 text-muted-foreground text-sm">OU</span>
+              <span className="flex-shrink mx-4 text-muted-foreground text-sm">{t.formOr}</span>
               <div className="flex-grow border-t border-border"></div>
             </div>
              <Button asChild size="lg" variant="secondary" className="w-full text-lg">
                 <Link href="/signup">
-                  👉 Tester IAIA maintenant
+                  {t.formButton2}
                 </Link>
              </Button>
           </div>
@@ -247,9 +250,9 @@ export default function LandingPage() {
           <p className="text-sm">Built by CBT3 - Cousinbruno. © {new Date().getFullYear()} IAIA. All rights reserved.</p>
           <div className="flex justify-center items-center gap-4 mt-4">
             <LanguageSwitcher />
-            <Link href="#" className="hover:text-white">Réseaux sociaux</Link>
-            <Link href="#" className="hover:text-white">Contact</Link>
-            <Link href="/privacy-policy" className="hover:text-white">Politique IA</Link>
+            <Link href="#" className="hover:text-white">{t.footerSocials}</Link>
+            <Link href="#" className="hover:text-white">{t.footerContact}</Link>
+            <Link href="/privacy-policy" className="hover:text-white">{t.footerPolicy}</Link>
           </div>
         </div>
       </footer>
