@@ -104,7 +104,7 @@ export default function LandingPage() {
       >
         <div className="absolute inset-0 bg-black/60" />
         <div className="z-10 p-4 animate-fadeIn">
-          <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-4 animate-slideInUp" style={{ animationDelay: '0.2s' }}>
+          <h1 className="text-8xl md:text-9xl font-bold leading-none mb-4 animate-slideInUp" style={{ animationDelay: '0.2s' }}>
             {t.heroTitle}
           </h1>
           <h2 className="text-5xl md:text-7xl font-extrabold text-primary animate-slideInUp" style={{ animationDelay: '0.5s' }}>
