@@ -45,7 +45,7 @@ const Carousel = ({ items }: { items: { image: string; caption: string; hint: st
             <Image
               src={item.image}
               alt={item.caption}
-              layout="fill"
+              fill
               objectFit="cover"
               className="w-full h-full"
               data-ai-hint={item.hint}
@@ -102,7 +102,7 @@ export default function LandingPage() {
         className="relative min-h-screen flex items-center justify-center text-center text-white overflow-hidden bg-cover bg-center"
         style={{ backgroundImage: "url('/images/catcheur-iaia.jpg')" }}
       >
-        <div className="absolute inset-0 bg-black/60 -z-10" />
+        <div className="absolute inset-0 bg-black/60" />
         <div className="z-10 p-4 animate-fadeIn">
           <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-4 animate-slideInUp" style={{ animationDelay: '0.2s' }}>
             {t.heroTitle}
@@ -135,25 +135,27 @@ export default function LandingPage() {
                 </Link>
             </Button>
           </div>
-          <div className="relative h-96 w-full rounded-lg overflow-hidden shadow-xl">
-             <Image
-                src="/images/logo-iaia-txt.jpg"
-                alt="Logo IAIA avec slogan"
-                width={600}
-                height={800}
-                className="object-cover w-full h-full"
-                data-ai-hint="iaia logo"
-              />
-          </div>
+          <Link href="/signup" className="block transition-transform duration-300 hover:scale-105">
+            <div className="relative h-96 w-full rounded-lg overflow-hidden shadow-xl">
+               <Image
+                  src="/images/logo-iaia-txt.jpg"
+                  alt="Logo IAIA avec slogan"
+                  width={600}
+                  height={800}
+                  className="object-cover w-full h-full"
+                  data-ai-hint="iaia logo"
+                />
+            </div>
+          </Link>
         </div>
       </section>
 
       {/* Section 2: Storytelling */}
       <section className="py-20 bg-background text-center">
-        <div className="container mx-auto mb-12">
-            <h2 className="text-4xl font-bold">{t.section2Title}</h2>
+        <div className="container mx-auto max-w-none px-0">
+          <h2 className="text-4xl font-bold mb-12 px-4">{t.section2Title}</h2>
+          <Carousel items={carouselItems} />
         </div>
-        <Carousel items={carouselItems} />
         <div className="container mx-auto mt-12 max-w-3xl space-y-4">
           <p className="text-lg text-muted-foreground">
             {t.section2Text1}
@@ -161,9 +163,11 @@ export default function LandingPage() {
           <p className="text-2xl font-semibold">
             {t.section2Text2}
           </p>
-          <p className="text-lg font-medium bg-accent text-accent-foreground p-4 rounded-lg shadow-md">
-            {t.section2Text3}
-          </p>
+          <Link href="/signup" className="block transition-transform duration-300 hover:scale-105">
+            <p className="text-lg font-medium bg-accent text-accent-foreground p-4 rounded-lg shadow-md">
+              {t.section2Text3}
+            </p>
+          </Link>
         </div>
       </section>
       
@@ -208,9 +212,11 @@ export default function LandingPage() {
             <li className="flex items-start"><Check className="h-6 w-6 text-green-500 mr-3 mt-1 flex-shrink-0" /><span>{t.feature3}</span></li>
             <li className="flex items-start"><Check className="h-6 w-6 text-green-500 mr-3 mt-1 flex-shrink-0" /><span>{t.feature4}</span></li>
           </ul>
-          <div className="mt-12 p-6 bg-primary/10 border border-primary/20 rounded-lg text-center">
-            <p className="text-lg font-medium">{t.section4Quote}</p>
-          </div>
+          <Link href="/signup" className="block mt-12 transition-transform duration-300 hover:scale-105">
+            <div className="p-6 bg-primary/10 border border-primary/20 rounded-lg text-center">
+              <p className="text-lg font-medium">{t.section4Quote}</p>
+            </div>
+          </Link>
         </div>
       </section>
 
