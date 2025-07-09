@@ -84,9 +84,9 @@ export default function LandingPage() {
   }
 
   const carouselItems = [
-    { image: 'https://placehold.co/800x600.png', caption: '“C’est toi le Roi.”', hint: 'wrestler champion' },
-    { image: '/ballerine-iaia.png', caption: '“C’est toi la Reine.”', hint: 'ballerina queen' },
-    { image: 'https://placehold.co/800x600.png', caption: '“Maintenant, c’est toi le Boss.”', hint: 'boss commanding' },
+    { image: '/catcheur-iaia.jpg', caption: '“C’est toi le Roi.”', hint: 'wrestler champion' },
+    { image: '/ballerine-iaia.jpg', caption: '“C’est toi la Reine.”', hint: 'ballerina queen' },
+    { image: '/ceo-iaia.jpg', caption: '“Maintenant, c’est toi le Boss.”', hint: 'boss commanding' },
   ];
 
   return (
@@ -94,7 +94,7 @@ export default function LandingPage() {
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center text-center text-white overflow-hidden">
         <Image
-          src="https://placehold.co/1920x1080.png"
+          src="/catcheur-iaia.jpg"
           alt="Lutteur IAIA dominant le ring"
           fill
           className="object-cover -z-10"
@@ -124,7 +124,7 @@ export default function LandingPage() {
             <h2 className="text-4xl font-bold">IAIA, c’est quoi ?</h2>
             <p className="text-lg text-muted-foreground">
               Un assistant intelligent qui te dit quelle IA utiliser selon ce que tu veux créer.
-              Texte, image, voix, code, vidéo:
+              Texte, image, voix, code, vidéo :
             </p>
             <p className="text-xl font-semibold text-primary">
               👉 IAIA les connaît toutes. Et te guide vers la bonne, à chaque fois.
