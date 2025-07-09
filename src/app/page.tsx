@@ -142,7 +142,7 @@ export default function LandingPage() {
               data-ai-hint="iaia logo abstract"
             >
               <div className="absolute inset-0 bg-black/30"></div>
-              <p className="relative z-10 text-left text-2xl font-bold text-white leading-relaxed drop-shadow-lg pl-[calc(40%+20px)]">
+              <p className="relative z-10 text-left text-4xl font-bold text-white leading-relaxed drop-shadow-lg pl-[calc(40%+20px)]">
                 {t.logoSlogan}
               </p>
             </div>
