@@ -32,8 +32,8 @@ const Carousel = ({ items }: { items: { image: string; caption: string; hint: st
   };
 
   return (
-    <div className="relative w-full max-w-2xl mx-auto">
-      <div className="overflow-hidden relative h-96 rounded-lg shadow-2xl">
+    <div className="relative w-full mx-auto">
+      <div className="overflow-hidden relative h-96 shadow-2xl md:h-[600px] lg:h-[700px]">
         {items.map((item, index) => (
           <div
             key={index}
@@ -45,22 +45,22 @@ const Carousel = ({ items }: { items: { image: string; caption: string; hint: st
             <Image
               src={item.image}
               alt={item.caption}
-              width={800}
-              height={600}
-              className="object-cover w-full h-full"
+              layout="fill"
+              objectFit="cover"
+              className="w-full h-full"
               data-ai-hint={item.hint}
             />
             <div className="absolute inset-0 bg-black/40" />
-            <div className="absolute bottom-0 left-0 p-6">
-              <h3 className="text-white text-2xl font-bold">{item.caption}</h3>
+            <div className="absolute bottom-0 left-0 p-6 md:p-12">
+              <h3 className="text-white text-2xl md:text-4xl font-bold">{item.caption}</h3>
             </div>
           </div>
         ))}
       </div>
-      <Button onClick={goToPrevious} variant="outline" size="icon" className="absolute top-1/2 -left-4 md:-left-12 transform -translate-y-1/2 rounded-full z-20">
+      <Button onClick={goToPrevious} variant="outline" size="icon" className="absolute top-1/2 -left-4 md:left-12 transform -translate-y-1/2 rounded-full z-20 h-12 w-12">
         <ChevronLeft className="h-6 w-6" />
       </Button>
-      <Button onClick={goToNext} variant="outline" size="icon" className="absolute top-1/2 -right-4 md:-right-12 transform -translate-y-1/2 rounded-full z-20">
+      <Button onClick={goToNext} variant="outline" size="icon" className="absolute top-1/2 -right-4 md:right-12 transform -translate-y-1/2 rounded-full z-20 h-12 w-12">
         <ChevronRight className="h-6 w-6" />
       </Button>
     </div>
@@ -149,21 +149,21 @@ export default function LandingPage() {
       </section>
 
       {/* Section 2: Storytelling */}
-      <section className="py-20 px-4">
-        <div className="container mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-12">{t.section2Title}</h2>
-          <Carousel items={carouselItems} />
-          <div className="mt-8 max-w-3xl mx-auto space-y-4">
-            <p className="text-lg text-muted-foreground">
-              {t.section2Text1}
-            </p>
-            <p className="text-2xl font-semibold">
-              {t.section2Text2}
-            </p>
-            <p className="text-lg font-medium bg-accent text-accent-foreground p-4 rounded-lg shadow-md">
-              {t.section2Text3}
-            </p>
-          </div>
+      <section className="py-20 bg-background text-center">
+        <div className="container mx-auto mb-12">
+            <h2 className="text-4xl font-bold">{t.section2Title}</h2>
+        </div>
+        <Carousel items={carouselItems} />
+        <div className="container mx-auto mt-12 max-w-3xl space-y-4">
+          <p className="text-lg text-muted-foreground">
+            {t.section2Text1}
+          </p>
+          <p className="text-2xl font-semibold">
+            {t.section2Text2}
+          </p>
+          <p className="text-lg font-medium bg-accent text-accent-foreground p-4 rounded-lg shadow-md">
+            {t.section2Text3}
+          </p>
         </div>
       </section>
       
