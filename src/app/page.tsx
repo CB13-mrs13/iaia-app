@@ -146,7 +146,7 @@ export default function LandingPage() {
         className="relative min-h-screen flex items-center justify-center text-center text-white overflow-hidden"
       >
         <HeroSlideshow images={heroImages} />
-        <div className="absolute inset-0 bg-black/60" />
+        <div className="absolute inset-0 bg-black/40" />
         <div className="z-10 p-4 animate-fadeIn">
           <h1 className="text-8xl md:text-9xl font-bold leading-none mb-4 animate-slideInUp" style={{ animationDelay: '0.2s' }}>
             {t.heroTitle}
