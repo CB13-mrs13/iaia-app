@@ -274,7 +274,7 @@ export default function LandingPage() {
                  <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
                  <Input type="email" placeholder={t.formPlaceholder} className="pl-10 h-12 text-base" />
               </div>
-               <Button type="submit" size="lg" className="w-full text-lg">
+               <Button type="submit" size="lg" variant="secondary" className="w-full text-lg">
                   {t.formButton}
                 </Button>
             </form>
@@ -284,7 +284,7 @@ export default function LandingPage() {
               <span className="flex-shrink mx-4 text-muted-foreground text-sm">{t.formOr}</span>
               <div className="flex-grow border-t border-border"></div>
             </div>
-             <Button asChild size="lg" variant="secondary" className="w-full text-lg">
+             <Button asChild size="lg" className="w-full text-lg">
                 <Link href="/signup">
                   {t.formButton2}
                 </Link>
