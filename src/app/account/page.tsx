@@ -20,6 +20,7 @@ export default function AccountPage() {
   const { language } = useLanguage();
   const t = translations[language].account;
   const userNavT = translations[language].userNav;
+  const homeLink = user ? "/discover" : "/";
 
   useEffect(() => {
     if (!loading && !user) {
@@ -43,7 +44,7 @@ export default function AccountPage() {
           <p className="text-muted-foreground">{t.subtitle}</p>
         </div>
         <Button asChild variant="outline">
-          <Link href="/discover">
+          <Link href={homeLink}>
             <Home className="mr-2 h-4 w-4" />
             {userNavT.home}
           </Link>

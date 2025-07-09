@@ -8,11 +8,14 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { ShieldCheck, Home } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { useAuth } from "@/hooks/use-auth";
 
 export default function PrivacyPolicyPage() {
   const { language } = useLanguage();
+  const { user } = useAuth();
   const t = translations[language].legal;
   const userNavT = translations[language].userNav;
+  const homeLink = user ? "/discover" : "/";
 
   return (
     <div className="max-w-4xl mx-auto space-y-8 animate-fadeIn">
@@ -22,7 +25,7 @@ export default function PrivacyPolicyPage() {
           <p className="text-muted-foreground">{t.privacySubtitle}</p>
         </div>
          <Button asChild variant="outline">
-          <Link href="/discover">
+          <Link href={homeLink}>
             <Home className="mr-2 h-4 w-4" />
             {userNavT.home}
           </Link>
