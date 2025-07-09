@@ -85,7 +85,7 @@ export default function LandingPage() {
 
   const carouselItems = [
     { image: 'https://placehold.co/800x600.png', caption: '“C’est toi le Roi.”', hint: 'wrestler champion' },
-    { image: 'https://placehold.co/800x600.png', caption: '“C’est toi la Reine.”', hint: 'ballerina queen' },
+    { image: '/ballerine-iaia.png', caption: '“C’est toi la Reine.”', hint: 'ballerina queen' },
     { image: 'https://placehold.co/800x600.png', caption: '“Maintenant, c’est toi le Boss.”', hint: 'boss commanding' },
   ];
 
