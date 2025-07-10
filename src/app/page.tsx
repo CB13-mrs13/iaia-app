@@ -67,7 +67,7 @@ const Carousel = ({ items }: { items: { image: string; caption: string; hint: st
   );
 };
 
-const HeroSlideshow = ({ images }: { images: { src: string; alt: string; }[] }) => {
+const HeroSlideshow = ({ images }: { images: { src: string; alt: string; title: string; subtitle: string; }[] }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
@@ -101,6 +101,20 @@ const HeroSlideshow = ({ images }: { images: { src: string; alt: string; }[] }) 
           />
         </div>
       ))}
+       <div className="absolute inset-0 bg-black/20" />
+        <div className="z-10 p-4 animate-fadeIn">
+          <h1 className="text-8xl md:text-9xl font-bold leading-none mb-4 animate-slideInUp" style={{ animationDelay: '0.2s' }}>
+            {images[currentIndex].title}
+          </h1>
+          <h2 className="text-5xl md:text-7xl font-extrabold text-primary animate-slideInUp" style={{ animationDelay: '0.5s' }}>
+            {images[currentIndex].subtitle}
+          </h2>
+          <Button asChild size="lg" className="mt-8 text-lg animate-slideInUp" style={{ animationDelay: '0.8s' }}>
+            <Link href="/signup">
+              {translations.en.landingPage.heroButton}
+            </Link>
+          </Button>
+        </div>
     </>
   );
 };
@@ -134,9 +148,9 @@ export default function LandingPage() {
   ];
 
   const heroImages = [
-    { src: '/images/catcheur-iaia.jpg', alt: 'A powerful wrestler celebrating victory' },
-    { src: '/images/ballerine-iaia.jpg', alt: 'An elegant ballerina performing' },
-    { src: '/images/ceo-iaia.jpg', alt: 'A confident businessperson in command' },
+    { src: '/images/catcheur-iaia.jpg', alt: 'A powerful wrestler celebrating victory', title: t.heroTitle, subtitle: t.heroSubtitleKing },
+    { src: '/images/ballerine-iaia.jpg', alt: 'An elegant ballerina performing', title: t.heroTitle, subtitle: t.heroSubtitleQueen },
+    { src: '/images/ceo-iaia.jpg', alt: 'A confident businessperson in command', title: t.heroTitle, subtitle: t.heroSubtitleBoss },
   ];
 
   return (
@@ -146,20 +160,6 @@ export default function LandingPage() {
         className="relative min-h-screen flex items-center justify-center text-center text-white overflow-hidden"
       >
         <HeroSlideshow images={heroImages} />
-        <div className="absolute inset-0 bg-black/20" />
-        <div className="z-10 p-4 animate-fadeIn">
-          <h1 className="text-8xl md:text-9xl font-bold leading-none mb-4 animate-slideInUp" style={{ animationDelay: '0.2s' }}>
-            {t.heroTitle}
-          </h1>
-          <h2 className="text-5xl md:text-7xl font-extrabold text-primary animate-slideInUp" style={{ animationDelay: '0.5s' }}>
-            {t.heroSubtitle}
-          </h2>
-          <Button asChild size="lg" className="mt-8 text-lg animate-slideInUp" style={{ animationDelay: '0.8s' }}>
-            <Link href="/signup">
-              {t.heroButton}
-            </Link>
-          </Button>
-        </div>
       </section>
 
       {/* Section 1: What is IAIA? */}
@@ -181,12 +181,12 @@ export default function LandingPage() {
           </div>
           <Link href="/signup" className="block transition-transform duration-300 hover:scale-105">
             <div 
-              className="relative h-80 md:h-96 w-full rounded-lg overflow-hidden shadow-xl bg-cover bg-center flex items-center p-8"
+              className="relative h-64 md:h-96 w-full rounded-lg overflow-hidden shadow-xl bg-cover bg-center flex items-center p-8"
               style={{ backgroundImage: "url('/images/logo-iaia-sstxt.jpg')" }}
               data-ai-hint="iaia logo abstract"
             >
               <div className="absolute inset-0 bg-black/20"></div>
-              <p className="relative z-10 text-left text-2xl md:text-4xl font-bold text-white leading-relaxed drop-shadow-lg pl-[30%] md:pl-[calc(40%+20px)]">
+              <p className="relative z-10 text-left text-2xl md:text-4xl font-bold text-white leading-relaxed drop-shadow-lg md:pl-[calc(40%+20px)] pl-[30%]">
                 {t.logoSlogan}
               </p>
             </div>

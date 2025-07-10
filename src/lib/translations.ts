@@ -6,7 +6,9 @@ import type { SupportedLanguage } from '@/contexts/language-context';
 type PageTranslations = {
   landingPage: {
     heroTitle: string;
-    heroSubtitle: string;
+    heroSubtitleKing: string;
+    heroSubtitleQueen: string;
+    heroSubtitleBoss: string;
     heroButton: string;
     section1Title: string;
     section1Text1: string;
@@ -208,7 +210,9 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
   en: {
     landingPage: {
       heroTitle: "Here",
-      heroSubtitle: "you are the King.",
+      heroSubtitleKing: "you are the King.",
+      heroSubtitleQueen: "you are the Queen.",
+      heroSubtitleBoss: "you're the Boss.",
       heroButton: "👉 Try IAIA for free",
       section1Title: "What is IAIA?",
       section1Text1: "A smart assistant that tells you which AI to use based on what you want to create.",
@@ -407,7 +411,9 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
   fr: {
     landingPage: {
       heroTitle: "Ici",
-      heroSubtitle: "c'est toi le roi.",
+      heroSubtitleKing: "c'est toi le roi.",
+      heroSubtitleQueen: "c'est toi la reine.",
+      heroSubtitleBoss: "c'est vous les boss.",
       heroButton: "👉 Testez IAIA gratuitement",
       section1Title: "IAIA, c’est quoi ?",
       section1Text1: "Un assistant intelligent qui te dit quelle IA utiliser selon ce que tu veux créer.",
@@ -606,7 +612,9 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
   es: {
     landingPage: {
       heroTitle: "Aquí",
-      heroSubtitle: "tú eres el Rey.",
+      heroSubtitleKing: "tú eres el rey.",
+      heroSubtitleQueen: "tú eres la reina.",
+      heroSubtitleBoss: "ustedes son los jefes.",
       heroButton: "👉 Prueba IAIA gratis",
       section1Title: "¿Qué es IAIA?",
       section1Text1: "Un asistente inteligente que te dice qué IA usar según lo que quieras crear.",
