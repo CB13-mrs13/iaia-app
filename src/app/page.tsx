@@ -186,7 +186,7 @@ export default function LandingPage() {
               data-ai-hint="iaia logo abstract"
             >
               <div className="absolute inset-0 bg-black/20"></div>
-              <p className="relative z-10 text-left text-2xl md:text-4xl font-bold text-white leading-relaxed drop-shadow-lg md:pl-[calc(40%+20px)] pl-[30%]">
+              <p className="relative z-10 text-left text-2xl md:text-4xl font-bold text-white leading-relaxed drop-shadow-lg md:pl-[calc(40%+20px)] pl-[calc(30%)]">
                 {t.logoSlogan}
               </p>
             </div>
@@ -292,20 +292,6 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="bg-gray-900 text-gray-400 py-8">
-        <div className="container mx-auto text-center">
-          <Image src="/iaia-logo.png" alt="IAIA Logo" width={40} height={40} className="h-10 w-10 mx-auto mb-4" />
-          <p className="text-sm">Built by CBT3 - Cousinbruno. © {new Date().getFullYear()} IAIA. All rights reserved.</p>
-          <div className="flex justify-center items-center gap-4 mt-4">
-            <LanguageSwitcher />
-            <Link href="#" className="hover:text-white">{t.footerSocials}</Link>
-            <Link href="#" className="hover:text-white">{t.footerContact}</Link>
-            <Link href="/privacy-policy" className="hover:text-white">{t.footerPolicy}</Link>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }

@@ -4,6 +4,7 @@
 import Link from "next/link";
 import { useLanguage } from "@/hooks/use-language";
 import { translations } from "@/lib/translations";
+import LanguageSwitcher from "./language-switcher";
 
 export default function Footer() {
   const { language } = useLanguage();
@@ -15,7 +16,14 @@ export default function Footer() {
         <p className="text-center text-sm leading-loose text-muted-foreground md:text-left">
           Built by CB13 - Cousinbruno. &copy; {new Date().getFullYear()} IAIA. All rights reserved.
         </p>
-        <div className="flex items-center gap-4 text-sm">
+        <div className="flex flex-wrap justify-center items-center gap-x-4 gap-y-2 text-sm">
+          <LanguageSwitcher />
+          <Link href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+            {t.footerSocials}
+          </Link>
+           <Link href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+            {t.footerContact}
+          </Link>
           <Link href="/terms-of-service" className="text-muted-foreground hover:text-foreground transition-colors">
             {t.termsOfService}
           </Link>
@@ -30,5 +38,3 @@ export default function Footer() {
     </footer>
   );
 }
-
-    
