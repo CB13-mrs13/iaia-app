@@ -27,17 +27,14 @@ export default function ForgotPasswordPage() {
   const [success, setSuccess] = useState<string | null>(null);
   const { toast } = useToast();
 
-  const form = useForm<ForgotPasswordFormValues>({
-    resolver: zodResolver(forgotPasswordSchema),
-  });
-
   const handleSubmit: SubmitHandler<ForgotPasswordFormValues> = async (data) => {
     setError(null);
     setSuccess(null);
     startTransition(async () => {
       try {
         await sendPasswordResetEmail(data.email);
-        setSuccess(`Password reset email sent to ${data.email}. Please check your inbox (and spam folder).`);
+        const successMessage = `Password reset email sent to ${data.email}. Please check your inbox (and spam folder).`;
+        setSuccess(successMessage);
         toast({ title: 'Email Sent', description: `Password reset instructions sent to ${data.email}. Please also check your spam folder.` });
         form.reset();
       } catch (err: any) {
