@@ -82,7 +82,7 @@ const HeroSlideshow = ({ images }: { images: { src: string; alt: string; }[] }) 
     <>
       {images.map((image, index) => (
         <div
-          key={image.src}
+          key={image.src + index} // Use key to force re-render and restart animation
           className={cn(
             'absolute inset-0 h-full w-full bg-cover bg-center transition-opacity duration-1000 ease-in-out',
             index === currentIndex ? 'opacity-100' : 'opacity-0'

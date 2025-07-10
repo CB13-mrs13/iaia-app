@@ -96,11 +96,11 @@ export default {
         },
         "ken-burns": {
           "0%": {
-            transform: "scale(1) translateY(0)",
+            transform: "scale(1.1)",
             transformOrigin: "center center",
           },
           "100%": {
-            transform: "scale(1.1) translateY(-15px)",
+            transform: "scale(1)",
             transformOrigin: "center center",
           },
         },
@@ -110,7 +110,7 @@ export default {
         'accordion-up': 'accordion-up 0.2s ease-out',
         "fadeIn": "fadeIn 0.5s ease-in-out",
         "slideInUp": "slideInUp 0.5s ease-out",
-        "ken-burns": "ken-burns 8s ease-out forwards",
+        "ken-burns": "ken-burns 7s ease-out forwards",
       },
     },
   },
