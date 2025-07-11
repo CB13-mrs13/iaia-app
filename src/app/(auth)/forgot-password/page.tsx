@@ -27,6 +27,13 @@ export default function ForgotPasswordPage() {
   const [success, setSuccess] = useState<string | null>(null);
   const { toast } = useToast();
 
+  const form = useForm<ForgotPasswordFormValues>({
+    resolver: zodResolver(forgotPasswordSchema),
+    defaultValues: {
+      email: "",
+    },
+  });
+
   const handleSubmit: SubmitHandler<ForgotPasswordFormValues> = async (data) => {
     setError(null);
     setSuccess(null);
