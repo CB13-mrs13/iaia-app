@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useMemo } from 'react';
@@ -6,11 +7,12 @@ import AiToolFilters from '@/components/ai-tool-filters';
 import AiSearchForm from '@/components/ai-search-form';
 import type { AiTool, AiToolCategory } from '@/types';
 import { Input } from '@/components/ui/input';
-import { Search, ArrowUp, Wrench } from 'lucide-react';
+import { Search, ArrowUp, Wrench, PackageSearch } from 'lucide-react';
 import { useLanguage } from '@/hooks/use-language';
 import { translations } from '@/lib/translations';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
+import { cn } from '@/lib/utils';
 
 interface DiscoverClientProps {
   aiTools: AiTool[];
@@ -55,8 +57,10 @@ export default function DiscoverClient({ aiTools, featuredTools, featuredToolsLi
             </p>
           </header>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {featuredTools.map((tool) => (
-              <AiToolCard key={tool.id} tool={tool} featured />
+            {featuredTools.map((tool, index) => (
+              <div key={tool.id} className="animate-slideInUp" style={{ animationDelay: `${index * 100}ms` }}>
+                <AiToolCard tool={tool} featured />
+              </div>
             ))}
           </div>
         </section>
@@ -94,18 +98,23 @@ export default function DiscoverClient({ aiTools, featuredTools, featuredToolsLi
 
         {filteredTools.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredTools.map((tool) => (
-              <AiToolCard 
-                key={tool.id} 
-                tool={tool} 
-                featured={featuredToolsList.includes(tool.name)} 
-              />
+            {filteredTools.map((tool, index) => (
+              <div key={tool.id} className="animate-slideInUp" style={{ animationDelay: `${index * 50}ms`, animationFillMode: 'backwards' }}>
+                  <AiToolCard 
+                    tool={tool} 
+                    featured={featuredToolsList.includes(tool.name)} 
+                  />
+              </div>
             ))}
           </div>
         ) : (
-          <div className="text-center py-12">
+          <div className="text-center py-12 flex flex-col items-center gap-4 border-2 border-dashed rounded-lg">
+            <PackageSearch className="h-16 w-16 text-muted-foreground" />
             <p className="text-xl text-muted-foreground">{t.noToolsFound}</p>
             <p className="text-sm text-muted-foreground mt-2">{t.tryAdjustingFilters}</p>
+            <Button variant="outline" onClick={() => { setSearchTerm(''); setSelectedCategory(null); }}>
+              {t.backToDiscovery}
+            </Button>
           </div>
         )}
 
@@ -123,3 +132,5 @@ export default function DiscoverClient({ aiTools, featuredTools, featuredToolsLi
     </div>
   );
 }
+
+    

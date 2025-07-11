@@ -11,7 +11,6 @@ import { Input } from '@/components/ui/input';
 import { Card, CardContent } from '@/components/ui/card';
 import { Check, Mail, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import LanguageSwitcher from '@/components/layout/language-switcher';
 import { useLanguage } from '@/hooks/use-language';
 import { translations } from '@/lib/translations';
 
@@ -186,7 +185,7 @@ export default function LandingPage() {
               data-ai-hint="iaia logo abstract"
             >
               <div className="absolute inset-0 bg-black/20"></div>
-              <p className="relative z-10 text-left text-2xl md:text-4xl font-bold text-white leading-relaxed drop-shadow-lg md:pl-[calc(40%+20px)] pl-[calc(30%)]">
+              <p className="relative z-10 text-left text-2xl md:text-4xl font-bold text-white leading-relaxed drop-shadow-lg md:pl-[calc(40%+20px)] pl-8 sm:pl-[calc(30%)]">
                 {t.logoSlogan}
               </p>
             </div>
@@ -299,3 +298,5 @@ export default function LandingPage() {
     </div>
   );
 }
+
+    

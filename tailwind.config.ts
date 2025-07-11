@@ -96,11 +96,11 @@ export default {
         },
         "ken-burns": {
           "0%": {
-            transform: "scale(1.1)",
+            transform: "scale(1.2) translate(0, 0)",
             transformOrigin: "center center",
           },
           "100%": {
-            transform: "scale(1)",
+            transform: "scale(1) translate(0, 0)",
             transformOrigin: "center center",
           },
         },
@@ -109,10 +109,12 @@ export default {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
         "fadeIn": "fadeIn 0.5s ease-in-out",
-        "slideInUp": "slideInUp 0.5s ease-out",
+        "slideInUp": "slideInUp 0.5s ease-out forwards",
         "ken-burns": "ken-burns 7s ease-out forwards",
       },
     },
   },
   plugins: [require('tailwindcss-animate')],
 } satisfies Config;
+
+    
