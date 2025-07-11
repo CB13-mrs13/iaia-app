@@ -40,7 +40,7 @@ export default function DiscoverClient({ aiTools, featuredTools, featuredToolsLi
   }, [selectedCategory, searchTerm, language, aiTools]);
 
   return (
-    <div className="space-y-12 animate-slideInUp">
+    <div className="space-y-12 animate-fadeIn">
       <section id="ai-search" className="pt-8">
         <AiSearchForm />
       </section>
@@ -132,5 +132,3 @@ export default function DiscoverClient({ aiTools, featuredTools, featuredToolsLi
     </div>
   );
 }
-
-    
