@@ -116,8 +116,6 @@ export default function LandingPage() {
   const t = translations[language].landingPage;
 
   useEffect(() => {
-    // This effect now correctly handles redirection for logged-in users
-    // without affecting logged-out users.
     if (!loading && user) {
       router.push('/discover');
     }
@@ -136,7 +134,7 @@ export default function LandingPage() {
     { src: '/images/ceo-iaia.jpg', alt: 'A confident businessperson in command', title: t.heroTitle, subtitle: t.heroSubtitleBoss },
   ];
 
-  if (loading || (!loading && user)) { // Keep user on a loading screen while auth state resolves or redirecting
+  if (loading || (!loading && user)) {
     return (
       <div className="flex min-h-screen items-center justify-center">
         <Loader2 className="h-8 w-8 animate-spin text-primary" />
@@ -175,7 +173,7 @@ export default function LandingPage() {
               className="relative h-64 md:h-96 w-full rounded-lg overflow-hidden shadow-xl flex items-center justify-center p-8 bg-primary group-hover:bg-accent transition-colors duration-300"
               data-ai-hint="iaia logo abstract"
             >
-              <Image src="/images/logo-iaia-sstxt-nobg.png" alt="IAIA Logo" width={200} height={200} className="w-40 h-40 md:w-52 md:h-52 object-contain transition-transform duration-300 group-hover:scale-75" />
+              <Image src="/iaia-logo.png" alt="IAIA Logo" width={200} height={200} className="w-40 h-40 md:w-52 md:h-52 object-contain transition-transform duration-300 group-hover:scale-75" />
               <div className="absolute inset-0 flex items-center justify-center p-8">
                 <p className="text-center text-2xl md:text-3xl font-bold text-white leading-relaxed drop-shadow-lg opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                   {t.logoSlogan}
