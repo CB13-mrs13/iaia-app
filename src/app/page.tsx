@@ -66,37 +66,59 @@ const Carousel = ({ items }: { items: { image: string; caption: string; hint: st
   );
 };
 
-const HeroSlideshow = ({ images }: { images: { src: string; alt: string; title: string; subtitle: string; }[] }) => {
+interface HeroItem {
+  type: 'image' | 'video';
+  src: string;
+  alt: string;
+  title: string;
+  subtitle: string;
+}
+
+const HeroSlideshow = ({ items }: { items: HeroItem[] }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const { language } = useLanguage();
   const t = translations[language].landingPage;
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 7000); // Change image every 7 seconds
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % items.length);
+    }, 7000); // Change slide every 7 seconds
 
     return () => clearInterval(interval);
-  }, [images.length]);
+  }, [items.length]);
+
+  const currentItem = items[currentIndex];
 
   return (
     <>
-      <div key={currentIndex} className="absolute inset-0 h-full w-full animate-ken-burns">
-        <Image
-          src={images[currentIndex].src}
-          alt={images[currentIndex].alt}
-          fill
-          style={{ objectFit: 'cover' }}
-          priority
-        />
+      <div key={currentIndex} className="absolute inset-0 h-full w-full overflow-hidden">
+        {currentItem.type === 'image' ? (
+          <Image
+            src={currentItem.src}
+            alt={currentItem.alt}
+            fill
+            style={{ objectFit: 'cover' }}
+            priority
+            className="animate-ken-burns"
+          />
+        ) : (
+          <video
+            src={currentItem.src}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover"
+          />
+        )}
       </div>
        <div className="absolute inset-0 bg-black/20" />
         <div className="z-10 p-4 animate-fadeIn">
           <h1 className="text-8xl md:text-9xl font-bold leading-none mb-4 animate-slideInUp" style={{ animationDelay: '0.2s' }}>
-            {images[currentIndex].title}
+            {currentItem.title}
           </h1>
           <h2 className="text-5xl md:text-7xl font-extrabold text-primary animate-slideInUp" style={{ animationDelay: '0.5s' }}>
-            {images[currentIndex].subtitle}
+            {currentItem.subtitle}
           </h2>
           <Button asChild size="lg" className="mt-8 text-lg animate-slideInUp" style={{ animationDelay: '0.8s' }}>
             <Link href="/signup">
@@ -116,9 +138,8 @@ export default function LandingPage() {
   const t = translations[language].landingPage;
 
   useEffect(() => {
-    if (!loading && user) {
-      router.push('/discover');
-    }
+    // This effect is now removed to prevent unwanted redirection.
+    // Page protection logic is handled on protected pages like /discover.
   }, [user, loading, router]);
 
 
@@ -128,18 +149,23 @@ export default function LandingPage() {
     { image: '/images/ceo-iaia.jpg', caption: t.carouselCaption3, hint: 'boss commanding' },
   ];
 
-  const heroImages = [
-    { src: '/images/catcheur-iaia.jpg', alt: 'A powerful wrestler celebrating victory', title: t.heroTitle, subtitle: t.heroSubtitleKing },
-    { src: '/images/ballerine-iaia.jpg', alt: 'An elegant ballerina performing', title: t.heroTitle, subtitle: t.heroSubtitleQueen },
-    { src: '/images/ceo-iaia.jpg', alt: 'A confident businessperson in command', title: t.heroTitle, subtitle: t.heroSubtitleBoss },
+  const heroItems: HeroItem[] = [
+    { type: 'video', src: '/videos/wrestler-hero.mp4', alt: 'A powerful wrestler celebrating victory', title: t.heroTitle, subtitle: t.heroSubtitleKing },
+    { type: 'image', src: '/images/ballerine-iaia.jpg', alt: 'An elegant ballerina performing', title: t.heroTitle, subtitle: t.heroSubtitleQueen },
+    { type: 'image', src: '/images/ceo-iaia.jpg', alt: 'A confident businessperson in command', title: t.heroTitle, subtitle: t.heroSubtitleBoss },
   ];
 
   if (loading || (!loading && user)) {
-    return (
-      <div className="flex min-h-screen items-center justify-center">
-        <Loader2 className="h-8 w-8 animate-spin text-primary" />
-      </div>
-    );
+    // While the user object is loading, we can show a loader, but not for a logged-in user to avoid flicker.
+    if(loading) {
+      return (
+        <div className="flex min-h-screen items-center justify-center">
+          <Loader2 className="h-8 w-8 animate-spin text-primary" />
+        </div>
+      );
+    }
+    // A logged-in user will be redirected from a protected page if they land here,
+    // but we let them see the landing page if they navigate to it directly.
   }
 
   return (
@@ -148,7 +174,7 @@ export default function LandingPage() {
       <section 
         className="relative min-h-screen flex items-center justify-center text-center text-white overflow-hidden"
       >
-        <HeroSlideshow images={heroImages} />
+        <HeroSlideshow items={heroItems} />
       </section>
 
       {/* Section 1: What is IAIA? */}
