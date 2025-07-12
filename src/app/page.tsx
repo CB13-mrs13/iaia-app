@@ -1,11 +1,9 @@
 
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
-import { useAuth } from '@/hooks/use-auth';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent } from '@/components/ui/card';
@@ -69,13 +67,15 @@ const Carousel = ({ items }: { items: { image: string; caption: string; hint: st
 const HeroSlideshow = ({ images }: { images: { src: string; alt: string; title: string; subtitle: string; }[] }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  useEffect(() => {
+  // This useEffect handles the slideshow timing.
+  // It's client-side only and should not cause hydration issues.
+  useState(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
     }, 7000); // Change image every 7 seconds
 
     return () => clearInterval(interval);
-  }, [images.length]);
+  });
 
   return (
     <>
@@ -108,25 +108,8 @@ const HeroSlideshow = ({ images }: { images: { src: string; alt: string; title: 
 
 
 export default function LandingPage() {
-  const { user, loading } = useAuth();
-  const router = useRouter();
   const { language } = useLanguage();
   const t = translations[language].landingPage;
-
-  useEffect(() => {
-    if (!loading && user) {
-      router.push('/discover');
-    }
-  }, [user, loading, router]);
-  
-  // Prevent flash of content while checking auth state or redirecting
-  if (loading || (!loading && user)) {
-    return (
-      <div className="flex h-screen w-screen items-center justify-center">
-        {/* You can add a loader here if you want */}
-      </div>
-    );
-  }
 
   const carouselItems = [
     { image: '/images/catcheur-iaia.jpg', caption: t.carouselCaption1, hint: 'wrestler champion' },
