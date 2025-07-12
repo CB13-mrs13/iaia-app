@@ -245,7 +245,7 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       formButton: "Join the beta",
       formDisclaimer: "🔐 No spam, just creative power",
       formOr: "OR",
-      formButton2: "👉 Try IAIA now",
+      formButton2: "👉 Try IAIA",
     },
     searchForm: {
       title: "AI-Powered Tool Finder",
@@ -446,7 +446,7 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       formButton: "Rejoindre la beta",
       formDisclaimer: "🔐 Pas de spam, juste du pouvoir créatif",
       formOr: "OU",
-      formButton2: "👉 Tester IAIA maintenant",
+      formButton2: "👉 Tester IAIA",
     },
     searchForm: {
       title: "Découverte d'outils par IA",
@@ -647,7 +647,7 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       formButton: "Unirse a la beta",
       formDisclaimer: "🔐 Sin spam, solo poder creativo",
       formOr: "O",
-      formButton2: "👉 Probar IAIA ahora",
+      formButton2: "👉 Probar IAIA",
     },
     searchForm: {
       title: "Buscador de Herramientas con IA",
