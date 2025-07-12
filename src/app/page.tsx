@@ -115,11 +115,13 @@ export default function LandingPage() {
   const router = useRouter();
   const t = translations[language].landingPage;
 
-  useEffect(() => {
-    if (!loading && user) {
-      router.push('/discover');
-    }
-  }, [user, loading, router]);
+  // This logic is now removed to stop automatic redirection from the landing page.
+  // The user can now see the landing page even if logged in.
+  // useEffect(() => {
+  //   if (!loading && user) {
+  //     router.push('/discover');
+  //   }
+  // }, [user, loading, router]);
 
 
   const carouselItems = [
@@ -134,7 +136,7 @@ export default function LandingPage() {
     { src: '/images/ceo-iaia.jpg', alt: 'A confident businessperson in command', title: t.heroTitle, subtitle: t.heroSubtitleBoss },
   ];
 
-  if (loading || user) {
+  if (loading) {
     return (
       <div className="flex min-h-screen items-center justify-center">
         <Loader2 className="h-8 w-8 animate-spin text-primary" />
