@@ -19,9 +19,8 @@ export default function SignUpPage() {
   const { width, height } = useWindowSize();
 
   useEffect(() => {
+    // Redirect a user who is already logged in
     if (!loading && user) {
-      // Don't redirect if we are in the middle of showing confetti.
-      // The other useEffect will handle redirection after confetti.
       if (!showConfetti) {
         router.push('/discover');
       }

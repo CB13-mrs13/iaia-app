@@ -15,8 +15,9 @@ export default function LoginPage() {
   const { user, loading } = useAuth();
 
   useEffect(() => {
+    // Redirect a user who is already logged in
     if (!loading && user) {
-      router.push('/discover'); // Redirect if already logged in
+      router.push('/discover');
     }
   }, [user, loading, router]);
 
@@ -26,9 +27,6 @@ export default function LoginPage() {
     router.push('/discover');
   };
 
-  // If we are checking auth or the user is logged in, show a loader.
-  // This prevents the form from flashing on the screen for logged-in users
-  // before they are redirected.
   if (loading || user) {
     return (
        <div className="flex min-h-screen items-center justify-center">
@@ -37,6 +35,5 @@ export default function LoginPage() {
     );
   }
 
-  // If not loading and no user, render the form.
   return <AuthForm mode="login" onSubmit={handleLogin} />;
 }
