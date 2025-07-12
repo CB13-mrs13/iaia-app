@@ -7,6 +7,7 @@ import { useRouter } from 'next/navigation';
 import { useToast } from '@/hooks/use-toast';
 import { useAuth } from '@/hooks/use-auth';
 import { useEffect } from 'react';
+import { Loader2 } from 'lucide-react';
 
 export default function LoginPage() {
   const router = useRouter();
@@ -22,15 +23,18 @@ export default function LoginPage() {
   const handleLogin = async (values: any) => { // eslint-disable-line @typescript-eslint/no-explicit-any
     await signInWithEmail(values.email, values.password);
     toast({ title: 'Login Successful', description: 'Welcome back!' });
-    // The redirect is now handled by the useEffect hook.
-    // This prevents a race condition where navigation happens before the auth state
-    // has propagated to all components, such as the Navbar.
+    router.push('/discover');
   };
 
   if (loading || (!loading && user)) {
-     // Show loading or prevent rendering form if already logged in and redirecting
-    return null;
+    // Show a loading state or nothing while checking auth or redirecting
+    return (
+       <div className="flex min-h-screen items-center justify-center">
+        <Loader2 className="h-8 w-8 animate-spin text-primary" />
+      </div>
+    );
   }
 
+  // If not loading and no user, render the form.
   return <AuthForm mode="login" onSubmit={handleLogin} />;
 }

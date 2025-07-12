@@ -9,6 +9,7 @@ import { useAuth } from '@/hooks/use-auth';
 import { useEffect, useState } from 'react';
 import ReactConfetti from 'react-confetti';
 import { useWindowSize } from '@/hooks/use-window-size';
+import { Loader2 } from 'lucide-react';
 
 export default function SignUpPage() {
   const router = useRouter();
@@ -30,28 +31,29 @@ export default function SignUpPage() {
       // This timer is just to stop rendering confetti after a while to save resources
       timer = setTimeout(() => {
         setShowConfetti(false);
+        router.push('/discover');
       }, 7000); 
     }
     return () => clearTimeout(timer);
-  }, [showConfetti]);
+  }, [showConfetti, router]);
 
   const handleSignUp = async (values: any) => { // eslint-disable-line @typescript-eslint/no-explicit-any
     await signUpWithEmail(values.email, values.password, values.displayName);
     toast({ title: 'Sign Up Successful', description: 'Welcome to IAIA! Your account has been created.' });
     setShowConfetti(true);
-    // Wait for confetti to be visible briefly before redirecting
-    setTimeout(() => {
-      router.push('/discover');
-    }, 5000); 
+    // The useEffect will handle the redirection after a delay.
   };
   
-  if (loading) {
-    // Prevent rendering form during initial auth check
-    return null;
+  if (loading || (!loading && user)) {
+    // Prevent rendering form during initial auth check or if redirecting
+    return (
+       <div className="flex min-h-screen items-center justify-center">
+        <Loader2 className="h-8 w-8 animate-spin text-primary" />
+      </div>
+    );
   }
   
-  // If a user is logged in, the useEffect will handle redirection.
-  // This structure allows the confetti to display after a new signup without the component unmounting.
+  // If not loading and no user, render the form.
   return (
     <>
       {showConfetti && width && height && (
