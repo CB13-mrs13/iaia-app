@@ -7,7 +7,7 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent } from '@/components/ui/card';
-import { Check, Mail, ArrowRight, ChevronLeft, ChevronRight, Loader2 } from 'lucide-react';
+import { Check, Mail, ChevronLeft, ChevronRight, Loader2 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useLanguage } from '@/hooks/use-language';
 import { translations } from '@/lib/translations';
@@ -170,17 +170,18 @@ export default function LandingPage() {
                 </Link>
             </Button>
           </div>
-          <Link href="/signup" className="block transition-transform duration-300 hover:scale-105">
-            <div 
-              className="relative h-64 md:h-96 w-full rounded-lg overflow-hidden shadow-xl bg-cover bg-center flex items-center p-8"
-              style={{ backgroundImage: "url('/images/logo-iaia-sstxt.jpg')" }}
-              data-ai-hint="iaia logo abstract"
-            >
-              <div className="absolute inset-0 bg-black/20"></div>
-              <p className="relative z-10 text-left text-2xl md:text-4xl font-bold text-white leading-relaxed drop-shadow-lg md:pl-[calc(40%+20px)] pl-8 sm:pl-[calc(30%)]">
-                {t.logoSlogan}
-              </p>
-            </div>
+          <Link href="/signup" className="group block transition-transform duration-300 hover:scale-105">
+              <div 
+                className="relative h-64 md:h-96 w-full rounded-lg overflow-hidden shadow-xl flex items-center justify-center p-8 bg-primary hover:bg-accent transition-colors duration-300"
+                data-ai-hint="iaia logo abstract"
+              >
+                  <Image src="/images/logo-iaia-sstxt-nobg.png" alt="IAIA Logo" width={200} height={200} className="w-40 h-40 md:w-52 md:h-52 object-contain transition-transform duration-300 group-hover:scale-75" />
+                  <div className="absolute inset-0 flex items-center justify-center p-8">
+                      <p className="text-center text-2xl md:text-3xl font-bold text-white leading-relaxed drop-shadow-lg opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                          {t.logoSlogan}
+                      </p>
+                  </div>
+              </div>
           </Link>
         </div>
       </section>
