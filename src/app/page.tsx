@@ -1,16 +1,18 @@
 
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent } from '@/components/ui/card';
-import { Check, Mail, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Check, Mail, ArrowRight, ChevronLeft, ChevronRight, Loader2 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useLanguage } from '@/hooks/use-language';
 import { translations } from '@/lib/translations';
+import { useAuth } from '@/hooks/use-auth';
+import { useRouter } from 'next/navigation';
 
 // Helper component for Carousel
 const Carousel = ({ items }: { items: { image: string; caption: string; hint: string }[] }) => {
@@ -66,16 +68,16 @@ const Carousel = ({ items }: { items: { image: string; caption: string; hint: st
 
 const HeroSlideshow = ({ images }: { images: { src: string; alt: string; title: string; subtitle: string; }[] }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const { language } = useLanguage();
+  const t = translations[language].landingPage;
 
-  // This useEffect handles the slideshow timing.
-  // It's client-side only and should not cause hydration issues.
-  useState(() => {
+  useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
     }, 7000); // Change image every 7 seconds
 
     return () => clearInterval(interval);
-  });
+  }, [images.length]);
 
   return (
     <>
@@ -98,7 +100,7 @@ const HeroSlideshow = ({ images }: { images: { src: string; alt: string; title: 
           </h2>
           <Button asChild size="lg" className="mt-8 text-lg animate-slideInUp" style={{ animationDelay: '0.8s' }}>
             <Link href="/signup">
-              {translations.en.landingPage.heroButton}
+              {t.heroButton}
             </Link>
           </Button>
         </div>
@@ -109,7 +111,16 @@ const HeroSlideshow = ({ images }: { images: { src: string; alt: string; title: 
 
 export default function LandingPage() {
   const { language } = useLanguage();
+  const { user, loading } = useAuth();
+  const router = useRouter();
   const t = translations[language].landingPage;
+
+  useEffect(() => {
+    if (!loading && user) {
+      router.push('/discover');
+    }
+  }, [user, loading, router]);
+
 
   const carouselItems = [
     { image: '/images/catcheur-iaia.jpg', caption: t.carouselCaption1, hint: 'wrestler champion' },
@@ -122,6 +133,14 @@ export default function LandingPage() {
     { src: '/images/ballerine-iaia.jpg', alt: 'An elegant ballerina performing', title: t.heroTitle, subtitle: t.heroSubtitleQueen },
     { src: '/images/ceo-iaia.jpg', alt: 'A confident businessperson in command', title: t.heroTitle, subtitle: t.heroSubtitleBoss },
   ];
+
+  if (loading || user) {
+    return (
+      <div className="flex min-h-screen items-center justify-center">
+        <Loader2 className="h-8 w-8 animate-spin text-primary" />
+      </div>
+    );
+  }
 
   return (
     <div className="bg-background text-foreground">
