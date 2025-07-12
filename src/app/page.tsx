@@ -151,8 +151,8 @@ export default function LandingPage() {
 
   const heroItems: HeroItem[] = [
     { type: 'video', src: '/videos/wrestler-hero.mp4', alt: 'A powerful wrestler celebrating victory', title: t.heroTitle, subtitle: t.heroSubtitleKing },
-    { type: 'image', src: '/images/ballerine-iaia.jpg', alt: 'An elegant ballerina performing', title: t.heroTitle, subtitle: t.heroSubtitleQueen },
-    { type: 'image', src: '/images/ceo-iaia.jpg', alt: 'A confident businessperson in command', title: t.heroTitle, subtitle: t.heroSubtitleBoss },
+    { type: 'video', src: '/videos/wrestler-hero-bal.mp4', alt: 'An elegant ballerina performing', title: t.heroTitle, subtitle: t.heroSubtitleQueen },
+    { type: 'video', src: '/videos/wrestler-hero-ceo.mp4', alt: 'A confident businessperson in command', title: t.heroTitle, subtitle: t.heroSubtitleBoss },
   ];
 
   if (loading || (!loading && user)) {
