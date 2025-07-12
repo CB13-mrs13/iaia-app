@@ -43,6 +43,45 @@ type PageTranslations = {
     formOr: string;
     formButton2: string;
   };
+  auth: {
+    loginTitle: string;
+    signupTitle: string;
+    loginDescription: string;
+    signupDescription: string;
+    displayNameLabel: string;
+    displayNamePlaceholder: string;
+    emailLabel: string;
+    emailPlaceholder: string;
+    passwordLabel: string;
+    showPassword: string;
+    hidePassword: string;
+    loginButton: string;
+    signupButton: string;
+    prompt: {
+      noAccount: string;
+      hasAccount: string;
+      forgotPassword: string;
+    },
+    signupLink: string;
+    loginLink: string;
+    validation: {
+      invalidEmail: string;
+      passwordLength: string;
+      displayNameLength: string;
+    },
+    errors: {
+      default: string;
+      loginFailedTitle: string;
+      signUpFailedTitle: string;
+      configErrorTitle: string;
+      apiKeyInvalid: string;
+      invalidEmail: string;
+      invalidCredentials: string;
+      emailInUse: string;
+      weakPassword: string;
+      authErrorTitle: string;
+    }
+  },
   searchForm: {
     title: string;
     description: string;
@@ -247,6 +286,45 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       formOr: "OR",
       formButton2: "👉 Try IAIA",
     },
+    auth: {
+      loginTitle: 'Welcome Back to IAIA!',
+      signupTitle: 'Create your IAIA Account',
+      loginDescription: 'Sign in to access your dashboard and discover AI tools.',
+      signupDescription: 'Join us to explore the world of AI.',
+      displayNameLabel: 'Display Name (Optional)',
+      displayNamePlaceholder: 'Your Name',
+      emailLabel: 'Email',
+      emailPlaceholder: 'you@example.com',
+      passwordLabel: 'Password',
+      showPassword: 'Show password',
+      hidePassword: 'Hide password',
+      loginButton: 'Login',
+      signupButton: 'Sign Up',
+      prompt: {
+        noAccount: "Don't have an account?",
+        hasAccount: "Already have an account?",
+        forgotPassword: 'Forgot password?',
+      },
+      signupLink: 'Sign Up',
+      loginLink: 'Login',
+      validation: {
+        invalidEmail: "Invalid email address.",
+        passwordLength: "Password must be at least 6 characters.",
+        displayNameLength: "Display name must be at least 2 characters.",
+      },
+      errors: {
+        default: "An unexpected error occurred. Please try again.",
+        loginFailedTitle: 'Login Failed',
+        signUpFailedTitle: 'Sign Up Failed',
+        configErrorTitle: 'Configuration Error',
+        apiKeyInvalid: "Firebase API Key is not valid. Check your .env.local file and restart the server.",
+        invalidEmail: "The email address is not valid. Please check and try again.",
+        invalidCredentials: "Invalid email or password.",
+        emailInUse: "This email is already registered.",
+        weakPassword: "Password is too weak.",
+        authErrorTitle: 'Authentication Error',
+      }
+    },
     searchForm: {
       title: "AI-Powered Tool Finder",
       description: "Describe what you want to achieve, and our AI will suggest the best tool for the job!",
@@ -310,6 +388,7 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       deleteAccountConfirmDesc: "This action cannot be undone. This will permanently delete your account and remove your data from our servers.",
       cancel: "Cancel",
       confirmDelete: "Yes, delete account",
+      // Toasts
       noChangesToastTitle: "No Changes",
       noChangesToastDesc: "No changes were made to your profile.",
       errorToastTitle: "Error",
@@ -447,6 +526,45 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       formDisclaimer: "🔐 Pas de spam, juste du pouvoir créatif",
       formOr: "OU",
       formButton2: "👉 Tester IAIA",
+    },
+    auth: {
+      loginTitle: 'Content de vous revoir !',
+      signupTitle: 'Créez votre compte IAIA',
+      loginDescription: 'Connectez-vous pour accéder à votre tableau de bord et découvrir des outils IA.',
+      signupDescription: 'Rejoignez-nous pour explorer le monde de l\'IA.',
+      displayNameLabel: 'Nom d\'affichage (Optionnel)',
+      displayNamePlaceholder: 'Votre nom',
+      emailLabel: 'Email',
+      emailPlaceholder: 'vous@exemple.com',
+      passwordLabel: 'Mot de passe',
+      showPassword: 'Afficher le mot de passe',
+      hidePassword: 'Masquer le mot de passe',
+      loginButton: 'Connexion',
+      signupButton: 'Inscription',
+      prompt: {
+        noAccount: "Vous n'avez pas de compte ?",
+        hasAccount: "Vous avez déjà un compte ?",
+        forgotPassword: 'Mot de passe oublié ?',
+      },
+      signupLink: 'Inscription',
+      loginLink: 'Connexion',
+      validation: {
+        invalidEmail: "Adresse email invalide.",
+        passwordLength: "Le mot de passe doit comporter au moins 6 caractères.",
+        displayNameLength: "Le nom d'affichage doit comporter au moins 2 caractères.",
+      },
+      errors: {
+        default: "Une erreur inattendue est survenue. Veuillez réessayer.",
+        loginFailedTitle: 'Échec de la connexion',
+        signUpFailedTitle: 'Échec de l\'inscription',
+        configErrorTitle: 'Erreur de Configuration',
+        apiKeyInvalid: "La clé API Firebase n'est pas valide. Vérifiez votre fichier .env.local et redémarrez le serveur.",
+        invalidEmail: "L'adresse email n'est pas valide. Veuillez vérifier et réessayer.",
+        invalidCredentials: "Email ou mot de passe invalide.",
+        emailInUse: "Cet email est déjà enregistré.",
+        weakPassword: "Le mot de passe est trop faible.",
+        authErrorTitle: 'Erreur d\'authentification',
+      }
     },
     searchForm: {
       title: "Découverte d'outils par IA",
@@ -649,6 +767,45 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       formOr: "O",
       formButton2: "👉 Probar IAIA",
     },
+    auth: {
+      loginTitle: '¡Bienvenido de vuelta a IAIA!',
+      signupTitle: 'Crea tu cuenta de IAIA',
+      loginDescription: 'Inicia sesión para acceder a tu panel y descubrir herramientas de IA.',
+      signupDescription: 'Únete a nosotros para explorar el mundo de la IA.',
+      displayNameLabel: 'Nombre de usuario (Opcional)',
+      displayNamePlaceholder: 'Tu nombre',
+      emailLabel: 'Correo electrónico',
+      emailPlaceholder: 'tu@ejemplo.com',
+      passwordLabel: 'Contraseña',
+      showPassword: 'Mostrar contraseña',
+      hidePassword: 'Ocultar contraseña',
+      loginButton: 'Iniciar sesión',
+      signupButton: 'Registrarse',
+      prompt: {
+        noAccount: "¿No tienes una cuenta?",
+        hasAccount: "¿Ya tienes una cuenta?",
+        forgotPassword: '¿Olvidaste tu contraseña?',
+      },
+      signupLink: 'Registrarse',
+      loginLink: 'Iniciar sesión',
+      validation: {
+        invalidEmail: "Dirección de correo electrónico inválida.",
+        passwordLength: "La contraseña debe tener al menos 6 caracteres.",
+        displayNameLength: "El nombre de usuario debe tener al menos 2 caracteres.",
+      },
+      errors: {
+        default: "Ocurrió un error inesperado. Por favor, inténtalo de nuevo.",
+        loginFailedTitle: 'Error de inicio de sesión',
+        signUpFailedTitle: 'Error de registro',
+        configErrorTitle: 'Error de Configuración',
+        apiKeyInvalid: "La clave de API de Firebase no es válida. Revisa tu archivo .env.local y reinicia el servidor.",
+        invalidEmail: "La dirección de correo electrónico no es válida. Por favor, revisa e inténtalo de nuevo.",
+        invalidCredentials: "Correo electrónico o contraseña no válidos.",
+        emailInUse: "Este correo electrónico ya está registrado.",
+        weakPassword: "La contraseña es demasiado débil.",
+        authErrorTitle: 'Error de autenticación',
+      }
+    },
     searchForm: {
       title: "Buscador de Herramientas con IA",
       description: "¡Describe lo que quieres lograr y nuestra IA te sugerirá la mejor herramienta para el trabajo!",
@@ -811,5 +968,3 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
     },
   },
 };
-
-    
