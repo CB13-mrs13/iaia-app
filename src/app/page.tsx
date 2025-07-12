@@ -115,13 +115,13 @@ export default function LandingPage() {
   const router = useRouter();
   const t = translations[language].landingPage;
 
-  // This logic is now removed to stop automatic redirection from the landing page.
-  // The user can now see the landing page even if logged in.
-  // useEffect(() => {
-  //   if (!loading && user) {
-  //     router.push('/discover');
-  //   }
-  // }, [user, loading, router]);
+  useEffect(() => {
+    // This effect ensures that a logged-in user starting at the landing page
+    // is redirected to the main app experience.
+    if (!loading && user) {
+      router.push('/discover');
+    }
+  }, [user, loading, router]);
 
 
   const carouselItems = [
@@ -136,7 +136,7 @@ export default function LandingPage() {
     { src: '/images/ceo-iaia.jpg', alt: 'A confident businessperson in command', title: t.heroTitle, subtitle: t.heroSubtitleBoss },
   ];
 
-  if (loading) {
+  if (loading || user) { // Keep user on a loading screen while auth state resolves or redirecting
     return (
       <div className="flex min-h-screen items-center justify-center">
         <Loader2 className="h-8 w-8 animate-spin text-primary" />
@@ -166,7 +166,7 @@ export default function LandingPage() {
             </p>
              <Button variant="secondary" asChild>
                 <Link href="#how-it-works">
-                  {t.section1Button} <ArrowRight className="ml-2 h-4 w-4" />
+                  {t.section1Button}
                 </Link>
             </Button>
           </div>
