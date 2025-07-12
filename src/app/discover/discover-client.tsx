@@ -1,18 +1,20 @@
 
 "use client";
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import AiToolCard from '@/components/ai-tool-card';
 import AiToolFilters from '@/components/ai-tool-filters';
 import AiSearchForm from '@/components/ai-search-form';
 import type { AiTool, AiToolCategory } from '@/types';
 import { Input } from '@/components/ui/input';
-import { Search, ArrowUp, Wrench, PackageSearch, Star } from 'lucide-react';
+import { Search, ArrowUp, Wrench, PackageSearch, Star, Loader2 } from 'lucide-react';
 import { useLanguage } from '@/hooks/use-language';
 import { translations } from '@/lib/translations';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
+import { useAuth } from '@/hooks/use-auth';
 
 interface DiscoverClientProps {
   aiTools: AiTool[];
@@ -24,6 +26,14 @@ export default function DiscoverClient({ aiTools, featuredToolsList }: DiscoverC
   const [searchTerm, setSearchTerm] = useState('');
   const { language } = useLanguage();
   const t = translations[language].home;
+  const { user, loading } = useAuth();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!loading && !user) {
+      router.push('/login');
+    }
+  }, [user, loading, router]);
 
   const filteredTools = useMemo(() => {
     return aiTools
@@ -37,6 +47,14 @@ export default function DiscoverClient({ aiTools, featuredToolsList }: DiscoverC
         );
       });
   }, [selectedCategory, searchTerm, language, aiTools]);
+  
+  if (loading || !user) {
+    return (
+      <div className="flex min-h-[calc(100vh-theme(spacing.32))] items-center justify-center">
+        <Loader2 className="h-8 w-8 animate-spin text-primary" />
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-12 animate-fadeIn">

@@ -19,16 +19,18 @@ export default function SignUpPage() {
   const { width, height } = useWindowSize();
 
   useEffect(() => {
-    // Redirect if user is already logged in, but not if we're in the middle of showing confetti for a new signup.
-    if (!loading && user && !showConfetti) {
-      router.push('/discover');
+    if (!loading && user) {
+      // Don't redirect if we are in the middle of showing confetti.
+      // The other useEffect will handle redirection after confetti.
+      if (!showConfetti) {
+        router.push('/discover');
+      }
     }
   }, [user, loading, router, showConfetti]);
 
   useEffect(() => {
     let timer: NodeJS.Timeout;
     if (showConfetti) {
-      // This timer is just to stop rendering confetti after a while to save resources
       timer = setTimeout(() => {
         setShowConfetti(false);
         router.push('/discover');
@@ -41,11 +43,9 @@ export default function SignUpPage() {
     await signUpWithEmail(values.email, values.password, values.displayName);
     toast({ title: 'Sign Up Successful', description: 'Welcome to IAIA! Your account has been created.' });
     setShowConfetti(true);
-    // The useEffect will handle the redirection after a delay.
   };
   
-  if (loading || (!loading && user)) {
-    // Prevent rendering form during initial auth check or if redirecting
+  if (loading || user) {
     return (
        <div className="flex min-h-screen items-center justify-center">
         <Loader2 className="h-8 w-8 animate-spin text-primary" />
@@ -53,7 +53,6 @@ export default function SignUpPage() {
     );
   }
   
-  // If not loading and no user, render the form.
   return (
     <>
       {showConfetti && width && height && (

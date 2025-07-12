@@ -26,8 +26,10 @@ export default function LoginPage() {
     router.push('/discover');
   };
 
-  if (loading || (!loading && user)) {
-    // Show a loading state or nothing while checking auth or redirecting
+  // If we are checking auth or the user is logged in, show a loader.
+  // This prevents the form from flashing on the screen for logged-in users
+  // before they are redirected.
+  if (loading || user) {
     return (
        <div className="flex min-h-screen items-center justify-center">
         <Loader2 className="h-8 w-8 animate-spin text-primary" />
