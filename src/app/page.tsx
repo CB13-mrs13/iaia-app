@@ -116,8 +116,6 @@ export default function LandingPage() {
   const t = translations[language].landingPage;
 
   useEffect(() => {
-    // This effect ensures that a logged-in user starting at the landing page
-    // is redirected to the main app experience.
     if (!loading && user) {
       router.push('/discover');
     }
@@ -136,7 +134,7 @@ export default function LandingPage() {
     { src: '/images/ceo-iaia.jpg', alt: 'A confident businessperson in command', title: t.heroTitle, subtitle: t.heroSubtitleBoss },
   ];
 
-  if (loading || user) { // Keep user on a loading screen while auth state resolves or redirecting
+  if (loading || (!loading && user)) { // Keep user on a loading screen while auth state resolves or redirecting
     return (
       <div className="flex min-h-screen items-center justify-center">
         <Loader2 className="h-8 w-8 animate-spin text-primary" />
