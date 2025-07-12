@@ -49,7 +49,7 @@ const Carousel = ({ items }: { items: { image: string; caption: string; hint: st
               className="w-full h-full"
               data-ai-hint={item.hint}
             />
-            <div className="absolute inset-0 bg-black/40" />
+            <div className="absolute inset-0 bg-black/20" />
             <div className="absolute bottom-0 left-0 p-6 md:p-12">
               <h3 className="text-white text-2xl md:text-4xl font-bold">{item.caption}</h3>
             </div>
@@ -79,27 +79,15 @@ const HeroSlideshow = ({ images }: { images: { src: string; alt: string; title: 
 
   return (
     <>
-      {images.map((image, index) => (
-        <div
-          key={image.src + index} // Use key to force re-render and restart animation
-          className={cn(
-            'absolute inset-0 h-full w-full bg-cover bg-center transition-opacity duration-1000 ease-in-out',
-            index === currentIndex ? 'opacity-100' : 'opacity-0'
-          )}
-        >
-          <Image
-            src={image.src}
-            alt={image.alt}
-            fill
-            style={{ objectFit: 'cover' }}
-            className={cn(
-              'animate-ken-burns',
-               index === currentIndex ? 'opacity-100' : 'opacity-0'
-            )}
-            priority={index === 0}
-          />
-        </div>
-      ))}
+      <div key={currentIndex} className="absolute inset-0 h-full w-full animate-ken-burns">
+        <Image
+          src={images[currentIndex].src}
+          alt={images[currentIndex].alt}
+          fill
+          style={{ objectFit: 'cover' }}
+          priority
+        />
+      </div>
        <div className="absolute inset-0 bg-black/20" />
         <div className="z-10 p-4 animate-fadeIn">
           <h1 className="text-8xl md:text-9xl font-bold leading-none mb-4 animate-slideInUp" style={{ animationDelay: '0.2s' }}>

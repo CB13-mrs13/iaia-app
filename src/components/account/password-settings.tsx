@@ -50,7 +50,7 @@ export default function PasswordSettings() {
     if (showConfetti) {
       timer = setTimeout(() => {
         setShowConfetti(false);
-      }, 5000);
+      }, 7000);
     }
     return () => clearTimeout(timer);
   }, [showConfetti]);
