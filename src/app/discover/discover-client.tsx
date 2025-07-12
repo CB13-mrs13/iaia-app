@@ -7,7 +7,7 @@ import AiToolFilters from '@/components/ai-tool-filters';
 import AiSearchForm from '@/components/ai-search-form';
 import type { AiTool, AiToolCategory } from '@/types';
 import { Input } from '@/components/ui/input';
-import { Search, ArrowUp, Wrench, PackageSearch } from 'lucide-react';
+import { Search, ArrowUp, Wrench, PackageSearch, Star } from 'lucide-react';
 import { useLanguage } from '@/hooks/use-language';
 import { translations } from '@/lib/translations';
 import { Button } from '@/components/ui/button';
@@ -16,11 +16,10 @@ import { cn } from '@/lib/utils';
 
 interface DiscoverClientProps {
   aiTools: AiTool[];
-  featuredTools: AiTool[];
   featuredToolsList: string[];
 }
 
-export default function DiscoverClient({ aiTools, featuredTools, featuredToolsList }: DiscoverClientProps) {
+export default function DiscoverClient({ aiTools, featuredToolsList }: DiscoverClientProps) {
   const [selectedCategory, setSelectedCategory] = useState<AiToolCategory | null>(null);
   const [searchTerm, setSearchTerm] = useState('');
   const { language } = useLanguage();
@@ -45,26 +44,20 @@ export default function DiscoverClient({ aiTools, featuredTools, featuredToolsLi
         <AiSearchForm />
       </section>
 
-      {/* Featured AIs Section */}
-      {featuredTools.length > 0 && (
-        <section id="featured-ais">
-          <header className="mb-8 text-center">
-            <h2 className="text-3xl font-bold tracking-tight mb-2 text-foreground">
-              {t.featuredTitle}
-            </h2>
-            <p className="text-lg text-muted-foreground">
-              {t.featuredSubtitle}
-            </p>
-          </header>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {featuredTools.map((tool, index) => (
-              <div key={tool.id} className="animate-slideInUp" style={{ animationDelay: `${index * 100}ms` }}>
-                <AiToolCard tool={tool} featured />
-              </div>
-            ))}
-          </div>
-        </section>
-      )}
+      {/* Featured AIs Section - Replaced with a link */}
+      <section id="featured-ais-link">
+        <div className="bg-card text-card-foreground rounded-lg p-8 shadow-lg text-center flex flex-col items-center gap-4 border border-primary/20">
+          <Star className="h-8 w-8 text-primary" />
+          <h3 className="text-2xl font-bold">{t.featuredTitle}</h3>
+          <p className="mt-1 text-lg max-w-2xl mx-auto">{t.featuredSubtitle}</p>
+          <Button asChild size="lg" className="mt-4">
+            <Link href="/discover/featured">
+              <Star className="mr-2 h-4 w-4" />
+              {t.viewFeaturedButton}
+            </Link>
+          </Button>
+        </div>
+      </section>
 
       {/* Beta Toolbox Section */}
       <section id="toolbox-beta">

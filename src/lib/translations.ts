@@ -106,6 +106,7 @@ type PageTranslations = {
     toolboxTitle: string;
     toolboxText: string;
     backToDiscovery: string;
+    viewFeaturedButton: string;
   };
   filters: {
     title: string;
@@ -183,6 +184,11 @@ type PageTranslations = {
     noFavoritesTitle: string;
     noFavoritesSubtitle: string;
     discoverTools: string;
+  };
+  featuredPage: {
+    title: string;
+    subtitle: string;
+    backToDiscover: string;
   };
   studio: {
     title: string;
@@ -340,6 +346,7 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
     home: {
       featuredTitle: "Featured AIs",
       featuredSubtitle: "The hottest AI tools of the moment, selected for you.",
+      viewFeaturedButton: "View Featured AIs",
       discoverTitle: "Discover Top AI Tools",
       discoverSubtitle: "Browse our curated list of AI tools or use filters to find exactly what you need.",
       searchPlaceholder: "Search tools by name, description, or tag...",
@@ -347,7 +354,7 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       tryAdjustingFilters: "Try adjusting your filters or search term.",
       backToTop: "Back to Top",
       toolboxTitle: "AI Studio in preparation",
-      toolboxText: "Creative tools like image generation, and tips and tricks for better prompting, are coming soon to expand your capabilities.",
+      toolboxText: "Creative tools like image generation, tips and tricks for better prompting, are coming soon to expand your capabilities.",
       backToDiscovery: "Back to Discovery",
     },
     filters: {
@@ -426,6 +433,11 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       noFavoritesTitle: "No favorites yet",
       noFavoritesSubtitle: "Click the star icon on any tool to add it to your favorites.",
       discoverTools: "Discover Tools",
+    },
+    featuredPage: {
+      title: "Featured AI Tools",
+      subtitle: "The hottest and most popular AI tools of the moment.",
+      backToDiscover: "Back to Discovery",
     },
     studio: {
       title: "AI Image Studio",
@@ -581,6 +593,7 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
     home: {
       featuredTitle: "Les IA à la Une",
       featuredSubtitle: "Les outils IA les plus en vogue du moment, sélectionnés pour vous.",
+      viewFeaturedButton: "Voir les IA à la une",
       discoverTitle: "Découvrez les meilleurs outils d'IA",
       discoverSubtitle: "Parcourez notre liste d'outils d'IA ou utilisez les filtres pour trouver exactly ce dont vous avez besoin.",
       searchPlaceholder: "Rechercher des outils par nom, description ou mot-clé...",
@@ -588,7 +601,7 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       tryAdjustingFilters: "Essayez de modifier vos filtres ou votre terme de recherche.",
       backToTop: "Retour en haut",
       toolboxTitle: "Studio d'IA en préparation",
-      toolboxText: "Des outils créatifs comme la génération d'images, des trucs et astuces pour mieux prompter arrivent bientôt pour décupler vos capacités.",
+      toolboxText: "Des outils créatifs comme la génération d'images, des trucs et astuces pour mieux prompter, arrivent bientôt pour décupler vos capacités.",
       backToDiscovery: "Retour à la découverte",
     },
     filters: {
@@ -667,6 +680,11 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       noFavoritesSubtitle: "Cliquez sur l'icône étoile sur n'importe quel outil pour l'ajouter à vos favoris.",
       discoverTools: "Découvrir des outils",
     },
+    featuredPage: {
+      title: "Outils IA à la une",
+      subtitle: "Les outils IA les plus populaires et en vogue du moment.",
+      backToDiscover: "Retour à la découverte",
+    },
     studio: {
       title: "Atelier d'Images par IA",
       subtitle: "Donnez vie à vos idées. Décrivez une image et laissez l'IA la créer pour vous.",
@@ -694,7 +712,7 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       disclaimer: "Avertissement",
       disclaimerText: "Ceci est un modèle et non un conseil juridique. Veuillez consulter un professionnel du droit pour garantir la conformité avec toutes les lois et réglementations applicables.",
       introductionTitle: "Introduction",
-      privacyIntro: "Bienvenue sur IAIA. Nous nous engageons à protéger votre vie privée. Cette politique de confidentialité explique comment nous collectons, utilisons et partageons les informations vous concernant lorsque vous utilisez notre application.",
+      privacyIntro: "Bienvenue sur IAIA. Nous nous engageons à proteger votre vie privée. Cette politique de confidentialité explique comment nous collectons, utilisons et partageons les informations vous concernant lorsque vous utilisez notre application.",
       termsIntro: "Bienvenue sur IAIA. Ces conditions d'utilisation régissent votre utilisation de notre application. En utilisant IAIA, vous acceptez ces conditions.",
       dataTitle: "Informations que nous collectons",
       dataText: "Nous collectons les informations que vous nous fournissez directement, comme lorsque vous créez un compte (email, nom d'affichage). Nous utilisons également des services tiers comme Firebase Authentication et Google AI (Genkit), qui peuvent collecter des informations conformément à leurs propres politiques de confidentialité.",
@@ -821,6 +839,7 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
     home: {
       featuredTitle: "IA Destacadas",
       featuredSubtitle: "Las herramientas de IA más populares del momento, seleccionadas para ti.",
+      viewFeaturedButton: "Ver IA destacadas",
       discoverTitle: "Descubre las Mejores Herramientas de IA",
       discoverSubtitle: "Navega por nuestra lista de herramientas de IA o usa filtros para encontrar exactamente lo que necesitas.",
       searchPlaceholder: "Buscar herramientas por nombre, descripción o etiqueta...",
@@ -906,6 +925,11 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       noFavoritesTitle: "Aún no hay favoritos",
       noFavoritesSubtitle: "Haz clic en el icono de estrella en cualquier herramienta para agregarla a tus favoritos.",
       discoverTools: "Descubrir herramientas",
+    },
+    featuredPage: {
+      title: "Herramientas de IA Destacadas",
+      subtitle: "Las herramientas de IA más populares y de moda del momento.",
+      backToDiscover: "Volver a Descubrir",
     },
     studio: {
       title: "Estudio de Imágenes con IA",

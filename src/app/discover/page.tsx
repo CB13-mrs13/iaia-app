@@ -8,15 +8,9 @@ export default function DiscoverPage() {
   // The list of tools to actually feature, limited to the latest 6.
   const featuredToolsList = fullFeaturedList.slice(-6);
 
-  // Find the featured tools and sort them in the desired order
-  const featuredTools = aiTools
-    .filter(tool => featuredToolsList.includes(tool.name))
-    .sort((a, b) => featuredToolsList.indexOf(a.name) - featuredToolsList.indexOf(b.name));
-
   return (
     <DiscoverClient
       aiTools={aiTools}
-      featuredTools={featuredTools}
       featuredToolsList={featuredToolsList}
     />
   );
