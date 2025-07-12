@@ -9,7 +9,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Loader2, Eye, EyeOff, Mail, User, LockKeyhole, AlertTriangle } from 'lucide-react';
-import { useState, useTransition } from 'react';
+import { useState, useTransition, useEffect } from 'react';
 import Link from 'next/link';
 import { useToast } from '@/hooks/use-toast';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
@@ -17,14 +17,15 @@ import Image from 'next/image';
 import { useLanguage } from '@/hooks/use-language';
 import { translations } from '@/lib/translations';
 
+// Define schemas once outside the component for stability
 const commonSchema = {
-  email: z.string().trim().email({ message: "Invalid email address." }),
-  password: z.string().min(6, { message: "Password must be at least 6 characters." }),
+  email: z.string().trim().email("Invalid email address."),
+  password: z.string().min(6, "Password must be at least 6 characters."),
 };
 
 const signUpSchema = z.object({
   ...commonSchema,
-  displayName: z.string().min(2, { message: "Display name must be at least 2 characters." }).optional(),
+  displayName: z.string().min(2, "Display name must be at least 2 characters.").optional(),
 });
 
 const signInSchema = z.object(commonSchema);
@@ -53,26 +54,6 @@ export default function AuthForm({ mode, onSubmit }: AuthFormProps) {
       displayName: "",
     }
   });
-
-  // Dynamically set validation messages from translations
-  useEffect(() => {
-    const commonSchemaWithTranslations = {
-      email: z.string().trim().email({ message: t.validation.invalidEmail }),
-      password: z.string().min(6, { message: t.validation.passwordLength }),
-    };
-
-    const newSchema = mode === 'signup' 
-      ? z.object({
-          ...commonSchemaWithTranslations,
-          displayName: z.string().min(2, { message: t.validation.displayNameLength }).optional(),
-        })
-      : z.object(commonSchemaWithTranslations);
-      
-    form.reset(form.getValues(), {
-        // @ts-ignore - a known issue, but it works
-      resolver: zodResolver(newSchema)
-    });
-  }, [language, form, mode, t.validation]);
 
   const handleSubmit: SubmitHandler<FormValues> = async (data) => {
     setError(null);
@@ -114,6 +95,23 @@ export default function AuthForm({ mode, onSubmit }: AuthFormProps) {
     });
   };
 
+  const getTranslatedError = (field: keyof FormValues) => {
+    const error = form.formState.errors[field];
+    if (!error) return null;
+
+    switch (field) {
+      case 'email':
+        return t.validation.invalidEmail;
+      case 'password':
+        return t.validation.passwordLength;
+      case 'displayName':
+        return t.validation.displayNameLength;
+      default:
+        return error.message;
+    }
+  };
+
+
   return (
     <Card className="w-full max-w-md shadow-xl">
       <CardHeader className="text-center">
@@ -137,7 +135,7 @@ export default function AuthForm({ mode, onSubmit }: AuthFormProps) {
                 <Input id="displayName" type="text" {...form.register('displayName')} placeholder={t.displayNamePlaceholder} className="pl-10" />
               </div>
               {form.formState.errors.displayName && (
-                <p className="text-sm text-destructive">{form.formState.errors.displayName.message}</p>
+                <p className="text-sm text-destructive">{getTranslatedError('displayName')}</p>
               )}
             </div>
           )}
@@ -148,7 +146,7 @@ export default function AuthForm({ mode, onSubmit }: AuthFormProps) {
               <Input id="email" type="email" {...form.register('email')} placeholder={t.emailPlaceholder} className="pl-10" />
             </div>
             {form.formState.errors.email && (
-              <p className="text-sm text-destructive">{form.formState.errors.email.message}</p>
+              <p className="text-sm text-destructive">{getTranslatedError('email')}</p>
             )}
           </div>
           <div className="space-y-1">
@@ -172,7 +170,7 @@ export default function AuthForm({ mode, onSubmit }: AuthFormProps) {
               </button>
             </div>
             {form.formState.errors.password && (
-              <p className="text-sm text-destructive">{form.formState.errors.password.message}</p>
+              <p className="text-sm text-destructive">{getTranslatedError('password')}</p>
             )}
           </div>
           {error && (
