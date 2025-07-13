@@ -80,9 +80,9 @@ export default function DiscoverClient({ aiTools, featuredToolsList }: DiscoverC
             }}
             className="w-full max-w-sm sm:max-w-xl md:max-w-2xl lg:max-w-4xl xl:max-w-6xl mx-auto"
           >
-            <CarouselContent>
+            <CarouselContent className="-ml-4">
               {featuredToolsList.map((tool) => (
-                <CarouselItem key={tool.id} className="basis-full md:basis-1/2 lg:basis-1/3">
+                <CarouselItem key={tool.id} className="basis-full sm:basis-1/2 lg:basis-1/3 pl-4">
                   <div className="p-1 h-full">
                     <AiToolCard tool={tool} featured />
                   </div>
