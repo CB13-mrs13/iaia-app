@@ -33,12 +33,6 @@ export default function DiscoverClient({ aiTools, featuredToolsList }: DiscoverC
   const [carouselApi, setCarouselApi] = useState<CarouselApi | null>(null);
   const isMobile = useIsMobile();
 
-  useEffect(() => {
-    if (!loading && !user) {
-      router.push('/login');
-    }
-  }, [user, loading, router]);
-
   const onSelect = useCallback((api: CarouselApi) => {
     if (!api || !isMobile) return;
 
