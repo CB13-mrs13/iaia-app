@@ -23,7 +23,8 @@ interface AiToolCardProps {
 
 export default function AiToolCard({ tool, featured = false }: AiToolCardProps) {
   const { language } = useLanguage();
-  const t = translations[language].toolPage;
+  const t = translations[language];
+  const toolT = t.toolPage;
   const { user } = useAuth();
   const { isFavorite, toggleFavorite, isToggling } = useFavorites();
   const CategoryIcon = getCategoryIcon(tool.category);
@@ -62,9 +63,9 @@ export default function AiToolCard({ tool, featured = false }: AiToolCardProps) 
             )} />
           </Button>
         )}
-        <CardHeader className="flex-shrink-0">
+        <CardHeader className="flex-shrink-0 p-4">
           {tool.imageUrl && (
-            <div className="relative w-full h-40 mb-4 overflow-hidden rounded-t-lg">
+            <div className="relative w-full h-40 mb-4 overflow-hidden rounded-md">
               <Image
                 src={tool.imageUrl}
                 alt={tool.name}
@@ -77,20 +78,23 @@ export default function AiToolCard({ tool, featured = false }: AiToolCardProps) 
             </div>
           )}
           <div className="flex items-start justify-between">
-            <div className="flex flex-col gap-1">
-               <CardTitle className="text-xl font-semibold pr-8">{tool.name}</CardTitle>
-               {(featured || tool.isSponsored) && (
-                 <Badge variant="default" className={cn(featured && !tool.isSponsored && "bg-accent text-accent-foreground")}>
-                   {tool.isSponsored ? t.sponsored : (featured ? "Featured" : "")}
-                 </Badge>
-               )}
-            </div>
+            <CardTitle className="text-xl font-semibold pr-8">{tool.name}</CardTitle>
             {CategoryIcon && <CategoryIcon className="h-6 w-6 text-primary flex-shrink-0" />}
+          </div>
+          <div className="flex flex-wrap gap-1 pt-2">
+            {(featured || tool.isSponsored) && (
+              <Badge variant="default" className={cn(featured && !tool.isSponsored && "bg-accent text-accent-foreground")}>
+                {tool.isSponsored ? toolT.sponsored : (featured ? t.badges.featured : "")}
+              </Badge>
+            )}
+            {tool.pricing === 'Free' && (
+              <Badge variant="secondary">{t.badges.free}</Badge>
+            )}
           </div>
           <CardDescription className="text-sm text-muted-foreground min-h-[3rem] pt-2">{description}</CardDescription>
         </CardHeader>
-        <CardContent className="flex-grow flex flex-col justify-end">
-          <div className="space-y-2">
+        <CardContent className="flex-grow flex flex-col justify-end p-4 pt-0">
+          <div className="space-y-2 mt-auto">
             {tool.tags && tool.tags.length > 0 && (
               <div className="flex flex-wrap gap-1">
                 {tool.tags.slice(0, 3).map((tag) => (
@@ -98,15 +102,17 @@ export default function AiToolCard({ tool, featured = false }: AiToolCardProps) 
                 ))}
               </div>
             )}
-            {tool.pricing && (
-              <p className="text-xs text-muted-foreground">{t.pricingLabel}: <Badge variant="outline" className="text-xs">{tool.pricing}</Badge></p>
-            )}
-            {tool.rating && (
-              <div className="flex items-center text-xs text-muted-foreground">
-                <Star className="h-4 w-4 fill-primary text-primary mr-1" />
-                <span>{tool.rating.toFixed(1)} / 5.0</span>
-              </div>
-            )}
+            <div className="flex items-center justify-between text-xs text-muted-foreground">
+              {tool.pricing && (
+                <p>{toolT.pricingLabel}: <Badge variant="outline" className="text-xs">{tool.pricing}</Badge></p>
+              )}
+              {tool.rating && (
+                <div className="flex items-center">
+                  <Star className="h-4 w-4 fill-primary text-primary mr-1" />
+                  <span>{tool.rating.toFixed(1)} / 5.0</span>
+                </div>
+              )}
+            </div>
           </div>
         </CardContent>
       </Card>

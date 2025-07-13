@@ -409,7 +409,7 @@ export const aiTools: AiTool[] = [
     imageKeywords: 'Perplexity search',
     rating: 4.7,
     tags: ['search engine', 'answer engine', 'research', 'LLM'],
-    pricing: 'Freemium',
+    pricing: 'Free',
     features: {
       en: ['Cited sources', 'Conversational follow-ups', 'Focus modes for different types of search'],
       fr: ['Sources citées', 'Suivis conversationnels', 'Modes de focus pour différents types de recherche'],

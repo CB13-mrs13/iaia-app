@@ -122,6 +122,10 @@ type PageTranslations = {
     aboutTitle: string;
     featuresTitle: string;
   };
+  badges: {
+    featured: string;
+    free: string;
+  };
   account: {
     title: string;
     subtitle: string;
@@ -415,6 +419,10 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       aboutTitle: "About {toolName}",
       featuresTitle: "Key Features",
     },
+    badges: {
+      featured: "Featured",
+      free: "Free",
+    },
     account: {
       title: "Account Settings",
       subtitle: "Manage your account details and preferences.",
@@ -706,6 +714,10 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       aboutTitle: "À propos de {toolName}",
       featuresTitle: "Fonctionnalités clés",
     },
+    badges: {
+      featured: "En vedette",
+      free: "Gratuit",
+    },
     account: {
       title: "Paramètres du compte",
       subtitle: "Gérez les détails et préférences de votre compte.",
@@ -995,6 +1007,10 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       visitWebsite: "Visitar el sitio web",
       aboutTitle: "Acerca de {toolName}",
       featuresTitle: "Características principales",
+    },
+    badges: {
+      featured: "Destacado",
+      free: "Gratis",
     },
     account: {
       title: "Configuración de la cuenta",
