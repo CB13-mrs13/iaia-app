@@ -1,7 +1,7 @@
 
 "use client";
 
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo, useEffect, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import AiToolCard from '@/components/ai-tool-card';
 import AiToolFilters from '@/components/ai-tool-filters';
@@ -14,7 +14,8 @@ import { translations } from '@/lib/translations';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { useAuth } from '@/hooks/use-auth';
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, type CarouselApi } from '@/components/ui/carousel';
+import { cn } from '@/lib/utils';
 
 interface DiscoverClientProps {
   aiTools: AiTool[];
@@ -28,12 +29,42 @@ export default function DiscoverClient({ aiTools, featuredToolsList }: DiscoverC
   const t = translations[language].home;
   const { user, loading } = useAuth();
   const router = useRouter();
+  const [carouselApi, setCarouselApi] = useState<CarouselApi | null>(null);
 
   useEffect(() => {
     if (!loading && !user) {
       router.push('/login');
     }
   }, [user, loading, router]);
+
+  const onSelect = useCallback((api: CarouselApi) => {
+    if (!api) return;
+
+    const slides = api.slideNodes();
+    slides.forEach((slide, index) => {
+      const distance = Math.abs(api.selectedScrollSnap() - index);
+      const scale = 1 - distance * 0.1;
+      const opacity = distance > 1 ? 0 : 1 - distance * 0.5;
+
+      const slideEl = slide as HTMLElement;
+      slideEl.style.transform = `scale(${scale})`;
+      slideEl.style.opacity = `${opacity}`;
+      slideEl.style.zIndex = `${10 - distance}`;
+    });
+  }, []);
+
+  useEffect(() => {
+    if (!carouselApi) return;
+    onSelect(carouselApi);
+    carouselApi.on('select', onSelect);
+    carouselApi.on('reInit', onSelect);
+
+    return () => {
+      if (carouselApi) {
+        carouselApi.off('select', onSelect);
+      }
+    };
+  }, [carouselApi, onSelect]);
 
   const filteredTools = useMemo(() => {
     return aiTools
@@ -74,15 +105,19 @@ export default function DiscoverClient({ aiTools, featuredToolsList }: DiscoverC
         
         {featuredToolsList.length > 0 && (
           <Carousel
+            setApi={setCarouselApi}
             opts={{
-              align: "start",
+              align: "center",
               loop: true,
             }}
             className="w-full max-w-sm sm:max-w-xl md:max-w-2xl lg:max-w-4xl xl:max-w-6xl mx-auto"
           >
-            <CarouselContent className="-ml-4">
-              {featuredToolsList.map((tool) => (
-                <CarouselItem key={tool.id} className="basis-full sm:basis-1/2 lg:basis-1/3 pl-4">
+            <CarouselContent className="-ml-4 h-full">
+              {featuredToolsList.map((tool, index) => (
+                <CarouselItem key={tool.id} className={cn(
+                  "basis-3/4 sm:basis-1/2 lg:basis-1/3 pl-4 transition-transform duration-300",
+                  "relative" // Ensure z-index works
+                )}>
                   <div className="p-1 h-full">
                     <AiToolCard tool={tool} featured />
                   </div>
