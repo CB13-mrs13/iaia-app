@@ -53,10 +53,38 @@ export default function PrivacyPolicyPage() {
                 <h2 className="font-semibold text-lg">{t.dataTitle}</h2>
                 <p>{t.dataText}</p>
             </section>
+            
+            <section>
+                <h2 className="font-semibold text-lg">{t.dataUseTitle}</h2>
+                <p>{t.dataUseText}</p>
+            </section>
+            
+            <section>
+                <h2 className="font-semibold text-lg">{t.dataSharingTitle}</h2>
+                <p>{t.dataSharingText}</p>
+            </section>
+
+            <section>
+                <h2 className="font-semibold text-lg">{t.dataSecurityTitle}</h2>
+                <p>{t.dataSecurityText}</p>
+            </section>
+
+            <section>
+                <h2 className="font-semibold text-lg">{t.yourRightsTitle}</h2>
+                <p>{t.yourRightsText}</p>
+            </section>
+
+            <section>
+                <h2 className="font-semibold text-lg">{t.changesTitle}</h2>
+                <p>{t.changesText}</p>
+            </section>
+
+            <section>
+                <h2 className="font-semibold text-lg">{t.contactTitle}</h2>
+                <p dangerouslySetInnerHTML={{ __html: t.contactText }}/>
+            </section>
         </CardContent>
       </Card>
     </div>
   );
 }
-
-    

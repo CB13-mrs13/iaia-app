@@ -5,7 +5,7 @@ import { useLanguage } from "@/hooks/use-language";
 import { translations } from "@/lib/translations";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { FileText, ShieldCheck, Home } from "lucide-react";
+import { ShieldCheck, Home } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { useAuth } from "@/hooks/use-auth";
@@ -55,10 +55,43 @@ export default function TermsOfServicePage() {
                 <h2 className="font-semibold text-lg">{t.useOfServiceTitle}</h2>
                 <p>{t.useOfServiceText}</p>
             </section>
+
+            <section>
+                <h2 className="font-semibold text-lg">{t.accountsTitle}</h2>
+                <p>{t.accountsText}</p>
+            </section>
+
+            <section>
+                <h2 className="font-semibold text-lg">{t.userContentTitle}</h2>
+                <p>{t.userContentText}</p>
+            </section>
+
+            <section>
+                <h2 className="font-semibold text-lg">{t.terminationTitle}</h2>
+                <p>{t.terminationText}</p>
+            </section>
+
+            <section>
+                <h2 className="font-semibold text-lg">{t.disclaimersTitle}</h2>
+                <p>{t.disclaimersText}</p>
+            </section>
+            
+            <section>
+                <h2 className="font-semibold text-lg">{t.limitationTitle}</h2>
+                <p>{t.limitationText}</p>
+            </section>
+
+            <section>
+                <h2 className="font-semibold text-lg">{t.changesTitle}</h2>
+                <p>{t.changesText}</p>
+            </section>
+            
+            <section>
+                <h2 className="font-semibold text-lg">{t.contactTitle}</h2>
+                <p dangerouslySetInnerHTML={{ __html: t.contactText }}/>
+            </section>
         </CardContent>
       </Card>
     </div>
   );
 }
-
-    
