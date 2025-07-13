@@ -89,12 +89,12 @@ const HeroSlideshow = ({ items }: { items: HeroItem[] }) => {
     videoRefs.current.forEach((video, index) => {
       if (video) {
         if (index === currentIndex) {
+          video.currentTime = 0; // Ensure video starts from the beginning
           video.play().catch(error => {
             console.warn("Video autoplay prevented:", error);
           });
         } else {
           video.pause();
-          video.currentTime = 0;
         }
       }
     });
@@ -177,15 +177,13 @@ export default function LandingPage() {
     { type: 'video', src: '/videos/wrestler-hero-ceo.mp4', alt: 'A confident businessperson in command', title: t.heroTitle, subtitle: t.heroSubtitleBoss },
   ];
 
-  if (loading) {
+  if (loading || user) {
     return (
       <div className="flex min-h-screen items-center justify-center">
         <Loader2 className="h-8 w-8 animate-spin text-primary" />
       </div>
     );
   }
-  
-  if (user) return null; // A logged-in user is redirected by the useEffect above.
 
   return (
     <div className="bg-background text-foreground">
