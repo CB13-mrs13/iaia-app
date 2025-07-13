@@ -1,7 +1,7 @@
 
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -78,42 +78,57 @@ const HeroSlideshow = ({ items }: { items: HeroItem[] }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const { language } = useLanguage();
   const t = translations[language].landingPage;
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
+
+  const handleVideoEnded = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % items.length);
+  };
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % items.length);
-    }, 7000); // Change slide every 7 seconds
-
-    return () => clearInterval(interval);
-  }, [items.length]);
+    const videoElement = videoRefs.current[currentIndex];
+    if (videoElement) {
+      videoElement.play().catch(error => {
+        // Autoplay was prevented.
+        console.warn("Video autoplay prevented:", error);
+      });
+    }
+  }, [currentIndex]);
 
   const currentItem = items[currentIndex];
 
   return (
     <>
-      <div key={currentIndex} className="absolute inset-0 h-full w-full overflow-hidden">
-        {currentItem.type === 'image' ? (
-          <Image
-            src={currentItem.src}
-            alt={currentItem.alt}
-            fill
-            style={{ objectFit: 'cover' }}
-            priority
-            className="animate-ken-burns"
-          />
-        ) : (
-          <video
-            src={currentItem.src}
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="w-full h-full object-cover"
-          />
-        )}
-      </div>
-       <div className="absolute inset-0 bg-black/20" />
-        <div className="z-10 p-4 animate-fadeIn">
+      {items.map((item, index) => (
+         <div 
+            key={item.src} 
+            className={cn(
+                "absolute inset-0 h-full w-full overflow-hidden transition-opacity duration-1000 ease-in-out",
+                index === currentIndex ? "opacity-100 z-10" : "opacity-0 z-0"
+            )}>
+           {item.type === 'image' ? (
+             <Image
+               src={item.src}
+               alt={item.alt}
+               fill
+               style={{ objectFit: 'cover' }}
+               priority
+               className="animate-ken-burns"
+             />
+           ) : (
+             <video
+               ref={el => videoRefs.current[index] = el}
+               src={item.src}
+               muted
+               playsInline
+               onEnded={handleVideoEnded}
+               preload="auto"
+               className="w-full h-full object-cover"
+             />
+           )}
+         </div>
+      ))}
+       <div className="absolute inset-0 bg-black/40 z-10" />
+        <div className="relative z-20 p-4 animate-fadeIn text-center">
           <h1 className="text-8xl md:text-9xl font-bold leading-none mb-4 animate-slideInUp" style={{ animationDelay: '0.2s' }}>
             {currentItem.title}
           </h1>
@@ -138,8 +153,9 @@ export default function LandingPage() {
   const t = translations[language].landingPage;
 
   useEffect(() => {
-    // This effect is now removed to prevent unwanted redirection.
-    // Page protection logic is handled on protected pages like /discover.
+    if (!loading && user) {
+      router.push('/discover');
+    }
   }, [user, loading, router]);
 
 
@@ -155,18 +171,15 @@ export default function LandingPage() {
     { type: 'video', src: '/videos/wrestler-hero-ceo.mp4', alt: 'A confident businessperson in command', title: t.heroTitle, subtitle: t.heroSubtitleBoss },
   ];
 
-  if (loading || (!loading && user)) {
-    // While the user object is loading, we can show a loader, but not for a logged-in user to avoid flicker.
-    if(loading) {
-      return (
-        <div className="flex min-h-screen items-center justify-center">
-          <Loader2 className="h-8 w-8 animate-spin text-primary" />
-        </div>
-      );
-    }
-    // A logged-in user will be redirected from a protected page if they land here,
-    // but we let them see the landing page if they navigate to it directly.
+  if (loading) {
+    return (
+      <div className="flex min-h-screen items-center justify-center">
+        <Loader2 className="h-8 w-8 animate-spin text-primary" />
+      </div>
+    );
   }
+  
+  if (user) return null; // A logged-in user is redirected by the useEffect above.
 
   return (
     <div className="bg-background text-foreground">
