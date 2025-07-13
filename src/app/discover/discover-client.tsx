@@ -36,8 +36,7 @@ export default function DiscoverClient({ aiTools, featuredToolsList }: DiscoverC
   const onSelect = useCallback((api: CarouselApi) => {
     if (!api || !isMobile) return;
 
-    const slides = api.slideNodes();
-    slides.forEach((slide, index) => {
+    api.slideNodes().forEach((slide, index) => {
       const distance = Math.abs(api.selectedScrollSnap() - index);
       const scale = 1 - distance * 0.1;
       const opacity = distance > 1 ? 0.3 : 1 - distance * 0.2;
@@ -62,7 +61,7 @@ export default function DiscoverClient({ aiTools, featuredToolsList }: DiscoverC
         carouselApi.off('select', onSelect);
       }
     };
-  }, [carouselApi, onSelect, isMobile]);
+  }, [carouselApi, onSelect]);
   
   const filteredTools = useMemo(() => {
     return aiTools
