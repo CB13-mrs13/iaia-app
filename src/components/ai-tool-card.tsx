@@ -47,7 +47,8 @@ export default function AiToolCard({ tool, featured = false }: AiToolCardProps) 
     <Link href={`/tool/${slug}`} className="flex h-full">
       <Card className={cn(
           "flex flex-col h-full w-full overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-lg relative group",
-          featured && "border-2 border-primary shadow-primary/20"
+          featured && "border-2 border-primary shadow-primary/20",
+          tool.pricing === 'Free' && "bg-accent/10"
         )}>
         {user && (
           <Button
@@ -90,7 +91,7 @@ export default function AiToolCard({ tool, featured = false }: AiToolCardProps) 
               </Badge>
             )}
             {tool.pricing === 'Free' && (
-              <Badge variant="default" className="bg-accent text-accent-foreground">
+               <Badge variant="default" className="bg-accent text-accent-foreground hover:bg-accent/80">
                 {badgesT.free}
               </Badge>
             )}
