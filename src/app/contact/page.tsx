@@ -18,6 +18,7 @@ import { useLanguage } from '@/hooks/use-language';
 import { translations } from '@/lib/translations';
 import { useAuth } from '@/hooks/use-auth';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
+import { sendContactEmail } from './actions';
 
 const contactSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
@@ -42,6 +43,7 @@ export default function ContactPage() {
     defaultValues: {
       name: user?.displayName || "",
       email: user?.email || "",
+      feedbackType: 'feedback', // Set a default value
       message: "",
     },
   });
@@ -51,22 +53,32 @@ export default function ContactPage() {
     form.reset({
       name: user.displayName || '',
       email: user.email || '',
+      feedbackType: 'feedback',
     });
   }
 
   const handleSubmit: SubmitHandler<ContactFormValues> = (data) => {
-    startTransition(() => {
-      // Simulate form submission
-      console.log("Form submitted (simulation):", data);
+    startTransition(async () => {
+      const result = await sendContactEmail(data);
 
-      toast({
-        title: t.toastSuccessTitle,
-        description: t.toastSuccessDescription,
-      });
-      form.reset({
-        ...form.getValues(),
-        message: "", // Reset only the message field
-      });
+      if (result.success) {
+        toast({
+          title: t.toastSuccessTitle,
+          description: t.toastSuccessDescription,
+        });
+        form.reset({
+          name: data.name,
+          email: data.email,
+          feedbackType: data.feedbackType,
+          message: "",
+        });
+      } else {
+        toast({
+          variant: 'destructive',
+          title: 'Error',
+          description: result.error || 'Failed to send message. Please try again.',
+        });
+      }
     });
   };
 
