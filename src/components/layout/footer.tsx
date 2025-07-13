@@ -21,7 +21,7 @@ export default function Footer() {
           <Link href="#" className="text-muted-foreground hover:text-foreground transition-colors">
             {t.footerSocials}
           </Link>
-           <Link href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+           <Link href="/contact" className="text-muted-foreground hover:text-foreground transition-colors">
             {t.footerContact}
           </Link>
           <Link href="/terms-of-service" className="text-muted-foreground hover:text-foreground transition-colors">

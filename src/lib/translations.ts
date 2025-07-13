@@ -8,7 +8,6 @@ type PageTranslations = {
     heroTitle: string;
     heroSubtitleKing: string;
     heroSubtitleQueen: string;
-
     heroSubtitleBoss: string;
     heroButton: string;
     section1Title: string;
@@ -249,6 +248,28 @@ type PageTranslations = {
     accountText1: string;
     tipTitle: string;
     tipText: string;
+  },
+  contactPage: {
+    title: string;
+    subtitle: string;
+    formTitle: string;
+    formDescription: string;
+    nameLabel: string;
+    namePlaceholder: string;
+    emailLabel: string;
+    emailPlaceholder: string;
+    feedbackTypeLabel: string;
+    feedbackTypePlaceholder: string;
+    suggestion: string;
+    bugReport: string;
+    generalFeedback: string;
+    messageLabel: string;
+    messagePlaceholder: string;
+    submitButton: string;
+    toastSuccessTitle: string;
+    toastSuccessDescription: string;
+    infoTitle: string;
+    infoDescription: string;
   }
 };
 
@@ -499,6 +520,28 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       tipTitle: "Pro Tip",
       tipText: "This application supports multiple languages! You can switch between English, French, and Spanish at any time using the globe icon in the navigation bar."
     },
+    contactPage: {
+      title: "Contact Us",
+      subtitle: "We'd love to hear from you! Share your feedback, suggestions, or bug reports.",
+      formTitle: "Send a Message",
+      formDescription: "Fill out the form below and we'll get back to you as soon as possible.",
+      nameLabel: "Your Name",
+      namePlaceholder: "Enter your name",
+      emailLabel: "Your Email",
+      emailPlaceholder: "Enter your email address",
+      feedbackTypeLabel: "Type of Feedback",
+      feedbackTypePlaceholder: "Select a type",
+      suggestion: "Suggestion",
+      bugReport: "Bug Report",
+      generalFeedback: "General Feedback",
+      messageLabel: "Your Message",
+      messagePlaceholder: "Tell us what's on your mind...",
+      submitButton: "Send Message",
+      toastSuccessTitle: "Message Sent!",
+      toastSuccessDescription: "Thank you for your feedback. We've received your message.",
+      infoTitle: "Note",
+      infoDescription: "This form is for demonstration purposes. To get in touch, please email us at <b class='text-primary'>contact@iaia.com</b>.",
+    }
   },
   fr: {
     landingPage: {
@@ -745,6 +788,28 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       tipTitle: "Astuce de pro",
       tipText: "Cette application prend en charge plusieurs langues ! Vous pouvez basculer entre l'anglais, le français et l'espagnol à tout moment en utilisant l'icône du globe dans la barre de navigation."
     },
+    contactPage: {
+      title: "Contactez-nous",
+      subtitle: "Nous serions ravis de vous entendre ! Partagez vos retours, suggestions ou rapports de bugs.",
+      formTitle: "Envoyer un message",
+      formDescription: "Remplissez le formulaire ci-dessous et nous vous répondrons dès que possible.",
+      nameLabel: "Votre nom",
+      namePlaceholder: "Entrez votre nom",
+      emailLabel: "Votre email",
+      emailPlaceholder: "Entrez votre adresse email",
+      feedbackTypeLabel: "Type de retour",
+      feedbackTypePlaceholder: "Sélectionnez un type",
+      suggestion: "Suggestion",
+      bugReport: "Rapport de bug",
+      generalFeedback: "Retour général",
+      messageLabel: "Votre message",
+      messagePlaceholder: "Dites-nous ce que vous avez en tête...",
+      submitButton: "Envoyer le message",
+      toastSuccessTitle: "Message envoyé !",
+      toastSuccessDescription: "Merci pour votre retour. Nous avons bien reçu votre message.",
+      infoTitle: "Note",
+      infoDescription: "Ce formulaire est à des fins de démonstration. Pour nous contacter, veuillez nous envoyer un email à <b class='text-primary'>contact@iaia.com</b>.",
+    }
   },
   es: {
     landingPage: {
@@ -991,5 +1056,27 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       tipTitle: "Consejo profesional",
       tipText: "¡Esta aplicación es compatible con varios idiomas! Puedes cambiar entre inglés, francés y español en cualquier momento usando el icono del globo en la barra de navegación."
     },
+    contactPage: {
+      title: "Contáctanos",
+      subtitle: "¡Nos encantaría saber de ti! Comparte tus comentarios, sugerencias o informes de errores.",
+      formTitle: "Enviar un mensaje",
+      formDescription: "Completa el formulario a continuación y nos pondremos en contacto contigo lo antes posible.",
+      nameLabel: "Tu nombre",
+      namePlaceholder: "Escribe tu nombre",
+      emailLabel: "Tu correo electrónico",
+      emailPlaceholder: "Escribe tu dirección de correo electrónico",
+      feedbackTypeLabel: "Tipo de comentario",
+      feedbackTypePlaceholder: "Selecciona un tipo",
+      suggestion: "Sugerencia",
+      bugReport: "Informe de error",
+      generalFeedback: "Comentario general",
+      messageLabel: "Tu mensaje",
+      messagePlaceholder: "Cuéntanos qué tienes en mente...",
+      submitButton: "Enviar mensaje",
+      toastSuccessTitle: "¡Mensaje enviado!",
+      toastSuccessDescription: "Gracias por tus comentarios. Hemos recibido tu mensaje.",
+      infoTitle: "Nota",
+      infoDescription: "Este formulario es para fines de demostración. Para ponerte en contacto, envíanos un correo electrónico a <b class='text-primary'>contact@iaia.com</b>.",
+    }
   },
 };
