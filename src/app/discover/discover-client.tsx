@@ -14,7 +14,6 @@ import { translations } from '@/lib/translations';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { useAuth } from '@/hooks/use-auth';
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 
 interface DiscoverClientProps {
   aiTools: AiTool[];
@@ -56,13 +55,16 @@ export default function DiscoverClient({ aiTools, featuredToolsList }: DiscoverC
     );
   }
 
+  // We'll use the last 3 featured tools for the stacked card display
+  const stackedCardsTools = featuredToolsList.slice(-3);
+
   return (
     <div className="space-y-12 animate-fadeIn">
       <section id="ai-search" className="pt-8">
         <AiSearchForm />
       </section>
 
-      {/* Featured AIs Carousel Section */}
+      {/* Featured AIs Stacked Cards Section */}
       <section id="featured-ais">
         <div className="text-center mb-8">
           <h2 className="text-3xl font-bold tracking-tight mb-2 text-foreground flex items-center justify-center gap-2">
@@ -71,25 +73,30 @@ export default function DiscoverClient({ aiTools, featuredToolsList }: DiscoverC
           </h2>
           <p className="text-lg text-muted-foreground">{t.featuredSubtitle}</p>
         </div>
-        <Carousel
-          opts={{
-            align: "start",
-            loop: true,
-          }}
-          className="w-full"
-        >
-          <CarouselContent>
-            {featuredToolsList.map((tool) => (
-              <CarouselItem key={tool.id} className="md:basis-1/2 lg:basis-1/3">
-                <div className="p-1 h-full">
-                  <AiToolCard tool={tool} featured />
+        
+        {stackedCardsTools.length >= 3 && (
+          <div className="relative h-96 flex items-center justify-center group my-8">
+            {/* Left Card */}
+            <div className="absolute transition-transform duration-300 ease-in-out group-hover:rotate-[-12deg] group-hover:-translate-x-24 -rotate-6">
+                <div className="w-56 md:w-64">
+                    <AiToolCard tool={stackedCardsTools[0]} featured />
                 </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselPrevious className="hidden sm:flex" />
-          <CarouselNext className="hidden sm:flex" />
-        </Carousel>
+            </div>
+            {/* Center Card */}
+            <div className="relative z-10 transition-transform duration-300 ease-in-out group-hover:scale-110">
+                <div className="w-64 md:w-72">
+                    <AiToolCard tool={stackedCardsTools[1]} featured />
+                </div>
+            </div>
+            {/* Right Card */}
+            <div className="absolute transition-transform duration-300 ease-in-out group-hover:rotate-[12deg] group-hover:translate-x-24 rotate-6">
+                 <div className="w-56 md:w-64">
+                    <AiToolCard tool={stackedCardsTools[2]} featured />
+                </div>
+            </div>
+          </div>
+        )}
+
         <div className="text-center mt-6">
           <Button asChild variant="outline">
             <Link href="/discover/featured">
