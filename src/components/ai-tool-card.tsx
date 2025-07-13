@@ -25,6 +25,7 @@ export default function AiToolCard({ tool, featured = false }: AiToolCardProps) 
   const { language } = useLanguage();
   const t = translations[language];
   const toolT = t.toolPage;
+  const badgesT = t.badges;
   const { user } = useAuth();
   const { isFavorite, toggleFavorite, isToggling } = useFavorites();
   const CategoryIcon = getCategoryIcon(tool.category);
@@ -45,8 +46,8 @@ export default function AiToolCard({ tool, featured = false }: AiToolCardProps) 
   return (
     <Link href={`/tool/${slug}`} className="flex h-full">
       <Card className={cn(
-          "flex flex-col h-full w-full overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-lg relative",
-          featured && "border-2 border-accent shadow-accent/20"
+          "flex flex-col h-full w-full overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-lg relative group",
+          featured && "border-2 border-primary shadow-primary/20"
         )}>
         {user && (
           <Button
@@ -74,6 +75,7 @@ export default function AiToolCard({ tool, featured = false }: AiToolCardProps) 
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 data-ai-hint={aiHint}
                 priority={featured}
+                className="transition-transform duration-300 group-hover:scale-105"
               />
             </div>
           )}
@@ -81,20 +83,22 @@ export default function AiToolCard({ tool, featured = false }: AiToolCardProps) 
             <CardTitle className="text-xl font-semibold pr-8">{tool.name}</CardTitle>
             {CategoryIcon && <CategoryIcon className="h-6 w-6 text-primary flex-shrink-0" />}
           </div>
-          <div className="flex flex-wrap gap-1 pt-2">
-            {(featured || tool.isSponsored) && (
-              <Badge variant="default" className={cn(featured && !tool.isSponsored && "bg-accent text-accent-foreground")}>
-                {tool.isSponsored ? toolT.sponsored : (featured ? t.badges.featured : "")}
+          <div className="flex flex-wrap gap-2 pt-2 min-h-[2.25rem]">
+             {(featured || tool.isSponsored) && (
+              <Badge variant="default" className={cn(featured && !tool.isSponsored && "bg-primary text-primary-foreground")}>
+                {tool.isSponsored ? toolT.sponsored : (featured ? badgesT.featured : "")}
               </Badge>
             )}
             {tool.pricing === 'Free' && (
-              <Badge variant="secondary">{t.badges.free}</Badge>
+              <Badge variant="default" className="bg-accent text-accent-foreground">
+                {badgesT.free}
+              </Badge>
             )}
           </div>
-          <CardDescription className="text-sm text-muted-foreground min-h-[3rem] pt-2">{description}</CardDescription>
+          <CardDescription className="text-sm text-muted-foreground min-h-[3rem] pt-1">{description}</CardDescription>
         </CardHeader>
         <CardContent className="flex-grow flex flex-col justify-end p-4 pt-0">
-          <div className="space-y-2 mt-auto">
+           <div className="space-y-2 mt-auto">
             {tool.tags && tool.tags.length > 0 && (
               <div className="flex flex-wrap gap-1">
                 {tool.tags.slice(0, 3).map((tag) => (
@@ -102,7 +106,7 @@ export default function AiToolCard({ tool, featured = false }: AiToolCardProps) 
                 ))}
               </div>
             )}
-            <div className="flex items-center justify-between text-xs text-muted-foreground">
+            <div className="flex items-center justify-between text-xs text-muted-foreground pt-2">
               {tool.pricing && (
                 <p>{toolT.pricingLabel}: <Badge variant="outline" className="text-xs">{tool.pricing}</Badge></p>
               )}
