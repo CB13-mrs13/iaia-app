@@ -540,7 +540,7 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       toastSuccessTitle: "Message Sent!",
       toastSuccessDescription: "Thank you for your feedback. We've received your message.",
       infoTitle: "Note",
-      infoDescription: "This form is for demonstration purposes. To get in touch, please email us at <b class='text-primary'>contact@iaia.com</b>.",
+      infoDescription: "This form is for demonstration purposes. To get in touch, please email us at <b class='text-primary'>contact.initiation.ia@gmail.com</b>.",
     }
   },
   fr: {
@@ -808,7 +808,7 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       toastSuccessTitle: "Message envoyé !",
       toastSuccessDescription: "Merci pour votre retour. Nous avons bien reçu votre message.",
       infoTitle: "Note",
-      infoDescription: "Ce formulaire est à des fins de démonstration. Pour nous contacter, veuillez nous envoyer un email à <b class='text-primary'>contact@iaia.com</b>.",
+      infoDescription: "Ce formulaire est à des fins de démonstration. Pour nous contacter, veuillez nous envoyer un email à <b class='text-primary'>contact.initiation.ia@gmail.com</b>.",
     }
   },
   es: {
@@ -1076,7 +1076,7 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       toastSuccessTitle: "¡Mensaje enviado!",
       toastSuccessDescription: "Gracias por tus comentarios. Hemos recibido tu mensaje.",
       infoTitle: "Nota",
-      infoDescription: "Este formulario es para fines de demostración. Para ponerte en contacto, envíanos un correo electrónico a <b class='text-primary'>contact@iaia.com</b>.",
+      infoDescription: "Este formulario es para fines de demostración. Para ponerte en contacto, envíanos un correo electrónico a <b class='text-primary'>contact.initiation.ia@gmail.com</b>.",
     }
   },
 };
