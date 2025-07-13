@@ -85,13 +85,19 @@ const HeroSlideshow = ({ items }: { items: HeroItem[] }) => {
   };
 
   useEffect(() => {
-    const videoElement = videoRefs.current[currentIndex];
-    if (videoElement) {
-      videoElement.play().catch(error => {
-        // Autoplay was prevented.
-        console.warn("Video autoplay prevented:", error);
-      });
-    }
+    // Stop all other videos and play the current one
+    videoRefs.current.forEach((video, index) => {
+      if (video) {
+        if (index === currentIndex) {
+          video.play().catch(error => {
+            console.warn("Video autoplay prevented:", error);
+          });
+        } else {
+          video.pause();
+          video.currentTime = 0;
+        }
+      }
+    });
   }, [currentIndex]);
 
   const currentItem = items[currentIndex];
