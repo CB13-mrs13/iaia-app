@@ -8,6 +8,7 @@ type PageTranslations = {
     heroTitle: string;
     heroSubtitleKing: string;
     heroSubtitleQueen: string;
+
     heroSubtitleBoss: string;
     heroButton: string;
     section1Title: string;
@@ -346,7 +347,7 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
     home: {
       featuredTitle: "Featured AIs",
       featuredSubtitle: "The hottest AI tools of the moment, selected for you.",
-      viewFeaturedButton: "View Featured AIs",
+      viewFeaturedButton: "View all featured AIs",
       discoverTitle: "Discover Top AI Tools",
       discoverSubtitle: "Browse our curated list of AI tools or use filters to find exactly what you need.",
       searchPlaceholder: "Search tools by name, description, or tag...",
@@ -593,7 +594,7 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
     home: {
       featuredTitle: "Les IA à la Une",
       featuredSubtitle: "Les outils IA les plus en vogue du moment, sélectionnés pour vous.",
-      viewFeaturedButton: "Voir les IA à la une",
+      viewFeaturedButton: "Voir toutes les IA à la une",
       discoverTitle: "Découvrez les meilleurs outils d'IA",
       discoverSubtitle: "Parcourez notre liste d'outils d'IA ou utilisez les filtres pour trouver exactly ce dont vous avez besoin.",
       searchPlaceholder: "Rechercher des outils par nom, description ou mot-clé...",
@@ -839,7 +840,7 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
     home: {
       featuredTitle: "IA Destacadas",
       featuredSubtitle: "Las herramientas de IA más populares del momento, seleccionadas para ti.",
-      viewFeaturedButton: "Ver IA destacadas",
+      viewFeaturedButton: "Ver todas las IA destacadas",
       discoverTitle: "Descubre las Mejores Herramientas de IA",
       discoverSubtitle: "Navega por nuestra lista de herramientas de IA o usa filtros para encontrar exactamente lo que necesitas.",
       searchPlaceholder: "Buscar herramientas por nombre, descripción o etiqueta...",

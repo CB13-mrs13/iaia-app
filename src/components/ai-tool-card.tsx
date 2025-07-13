@@ -79,7 +79,11 @@ export default function AiToolCard({ tool, featured = false }: AiToolCardProps) 
           <div className="flex items-start justify-between">
             <div className="flex flex-col gap-1">
                <CardTitle className="text-xl font-semibold pr-8">{tool.name}</CardTitle>
-               {tool.isSponsored && <Badge variant="default">{t.sponsored}</Badge>}
+               {(featured || tool.isSponsored) && (
+                 <Badge variant="default" className={cn(featured && !tool.isSponsored && "bg-accent text-accent-foreground")}>
+                   {tool.isSponsored ? t.sponsored : (featured ? "Featured" : "")}
+                 </Badge>
+               )}
             </div>
             {CategoryIcon && <CategoryIcon className="h-6 w-6 text-primary flex-shrink-0" />}
           </div>

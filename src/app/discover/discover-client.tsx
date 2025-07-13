@@ -13,12 +13,12 @@ import { useLanguage } from '@/hooks/use-language';
 import { translations } from '@/lib/translations';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { cn } from '@/lib/utils';
 import { useAuth } from '@/hooks/use-auth';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 
 interface DiscoverClientProps {
   aiTools: AiTool[];
-  featuredToolsList: string[];
+  featuredToolsList: AiTool[];
 }
 
 export default function DiscoverClient({ aiTools, featuredToolsList }: DiscoverClientProps) {
@@ -62,15 +62,37 @@ export default function DiscoverClient({ aiTools, featuredToolsList }: DiscoverC
         <AiSearchForm />
       </section>
 
-      {/* Featured AIs Section - Replaced with a link */}
-      <section id="featured-ais-link">
-        <div className="bg-card text-card-foreground rounded-lg p-8 shadow-lg text-center flex flex-col items-center gap-4 border border-primary/20">
-          <Star className="h-8 w-8 text-primary" />
-          <h3 className="text-2xl font-bold">{t.featuredTitle}</h3>
-          <p className="mt-1 text-lg max-w-2xl mx-auto">{t.featuredSubtitle}</p>
-          <Button asChild size="lg" className="mt-4">
+      {/* Featured AIs Carousel Section */}
+      <section id="featured-ais">
+        <div className="text-center mb-8">
+          <h2 className="text-3xl font-bold tracking-tight mb-2 text-foreground flex items-center justify-center gap-2">
+            <Star className="h-7 w-7 text-primary" />
+            {t.featuredTitle}
+          </h2>
+          <p className="text-lg text-muted-foreground">{t.featuredSubtitle}</p>
+        </div>
+        <Carousel
+          opts={{
+            align: "start",
+            loop: true,
+          }}
+          className="w-full"
+        >
+          <CarouselContent>
+            {featuredToolsList.map((tool) => (
+              <CarouselItem key={tool.id} className="md:basis-1/2 lg:basis-1/3">
+                <div className="p-1 h-full">
+                  <AiToolCard tool={tool} featured />
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious className="hidden sm:flex" />
+          <CarouselNext className="hidden sm:flex" />
+        </Carousel>
+        <div className="text-center mt-6">
+          <Button asChild variant="outline">
             <Link href="/discover/featured">
-              <Star className="mr-2 h-4 w-4" />
               {t.viewFeaturedButton}
             </Link>
           </Button>
@@ -113,7 +135,6 @@ export default function DiscoverClient({ aiTools, featuredToolsList }: DiscoverC
               <div key={tool.id} className="animate-slideInUp" style={{ animationDelay: `${index * 50}ms`, animationFillMode: 'backwards' }}>
                   <AiToolCard 
                     tool={tool} 
-                    featured={featuredToolsList.includes(tool.name)} 
                   />
               </div>
             ))}
