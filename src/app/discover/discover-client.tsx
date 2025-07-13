@@ -56,7 +56,8 @@ export default function DiscoverClient({ aiTools, featuredToolsList }: DiscoverC
   }, [isMobile]);
 
   useEffect(() => {
-    if (!carouselApi || !isMobile) return;
+    if (!carouselApi) return;
+    
     onSelect(carouselApi);
     carouselApi.on('select', onSelect);
     carouselApi.on('reInit', onSelect);
