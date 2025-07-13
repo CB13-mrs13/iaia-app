@@ -40,12 +40,13 @@ export default function DiscoverClient({ aiTools, featuredToolsList }: DiscoverC
     slides.forEach((slide, index) => {
       const distance = Math.abs(api.selectedScrollSnap() - index);
       const scale = 1 - distance * 0.1;
-      const opacity = distance > 1 ? 0 : 1 - distance * 0.5;
+      const opacity = distance > 1 ? 0.3 : 1 - distance * 0.2;
+      const zIndex = 10 - distance;
 
       const slideEl = slide as HTMLElement;
       slideEl.style.transform = `scale(${scale})`;
       slideEl.style.opacity = `${opacity}`;
-      slideEl.style.zIndex = `${10 - distance}`;
+      slideEl.style.zIndex = `${zIndex}`;
     });
   }, [isMobile]);
 
@@ -112,7 +113,7 @@ export default function DiscoverClient({ aiTools, featuredToolsList }: DiscoverC
             <CarouselContent className={cn(isMobile && "-ml-4 h-full")}>
               {featuredToolsList.map((tool) => (
                 <CarouselItem key={tool.id} className={cn(
-                  "transition-transform duration-300 relative",
+                  "transition-transform-opacity duration-300 relative",
                   isMobile ? "basis-3/4 pl-4" : "sm:basis-1/2 lg:basis-1/3"
                 )}>
                   <div className="p-1 h-full">
