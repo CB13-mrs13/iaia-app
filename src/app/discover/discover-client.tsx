@@ -16,6 +16,7 @@ import Link from 'next/link';
 import { useAuth } from '@/hooks/use-auth';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, type CarouselApi } from '@/components/ui/carousel';
 import { cn } from '@/lib/utils';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 interface DiscoverClientProps {
   aiTools: AiTool[];
@@ -30,6 +31,7 @@ export default function DiscoverClient({ aiTools, featuredToolsList }: DiscoverC
   const { user, loading } = useAuth();
   const router = useRouter();
   const [carouselApi, setCarouselApi] = useState<CarouselApi | null>(null);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     if (!loading && !user) {
@@ -38,7 +40,7 @@ export default function DiscoverClient({ aiTools, featuredToolsList }: DiscoverC
   }, [user, loading, router]);
 
   const onSelect = useCallback((api: CarouselApi) => {
-    if (!api) return;
+    if (!api || !isMobile) return;
 
     const slides = api.slideNodes();
     slides.forEach((slide, index) => {
@@ -51,10 +53,10 @@ export default function DiscoverClient({ aiTools, featuredToolsList }: DiscoverC
       slideEl.style.opacity = `${opacity}`;
       slideEl.style.zIndex = `${10 - distance}`;
     });
-  }, []);
+  }, [isMobile]);
 
   useEffect(() => {
-    if (!carouselApi) return;
+    if (!carouselApi || !isMobile) return;
     onSelect(carouselApi);
     carouselApi.on('select', onSelect);
     carouselApi.on('reInit', onSelect);
@@ -64,8 +66,8 @@ export default function DiscoverClient({ aiTools, featuredToolsList }: DiscoverC
         carouselApi.off('select', onSelect);
       }
     };
-  }, [carouselApi, onSelect]);
-
+  }, [carouselApi, onSelect, isMobile]);
+  
   const filteredTools = useMemo(() => {
     return aiTools
       .filter(tool => selectedCategory ? tool.category === selectedCategory : true)
@@ -107,16 +109,16 @@ export default function DiscoverClient({ aiTools, featuredToolsList }: DiscoverC
           <Carousel
             setApi={setCarouselApi}
             opts={{
-              align: "center",
+              align: isMobile ? "center" : "start",
               loop: true,
             }}
             className="w-full max-w-sm sm:max-w-xl md:max-w-2xl lg:max-w-4xl xl:max-w-6xl mx-auto"
           >
-            <CarouselContent className="-ml-4 h-full">
-              {featuredToolsList.map((tool, index) => (
+            <CarouselContent className={cn(isMobile && "-ml-4 h-full")}>
+              {featuredToolsList.map((tool) => (
                 <CarouselItem key={tool.id} className={cn(
-                  "basis-3/4 sm:basis-1/2 lg:basis-1/3 pl-4 transition-transform duration-300",
-                  "relative" // Ensure z-index works
+                  "transition-transform duration-300 relative",
+                  isMobile ? "basis-3/4 pl-4" : "sm:basis-1/2 lg:basis-1/3"
                 )}>
                   <div className="p-1 h-full">
                     <AiToolCard tool={tool} featured />
