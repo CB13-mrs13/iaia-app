@@ -18,7 +18,7 @@ export default function Footer() {
         </p>
         <div className="flex flex-wrap justify-center items-center gap-x-4 gap-y-2 text-sm">
           <LanguageSwitcher />
-          <Link href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+          <Link href="https://x.com/iaia_app" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors">
             {t.footerSocials}
           </Link>
            <Link href="/contact" className="text-muted-foreground hover:text-foreground transition-colors">
