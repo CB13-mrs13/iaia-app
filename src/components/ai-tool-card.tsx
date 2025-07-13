@@ -48,7 +48,7 @@ export default function AiToolCard({ tool, featured = false }: AiToolCardProps) 
       <Card className={cn(
           "flex flex-col h-full w-full overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-lg relative group",
           featured && "border-2 border-primary shadow-primary/20",
-          tool.pricing === 'Free' && "bg-accent/10"
+          tool.pricing === 'Free' && "bg-accent/10 border-accent"
         )}>
         {user && (
           <Button
