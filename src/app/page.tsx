@@ -85,20 +85,24 @@ const HeroSlideshow = ({ items }: { items: HeroItem[] }) => {
   };
 
   useEffect(() => {
-    // Stop all other videos and play the current one
+    // This effect ensures the correct video plays when currentIndex changes.
     videoRefs.current.forEach((video, index) => {
       if (video) {
         if (index === currentIndex) {
-          video.currentTime = 0; // Ensure video starts from the beginning
-          video.play().catch(error => {
-            console.warn("Video autoplay prevented:", error);
-          });
+          video.currentTime = 0; // Start from the beginning
+          const playPromise = video.play();
+          if (playPromise !== undefined) {
+            playPromise.catch(error => {
+              // Autoplay was prevented.
+              console.warn("Video autoplay prevented:", error);
+            });
+          }
         } else {
           video.pause();
         }
       }
     });
-  }, [currentIndex]);
+  }, [currentIndex, items]);
 
   const currentItem = items[currentIndex];
 
@@ -111,16 +115,7 @@ const HeroSlideshow = ({ items }: { items: HeroItem[] }) => {
                 "absolute inset-0 h-full w-full overflow-hidden transition-opacity duration-1000 ease-in-out",
                 index === currentIndex ? "opacity-100 z-10" : "opacity-0 z-0"
             )}>
-           {item.type === 'image' ? (
-             <Image
-               src={item.src}
-               alt={item.alt}
-               fill
-               style={{ objectFit: 'cover' }}
-               priority
-               className="animate-ken-burns"
-             />
-           ) : (
+           {item.type === 'video' ? (
              <video
                ref={el => videoRefs.current[index] = el}
                src={item.src}
@@ -129,6 +124,15 @@ const HeroSlideshow = ({ items }: { items: HeroItem[] }) => {
                onEnded={handleVideoEnded}
                preload="auto"
                className="w-full h-full object-cover"
+             />
+           ) : (
+             <Image
+               src={item.src}
+               alt={item.alt}
+               fill
+               style={{ objectFit: 'cover' }}
+               priority={index === 0} // Prioritize first image
+               className="animate-ken-burns"
              />
            )}
          </div>
@@ -211,7 +215,7 @@ export default function LandingPage() {
                 </Link>
             </Button>
           </div>
-          <Link href="/signup" className="group block transition-transform duration-300 hover:scale-105">
+           <Link href="/signup" className="group block transition-transform duration-300 hover:scale-105">
             <div 
               className="relative h-64 md:h-96 w-full rounded-lg overflow-hidden shadow-xl flex items-center justify-center p-8 bg-primary group-hover:bg-accent transition-colors duration-300"
               data-ai-hint="iaia logo abstract"
