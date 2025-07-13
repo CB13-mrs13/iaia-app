@@ -34,13 +34,15 @@ export default function DiscoverClient({ aiTools, featuredToolsList }: DiscoverC
   const isMobile = useIsMobile();
 
   const onSelect = useCallback((api: CarouselApi) => {
+    // Exit if not on mobile or if api is not ready
     if (!api || !isMobile) return;
 
     api.slideNodes().forEach((slide, index) => {
       const distance = Math.abs(api.selectedScrollSnap() - index);
+      // Further away slides are smaller and more transparent
       const scale = 1 - distance * 0.1;
       const opacity = distance > 1 ? 0.3 : 1 - distance * 0.2;
-      const zIndex = 10 - distance;
+      const zIndex = 10 - distance; // The center slide has the highest z-index
 
       const slideEl = slide as HTMLElement;
       slideEl.style.transform = `scale(${scale})`;
@@ -52,10 +54,11 @@ export default function DiscoverClient({ aiTools, featuredToolsList }: DiscoverC
   useEffect(() => {
     if (!carouselApi) return;
     
-    onSelect(carouselApi);
+    onSelect(carouselApi); // Apply effect on initial load
     carouselApi.on('select', onSelect);
-    carouselApi.on('reInit', onSelect);
+    carouselApi.on('reInit', onSelect); // Re-apply on re-initialization
 
+    // Cleanup listener on component unmount or when dependencies change
     return () => {
       if (carouselApi) {
         carouselApi.off('select', onSelect);
@@ -112,7 +115,7 @@ export default function DiscoverClient({ aiTools, featuredToolsList }: DiscoverC
             <CarouselContent className={cn(isMobile && "-ml-4 h-full")}>
               {featuredToolsList.map((tool) => (
                 <CarouselItem key={tool.id} className={cn(
-                  "transition-transform-opacity duration-300 relative",
+                  "transition-all duration-300 relative",
                   isMobile ? "basis-3/4 pl-4" : "sm:basis-1/2 lg:basis-1/3"
                 )}>
                   <div className="p-1 h-full">
