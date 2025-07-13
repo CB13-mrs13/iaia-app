@@ -62,7 +62,7 @@ export default function AiToolCard({ tool, featured = false }: AiToolCardProps) 
             )} />
           </Button>
         )}
-        <CardHeader>
+        <CardHeader className="flex-shrink-0">
           {tool.imageUrl && (
             <div className="relative w-full h-40 mb-4 overflow-hidden rounded-t-lg">
               <Image
@@ -89,7 +89,7 @@ export default function AiToolCard({ tool, featured = false }: AiToolCardProps) 
           </div>
           <CardDescription className="text-sm text-muted-foreground min-h-[3rem] pt-2">{description}</CardDescription>
         </CardHeader>
-        <CardContent className="flex-grow">
+        <CardContent className="flex-grow flex flex-col justify-end">
           <div className="space-y-2">
             {tool.tags && tool.tags.length > 0 && (
               <div className="flex flex-wrap gap-1">

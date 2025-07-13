@@ -10,6 +10,7 @@ export type AiToolCategory =
   | 'Audio'
   | 'Productivity'
   | 'Design'
+  | 'Gratuit'
   | 'Other';
 
 export interface AiTool {
