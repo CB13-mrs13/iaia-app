@@ -34,12 +34,12 @@ export default function NotFound() {
     <div className="relative flex min-h-[calc(100vh-theme(spacing.32))] items-center justify-center text-center text-white overflow-hidden p-4">
       {/* Background Image */}
       <Image
-        src="https://placehold.co/1920x1080"
-        alt="A vast, starry cosmos representing a lost page"
+        src="/images/luchador-astronaut.jpg"
+        alt="A luchador astronaut lost in space"
         fill
         style={{ objectFit: 'cover' }}
         className="z-0"
-        data-ai-hint="astronaut space"
+        data-ai-hint="luchador astronaut"
         priority
       />
       <div className="absolute inset-0 bg-black/50 z-10" />
