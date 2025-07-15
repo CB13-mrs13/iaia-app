@@ -1,7 +1,11 @@
-import { aiTools } from '@/lib/data';
+import { getAiTools } from '@/lib/firebase/firestore';
 import DiscoverClient from './discover-client';
 
-export default function DiscoverPage() {
+export const revalidate = 3600; // Revalidate at most every hour
+
+export default async function DiscoverPage() {
+  const aiTools = await getAiTools();
+  
   // The full history of featured tools, newest at the end.
   const fullFeaturedList = ['VEO3', 'BOLT', 'n8n', 'Lovable', 'Canva AI Image Generator', 'Deepseek', 'Mammouth AI'];
   

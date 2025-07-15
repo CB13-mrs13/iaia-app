@@ -9,7 +9,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge';
 import { getCategoryIcon } from '@/lib/icons';
 import { cn } from '@/lib/utils';
-import { createSlug } from '@/lib/data';
+import { createSlug } from '@/lib/utils';
 import { useLanguage } from '@/hooks/use-language';
 import { translations } from '@/lib/translations';
 import { useAuth } from '@/hooks/use-auth';

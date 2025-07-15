@@ -3,6 +3,18 @@ import { Brain, Image as ImageIcon, Video as VideoIcon, Code2, Music, Briefcase,
 import type { AiToolCategory } from '@/types';
 import type { LucideIcon } from 'lucide-react';
 
+export const aiToolCategories: AiToolCategory[] = [
+  'LLM',
+  'Photo',
+  'Video',
+  'Coding',
+  'Audio',
+  'Productivity',
+  'Design',
+  'Gratuit',
+  'Other',
+];
+
 export const categoryIcons: Record<AiToolCategory, LucideIcon> = {
   LLM: Bot, // Changed Brain to Bot for more direct AI representation
   Photo: ImageIcon,

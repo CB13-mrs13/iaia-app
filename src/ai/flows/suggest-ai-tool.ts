@@ -1,3 +1,4 @@
+
 // src/ai/flows/suggest-ai-tool.ts
 'use server';
 
@@ -12,7 +13,7 @@
 import {ai} from '@/ai/genkit';
 import {z} from 'genkit';
 import type { SupportedLanguage } from '@/contexts/language-context';
-import { aiTools } from '@/lib/data';
+import { getAiTools } from '@/lib/firebase/firestore';
 
 const SuggestAiToolInputSchema = z.object({
   prompt: z.string().describe('A description of the user’s needs.'),
@@ -55,6 +56,7 @@ const suggestAiToolFlow = ai.defineFlow(
     outputSchema: SuggestAiToolOutputSchema,
   },
   async (input) => {
+    const aiTools = await getAiTools();
     const languageName = languageMap[input.language as SupportedLanguage] || 'English';
     const toolNames = aiTools.map(tool => tool.name);
     const finalInput = {...input, languageName, aiToolList: toolNames};

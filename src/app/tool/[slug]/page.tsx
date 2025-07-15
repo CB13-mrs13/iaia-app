@@ -1,7 +1,10 @@
 
 import { notFound } from 'next/navigation';
-import { aiTools, createSlug } from '@/lib/data';
+import { getAiTools, getAiToolBySlug } from '@/lib/firebase/firestore';
 import ToolPageClient from './tool-page-client';
+import { createSlug } from '@/lib/utils';
+
+export const revalidate = 3600; // Revalidate at most every hour
 
 interface ToolPageProps {
   params: {
@@ -9,15 +12,16 @@ interface ToolPageProps {
   };
 }
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
+  const aiTools = await getAiTools();
   return aiTools.map((tool) => ({
     slug: createSlug(tool.name),
   }));
 }
 
-export default function ToolPage({ params }: ToolPageProps) {
+export default async function ToolPage({ params }: ToolPageProps) {
   const { slug } = params;
-  const tool = aiTools.find((t) => createSlug(t.name) === slug);
+  const tool = await getAiToolBySlug(slug);
 
   if (!tool) {
     notFound();

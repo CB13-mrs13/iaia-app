@@ -1,5 +1,9 @@
 import { db } from './config';
-import { doc, getDoc, updateDoc, arrayUnion, arrayRemove, setDoc } from "firebase/firestore";
+import { doc, getDoc, updateDoc, arrayUnion, arrayRemove, setDoc, collection, getDocs, query, where } from "firebase/firestore";
+import type { AiTool } from '@/types';
+import { createSlug } from '@/lib/utils';
+
+// --- User Favorites Functions ---
 
 // Function to get a user's favorite tools
 export async function getUserFavorites(userId: string): Promise<string[]> {
@@ -54,5 +58,46 @@ export async function toggleFavoriteTool(userId: string, toolId: string): Promis
     console.error("Error toggling favorite tool:", error);
     // Re-throw with a more descriptive message for the user.
     throw new Error("Could not update favorites. Please check your Firestore security rules to ensure you are allowed to write to your own document in the 'users' collection.");
+  }
+}
+
+// --- AI Tools Functions ---
+
+const toolsCollectionRef = collection(db, 'tools');
+
+// Function to get all AI tools from Firestore
+export async function getAiTools(): Promise<AiTool[]> {
+  try {
+    const snapshot = await getDocs(toolsCollectionRef);
+    if (snapshot.empty) {
+      console.warn("Firestore 'tools' collection is empty. Please populate it with AI tool data.");
+      return [];
+    }
+    const tools = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() } as AiTool));
+    return tools;
+  } catch (error) {
+    console.error("Error fetching AI tools from Firestore:", error);
+    return []; // Return empty array on error to prevent app crash
+  }
+}
+
+// Function to get a single AI tool by its slug
+export async function getAiToolBySlug(slug: string): Promise<AiTool | null> {
+  try {
+    const snapshot = await getDocs(toolsCollectionRef);
+    if (snapshot.empty) {
+      return null;
+    }
+    // We have to iterate and create slug for each to find the match
+    for (const doc of snapshot.docs) {
+      const toolData = doc.data() as Omit<AiTool, 'id'>;
+      if (createSlug(toolData.name) === slug) {
+        return { id: doc.id, ...toolData } as AiTool;
+      }
+    }
+    return null; // No tool found with the matching slug
+  } catch (error) {
+    console.error(`Error fetching tool with slug '${slug}':`, error);
+    return null;
   }
 }
