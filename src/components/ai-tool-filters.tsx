@@ -3,8 +3,7 @@
 
 import { Button } from '@/components/ui/button';
 import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
-import { aiToolCategories } from '@/lib/data';
-import { getCategoryIcon } from '@/lib/icons';
+import { aiToolCategories, getCategoryIcon } from '@/lib/icons';
 import type { AiToolCategory } from '@/types';
 import { useLanguage } from '@/hooks/use-language';
 import { translations } from '@/lib/translations';

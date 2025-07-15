@@ -1,4 +1,4 @@
-import { db } from '@/lib/firebase/config';
+import { db } from './config';
 import { doc, getDoc, updateDoc, arrayUnion, arrayRemove, setDoc, collection, getDocs, query, where } from "firebase/firestore";
 import type { AiTool } from '@/types';
 import { createSlug } from '@/lib/utils';
