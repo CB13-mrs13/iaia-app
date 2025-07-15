@@ -19,6 +19,7 @@ type PageTranslations = {
     carouselCaption1: string;
     carouselCaption2: string;
     carouselCaption3: string;
+    carouselCaption4: string;
     section2Text1: string;
     section2Text2: string;
     section2Text3: string;
@@ -313,9 +314,10 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       logoSlogan: "The smart assistant that tells you which AI to use.",
       section1Button: "See examples",
       section2Title: "IAIA gives you the power.",
-      carouselCaption1: "“You are the King.”",
-      carouselCaption2: "“You are the Queen.”",
-      carouselCaption3: "“Now, you're the Boss.”",
+      carouselCaption1: "“Conquer any summit.”",
+      carouselCaption2: "“Master any recipe.”",
+      carouselCaption3: "“Create any atmosphere.”",
+      carouselCaption4: "“Dominate any market.”",
       section2Text1: "Each image is a metaphor for what IAIA does for you.",
       section2Text2: "IAIA arms you. IAIA propels you. IAIA elevates you.",
       section2Text3: "Now, take command.",
@@ -608,9 +610,10 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       logoSlogan: "L'assistant intelligent qui vous dit quelle IA utiliser.",
       section1Button: "Voir des exemples",
       section2Title: "IAIA te donne le pouvoir.",
-      carouselCaption1: "“C’est toi le Roi.”",
-      carouselCaption2: "“C’est toi la Reine.”",
-      carouselCaption3: "“Maintenant, c’est toi le Boss.”",
+      carouselCaption1: "“Conquérez n'importe quel sommet.”",
+      carouselCaption2: "“Maîtrisez n'importe quelle recette.”",
+      carouselCaption3: "“Créez n'importe quelle ambiance.”",
+      carouselCaption4: "“Dominez n'importe quel marché.”",
       section2Text1: "Chaque image est une métaphore de ce que fait IAIA pour toi.",
       section2Text2: "IAIA t’arme. IAIA te propulse. IAIA t’élève.",
       section2Text3: "Maintenant prends les commandes.",
@@ -902,9 +905,10 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       logoSlogan: "El asistente inteligente que te dice qué IA usar.",
       section1Button: "Ver ejemplos",
       section2Title: "IAIA te da el poder.",
-      carouselCaption1: "“Tú eres el Rey.”",
-      carouselCaption2: "“Tú eres la Reina.”",
-      carouselCaption3: "“Ahora, tú eres el Jefe.”",
+      carouselCaption1: "“Conquista cualquier cima.”",
+      carouselCaption2: "“Domina cualquier receta.”",
+      carouselCaption3: "“Crea cualquier ambiente.”",
+      carouselCaption4: "“Domina cualquier mercado.”",
       section2Text1: "Cada imagen es una metáfora de lo que IAIA hace por ti.",
       section2Text2: "IAIA te arma. IAIA te impulsa. IAIA te eleva.",
       section2Text3: "Ahora toma el mando.",

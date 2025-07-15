@@ -170,9 +170,10 @@ export default function LandingPage() {
 
 
   const carouselItems = [
-    { image: '/images/catcheur-iaia.jpg', caption: t.carouselCaption1, hint: 'wrestler champion' },
-    { image: '/images/ballerine-iaia.jpg', caption: t.carouselCaption2, hint: 'ballerina queen' },
-    { image: '/images/ceo-iaia.jpg', caption: t.carouselCaption3, hint: 'boss commanding' },
+    { image: '/images/Conquete-Montagne-iaia.jpg', caption: t.carouselCaption1, hint: 'mountain conquest success' },
+    { image: '/images/Maitre-Cuisine-iaia.jpg', caption: t.carouselCaption2, hint: 'master chef cooking' },
+    { image: '/images/DJ-iaia.jpg', caption: t.carouselCaption3, hint: 'dj mixing music' },
+    { image: '/images/Domination-Finance-iaia.jpg', caption: t.carouselCaption4, hint: 'finance domination business' },
   ];
 
   const heroItems: HeroItem[] = [
