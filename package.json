@@ -11,7 +11,8 @@
     "lint": "next lint",
     "lint:fix": "next lint --fix",
     "format": "prettier --write \"**/*.{ts,tsx,md,json}\" --ignore-path .prettierignore",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "import-firestore": "node scripts/import-firestore.js"
   },
   "dependencies": {
     "@genkit-ai/googleai": "1.1.0",
@@ -44,6 +45,7 @@
     "date-fns": "^3.6.0",
     "embla-carousel-react": "^8.2.0",
     "firebase": "^11.8.1",
+    "firebase-admin": "^12.3.0",
     "genkit": "1.1.0",
     "lucide-react": "^0.475.0",
     "next": "^15.0.0",
