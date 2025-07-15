@@ -7,7 +7,7 @@ export default async function DiscoverPage() {
   const aiTools = await getAiTools();
   
   // The full history of featured tools, newest at the end.
-  const fullFeaturedList = ['VEO3', 'BOLT', 'n8n', 'Lovable', 'Canva AI Image Generator', 'Deepseek', 'Mammouth AI'];
+  const fullFeaturedList = ['VEO3', 'BOLT', 'n8n', 'Lovable', 'Canva AI Image Generator', 'Deepseek', 'Mammouth AI', 'Deevid AI'];
   
   // The list of tools to actually feature, limited to the latest 6.
   const featuredToolsNameList = fullFeaturedList.slice(-6);
