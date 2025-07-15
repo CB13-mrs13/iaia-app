@@ -6,16 +6,16 @@ export const revalidate = 3600; // Revalidate at most every hour
 export default async function FeaturedToolsPage() {
   const aiTools = await getAiTools();
 
-  // The full history of featured tools, newest at the end.
-  const fullFeaturedList = ['VEO3', 'BOLT', 'n8n', 'Lovable', 'Canva AI Image Generator', 'Deepseek', 'Mammouth AI', 'Deevid AI'];
+  // The full history of featured tools by their ID, newest at the end.
+  const fullFeaturedList = ['91', '92', '93', '94', '28', '95', '96', '97'];
   
   // The list of tools to actually feature, limited to the latest 6.
-  const featuredToolsList = fullFeaturedList.slice(-6);
+  const featuredToolIds = fullFeaturedList.slice(-6);
 
   // Find the featured tools and sort them in the desired order
   const featuredTools = aiTools
-    .filter(tool => featuredToolsList.includes(tool.name))
-    .sort((a, b) => featuredToolsList.indexOf(a.name) - featuredToolsList.indexOf(b.name));
+    .filter(tool => featuredToolIds.includes(tool.id))
+    .sort((a, b) => featuredToolIds.indexOf(a.id) - featuredToolIds.indexOf(b.id));
 
   return (
     <FeaturedClientPage featuredTools={featuredTools} />
