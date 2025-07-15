@@ -74,6 +74,11 @@ export async function getAiTools(): Promise<AiTool[]> {
     }
     // The document data itself contains the 'id' field from the original JSON.
     const tools = snapshot.docs.map(doc => doc.data() as AiTool);
+    
+    // Sort tools by ID in descending order to show newest first.
+    // We parse the ID as a number for correct sorting.
+    tools.sort((a, b) => parseInt(b.id, 10) - parseInt(a.id, 10));
+
     return tools;
   } catch (error) {
     console.error("--- AI TOOLS FETCH ERROR ---");
