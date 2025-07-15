@@ -610,7 +610,7 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       logoSlogan: "L'assistant intelligent qui vous dit quelle IA utiliser.",
       section1Button: "Voir des exemples",
       section2Title: "IAIA te donne le pouvoir.",
-      carouselCaption1: "“Conquérez n'importe quel sommet.”",
+      carouselCaption1: "“Atteignez n'importe quel sommet.”",
       carouselCaption2: "“Maîtrisez n'importe quelle recette.”",
       carouselCaption3: "“Créez n'importe quelle ambiance.”",
       carouselCaption4: "“Dominez n'importe quel marché.”",
