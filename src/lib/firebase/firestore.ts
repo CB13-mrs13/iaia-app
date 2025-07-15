@@ -18,9 +18,7 @@ export async function getUserFavorites(userId: string): Promise<string[]> {
   } catch (error) {
     console.error("--- FAVORITES FETCH ERROR ---");
     console.error("Could not fetch user favorites. This is likely due to Firestore security rules.");
-    console.error("Your default 30-day open access may have expired.");
-    console.error("To fix this, deploy the rules defined in 'firestore.rules' by running `firebase deploy --only firestore` in your terminal.");
-    console.error("The app will continue to function, but favorites will be unavailable until the rules are deployed. Error details:", error);
+    console.error("Ensure your 'firestore.rules' allow authenticated users to read their own document in the 'users' collection. Error details:", error);
     // Return an empty array to prevent the app from crashing.
     return [];
   }
@@ -71,14 +69,16 @@ export async function getAiTools(): Promise<AiTool[]> {
   try {
     const snapshot = await getDocs(toolsCollectionRef);
     if (snapshot.empty) {
-      console.warn("Firestore 'tools' collection is empty. Please populate it with AI tool data from `src/ai-tool-data.json`.");
+      console.warn("Firestore 'tools' collection is empty. Did you run `npm run import-firestore`?");
       return [];
     }
     // The document data itself contains the 'id' field from the original JSON.
     const tools = snapshot.docs.map(doc => doc.data() as AiTool);
     return tools;
   } catch (error) {
-    console.error("Error fetching AI tools from Firestore:", error);
+    console.error("--- AI TOOLS FETCH ERROR ---");
+    console.error("Could not fetch AI tools. This is likely due to Firestore security rules.");
+    console.error("Please ensure your 'firestore.rules' allow public read access to the 'tools' collection. See documentation for the correct rules. Error details:", error);
     return []; // Return empty array on error to prevent app crash
   }
 }
@@ -86,19 +86,17 @@ export async function getAiTools(): Promise<AiTool[]> {
 // Function to get a single AI tool by its slug
 export async function getAiToolBySlug(slug: string): Promise<AiTool | null> {
   try {
-    const q = query(collection(db, "tools"));
-    const snapshot = await getDocs(q);
-    if (snapshot.empty) {
+    // This function relies on getAiTools which now has robust error handling.
+    // We can fetch all and filter, which is efficient enough for a few hundred tools
+    // and avoids complex queries.
+    const allTools = await getAiTools();
+    if (allTools.length === 0) {
       return null;
     }
-    // We have to iterate and create slug for each to find the match
-    for (const doc of snapshot.docs) {
-      const toolData = doc.data() as AiTool;
-      if (createSlug(toolData.name) === slug) {
-        return toolData;
-      }
-    }
-    return null; // No tool found with the matching slug
+    
+    const foundTool = allTools.find(tool => createSlug(tool.name) === slug);
+    return foundTool || null;
+
   } catch (error) {
     console.error(`Error fetching tool with slug '${slug}':`, error);
     return null;
