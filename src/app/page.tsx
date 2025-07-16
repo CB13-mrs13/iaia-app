@@ -32,12 +32,12 @@ const Carousel = ({ items }: { items: { image: string; caption: string; hint: st
 
   return (
     <div className="relative w-full mx-auto">
-      <div className="overflow-hidden relative h-96 shadow-2xl md:h-[600px] lg:h-[700px]">
+      <div className="overflow-hidden relative shadow-2xl aspect-video max-h-[700px]">
         {items.map((item, index) => (
           <div
             key={index}
             className={cn(
-              'absolute top-0 left-0 w-full h-full transition-opacity duration-700 ease-in-out bg-black',
+              'absolute top-0 left-0 w-full h-full transition-opacity duration-700 ease-in-out',
               index === currentIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'
             )}
           >
@@ -45,7 +45,7 @@ const Carousel = ({ items }: { items: { image: string; caption: string; hint: st
               src={item.image}
               alt={item.caption}
               fill
-              style={{ objectFit: 'contain' }}
+              style={{ objectFit: 'cover' }}
               className="w-full h-full"
               data-ai-hint={item.hint}
             />
