@@ -32,7 +32,7 @@ const Carousel = ({ items }: { items: { image: string; caption: string; hint: st
 
   return (
     <div className="relative w-full mx-auto">
-      <div className="overflow-hidden relative shadow-2xl aspect-video max-h-[700px] bg-black rounded-lg">
+      <div className="overflow-hidden relative shadow-2xl rounded-lg aspect-video max-h-[700px] bg-black">
         {items.map((item, index) => (
           <div
             key={index}
@@ -56,10 +56,10 @@ const Carousel = ({ items }: { items: { image: string; caption: string; hint: st
           </div>
         ))}
       </div>
-      <Button onClick={goToPrevious} variant="outline" size="icon" className="absolute top-1/2 -left-4 md:left-12 transform -translate-y-1/2 rounded-full z-20 h-12 w-12">
+      <Button onClick={goToPrevious} variant="outline" size="icon" className="absolute top-1/2 -left-4 md:-left-6 transform -translate-y-1/2 rounded-full z-20 h-12 w-12">
         <ChevronLeft className="h-6 w-6" />
       </Button>
-      <Button onClick={goToNext} variant="outline" size="icon" className="absolute top-1/2 -right-4 md:right-12 transform -translate-y-1/2 rounded-full z-20 h-12 w-12">
+      <Button onClick={goToNext} variant="outline" size="icon" className="absolute top-1/2 -right-4 md:-right-6 transform -translate-y-1/2 rounded-full z-20 h-12 w-12">
         <ChevronRight className="h-6 w-6" />
       </Button>
     </div>
@@ -234,7 +234,7 @@ export default function LandingPage() {
 
       {/* Section 2: Storytelling */}
        <section className="py-20 bg-background text-center">
-        <div className="container mx-auto max-w-none px-0">
+        <div className="container mx-auto max-w-5xl px-4 md:px-12">
           <h2 className="text-4xl font-bold mb-12 px-4">{t.section2Title}</h2>
           <Carousel items={carouselItems} />
         </div>
@@ -337,3 +337,5 @@ export default function LandingPage() {
     </div>
   );
 }
+
+    
