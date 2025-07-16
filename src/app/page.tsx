@@ -198,18 +198,18 @@ export default function LandingPage() {
                 <CarouselItem key={index} className="md:basis-1/1">
                   <div className="p-1">
                     <Card>
-                      <CardContent className="relative flex aspect-video items-center justify-center p-6 bg-black rounded-lg overflow-hidden">
+                      <CardContent className="relative flex items-center justify-center p-0 bg-black rounded-lg overflow-hidden">
                         <Image
                           src={item.image}
                           alt={item.caption}
-                          fill
-                          style={{ objectFit: 'contain' }}
-                          className="w-full h-full"
+                          width={1920}
+                          height={1080}
+                          className="w-full h-auto object-contain"
                           data-ai-hint={item.hint}
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                         <div className="absolute bottom-0 left-0 p-4 md:p-8">
-                          <h3 className="text-white text-xl md:text-4xl font-bold">{item.caption}</h3>
+                           <h3 className="text-white text-xl md:text-2xl font-bold drop-shadow-lg">{item.caption}</h3>
                         </div>
                       </CardContent>
                     </Card>
