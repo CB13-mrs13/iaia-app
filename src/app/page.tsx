@@ -201,7 +201,7 @@ export default function LandingPage() {
                           src={item.image}
                           alt={item.caption}
                           fill
-                          className="object-cover"
+                          className="object-contain"
                           data-ai-hint={item.hint}
                         />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
