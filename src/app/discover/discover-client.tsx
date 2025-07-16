@@ -33,38 +33,56 @@ export default function DiscoverClient({ aiTools, featuredToolsList }: DiscoverC
   const [carouselApi, setCarouselApi] = useState<CarouselApi | null>(null);
   const isMobile = useIsMobile();
 
-  const onSelect = useCallback((api: CarouselApi) => {
-    // Exit if not on mobile or if api is not ready
-    if (!api || !isMobile) return;
-
+  const applyCarouselStyles = useCallback((api: CarouselApi) => {
     api.slideNodes().forEach((slide, index) => {
       const distance = Math.abs(api.selectedScrollSnap() - index);
-      // Further away slides are smaller and more transparent
       const scale = 1 - distance * 0.1;
       const opacity = distance > 1 ? 0.3 : 1 - distance * 0.2;
-      const zIndex = 10 - distance; // The center slide has the highest z-index
+      const zIndex = 10 - distance;
 
       const slideEl = slide as HTMLElement;
       slideEl.style.transform = `scale(${scale})`;
       slideEl.style.opacity = `${opacity}`;
       slideEl.style.zIndex = `${zIndex}`;
     });
-  }, [isMobile]);
+  }, []);
+  
+  const resetCarouselStyles = useCallback((api: CarouselApi) => {
+      api.slideNodes().forEach((slide) => {
+          const slideEl = slide as HTMLElement;
+          slideEl.style.transform = '';
+          slideEl.style.opacity = '';
+          slideEl.style.zIndex = '';
+      });
+  }, []);
 
   useEffect(() => {
     if (!carouselApi) return;
-    
-    onSelect(carouselApi); // Apply effect on initial load
-    carouselApi.on('select', onSelect);
-    carouselApi.on('reInit', onSelect); // Re-apply on re-initialization
 
-    // Cleanup listener on component unmount or when dependencies change
-    return () => {
-      if (carouselApi) {
-        carouselApi.off('select', onSelect);
-      }
+    const handleSelect = () => {
+        if (isMobile) {
+            applyCarouselStyles(carouselApi);
+        } else {
+            resetCarouselStyles(carouselApi);
+        }
     };
-  }, [carouselApi, onSelect]);
+    
+    // Initial setup
+    handleSelect();
+
+    carouselApi.on('select', handleSelect);
+    carouselApi.on('reInit', handleSelect);
+
+    return () => {
+        if (carouselApi) {
+            // Clean up styles when component unmounts or effect re-runs
+            resetCarouselStyles(carouselApi);
+            carouselApi.off('select', handleSelect);
+            carouselApi.off('reInit', handleSelect);
+        }
+    };
+}, [carouselApi, isMobile, applyCarouselStyles, resetCarouselStyles]);
+
   
   const filteredTools = useMemo(() => {
     return aiTools
@@ -112,7 +130,7 @@ export default function DiscoverClient({ aiTools, featuredToolsList }: DiscoverC
             }}
             className="w-full max-w-sm sm:max-w-xl md:max-w-2xl lg:max-w-4xl xl:max-w-6xl mx-auto"
           >
-            <CarouselContent className={cn(isMobile && "-ml-4 h-full")}>
+            <CarouselContent className={cn(isMobile && "-ml-4 h-[450px]")}>
               {featuredToolsList.map((tool) => (
                 <CarouselItem key={tool.id} className={cn(
                   "transition-all duration-300 relative",
