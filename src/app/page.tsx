@@ -37,7 +37,7 @@ const Carousel = ({ items }: { items: { image: string; caption: string; hint: st
           <div
             key={index}
             className={cn(
-              'absolute top-0 left-0 w-full h-full transition-opacity duration-700 ease-in-out',
+              'absolute top-0 left-0 w-full h-full transition-opacity duration-700 ease-in-out bg-black',
               index === currentIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'
             )}
           >
@@ -45,7 +45,7 @@ const Carousel = ({ items }: { items: { image: string; caption: string; hint: st
               src={item.image}
               alt={item.caption}
               fill
-              style={{ objectFit: 'cover' }}
+              style={{ objectFit: 'contain' }}
               className="w-full h-full"
               data-ai-hint={item.hint}
             />
