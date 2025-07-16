@@ -7,64 +7,14 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent } from '@/components/ui/card';
-import { Check, Mail, ChevronLeft, ChevronRight, Loader2 } from 'lucide-react';
+import { Check, Mail, Loader2 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useLanguage } from '@/hooks/use-language';
 import { translations } from '@/lib/translations';
 import { useAuth } from '@/hooks/use-auth';
 import { useRouter } from 'next/navigation';
+import { Carousel as ShadcnCarousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 
-// Helper component for Carousel
-const Carousel = ({ items }: { items: { image: string; caption: string; hint: string }[] }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const goToPrevious = () => {
-    const isFirstSlide = currentIndex === 0;
-    const newIndex = isFirstSlide ? items.length - 1 : currentIndex - 1;
-    setCurrentIndex(newIndex);
-  };
-
-  const goToNext = () => {
-    const isLastSlide = currentIndex === items.length - 1;
-    const newIndex = isLastSlide ? 0 : currentIndex + 1;
-    setCurrentIndex(newIndex);
-  };
-
-  return (
-    <div className="relative w-full mx-auto">
-      <div className="overflow-hidden relative shadow-2xl rounded-lg aspect-video bg-black">
-        {items.map((item, index) => (
-          <div
-            key={index}
-            className={cn(
-              'absolute top-0 left-0 w-full h-full transition-opacity duration-700 ease-in-out',
-              index === currentIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'
-            )}
-          >
-            <Image
-              src={item.image}
-              alt={item.caption}
-              fill
-              style={{ objectFit: 'contain' }}
-              className="w-full h-full"
-              data-ai-hint={item.hint}
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
-            <div className="absolute bottom-0 left-0 p-4 md:p-8">
-              <h3 className="text-white text-xl md:text-4xl font-bold">{item.caption}</h3>
-            </div>
-          </div>
-        ))}
-      </div>
-      <Button onClick={goToPrevious} variant="outline" size="icon" className="absolute top-1/2 -left-4 md:-left-6 transform -translate-y-1/2 rounded-full z-20 h-10 w-10 md:h-12 md:w-12">
-        <ChevronLeft className="h-5 w-5 md:h-6 md:w-6" />
-      </Button>
-      <Button onClick={goToNext} variant="outline" size="icon" className="absolute top-1/2 -right-4 md:-right-6 transform -translate-y-1/2 rounded-full z-20 h-10 w-10 md:h-12 md:w-12">
-        <ChevronRight className="h-5 w-5 md:h-6 md:w-6" />
-      </Button>
-    </div>
-  );
-};
 
 interface HeroItem {
   type: 'image' | 'video';
@@ -236,7 +186,40 @@ export default function LandingPage() {
        <section className="py-20 bg-background text-center">
         <div className="container mx-auto max-w-5xl px-4 md:px-12">
           <h2 className="text-4xl font-bold mb-12 px-4">{t.section2Title}</h2>
-          <Carousel items={carouselItems} />
+          <ShadcnCarousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="w-full"
+          >
+            <CarouselContent>
+              {carouselItems.map((item, index) => (
+                <CarouselItem key={index} className="md:basis-1/1">
+                  <div className="p-1">
+                    <Card>
+                      <CardContent className="relative flex aspect-video items-center justify-center p-6 bg-black rounded-lg overflow-hidden">
+                        <Image
+                          src={item.image}
+                          alt={item.caption}
+                          fill
+                          style={{ objectFit: 'contain' }}
+                          className="w-full h-full"
+                          data-ai-hint={item.hint}
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                        <div className="absolute bottom-0 left-0 p-4 md:p-8">
+                          <h3 className="text-white text-xl md:text-4xl font-bold">{item.caption}</h3>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="absolute left-[-50px] top-1/2 -translate-y-1/2" />
+            <CarouselNext className="absolute right-[-50px] top-1/2 -translate-y-1/2" />
+          </ShadcnCarousel>
         </div>
         <div className="container mx-auto mt-12 max-w-3xl space-y-4">
           <p className="text-lg text-muted-foreground">
