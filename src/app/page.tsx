@@ -32,7 +32,7 @@ const Carousel = ({ items }: { items: { image: string; caption: string; hint: st
 
   return (
     <div className="relative w-full mx-auto">
-      <div className="overflow-hidden relative shadow-2xl rounded-lg aspect-video max-h-[700px] bg-black">
+      <div className="overflow-hidden relative shadow-2xl rounded-lg aspect-video bg-black">
         {items.map((item, index) => (
           <div
             key={index}
@@ -49,18 +49,18 @@ const Carousel = ({ items }: { items: { image: string; caption: string; hint: st
               className="w-full h-full"
               data-ai-hint={item.hint}
             />
-            <div className="absolute inset-0 bg-black/20" />
-            <div className="absolute bottom-0 left-0 p-6 md:p-12">
-              <h3 className="text-white text-2xl md:text-4xl font-bold">{item.caption}</h3>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+            <div className="absolute bottom-0 left-0 p-4 md:p-8">
+              <h3 className="text-white text-xl md:text-4xl font-bold">{item.caption}</h3>
             </div>
           </div>
         ))}
       </div>
-      <Button onClick={goToPrevious} variant="outline" size="icon" className="absolute top-1/2 -left-4 md:-left-6 transform -translate-y-1/2 rounded-full z-20 h-12 w-12">
-        <ChevronLeft className="h-6 w-6" />
+      <Button onClick={goToPrevious} variant="outline" size="icon" className="absolute top-1/2 -left-4 md:-left-6 transform -translate-y-1/2 rounded-full z-20 h-10 w-10 md:h-12 md:w-12">
+        <ChevronLeft className="h-5 w-5 md:h-6 md:w-6" />
       </Button>
-      <Button onClick={goToNext} variant="outline" size="icon" className="absolute top-1/2 -right-4 md:-right-6 transform -translate-y-1/2 rounded-full z-20 h-12 w-12">
-        <ChevronRight className="h-6 w-6" />
+      <Button onClick={goToNext} variant="outline" size="icon" className="absolute top-1/2 -right-4 md:-right-6 transform -translate-y-1/2 rounded-full z-20 h-10 w-10 md:h-12 md:w-12">
+        <ChevronRight className="h-5 w-5 md:h-6 md:w-6" />
       </Button>
     </div>
   );
@@ -139,10 +139,10 @@ const HeroSlideshow = ({ items }: { items: HeroItem[] }) => {
       ))}
        <div className="absolute inset-0 bg-black/40 z-10" />
         <div className="relative z-20 p-4 animate-fadeIn text-center">
-          <h1 className="text-8xl md:text-9xl font-bold leading-none mb-4 animate-slideInUp" style={{ animationDelay: '0.2s' }}>
+          <h1 className="text-6xl md:text-9xl font-bold leading-none mb-4 animate-slideInUp" style={{ animationDelay: '0.2s' }}>
             {currentItem.title}
           </h1>
-          <h2 className="text-5xl md:text-7xl font-extrabold text-primary animate-slideInUp" style={{ animationDelay: '0.5s' }}>
+          <h2 className="text-4xl md:text-7xl font-extrabold text-primary animate-slideInUp" style={{ animationDelay: '0.5s' }}>
             {currentItem.subtitle}
           </h2>
           <Button asChild size="lg" className="mt-8 text-lg animate-slideInUp" style={{ animationDelay: '0.8s' }}>
@@ -337,5 +337,3 @@ export default function LandingPage() {
     </div>
   );
 }
-
-    
