@@ -4,6 +4,7 @@ import type { AiToolCategory } from '@/types';
 import type { LucideIcon } from 'lucide-react';
 
 export const aiToolCategories: AiToolCategory[] = [
+  'Gratuit',
   'LLM',
   'Photo',
   'Video',
@@ -11,7 +12,6 @@ export const aiToolCategories: AiToolCategory[] = [
   'Audio',
   'Productivity',
   'Design',
-  'Gratuit',
   'Other',
 ];
 
