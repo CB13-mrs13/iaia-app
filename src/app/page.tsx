@@ -32,7 +32,7 @@ const Carousel = ({ items }: { items: { image: string; caption: string; hint: st
 
   return (
     <div className="relative w-full mx-auto">
-      <div className="overflow-hidden relative shadow-2xl aspect-video max-h-[700px]">
+      <div className="overflow-hidden relative shadow-2xl aspect-video max-h-[700px] bg-black rounded-lg">
         {items.map((item, index) => (
           <div
             key={index}
@@ -45,7 +45,7 @@ const Carousel = ({ items }: { items: { image: string; caption: string; hint: st
               src={item.image}
               alt={item.caption}
               fill
-              style={{ objectFit: 'cover' }}
+              style={{ objectFit: 'contain' }}
               className="w-full h-full"
               data-ai-hint={item.hint}
             />
