@@ -196,12 +196,13 @@ export default function LandingPage() {
             <CarouselContent>
               {carouselItems.map((item, index) => (
                 <CarouselItem key={index}>
-                  <div className="relative aspect-video w-full overflow-hidden rounded-lg bg-black">
+                  <div className="relative w-full overflow-hidden rounded-lg bg-black">
                      <Image
                           src={item.image}
                           alt={item.caption}
-                          fill
-                          className="object-contain"
+                          width={1920}
+                          height={1080}
+                          className="w-full h-auto aspect-video object-contain bg-black"
                           data-ai-hint={item.hint}
                         />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
