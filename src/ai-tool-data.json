@@ -1115,7 +1115,7 @@
     "features": {
       "en": ["Context-aware code completion", "Explain code functionality", "Generate code from prompts", "Transform and debug code"],
       "fr": ["Complétion de code sensible au contexte", "Expliquer la fonctionnalité du code", "Générer du code à partir de prompts", "Transformer et déboguer le code"],
-      "es": ["Finalización de código sensible al contexto", "Explicar la funcionalidad del código", "Generar código a partir de prompts", "Transformar y depurar código"]
+      "es": ["Finalización de código sensible al contexto", "Explicar la funcionalidad del code", "Generar código a partir de prompts", "Transformar y depurar código"]
     }
   },
   {
@@ -2525,6 +2525,448 @@
       "en": ["Voice and face cloning", "Dynamic video templates", "CRM integration", "Performance analytics"],
       "fr": ["Clonage de la voix et du visage", "Modèles vidéo dynamiques", "Intégration CRM", "Analyse des performances"],
       "es": ["Clonación de voz y rostro", "Plantillas de video dinámicas", "Integración con CRM", "Análisis de rendimiento"]
+    }
+  },
+  {
+    "id": "98",
+    "name": "Hexa AI",
+    "description": {
+      "en": "3D asset creation platform for e-commerce, gaming, and the metaverse.",
+      "fr": "Plateforme de création d'actifs 3D pour l'e-commerce, les jeux et le métavers.",
+      "es": "Plataforma de creación de activos 3D para comercio electrónico, juegos y el metaverso."
+    },
+    "longDescription": {
+      "en": "Hexa AI specializes in converting 2D images and product descriptions into high-fidelity 3D models and augmented reality experiences, helping businesses showcase their products immersively.",
+      "fr": "Hexa AI se spécialise dans la conversion d'images 2D et de descriptions de produits en modèles 3D haute-fidélité et en expériences de réalité augmentée, aidant les entreprises à présenter leurs produits de manière immersive.",
+      "es": "Hexa AI se especializa en convertir imágenes 2D y descripciones de productos en modelos 3D de alta fidelidad y experiencias de realidad aumentada, ayudando a las empresas a mostrar sus productos de forma inmersiva."
+    },
+    "category": "Design",
+    "website": "https://www.hexa3d.io/",
+    "imageUrl": "/ai-tools/hexa-ai.jpg",
+    "imageKeywords": "3d asset",
+    "rating": 4.5,
+    "tags": ["3d modeling", "ecommerce", "augmented reality"],
+    "pricing": "Paid",
+    "features": {
+      "en": ["2D to 3D asset conversion", "AI-powered 3D modeling", "AR viewer integration", "Synthetic data generation"],
+      "fr": ["Conversion d'actifs 2D en 3D", "Modélisation 3D par IA", "Intégration de visionneuse AR", "Génération de données synthétiques"],
+      "es": ["Conversión de activos 2D a 3D", "Modelado 3D con IA", "Integración de visor AR", "Generación de datos sintéticos"]
+    }
+  },
+  {
+    "id": "99",
+    "name": "Creati AI",
+    "description": {
+      "en": "AI-powered content creation suite for marketers and writers.",
+      "fr": "Suite de création de contenu par IA pour les spécialistes du marketing et les rédacteurs.",
+      "es": "Suite de creación de contenido con IA para especialistas en marketing y escritores."
+    },
+    "longDescription": {
+      "en": "Creati.ai offers a comprehensive suite of AI tools designed to generate high-quality marketing copy, blog posts, social media content, and more, with a focus on brand consistency and performance.",
+      "fr": "Creati.ai propose une suite complète d'outils d'IA conçus pour générer des textes marketing de haute qualité, des articles de blog, du contenu pour les réseaux sociaux, et plus encore, en mettant l'accent sur la cohérence de la marque et la performance.",
+      "es": "Creati.ai ofrece un conjunto completo de herramientas de IA diseñadas para generar textos de marketing de alta calidad, publicaciones de blog, contenido para redes sociales y más, con un enfoque en la coherencia de la marca y el rendimiento."
+    },
+    "category": "LLM",
+    "website": "https://creati.ai/",
+    "imageUrl": "/ai-tools/creati-ai.jpg",
+    "imageKeywords": "content creation",
+    "rating": 4.3,
+    "tags": ["content marketing", "copywriting", "seo"],
+    "pricing": "Freemium",
+    "features": {
+      "en": ["Multi-format content generation", "SEO optimization tools", "Brand voice analysis", "Team collaboration"],
+      "fr": ["Génération de contenu multiformat", "Outils d'optimisation SEO", "Analyse de la voix de la marque", "Collaboration d'équipe"],
+      "es": ["Generación de contenido multiformato", "Herramientas de optimización SEO", "Análisis de la voz de la marca", "Colaboración en equipo"]
+    }
+  },
+  {
+    "id": "100",
+    "name": "Swap AI",
+    "description": {
+      "en": "AI face swapping tool for creating fun and realistic videos and photos.",
+      "fr": "Outil d'échange de visages par IA pour créer des vidéos et des photos amusantes et réalistes.",
+      "es": "Herramienta de intercambio de caras con IA para crear videos y fotos divertidos y realistas."
+    },
+    "longDescription": {
+      "en": "Swap AI provides an easy-to-use platform for swapping faces in images and videos. It is used for creating entertaining content, memes, and personalized media with high-quality results.",
+      "fr": "Swap AI fournit une plateforme facile à utiliser pour échanger des visages dans des images et des vidéos. Elle est utilisée pour créer du contenu divertissant, des mèmes et des médias personnalisés avec des résultats de haute qualité.",
+      "es": "Swap AI proporciona una plataforma fácil de usar para intercambiar caras en imágenes y videos. Se utiliza para crear contenido entretenido, memes y medios personalizados con resultados de alta calidad."
+    },
+    "category": "Video",
+    "website": "https://swap-ai.com/",
+    "imageUrl": "/ai-tools/swap-ai.jpg",
+    "imageKeywords": "face swap",
+    "rating": 4.2,
+    "tags": ["face swap", "video editing", "entertainment"],
+    "pricing": "Freemium",
+    "features": {
+      "en": ["High-quality face swapping", "Video and image support", "Easy-to-use interface", "Fast processing"],
+      "fr": ["Échange de visages de haute qualité", "Support vidéo et image", "Interface facile à utiliser", "Traitement rapide"],
+      "es": ["Intercambio de caras de alta calidad", "Soporte de video e imagen", "Interfaz fácil de usar", "Procesamiento rápido"]
+    }
+  },
+  {
+    "id": "101",
+    "name": "InStories",
+    "description": {
+      "en": "AI-powered mobile app for creating animated stories and video posts for social media.",
+      "fr": "Application mobile par IA pour créer des stories animées et des publications vidéo pour les réseaux sociaux.",
+      "es": "Aplicación móvil con IA para crear historias animadas y publicaciones de video para redes sociales."
+    },
+    "longDescription": {
+      "en": "InStories is a mobile video editor that uses AI to help users create eye-catching content for Instagram Stories, TikTok, and other social platforms with professional templates and effects.",
+      "fr": "InStories est un éditeur vidéo mobile qui utilise l'IA pour aider les utilisateurs à créer du contenu attrayant pour les Stories Instagram, TikTok et d'autres plateformes sociales avec des modèles et des effets professionnels.",
+      "es": "InStories es un editor de video móvil que utiliza IA para ayudar a los usuarios a crear contenido llamativo para Instagram Stories, TikTok y otras plataformas sociales con plantillas y efectos profesionales."
+    },
+    "category": "Video",
+    "website": "https://instories.com/",
+    "imageUrl": "/ai-tools/instories.jpg",
+    "imageKeywords": "social media stories",
+    "rating": 4.6,
+    "tags": ["social media", "video editor", "story maker", "mobile app"],
+    "pricing": "Freemium",
+    "features": {
+      "en": ["Professional templates", "AI-suggested music", "Animated text and effects", "Easy for beginners"],
+      "fr": ["Modèles professionnels", "Musique suggérée par IA", "Texte et effets animés", "Facile pour les débutants"],
+      "es": ["Plantillas profesionales", "Música sugerida por IA", "Texto y efectos animados", "Fácil para principiantes"]
+    }
+  },
+  {
+    "id": "102",
+    "name": "LTX Studio",
+    "description": {
+      "en": "AI-powered filmmaking platform to turn ideas into complete video stories.",
+      "fr": "Plateforme de réalisation de films par IA pour transformer des idées en histoires vidéo complètes.",
+      "es": "Plataforma de cinematografía con IA para convertir ideas en historias de video completas."
+    },
+    "longDescription": {
+      "en": "LTX Studio by Lightricks is an all-in-one AI platform that guides users from a simple idea to a fully realized video, handling scriptwriting, storyboarding, character generation, and scene editing.",
+      "fr": "LTX Studio de Lightricks est une plateforme d'IA tout-en-un qui guide les utilisateurs d'une simple idée à une vidéo entièrement réalisée, en gérant l'écriture de scénario, le story-board, la génération de personnages et le montage de scènes.",
+      "es": "LTX Studio de Lightricks es una plataforma de IA todo en uno que guía a los usuarios desde una simple idea hasta un video completamente realizado, manejando la escritura de guiones, el guion gráfico, la generación de personajes y la edición de escenas."
+    },
+    "category": "Video",
+    "website": "https://ltx.studio/",
+    "imageUrl": "/ai-tools/ltx-studio.jpg",
+    "imageKeywords": "ai filmmaking",
+    "rating": 4.8,
+    "tags": ["filmmaking", "text-to-video", "storyboarding", "scriptwriting"],
+    "pricing": "Contact for Pricing",
+    "features": {
+      "en": ["Idea to full video generation", "AI scriptwriting and storyboarding", "Automatic scene editing", "Character and voice control"],
+      "fr": ["Génération de vidéo complète à partir d'une idée", "Écriture de scénario et story-board par IA", "Montage de scènes automatique", "Contrôle des personnages et des voix"],
+      "es": ["Generación de video completo a partir de una idea", "Escritura de guiones y guion gráfico con IA", "Edición de escenas automática", "Control de personajes y voces"]
+    }
+  },
+  {
+    "id": "103",
+    "name": "MyTunes",
+    "description": {
+      "en": "AI-powered music tool to generate custom songs and soundscapes.",
+      "fr": "Outil de musique par IA pour générer des chansons et des paysages sonores personnalisés.",
+      "es": "Herramienta de música con IA para generar canciones y paisajes sonoros personalizados."
+    },
+    "longDescription": {
+      "en": "MyTunes uses AI to create original, royalty-free music based on user prompts. Users can specify genre, mood, instruments, and length to generate unique tracks for videos, podcasts, or personal enjoyment.",
+      "fr": "MyTunes utilise l'IA pour créer de la musique originale et libre de droits à partir des prompts des utilisateurs. Les utilisateurs peuvent spécifier le genre, l'ambiance, les instruments et la durée pour générer des morceaux uniques pour des vidéos, des podcasts ou un plaisir personnel.",
+      "es": "MyTunes utiliza IA para crear música original y libre de derechos basada en las indicaciones de los usuarios. Los usuarios pueden especificar el género, el estado de ánimo, los instrumentos y la duración para generar pistas únicas para videos, podcasts o disfrute personal."
+    },
+    "category": "Audio",
+    "website": "https://mytunes.ai/",
+    "imageUrl": "/ai-tools/mytunes.jpg",
+    "imageKeywords": "ai music song",
+    "rating": 4.1,
+    "tags": ["music generation", "royalty-free music", "soundtrack"],
+    "pricing": "Freemium",
+    "features": {
+      "en": ["Prompt-based song generation", "Genre and mood selection", "Instrument customization", "Royalty-free licensing"],
+      "fr": ["Génération de chansons par prompt", "Sélection de genre et d'ambiance", "Personnalisation des instruments", "Licence libre de droits"],
+      "es": ["Generación de canciones basada en prompts", "Selección de género y estado de ánimo", "Personalización de instrumentos", "Licencia libre de derechos"]
+    }
+  },
+  {
+    "id": "104",
+    "name": "Artistly.ai",
+    "description": {
+      "en": "AI-powered platform to create illustrated children's books.",
+      "fr": "Plateforme par IA pour créer des livres pour enfants illustrés.",
+      "es": "Plataforma con IA para crear libros infantiles ilustrados."
+    },
+    "longDescription": {
+      "en": "Artistly.ai helps users write and illustrate complete children's storybooks. The AI generates the story, creates illustrations in various styles, and lays out the book, ready for publishing.",
+      "fr": "Artistly.ai aide les utilisateurs à écrire et illustrer des livres d'histoires complets pour enfants. L'IA génère l'histoire, crée des illustrations dans divers styles et met en page le livre, prêt à être publié.",
+      "es": "Artistly.ai ayuda a los usuarios a escribir e ilustrar libros de cuentos infantiles completos. La IA genera la historia, crea ilustraciones en varios estilos y diseña el libro, listo para su publicación."
+    },
+    "category": "Design",
+    "website": "https://artistly.ai/",
+    "imageUrl": "/ai-tools/artistly-ai.jpg",
+    "imageKeywords": "storybook illustration",
+    "rating": 4.4,
+    "tags": ["storybook", "illustration", "writing", "children's book"],
+    "pricing": "Paid",
+    "features": {
+      "en": ["AI story generation", "Custom illustration styles", "Character consistency", "Full book layout"],
+      "fr": ["Génération d'histoires par IA", "Styles d'illustration personnalisés", "Cohérence des personnages", "Mise en page complète du livre"],
+      "es": ["Generación de historias con IA", "Estilos de ilustración personalizados", "Consistencia de personajes", "Diseño completo del libro"]
+    }
+  },
+  {
+    "id": "105",
+    "name": "KP AI Music",
+    "description": {
+      "en": "AI music generator that creates songs with vocals from text prompts.",
+      "fr": "Générateur de musique par IA qui crée des chansons avec des voix à partir de prompts textuels.",
+      "es": "Generador de música con IA que crea canciones con voces a partir de indicaciones de texto."
+    },
+    "longDescription": {
+      "en": "KP AI Music (from an artist named Killian) is a tool that allows users to generate full songs, including instrumental tracks and AI-generated vocals, by describing the desired style and lyrics.",
+      "fr": "KP AI Music (créé par un artiste nommé Killian) est un outil qui permet aux utilisateurs de générer des chansons complètes, y compris des pistes instrumentales et des voix générées par IA, en décrivant le style et les paroles souhaités.",
+      "es": "KP AI Music (de un artista llamado Killian) es una herramienta que permite a los usuarios generar canciones completas, incluidas pistas instrumentales y voces generadas por IA, describiendo el estilo y la letra deseados."
+    },
+    "category": "Audio",
+    "website": "https://kpaesthetic.com/ai-music-generator/",
+    "imageUrl": "/ai-tools/kp-ai-music.jpg",
+    "imageKeywords": "music vocals",
+    "rating": 4.0,
+    "tags": ["music generation", "ai vocals", "song creator"],
+    "pricing": "Freemium",
+    "features": {
+      "en": ["Generates music with vocals", "Prompt-based song creation", "Multiple genres", "Instrumental and vocal tracks"],
+      "fr": ["Génère de la musique avec des voix", "Création de chansons par prompt", "Plusieurs genres", "Pistes instrumentales et vocales"],
+      "es": ["Genera música con voces", "Creación de canciones basada en prompts", "Múltiples géneros", "Pistas instrumentales y vocales"]
+    }
+  },
+  {
+    "id": "106",
+    "name": "PixVerse",
+    "description": {
+      "en": "Free AI video generator that creates stunning videos from text and images.",
+      "fr": "Générateur de vidéos IA gratuit qui crée des vidéos époustouflantes à partir de texte et d'images.",
+      "es": "Generador de video con IA gratuito que crea videos impresionantes a partir de texto e imágenes."
+    },
+    "longDescription": {
+      "en": "PixVerse is a powerful generative AI model for video creation. It allows users to transform text prompts and images into captivating videos with various styles, including realistic and anime.",
+      "fr": "PixVerse est un puissant modèle d'IA générative pour la création de vidéos. Il permet aux utilisateurs de transformer des prompts textuels et des images en vidéos captivantes avec différents styles, y compris réaliste et anime.",
+      "es": "PixVerse es un potente modelo de IA generativa para la creación de videos. Permite a los usuarios transformar indicaciones de texto e imágenes en videos cautivadores con varios estilos, incluyendo realista y anime."
+    },
+    "category": "Video",
+    "website": "https://pixverse.ai/",
+    "imageUrl": "/ai-tools/pixverse.jpg",
+    "imageKeywords": "generative video",
+    "rating": 4.6,
+    "tags": ["text-to-video", "image-to-video", "free", "anime style"],
+    "pricing": "Gratuit",
+    "features": {
+      "en": ["High-quality video generation", "Text-to-video and Image-to-video", "Multiple artistic styles", "Free to use"],
+      "fr": ["Génération de vidéos de haute qualité", "Texte en vidéo et Image en vidéo", "Plusieurs styles artistiques", "Utilisation gratuite"],
+      "es": ["Generación de video de alta calidad", "Texto a video e Imagen a video", "Múltiples estilos artísticos", "Gratis de usar"]
+    }
+  },
+  {
+    "id": "107",
+    "name": "AI Mirror",
+    "description": {
+      "en": "AI art and avatar generator with a focus on anime and character styles.",
+      "fr": "Générateur d'art et d'avatars IA axé sur les styles anime et personnages.",
+      "es": "Generador de arte y avatares con IA centrado en estilos de anime y personajes."
+    },
+    "longDescription": {
+      "en": "AI Mirror is a mobile application that transforms your photos into various artistic styles, primarily anime. It also functions as an avatar maker and provides trendy templates for social media.",
+      "fr": "AI Mirror est une application mobile qui transforme vos photos en différents styles artistiques, principalement l'anime. Elle fonctionne également comme un créateur d'avatars et fournit des modèles tendances pour les réseaux sociaux.",
+      "es": "AI Mirror es una aplicación móvil que transforma tus fotos en varios estilos artísticos, principalmente anime. También funciona como un creador de avatares y proporciona plantillas de moda para redes sociales."
+    },
+    "category": "Photo",
+    "website": "https://aimirror.fun/",
+    "imageUrl": "/ai-tools/ai-mirror.jpg",
+    "imageKeywords": "anime avatar",
+    "rating": 4.5,
+    "tags": ["photo to anime", "avatar generator", "mobile app", "art filter"],
+    "pricing": "Freemium",
+    "features": {
+      "en": ["Anime and cartoon styles", "Photo-to-art transformation", "Custom avatar creation", "Video generation from photos"],
+      "fr": ["Styles anime et dessin animé", "Transformation de photo en art", "Création d'avatar personnalisé", "Génération de vidéo à partir de photos"],
+      "es": ["Estilos de anime y dibujos animados", "Transformación de foto a arte", "Creación de avatar personalizado", "Generación de video a partir de fotos"]
+    }
+  },
+  {
+    "id": "108",
+    "name": "Hula AI Video Generator",
+    "description": {
+      "en": "AI-powered video generation tool with a focus on creating dance videos.",
+      "fr": "Outil de génération de vidéos par IA axé sur la création de vidéos de danse.",
+      "es": "Herramienta de generación de video con IA centrada en la creación de videos de baile."
+    },
+    "longDescription": {
+      "en": "Hula AI allows users to generate videos of characters dancing in various styles. You can upload a character image and select a dance motion to create fun, animated dance videos.",
+      "fr": "Hula AI permet aux utilisateurs de générer des vidéos de personnages dansant dans différents styles. Vous pouvez télécharger une image de personnage et sélectionner un mouvement de danse pour créer des vidéos de danse amusantes et animées.",
+      "es": "Hula AI permite a los usuarios generar videos de personajes bailando en varios estilos. Puedes subir una imagen de un personaje y seleccionar un movimiento de baile para crear videos de baile divertidos y animados."
+    },
+    "category": "Video",
+    "website": "https://hula.ai/",
+    "imageUrl": "/ai-tools/hula-ai.jpg",
+    "imageKeywords": "dance video",
+    "rating": 4.1,
+    "tags": ["dance animation", "character animation", "video generator"],
+    "pricing": "Freemium",
+    "features": {
+      "en": ["Image-to-dance video", "Variety of dance motions", "Character animation", "Easy sharing"],
+      "fr": ["Image en vidéo de danse", "Variété de mouvements de danse", "Animation de personnages", "Partage facile"],
+      "es": ["Imagen a video de baile", "Variedad de movimientos de baile", "Animación de personajes", "Fácil de compartir"]
+    }
+  },
+  {
+    "id": "109",
+    "name": "Glam.ai",
+    "description": {
+      "en": "AI-powered tool to generate professional-quality product photos.",
+      "fr": "Outil par IA pour générer des photos de produits de qualité professionnelle.",
+      "es": "Herramienta con IA para generar fotos de productos de calidad profesional."
+    },
+    "longDescription": {
+      "en": "Glam.ai is designed for e-commerce, allowing businesses to generate high-quality, consistent, and creative product photos by simply providing an image of their product and describing the desired scene.",
+      "fr": "Glam.ai est conçu pour le commerce électronique, permettant aux entreprises de générer des photos de produits de haute qualité, cohérentes et créatives en fournissant simplement une image de leur produit et en décrivant la scène souhaitée.",
+      "es": "Glam.ai está diseñado para el comercio electrónico, permitiendo a las empresas generar fotos de productos de alta calidad, consistentes y creativas simplemente proporcionando una imagen de su producto y describiendo la escena deseada."
+    },
+    "category": "Photo",
+    "website": "https://glam.ai/",
+    "imageUrl": "/ai-tools/glam-ai.jpg",
+    "imageKeywords": "product photography",
+    "rating": 4.5,
+    "tags": ["product photography", "ecommerce", "background generation"],
+    "pricing": "Paid",
+    "features": {
+      "en": ["AI-generated scenes", "Professional lighting effects", "Brand consistency tools", "High-resolution output"],
+      "fr": ["Scènes générées par IA", "Effets d'éclairage professionnels", "Outils de cohérence de marque", "Sortie haute résolution"],
+      "es": ["Escenas generadas por IA", "Efectos de iluminación profesional", "Herramientas de consistencia de marca", "Salida de alta resolución"]
+    }
+  },
+  {
+    "id": "110",
+    "name": "Vibe Creator",
+    "description": {
+      "en": "AI tool to generate color palettes and design themes from a single prompt.",
+      "fr": "Outil IA pour générer des palettes de couleurs et des thèmes de design à partir d'un seul prompt.",
+      "es": "Herramienta de IA para generar paletas de colores y temas de diseño a partir de una sola indicación."
+    },
+    "longDescription": {
+      "en": "Vibe Creator helps designers and creators establish a visual identity by generating color palettes, font pairings, and mood boards based on a descriptive text prompt, capturing the desired 'vibe'.",
+      "fr": "Vibe Creator aide les designers et les créateurs à établir une identité visuelle en générant des palettes de couleurs, des paires de polices et des mood boards à partir d'un prompt textuel descriptif, capturant l'ambiance souhaitée.",
+      "es": "Vibe Creator ayuda a diseñadores y creadores a establecer una identidad visual generando paletas de colores, combinaciones de fuentes y mood boards a partir de una indicación de texto descriptiva, capturando la 'vibra' deseada."
+    },
+    "category": "Design",
+    "website": "https://vibecreator.com/",
+    "imageUrl": "/ai-tools/vibe-creator.jpg",
+    "imageKeywords": "color palette",
+    "rating": 4.2,
+    "tags": ["color palette", "mood board", "design system", "branding"],
+    "pricing": "Freemium",
+    "features": {
+      "en": ["Prompt-based mood board generation", "Color palette extraction", "Font pairing suggestions", "Export to Figma"],
+      "fr": ["Génération de mood board par prompt", "Extraction de palettes de couleurs", "Suggestions de paires de polices", "Exportation vers Figma"],
+      "es": ["Generación de mood board basada en prompts", "Extracción de paletas de colores", "Sugerencias de combinación de fuentes", "Exportación a Figma"]
+    }
+  },
+  {
+    "id": "111",
+    "name": "Pollo AI",
+    "description": {
+      "en": "Create engaging polls and surveys with AI-generated questions.",
+      "fr": "Créez des sondages et des enquêtes engageants avec des questions générées par IA.",
+      "es": "Crea encuestas y sondeos atractivos con preguntas generadas por IA."
+    },
+    "longDescription": {
+      "en": "Pollo AI helps you quickly create surveys and polls by generating relevant and unbiased questions based on your topic. It's designed to increase engagement and gather more insightful feedback.",
+      "fr": "Pollo AI vous aide à créer rapidement des enquêtes et des sondages en générant des questions pertinentes et impartiales basées sur votre sujet. Il est conçu pour augmenter l'engagement et recueillir des commentaires plus pertinents.",
+      "es": "Pollo AI te ayuda a crear rápidamente encuestas y sondeos generando preguntas relevantes e imparciales basadas en tu tema. Está diseñado para aumentar la participación y recopilar comentarios más perspicaces."
+    },
+    "category": "Productivity",
+    "website": "https://pollo.ai/",
+    "imageUrl": "/ai-tools/pollo-ai.jpg",
+    "imageKeywords": "survey poll",
+    "rating": 4.0,
+    "tags": ["survey", "poll", "feedback", "market research"],
+    "pricing": "Freemium",
+    "features": {
+      "en": ["AI question generation", "Multiple question types", "Customizable templates", "Result analysis"],
+      "fr": ["Génération de questions par IA", "Plusieurs types de questions", "Modèles personnalisables", "Analyse des résultats"],
+      "es": ["Generación de preguntas con IA", "Múltiples tipos de preguntas", "Plantillas personalizables", "Análisis de resultados"]
+    }
+  },
+  {
+    "id": "112",
+    "name": "AI Cleaner",
+    "description": {
+      "en": "AI-powered tool to easily remove unwanted objects, people, or text from photos.",
+      "fr": "Outil par IA pour supprimer facilement les objets, personnes ou textes indésirables des photos.",
+      "es": "Herramienta con IA para eliminar fácilmente objetos, personas o textos no deseados de las fotos."
+    },
+    "longDescription": {
+      "en": "AI Cleaner offers a simple 'magic eraser' functionality. Users can upload an image, brush over the object they want to remove, and the AI will intelligently fill in the background.",
+      "fr": "AI Cleaner offre une fonctionnalité simple de 'gomme magique'. Les utilisateurs peuvent télécharger une image, passer le pinceau sur l'objet qu'ils veulent supprimer, et l'IA remplira intelligemment l'arrière-plan.",
+      "es": "AI Cleaner ofrece una funcionalidad simple de 'borrador mágico'. Los usuarios pueden subir una imagen, pasar el pincel sobre el objeto que desean eliminar, y la IA rellenará inteligentemente el fondo."
+    },
+    "category": "Photo",
+    "website": "https://aicleaner.com/",
+    "imageUrl": "/ai-tools/ai-cleaner.jpg",
+    "imageKeywords": "object removal",
+    "rating": 4.4,
+    "tags": ["photo editing", "object removal", "magic eraser", "inpainting"],
+    "pricing": "Freemium",
+    "features": {
+      "en": ["One-click object removal", "Text and watermark removal", "People removal", "High-resolution processing"],
+      "fr": ["Suppression d'objets en un clic", "Suppression de texte et de filigranes", "Suppression de personnes", "Traitement haute résolution"],
+      "es": ["Eliminación de objetos con un clic", "Eliminación de texto y marcas de agua", "Eliminación de personas", "Procesamiento de alta resolución"]
+    }
+  },
+  {
+    "id": "113",
+    "name": "HIX.AI",
+    "description": {
+      "en": "All-in-one AI writing copilot with a suite of tools for content creation.",
+      "fr": "Copilote d'écriture IA tout-en-un avec une suite d'outils pour la création de contenu.",
+      "es": "Copiloto de escritura con IA todo en uno con un conjunto de herramientas para la creación de contenido."
+    },
+    "longDescription": {
+      "en": "HIX.AI provides a wide array of writing tools, including an article writer, paraphraser, summarizer, and email generator, all powered by advanced language models like GPT-3.5 and GPT-4.",
+      "fr": "HIX.AI fournit une large gamme d'outils d'écriture, y compris un rédacteur d'articles, un reformulateur, un résumeur et un générateur d'e-mails, tous alimentés par des modèles de langage avancés comme GPT-3.5 et GPT-4.",
+      "es": "HIX.AI proporciona una amplia gama de herramientas de escritura, incluyendo un redactor de artículos, un parafraseador, un resumidor y un generador de correos electrónicos, todos impulsados por modelos de lenguaje avanzados como GPT-3.5 y GPT-4."
+    },
+    "category": "LLM",
+    "website": "https://hix.ai/",
+    "imageUrl": "/ai-tools/hix-ai.jpg",
+    "imageKeywords": "ai writing",
+    "rating": 4.5,
+    "tags": ["writing assistant", "content generation", "seo", "productivity"],
+    "pricing": "Freemium",
+    "features": {
+      "en": ["120+ AI writing tools", "Long-form article writer", "Chrome extension", "Multi-language support"],
+      "fr": ["+120 outils d'écriture IA", "Rédacteur d'articles longs", "Extension Chrome", "Support multilingue"],
+      "es": ["+120 herramientas de escritura con IA", "Redactor de artículos largos", "Extensión de Chrome", "Soporte multilingüe"]
+    }
+  },
+  {
+    "id": "114",
+    "name": "Lovart.ai",
+    "description": {
+      "en": "AI-powered platform to generate high-quality anime art and characters.",
+      "fr": "Plateforme par IA pour générer de l'art et des personnages d'anime de haute qualité.",
+      "es": "Plataforma con IA para generar arte y personajes de anime de alta calidad."
+    },
+    "longDescription": {
+      "en": "Lovart.ai specializes in creating anime-style images from text prompts. It offers fine-tuned models for different anime aesthetics and allows for detailed character customization.",
+      "fr": "Lovart.ai se spécialise dans la création d'images de style anime à partir de prompts textuels. Il propose des modèles affinés pour différentes esthétiques d'anime et permet une personnalisation détaillée des personnages.",
+      "es": "Lovart.ai se especializa en la creación de imágenes de estilo anime a partir de indicaciones de texto. Ofrece modelos afinados para diferentes estéticas de anime y permite una personalización detallada de los personajes."
+    },
+    "category": "Photo",
+    "website": "https://lovart.ai/",
+    "imageUrl": "/ai-tools/lovart-ai.jpg",
+    "imageKeywords": "anime art generator",
+    "rating": 4.3,
+    "tags": ["anime art", "character design", "image generation", "waifu"],
+    "pricing": "Freemium",
+    "features": {
+      "en": ["Specialized anime models", "Detailed character prompts", "Pose and style control", "Community gallery"],
+      "fr": ["Modèles d'anime spécialisés", "Prompts de personnages détaillés", "Contrôle de la pose et du style", "Galerie communautaire"],
+      "es": ["Modelos de anime especializados", "Prompts de personajes detallados", "Control de pose y estilo", "Galería de la comunidad"]
     }
   }
 ]
