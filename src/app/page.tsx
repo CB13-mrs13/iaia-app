@@ -52,6 +52,15 @@ const HeroSlideshow = ({ items }: { items: HeroItem[] }) => {
         }
       }
     });
+
+    const timer = setTimeout(() => {
+        if (items[currentIndex].type === 'image') {
+            handleVideoEnded(); // Manually advance for images
+        }
+    }, 5000); // 5 second timer for images
+
+    return () => clearTimeout(timer);
+
   }, [currentIndex, items]);
 
   const currentItem = items[currentIndex];
@@ -196,18 +205,20 @@ export default function LandingPage() {
             <CarouselContent>
               {carouselItems.map((item, index) => (
                 <CarouselItem key={index}>
-                  <div className="relative w-full overflow-hidden rounded-lg bg-black">
-                     <Image
-                          src={item.image}
-                          alt={item.caption}
-                          width={1920}
-                          height={1080}
-                          className="w-full h-auto aspect-video object-contain bg-black"
-                          data-ai-hint={item.hint}
-                        />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                    <div className="absolute bottom-0 left-0 p-4 md:p-8">
-                       <h3 className="text-white text-xl md:text-2xl font-bold drop-shadow-lg text-left">{item.caption}</h3>
+                  <div className="p-1">
+                    <div className="relative w-full overflow-hidden rounded-lg bg-black aspect-video">
+                       <Image
+                            src={item.image}
+                            alt={item.caption}
+                            width={1920}
+                            height={1080}
+                            className="w-full h-full object-contain"
+                            data-ai-hint={item.hint}
+                          />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                      <div className="absolute bottom-0 left-0 p-4 md:p-8">
+                         <h3 className="text-white text-xl md:text-2xl font-bold drop-shadow-lg text-left">{item.caption}</h3>
+                      </div>
                     </div>
                   </div>
                 </CarouselItem>
