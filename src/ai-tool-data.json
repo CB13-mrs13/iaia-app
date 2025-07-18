@@ -2545,12 +2545,31 @@
     "imageUrl": "/ai-tools/hexa-ai.jpg",
     "imageKeywords": "3d asset",
     "rating": 4.5,
-    "tags": ["3d modeling", "ecommerce", "augmented reality"],
+    "tags": [
+      "3d modeling",
+      "ecommerce",
+      "augmented reality"
+    ],
     "pricing": "Paid",
     "features": {
-      "en": ["2D to 3D asset conversion", "AI-powered 3D modeling", "AR viewer integration", "Synthetic data generation"],
-      "fr": ["Conversion d'actifs 2D en 3D", "Modélisation 3D par IA", "Intégration de visionneuse AR", "Génération de données synthétiques"],
-      "es": ["Conversión de activos 2D a 3D", "Modelado 3D con IA", "Integración de visor AR", "Generación de datos sintéticos"]
+      "en": [
+        "2D to 3D asset conversion",
+        "AI-powered 3D modeling",
+        "AR viewer integration",
+        "Synthetic data generation"
+      ],
+      "fr": [
+        "Conversion d'actifs 2D en 3D",
+        "Modélisation 3D par IA",
+        "Intégration de visionneuse AR",
+        "Génération de données synthétiques"
+      ],
+      "es": [
+        "Conversión de activos 2D a 3D",
+        "Modelado 3D con IA",
+        "Integración de visor AR",
+        "Generación de datos sintéticos"
+      ]
     }
   },
   {
@@ -2571,12 +2590,31 @@
     "imageUrl": "/ai-tools/creati-ai.jpg",
     "imageKeywords": "content creation",
     "rating": 4.3,
-    "tags": ["content marketing", "copywriting", "seo"],
+    "tags": [
+      "content marketing",
+      "copywriting",
+      "seo"
+    ],
     "pricing": "Freemium",
     "features": {
-      "en": ["Multi-format content generation", "SEO optimization tools", "Brand voice analysis", "Team collaboration"],
-      "fr": ["Génération de contenu multiformat", "Outils d'optimisation SEO", "Analyse de la voix de la marque", "Collaboration d'équipe"],
-      "es": ["Generación de contenido multiformato", "Herramientas de optimización SEO", "Análisis de la voz de la marca", "Colaboración en equipo"]
+      "en": [
+        "Multi-format content generation",
+        "SEO optimization tools",
+        "Brand voice analysis",
+        "Team collaboration"
+      ],
+      "fr": [
+        "Génération de contenu multiformat",
+        "Outils d'optimisation SEO",
+        "Analyse de la voix de la marque",
+        "Collaboration d'équipe"
+      ],
+      "es": [
+        "Generación de contenido multiformato",
+        "Herramientas de optimización SEO",
+        "Análisis de la voz de la marca",
+        "Colaboración en equipo"
+      ]
     }
   },
   {
@@ -2597,12 +2635,31 @@
     "imageUrl": "/ai-tools/swap-ai.jpg",
     "imageKeywords": "face swap",
     "rating": 4.2,
-    "tags": ["face swap", "video editing", "entertainment"],
+    "tags": [
+      "face swap",
+      "video editing",
+      "entertainment"
+    ],
     "pricing": "Freemium",
     "features": {
-      "en": ["High-quality face swapping", "Video and image support", "Easy-to-use interface", "Fast processing"],
-      "fr": ["Échange de visages de haute qualité", "Support vidéo et image", "Interface facile à utiliser", "Traitement rapide"],
-      "es": ["Intercambio de caras de alta calidad", "Soporte de video e imagen", "Interfaz fácil de usar", "Procesamiento rápido"]
+      "en": [
+        "High-quality face swapping",
+        "Video and image support",
+        "Easy-to-use interface",
+        "Fast processing"
+      ],
+      "fr": [
+        "Échange de visages de haute qualité",
+        "Support vidéo et image",
+        "Interface facile à utiliser",
+        "Traitement rapide"
+      ],
+      "es": [
+        "Intercambio de caras de alta calidad",
+        "Soporte de video e imagen",
+        "Interfaz fácil de usar",
+        "Procesamiento rápido"
+      ]
     }
   },
   {
@@ -2623,12 +2680,32 @@
     "imageUrl": "/ai-tools/instories.jpg",
     "imageKeywords": "social media stories",
     "rating": 4.6,
-    "tags": ["social media", "video editor", "story maker", "mobile app"],
+    "tags": [
+      "social media",
+      "video editor",
+      "story maker",
+      "mobile app"
+    ],
     "pricing": "Freemium",
     "features": {
-      "en": ["Professional templates", "AI-suggested music", "Animated text and effects", "Easy for beginners"],
-      "fr": ["Modèles professionnels", "Musique suggérée par IA", "Texte et effets animés", "Facile pour les débutants"],
-      "es": ["Plantillas profesionales", "Música sugerida por IA", "Texto y efectos animados", "Fácil para principiantes"]
+      "en": [
+        "Professional templates",
+        "AI-suggested music",
+        "Animated text and effects",
+        "Easy for beginners"
+      ],
+      "fr": [
+        "Modèles professionnels",
+        "Musique suggérée par IA",
+        "Texte et effets animés",
+        "Facile pour les débutants"
+      ],
+      "es": [
+        "Plantillas profesionales",
+        "Música sugerida por IA",
+        "Texto y efectos animados",
+        "Fácil para principiantes"
+      ]
     }
   },
   {
@@ -2649,12 +2726,32 @@
     "imageUrl": "/ai-tools/ltx-studio.jpg",
     "imageKeywords": "ai filmmaking",
     "rating": 4.8,
-    "tags": ["filmmaking", "text-to-video", "storyboarding", "scriptwriting"],
+    "tags": [
+      "filmmaking",
+      "text-to-video",
+      "storyboarding",
+      "scriptwriting"
+    ],
     "pricing": "Contact for Pricing",
     "features": {
-      "en": ["Idea to full video generation", "AI scriptwriting and storyboarding", "Automatic scene editing", "Character and voice control"],
-      "fr": ["Génération de vidéo complète à partir d'une idée", "Écriture de scénario et story-board par IA", "Montage de scènes automatique", "Contrôle des personnages et des voix"],
-      "es": ["Generación de video completo a partir de una idea", "Escritura de guiones y guion gráfico con IA", "Edición de escenas automática", "Control de personajes y voces"]
+      "en": [
+        "Idea to full video generation",
+        "AI scriptwriting and storyboarding",
+        "Automatic scene editing",
+        "Character and voice control"
+      ],
+      "fr": [
+        "Génération de vidéo complète à partir d'une idée",
+        "Écriture de scénario et story-board par IA",
+        "Montage de scènes automatique",
+        "Contrôle des personnages et des voix"
+      ],
+      "es": [
+        "Generación de video completo a partir de una idea",
+        "Escritura de guiones y guion gráfico con IA",
+        "Edición de escenas automática",
+        "Control de personajes y voces"
+      ]
     }
   },
   {
@@ -2675,12 +2772,31 @@
     "imageUrl": "/ai-tools/mytunes.jpg",
     "imageKeywords": "ai music song",
     "rating": 4.1,
-    "tags": ["music generation", "royalty-free music", "soundtrack"],
+    "tags": [
+      "music generation",
+      "royalty-free music",
+      "soundtrack"
+    ],
     "pricing": "Freemium",
     "features": {
-      "en": ["Prompt-based song generation", "Genre and mood selection", "Instrument customization", "Royalty-free licensing"],
-      "fr": ["Génération de chansons par prompt", "Sélection de genre et d'ambiance", "Personnalisation des instruments", "Licence libre de droits"],
-      "es": ["Generación de canciones basada en prompts", "Selección de género y estado de ánimo", "Personalización de instrumentos", "Licencia libre de derechos"]
+      "en": [
+        "Prompt-based song generation",
+        "Genre and mood selection",
+        "Instrument customization",
+        "Royalty-free licensing"
+      ],
+      "fr": [
+        "Génération de chansons par prompt",
+        "Sélection de genre et d'ambiance",
+        "Personnalisation des instruments",
+        "Licence libre de droits"
+      ],
+      "es": [
+        "Generación de canciones basada en prompts",
+        "Selección de género y estado de ánimo",
+        "Personalización de instrumentos",
+        "Licencia libre de derechos"
+      ]
     }
   },
   {
@@ -2701,12 +2817,32 @@
     "imageUrl": "/ai-tools/artistly-ai.jpg",
     "imageKeywords": "storybook illustration",
     "rating": 4.4,
-    "tags": ["storybook", "illustration", "writing", "children's book"],
+    "tags": [
+      "storybook",
+      "illustration",
+      "writing",
+      "children's book"
+    ],
     "pricing": "Paid",
     "features": {
-      "en": ["AI story generation", "Custom illustration styles", "Character consistency", "Full book layout"],
-      "fr": ["Génération d'histoires par IA", "Styles d'illustration personnalisés", "Cohérence des personnages", "Mise en page complète du livre"],
-      "es": ["Generación de historias con IA", "Estilos de ilustración personalizados", "Consistencia de personajes", "Diseño completo del libro"]
+      "en": [
+        "AI story generation",
+        "Custom illustration styles",
+        "Character consistency",
+        "Full book layout"
+      ],
+      "fr": [
+        "Génération d'histoires par IA",
+        "Styles d'illustration personnalisés",
+        "Cohérence des personnages",
+        "Mise en page complète du livre"
+      ],
+      "es": [
+        "Generación de historias con IA",
+        "Estilos de ilustración personalizados",
+        "Consistencia de personajes",
+        "Diseño completo del libro"
+      ]
     }
   },
   {
@@ -2726,13 +2862,32 @@
     "website": "https://kpaesthetic.com/ai-music-generator/",
     "imageUrl": "/ai-tools/kp-ai-music.jpg",
     "imageKeywords": "music vocals",
-    "rating": 4.0,
-    "tags": ["music generation", "ai vocals", "song creator"],
+    "rating": 4,
+    "tags": [
+      "music generation",
+      "ai vocals",
+      "song creator"
+    ],
     "pricing": "Freemium",
     "features": {
-      "en": ["Generates music with vocals", "Prompt-based song creation", "Multiple genres", "Instrumental and vocal tracks"],
-      "fr": ["Génère de la musique avec des voix", "Création de chansons par prompt", "Plusieurs genres", "Pistes instrumentales et vocales"],
-      "es": ["Genera música con voces", "Creación de canciones basada en prompts", "Múltiples géneros", "Pistas instrumentales y vocales"]
+      "en": [
+        "Generates music with vocals",
+        "Prompt-based song creation",
+        "Multiple genres",
+        "Instrumental and vocal tracks"
+      ],
+      "fr": [
+        "Génère de la musique avec des voix",
+        "Création de chansons par prompt",
+        "Plusieurs genres",
+        "Pistes instrumentales et vocales"
+      ],
+      "es": [
+        "Genera música con voces",
+        "Creación de canciones basada en prompts",
+        "Múltiples géneros",
+        "Pistas instrumentales y vocales"
+      ]
     }
   },
   {
@@ -2748,17 +2903,38 @@
       "fr": "PixVerse est un puissant modèle d'IA générative pour la création de vidéos. Il permet aux utilisateurs de transformer des prompts textuels et des images en vidéos captivantes avec différents styles, y compris réaliste et anime.",
       "es": "PixVerse es un potente modelo de IA generativa para la creación de videos. Permite a los usuarios transformar indicaciones de texto e imágenes en videos cautivadores con varios estilos, incluyendo realista y anime."
     },
-    "category": "Video",
+    "category": "Gratuit",
     "website": "https://pixverse.ai/",
     "imageUrl": "/ai-tools/pixverse.jpg",
     "imageKeywords": "generative video",
     "rating": 4.6,
-    "tags": ["text-to-video", "image-to-video", "free", "anime style"],
-    "pricing": "Gratuit",
+    "tags": [
+      "text-to-video",
+      "image-to-video",
+      "free",
+      "anime style",
+      "Video"
+    ],
+    "pricing": "Free",
     "features": {
-      "en": ["High-quality video generation", "Text-to-video and Image-to-video", "Multiple artistic styles", "Free to use"],
-      "fr": ["Génération de vidéos de haute qualité", "Texte en vidéo et Image en vidéo", "Plusieurs styles artistiques", "Utilisation gratuite"],
-      "es": ["Generación de video de alta calidad", "Texto a video e Imagen a video", "Múltiples estilos artísticos", "Gratis de usar"]
+      "en": [
+        "High-quality video generation",
+        "Text-to-video and Image-to-video",
+        "Multiple artistic styles",
+        "Free to use"
+      ],
+      "fr": [
+        "Génération de vidéos de haute qualité",
+        "Texte en vidéo et Image en vidéo",
+        "Plusieurs styles artistiques",
+        "Utilisation gratuite"
+      ],
+      "es": [
+        "Generación de video de alta calidad",
+        "Texto a video e Imagen a video",
+        "Múltiples estilos artísticos",
+        "Gratis de usar"
+      ]
     }
   },
   {
@@ -2779,12 +2955,32 @@
     "imageUrl": "/ai-tools/ai-mirror.jpg",
     "imageKeywords": "anime avatar",
     "rating": 4.5,
-    "tags": ["photo to anime", "avatar generator", "mobile app", "art filter"],
+    "tags": [
+      "photo to anime",
+      "avatar generator",
+      "mobile app",
+      "art filter"
+    ],
     "pricing": "Freemium",
     "features": {
-      "en": ["Anime and cartoon styles", "Photo-to-art transformation", "Custom avatar creation", "Video generation from photos"],
-      "fr": ["Styles anime et dessin animé", "Transformation de photo en art", "Création d'avatar personnalisé", "Génération de vidéo à partir de photos"],
-      "es": ["Estilos de anime y dibujos animados", "Transformación de foto a arte", "Creación de avatar personalizado", "Generación de video a partir de fotos"]
+      "en": [
+        "Anime and cartoon styles",
+        "Photo-to-art transformation",
+        "Custom avatar creation",
+        "Video generation from photos"
+      ],
+      "fr": [
+        "Styles anime et dessin animé",
+        "Transformation de photo en art",
+        "Création d'avatar personnalisé",
+        "Génération de vidéo à partir de photos"
+      ],
+      "es": [
+        "Estilos de anime y dibujos animados",
+        "Transformación de foto a arte",
+        "Creación de avatar personalizado",
+        "Generación de video a partir de fotos"
+      ]
     }
   },
   {
@@ -2805,12 +3001,31 @@
     "imageUrl": "/ai-tools/hula-ai.jpg",
     "imageKeywords": "dance video",
     "rating": 4.1,
-    "tags": ["dance animation", "character animation", "video generator"],
+    "tags": [
+      "dance animation",
+      "character animation",
+      "video generator"
+    ],
     "pricing": "Freemium",
     "features": {
-      "en": ["Image-to-dance video", "Variety of dance motions", "Character animation", "Easy sharing"],
-      "fr": ["Image en vidéo de danse", "Variété de mouvements de danse", "Animation de personnages", "Partage facile"],
-      "es": ["Imagen a video de baile", "Variedad de movimientos de baile", "Animación de personajes", "Fácil de compartir"]
+      "en": [
+        "Image-to-dance video",
+        "Variety of dance motions",
+        "Character animation",
+        "Easy sharing"
+      ],
+      "fr": [
+        "Image en vidéo de danse",
+        "Variété de mouvements de danse",
+        "Animation de personnages",
+        "Partage facile"
+      ],
+      "es": [
+        "Imagen a video de baile",
+        "Variedad de movimientos de baile",
+        "Animación de personajes",
+        "Fácil de compartir"
+      ]
     }
   },
   {
@@ -2831,12 +3046,31 @@
     "imageUrl": "/ai-tools/glam-ai.jpg",
     "imageKeywords": "product photography",
     "rating": 4.5,
-    "tags": ["product photography", "ecommerce", "background generation"],
+    "tags": [
+      "product photography",
+      "ecommerce",
+      "background generation"
+    ],
     "pricing": "Paid",
     "features": {
-      "en": ["AI-generated scenes", "Professional lighting effects", "Brand consistency tools", "High-resolution output"],
-      "fr": ["Scènes générées par IA", "Effets d'éclairage professionnels", "Outils de cohérence de marque", "Sortie haute résolution"],
-      "es": ["Escenas generadas por IA", "Efectos de iluminación profesional", "Herramientas de consistencia de marca", "Salida de alta resolución"]
+      "en": [
+        "AI-generated scenes",
+        "Professional lighting effects",
+        "Brand consistency tools",
+        "High-resolution output"
+      ],
+      "fr": [
+        "Scènes générées par IA",
+        "Effets d'éclairage professionnels",
+        "Outils de cohérence de marque",
+        "Sortie haute résolution"
+      ],
+      "es": [
+        "Escenas generadas por IA",
+        "Efectos de iluminación profesional",
+        "Herramientas de consistencia de marca",
+        "Salida de alta resolución"
+      ]
     }
   },
   {
@@ -2857,12 +3091,32 @@
     "imageUrl": "/ai-tools/vibe-creator.jpg",
     "imageKeywords": "color palette",
     "rating": 4.2,
-    "tags": ["color palette", "mood board", "design system", "branding"],
+    "tags": [
+      "color palette",
+      "mood board",
+      "design system",
+      "branding"
+    ],
     "pricing": "Freemium",
     "features": {
-      "en": ["Prompt-based mood board generation", "Color palette extraction", "Font pairing suggestions", "Export to Figma"],
-      "fr": ["Génération de mood board par prompt", "Extraction de palettes de couleurs", "Suggestions de paires de polices", "Exportation vers Figma"],
-      "es": ["Generación de mood board basada en prompts", "Extracción de paletas de colores", "Sugerencias de combinación de fuentes", "Exportación a Figma"]
+      "en": [
+        "Prompt-based mood board generation",
+        "Color palette extraction",
+        "Font pairing suggestions",
+        "Export to Figma"
+      ],
+      "fr": [
+        "Génération de mood board par prompt",
+        "Extraction de palettes de couleurs",
+        "Suggestions de paires de polices",
+        "Exportation vers Figma"
+      ],
+      "es": [
+        "Generación de mood board basada en prompts",
+        "Extracción de paletas de colores",
+        "Sugerencias de combinación de fuentes",
+        "Exportación a Figma"
+      ]
     }
   },
   {
@@ -2882,13 +3136,33 @@
     "website": "https://pollo.ai/",
     "imageUrl": "/ai-tools/pollo-ai.jpg",
     "imageKeywords": "survey poll",
-    "rating": 4.0,
-    "tags": ["survey", "poll", "feedback", "market research"],
+    "rating": 4,
+    "tags": [
+      "survey",
+      "poll",
+      "feedback",
+      "market research"
+    ],
     "pricing": "Freemium",
     "features": {
-      "en": ["AI question generation", "Multiple question types", "Customizable templates", "Result analysis"],
-      "fr": ["Génération de questions par IA", "Plusieurs types de questions", "Modèles personnalisables", "Analyse des résultats"],
-      "es": ["Generación de preguntas con IA", "Múltiples tipos de preguntas", "Plantillas personalizables", "Análisis de resultados"]
+      "en": [
+        "AI question generation",
+        "Multiple question types",
+        "Customizable templates",
+        "Result analysis"
+      ],
+      "fr": [
+        "Génération de questions par IA",
+        "Plusieurs types de questions",
+        "Modèles personnalisables",
+        "Analyse des résultats"
+      ],
+      "es": [
+        "Generación de preguntas con IA",
+        "Múltiples tipos de preguntas",
+        "Plantillas personalizables",
+        "Análisis de resultados"
+      ]
     }
   },
   {
@@ -2909,12 +3183,32 @@
     "imageUrl": "/ai-tools/ai-cleaner.jpg",
     "imageKeywords": "object removal",
     "rating": 4.4,
-    "tags": ["photo editing", "object removal", "magic eraser", "inpainting"],
+    "tags": [
+      "photo editing",
+      "object removal",
+      "magic eraser",
+      "inpainting"
+    ],
     "pricing": "Freemium",
     "features": {
-      "en": ["One-click object removal", "Text and watermark removal", "People removal", "High-resolution processing"],
-      "fr": ["Suppression d'objets en un clic", "Suppression de texte et de filigranes", "Suppression de personnes", "Traitement haute résolution"],
-      "es": ["Eliminación de objetos con un clic", "Eliminación de texto y marcas de agua", "Eliminación de personas", "Procesamiento de alta resolución"]
+      "en": [
+        "One-click object removal",
+        "Text and watermark removal",
+        "People removal",
+        "High-resolution processing"
+      ],
+      "fr": [
+        "Suppression d'objets en un clic",
+        "Suppression de texte et de filigranes",
+        "Suppression de personnes",
+        "Traitement haute résolution"
+      ],
+      "es": [
+        "Eliminación de objetos con un clic",
+        "Eliminación de texto y marcas de agua",
+        "Eliminación de personas",
+        "Procesamiento de alta resolución"
+      ]
     }
   },
   {
@@ -2935,12 +3229,32 @@
     "imageUrl": "/ai-tools/hix-ai.jpg",
     "imageKeywords": "ai writing",
     "rating": 4.5,
-    "tags": ["writing assistant", "content generation", "seo", "productivity"],
+    "tags": [
+      "writing assistant",
+      "content generation",
+      "seo",
+      "productivity"
+    ],
     "pricing": "Freemium",
     "features": {
-      "en": ["120+ AI writing tools", "Long-form article writer", "Chrome extension", "Multi-language support"],
-      "fr": ["+120 outils d'écriture IA", "Rédacteur d'articles longs", "Extension Chrome", "Support multilingue"],
-      "es": ["+120 herramientas de escritura con IA", "Redactor de artículos largos", "Extensión de Chrome", "Soporte multilingüe"]
+      "en": [
+        "120+ AI writing tools",
+        "Long-form article writer",
+        "Chrome extension",
+        "Multi-language support"
+      ],
+      "fr": [
+        "+120 outils d'écriture IA",
+        "Rédacteur d'articles longs",
+        "Extension Chrome",
+        "Support multilingue"
+      ],
+      "es": [
+        "+120 herramientas de escritura con IA",
+        "Redactor de artículos largos",
+        "Extensión de Chrome",
+        "Soporte multilingüe"
+      ]
     }
   },
   {
@@ -2961,12 +3275,32 @@
     "imageUrl": "/ai-tools/lovart-ai.jpg",
     "imageKeywords": "anime art generator",
     "rating": 4.3,
-    "tags": ["anime art", "character design", "image generation", "waifu"],
+    "tags": [
+      "anime art",
+      "character design",
+      "image generation",
+      "waifu"
+    ],
     "pricing": "Freemium",
     "features": {
-      "en": ["Specialized anime models", "Detailed character prompts", "Pose and style control", "Community gallery"],
-      "fr": ["Modèles d'anime spécialisés", "Prompts de personnages détaillés", "Contrôle de la pose et du style", "Galerie communautaire"],
-      "es": ["Modelos de anime especializados", "Prompts de personajes detallados", "Control de pose y estilo", "Galería de la comunidad"]
+      "en": [
+        "Specialized anime models",
+        "Detailed character prompts",
+        "Pose and style control",
+        "Community gallery"
+      ],
+      "fr": [
+        "Modèles d'anime spécialisés",
+        "Prompts de personnages détaillés",
+        "Contrôle de la pose et du style",
+        "Galerie communautaire"
+      ],
+      "es": [
+        "Modelos de anime especializados",
+        "Prompts de personajes detallados",
+        "Control de pose y estilo",
+        "Galería de la comunidad"
+      ]
     }
   }
 ]
