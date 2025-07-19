@@ -54,7 +54,33 @@ try {
 const db = admin.firestore();
 const toolsCollection = db.collection('tools');
 
+async function deleteCollection(collectionRef, batchSize = 100) {
+    const query = collectionRef.orderBy('__name__').limit(batchSize);
+    let snapshot = await query.get();
+    
+    if (snapshot.size === 0) {
+        return;
+    }
+
+    let numDeleted = 0;
+    while (snapshot.size > 0) {
+        const batch = db.batch();
+        snapshot.docs.forEach(doc => {
+            batch.delete(doc.ref);
+        });
+        await batch.commit();
+        numDeleted += snapshot.size;
+        snapshot = await query.get();
+    }
+    console.log(`\x1b[33m%s\x1b[0m`,`Successfully deleted ${numDeleted} old tool documents.`);
+}
+
 async function importData() {
+  // Delete all existing documents in the collection first
+  console.log("Clearing existing 'tools' collection...");
+  await deleteCollection(toolsCollection);
+  console.log("'tools' collection cleared.");
+
   if (!aiTools || aiTools.length === 0) {
     console.log('No tools to import.');
     return;
