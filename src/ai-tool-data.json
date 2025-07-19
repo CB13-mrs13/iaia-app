@@ -2618,51 +2618,6 @@
     }
   },
   {
-    "id": "100",
-    "name": "Swap AI",
-    "description": {
-      "en": "AI face swapping tool for creating fun and realistic videos and photos.",
-      "fr": "Outil d'échange de visages par IA pour créer des vidéos et des photos amusantes et réalistes.",
-      "es": "Herramienta de intercambio de caras con IA para crear videos y fotos divertidos y realistas."
-    },
-    "longDescription": {
-      "en": "Swap AI provides an easy-to-use platform for swapping faces in images and videos. It is used for creating entertaining content, memes, and personalized media with high-quality results.",
-      "fr": "Swap AI fournit une plateforme facile à utiliser pour échanger des visages dans des images et des vidéos. Elle est utilisée pour créer du contenu divertissant, des mèmes et des médias personnalisés avec des résultats de haute qualité.",
-      "es": "Swap AI proporciona una plataforma fácil de usar para intercambiar caras en imágenes y videos. Se utiliza para crear contenido entretenido, memes y medios personalizados con resultados de alta calidad."
-    },
-    "category": "Video",
-    "website": "https://swap-ai.com/",
-    "imageUrl": "/ai-tools/swap-ai.jpg",
-    "imageKeywords": "face swap",
-    "rating": 4.2,
-    "tags": [
-      "face swap",
-      "video editing",
-      "entertainment"
-    ],
-    "pricing": "Freemium",
-    "features": {
-      "en": [
-        "High-quality face swapping",
-        "Video and image support",
-        "Easy-to-use interface",
-        "Fast processing"
-      ],
-      "fr": [
-        "Échange de visages de haute qualité",
-        "Support vidéo et image",
-        "Interface facile à utiliser",
-        "Traitement rapide"
-      ],
-      "es": [
-        "Intercambio de caras de alta calidad",
-        "Soporte de video e imagen",
-        "Interfaz fácil de usar",
-        "Procesamiento rápido"
-      ]
-    }
-  },
-  {
     "id": "101",
     "name": "InStories",
     "description": {
@@ -2755,51 +2710,6 @@
     }
   },
   {
-    "id": "103",
-    "name": "MyTunes",
-    "description": {
-      "en": "AI-powered music tool to generate custom songs and soundscapes.",
-      "fr": "Outil de musique par IA pour générer des chansons et des paysages sonores personnalisés.",
-      "es": "Herramienta de música con IA para generar canciones y paisajes sonoros personalizados."
-    },
-    "longDescription": {
-      "en": "MyTunes uses AI to create original, royalty-free music based on user prompts. Users can specify genre, mood, instruments, and length to generate unique tracks for videos, podcasts, or personal enjoyment.",
-      "fr": "MyTunes utilise l'IA pour créer de la musique originale et libre de droits à partir des prompts des utilisateurs. Les utilisateurs peuvent spécifier le genre, l'ambiance, les instruments et la durée pour générer des morceaux uniques pour des vidéos, des podcasts ou un plaisir personnel.",
-      "es": "MyTunes utiliza IA para crear música original y libre de derechos basada en las indicaciones de los usuarios. Los usuarios pueden especificar el género, el estado de ánimo, los instrumentos y la duración para generar pistas únicas para videos, podcasts o disfrute personal."
-    },
-    "category": "Audio",
-    "website": "https://mytunes.ai/",
-    "imageUrl": "/ai-tools/mytunes.jpg",
-    "imageKeywords": "ai music song",
-    "rating": 4.1,
-    "tags": [
-      "music generation",
-      "royalty-free music",
-      "soundtrack"
-    ],
-    "pricing": "Freemium",
-    "features": {
-      "en": [
-        "Prompt-based song generation",
-        "Genre and mood selection",
-        "Instrument customization",
-        "Royalty-free licensing"
-      ],
-      "fr": [
-        "Génération de chansons par prompt",
-        "Sélection de genre et d'ambiance",
-        "Personnalisation des instruments",
-        "Licence libre de droits"
-      ],
-      "es": [
-        "Generación de canciones basada en prompts",
-        "Selección de género y estado de ánimo",
-        "Personalización de instrumentos",
-        "Licencia libre de derechos"
-      ]
-    }
-  },
-  {
     "id": "104",
     "name": "Artistly.ai",
     "description": {
@@ -2842,51 +2752,6 @@
         "Estilos de ilustración personalizados",
         "Consistencia de personajes",
         "Diseño completo del libro"
-      ]
-    }
-  },
-  {
-    "id": "105",
-    "name": "KP AI Music",
-    "description": {
-      "en": "AI music generator that creates songs with vocals from text prompts.",
-      "fr": "Générateur de musique par IA qui crée des chansons avec des voix à partir de prompts textuels.",
-      "es": "Generador de música con IA que crea canciones con voces a partir de indicaciones de texto."
-    },
-    "longDescription": {
-      "en": "KP AI Music (from an artist named Killian) is a tool that allows users to generate full songs, including instrumental tracks and AI-generated vocals, by describing the desired style and lyrics.",
-      "fr": "KP AI Music (créé par un artiste nommé Killian) est un outil qui permet aux utilisateurs de générer des chansons complètes, y compris des pistes instrumentales et des voix générées par IA, en décrivant le style et les paroles souhaités.",
-      "es": "KP AI Music (de un artista llamado Killian) es una herramienta que permite a los usuarios generar canciones completas, incluidas pistas instrumentales y voces generadas por IA, describiendo el estilo y la letra deseados."
-    },
-    "category": "Audio",
-    "website": "https://kpaesthetic.com/ai-music-generator/",
-    "imageUrl": "/ai-tools/kp-ai-music.jpg",
-    "imageKeywords": "music vocals",
-    "rating": 4,
-    "tags": [
-      "music generation",
-      "ai vocals",
-      "song creator"
-    ],
-    "pricing": "Freemium",
-    "features": {
-      "en": [
-        "Generates music with vocals",
-        "Prompt-based song creation",
-        "Multiple genres",
-        "Instrumental and vocal tracks"
-      ],
-      "fr": [
-        "Génère de la musique avec des voix",
-        "Création de chansons par prompt",
-        "Plusieurs genres",
-        "Pistes instrumentales et vocales"
-      ],
-      "es": [
-        "Genera música con voces",
-        "Creación de canciones basada en prompts",
-        "Múltiples géneros",
-        "Pistas instrumentales y vocales"
       ]
     }
   },
@@ -2938,97 +2803,6 @@
     }
   },
   {
-    "id": "107",
-    "name": "AI Mirror",
-    "description": {
-      "en": "AI art and avatar generator with a focus on anime and character styles.",
-      "fr": "Générateur d'art et d'avatars IA axé sur les styles anime et personnages.",
-      "es": "Generador de arte y avatares con IA centrado en estilos de anime y personajes."
-    },
-    "longDescription": {
-      "en": "AI Mirror is a mobile application that transforms your photos into various artistic styles, primarily anime. It also functions as an avatar maker and provides trendy templates for social media.",
-      "fr": "AI Mirror est une application mobile qui transforme vos photos en différents styles artistiques, principalement l'anime. Elle fonctionne également comme un créateur d'avatars et fournit des modèles tendances pour les réseaux sociaux.",
-      "es": "AI Mirror es una aplicación móvil que transforma tus fotos en varios estilos artísticos, principalmente anime. También funciona como un creador de avatares y proporciona plantillas de moda para redes sociales."
-    },
-    "category": "Photo",
-    "website": "https://aimirror.fun/",
-    "imageUrl": "/ai-tools/ai-mirror.jpg",
-    "imageKeywords": "anime avatar",
-    "rating": 4.5,
-    "tags": [
-      "photo to anime",
-      "avatar generator",
-      "mobile app",
-      "art filter"
-    ],
-    "pricing": "Freemium",
-    "features": {
-      "en": [
-        "Anime and cartoon styles",
-        "Photo-to-art transformation",
-        "Custom avatar creation",
-        "Video generation from photos"
-      ],
-      "fr": [
-        "Styles anime et dessin animé",
-        "Transformation de photo en art",
-        "Création d'avatar personnalisé",
-        "Génération de vidéo à partir de photos"
-      ],
-      "es": [
-        "Estilos de anime y dibujos animados",
-        "Transformación de foto a arte",
-        "Creación de avatar personalizado",
-        "Generación de video a partir de fotos"
-      ]
-    }
-  },
-  {
-    "id": "108",
-    "name": "Hula AI Video Generator",
-    "description": {
-      "en": "AI-powered video generation tool with a focus on creating dance videos.",
-      "fr": "Outil de génération de vidéos par IA axé sur la création de vidéos de danse.",
-      "es": "Herramienta de generación de video con IA centrada en la creación de videos de baile."
-    },
-    "longDescription": {
-      "en": "Hula AI allows users to generate videos of characters dancing in various styles. You can upload a character image and select a dance motion to create fun, animated dance videos.",
-      "fr": "Hula AI permet aux utilisateurs de générer des vidéos de personnages dansant dans différents styles. Vous pouvez télécharger une image de personnage et sélectionner un mouvement de danse pour créer des vidéos de danse amusantes et animées.",
-      "es": "Hula AI permite a los usuarios generar videos de personajes bailando en varios estilos. Puedes subir una imagen de un personaje y seleccionar un movimiento de baile para crear videos de baile divertidos y animados."
-    },
-    "category": "Video",
-    "website": "https://hula.ai/",
-    "imageUrl": "/ai-tools/hula-ai.jpg",
-    "imageKeywords": "dance video",
-    "rating": 4.1,
-    "tags": [
-      "dance animation",
-      "character animation",
-      "video generator"
-    ],
-    "pricing": "Freemium",
-    "features": {
-      "en": [
-        "Image-to-dance video",
-        "Variety of dance motions",
-        "Character animation",
-        "Easy sharing"
-      ],
-      "fr": [
-        "Image en vidéo de danse",
-        "Variété de mouvements de danse",
-        "Animation de personnages",
-        "Partage facile"
-      ],
-      "es": [
-        "Imagen a video de baile",
-        "Variedad de movimientos de baile",
-        "Animación de personajes",
-        "Fácil de compartir"
-      ]
-    }
-  },
-  {
     "id": "109",
     "name": "Glam.ai",
     "description": {
@@ -3070,52 +2844,6 @@
         "Efectos de iluminación profesional",
         "Herramientas de consistencia de marca",
         "Salida de alta resolución"
-      ]
-    }
-  },
-  {
-    "id": "110",
-    "name": "Vibe Creator",
-    "description": {
-      "en": "AI tool to generate color palettes and design themes from a single prompt.",
-      "fr": "Outil IA pour générer des palettes de couleurs et des thèmes de design à partir d'un seul prompt.",
-      "es": "Herramienta de IA para generar paletas de colores y temas de diseño a partir de una sola indicación."
-    },
-    "longDescription": {
-      "en": "Vibe Creator helps designers and creators establish a visual identity by generating color palettes, font pairings, and mood boards based on a descriptive text prompt, capturing the desired 'vibe'.",
-      "fr": "Vibe Creator aide les designers et les créateurs à établir une identité visuelle en générant des palettes de couleurs, des paires de polices et des mood boards à partir d'un prompt textuel descriptif, capturant l'ambiance souhaitée.",
-      "es": "Vibe Creator ayuda a diseñadores y creadores a establecer una identidad visual generando paletas de colores, combinaciones de fuentes y mood boards a partir de una indicación de texto descriptiva, capturando la 'vibra' deseada."
-    },
-    "category": "Design",
-    "website": "https://vibecreator.com/",
-    "imageUrl": "/ai-tools/vibe-creator.jpg",
-    "imageKeywords": "color palette",
-    "rating": 4.2,
-    "tags": [
-      "color palette",
-      "mood board",
-      "design system",
-      "branding"
-    ],
-    "pricing": "Freemium",
-    "features": {
-      "en": [
-        "Prompt-based mood board generation",
-        "Color palette extraction",
-        "Font pairing suggestions",
-        "Export to Figma"
-      ],
-      "fr": [
-        "Génération de mood board par prompt",
-        "Extraction de palettes de couleurs",
-        "Suggestions de paires de polices",
-        "Exportation vers Figma"
-      ],
-      "es": [
-        "Generación de mood board basada en prompts",
-        "Extracción de paletas de colores",
-        "Sugerencias de combinación de fuentes",
-        "Exportación a Figma"
       ]
     }
   },
@@ -3162,52 +2890,6 @@
         "Múltiples tipos de preguntas",
         "Plantillas personalizables",
         "Análisis de resultados"
-      ]
-    }
-  },
-  {
-    "id": "112",
-    "name": "AI Cleaner",
-    "description": {
-      "en": "AI-powered tool to easily remove unwanted objects, people, or text from photos.",
-      "fr": "Outil par IA pour supprimer facilement les objets, personnes ou textes indésirables des photos.",
-      "es": "Herramienta con IA para eliminar fácilmente objetos, personas o textos no deseados de las fotos."
-    },
-    "longDescription": {
-      "en": "AI Cleaner offers a simple 'magic eraser' functionality. Users can upload an image, brush over the object they want to remove, and the AI will intelligently fill in the background.",
-      "fr": "AI Cleaner offre une fonctionnalité simple de 'gomme magique'. Les utilisateurs peuvent télécharger une image, passer le pinceau sur l'objet qu'ils veulent supprimer, et l'IA remplira intelligemment l'arrière-plan.",
-      "es": "AI Cleaner ofrece una funcionalidad simple de 'borrador mágico'. Los usuarios pueden subir una imagen, pasar el pincel sobre el objeto que desean eliminar, y la IA rellenará inteligentemente el fondo."
-    },
-    "category": "Photo",
-    "website": "https://aicleaner.com/",
-    "imageUrl": "/ai-tools/ai-cleaner.jpg",
-    "imageKeywords": "object removal",
-    "rating": 4.4,
-    "tags": [
-      "photo editing",
-      "object removal",
-      "magic eraser",
-      "inpainting"
-    ],
-    "pricing": "Freemium",
-    "features": {
-      "en": [
-        "One-click object removal",
-        "Text and watermark removal",
-        "People removal",
-        "High-resolution processing"
-      ],
-      "fr": [
-        "Suppression d'objets en un clic",
-        "Suppression de texte et de filigranes",
-        "Suppression de personnes",
-        "Traitement haute résolution"
-      ],
-      "es": [
-        "Eliminación de objetos con un clic",
-        "Eliminación de texto y marcas de agua",
-        "Eliminación de personas",
-        "Procesamiento de alta resolución"
       ]
     }
   },
