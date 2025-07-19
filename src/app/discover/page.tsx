@@ -7,7 +7,7 @@ export default async function DiscoverPage() {
   const aiTools = await getAiTools();
   
   // The full history of featured tools by their ID, newest at the end.
-  const fullFeaturedList = ['91', '92', '93', '94', '28', '95', '96', '97'];
+  const fullFeaturedList = ['91', '92', '93', '94', '28', '95', '96'];
   
   // The list of tools to actually feature, limited to the latest 6.
   const featuredToolIds = fullFeaturedList.slice(-6);
