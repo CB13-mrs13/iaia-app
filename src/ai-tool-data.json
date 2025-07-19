@@ -2501,33 +2501,6 @@
     }
   },
   {
-    "id": "97",
-    "name": "Deevid AI",
-    "description": {
-      "en": "AI-powered platform to create hyper-personalized video messages at scale.",
-      "fr": "Plateforme IA pour créer des messages vidéo hyper-personnalisés à grande échelle.",
-      "es": "Plataforma de IA para crear mensajes de video hiperpersonalizados a escala."
-    },
-    "longDescription": {
-      "en": "Deevid AI uses advanced generative models to clone your voice and face, allowing you to send thousands of unique, personalized videos to your clients or prospects. Perfect for sales, marketing, and customer support.",
-      "fr": "Deevid AI utilise des modèles génératifs avancés pour cloner votre voix et votre visage, vous permettant d'envoyer des milliers de vidéos uniques et personnalisées à vos clients ou prospects. Parfait pour la vente, le marketing et le support client.",
-      "es": "Deevid AI utiliza modelos generativos avanzados para clonar tu voz y rostro, permitiéndote enviar miles de videos únicos y personalizados a tus clientes o prospectos. Perfecto para ventas, marketing y atención al cliente."
-    },
-    "category": "Video",
-    "website": "https://deevid.ai/",
-    "imageUrl": "/ai-tools/deevid-ai.jpg",
-    "imageKeywords": "personalized video",
-    "rating": 4.5,
-    "tags": ["personalized video", "ai avatar", "sales automation"],
-    "pricing": "Paid",
-    "isSponsored": false,
-    "features": {
-      "en": ["Voice and face cloning", "Dynamic video templates", "CRM integration", "Performance analytics"],
-      "fr": ["Clonage de la voix et du visage", "Modèles vidéo dynamiques", "Intégration CRM", "Analyse des performances"],
-      "es": ["Clonación de voz y rostro", "Plantillas de video dinámicas", "Integración con CRM", "Análisis de rendimiento"]
-    }
-  },
-  {
     "id": "98",
     "name": "Hexa AI",
     "description": {
