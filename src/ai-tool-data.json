@@ -2501,460 +2501,367 @@
     }
   },
   {
-    "id": "98",
-    "name": "Hexa AI",
+    "id": "115",
+    "name": "Flowith",
     "description": {
-      "en": "3D asset creation platform for e-commerce, gaming, and the metaverse.",
-      "fr": "Plateforme de création d'actifs 3D pour l'e-commerce, les jeux et le métavers.",
-      "es": "Plataforma de creación de activos 3D para comercio electrónico, juegos y el metaverso."
+      "en": "Generate mind maps and presentations with AI.",
+      "fr": "Générez des cartes mentales et des présentations avec l'IA.",
+      "es": "Genere mapas mentales y presentaciones con IA."
     },
     "longDescription": {
-      "en": "Hexa AI specializes in converting 2D images and product descriptions into high-fidelity 3D models and augmented reality experiences, helping businesses showcase their products immersively.",
-      "fr": "Hexa AI se spécialise dans la conversion d'images 2D et de descriptions de produits en modèles 3D haute-fidélité et en expériences de réalité augmentée, aidant les entreprises à présenter leurs produits de manière immersive.",
-      "es": "Hexa AI se especializa en convertir imágenes 2D y descripciones de productos en modelos 3D de alta fidelidad y experiencias de realidad aumentada, ayudando a las empresas a mostrar sus productos de forma inmersiva."
-    },
-    "category": "Design",
-    "website": "https://www.hexa3d.io/",
-    "imageUrl": "/ai-tools/hexa-ai.jpg",
-    "imageKeywords": "3d asset",
-    "rating": 4.5,
-    "tags": [
-      "3d modeling",
-      "ecommerce",
-      "augmented reality"
-    ],
-    "pricing": "Paid",
-    "features": {
-      "en": [
-        "2D to 3D asset conversion",
-        "AI-powered 3D modeling",
-        "AR viewer integration",
-        "Synthetic data generation"
-      ],
-      "fr": [
-        "Conversion d'actifs 2D en 3D",
-        "Modélisation 3D par IA",
-        "Intégration de visionneuse AR",
-        "Génération de données synthétiques"
-      ],
-      "es": [
-        "Conversión de activos 2D a 3D",
-        "Modelado 3D con IA",
-        "Integración de visor AR",
-        "Generación de datos sintéticos"
-      ]
-    }
-  },
-  {
-    "id": "99",
-    "name": "Creati AI",
-    "description": {
-      "en": "AI-powered content creation suite for marketers and writers.",
-      "fr": "Suite de création de contenu par IA pour les spécialistes du marketing et les rédacteurs.",
-      "es": "Suite de creación de contenido con IA para especialistas en marketing y escritores."
-    },
-    "longDescription": {
-      "en": "Creati.ai offers a comprehensive suite of AI tools designed to generate high-quality marketing copy, blog posts, social media content, and more, with a focus on brand consistency and performance.",
-      "fr": "Creati.ai propose une suite complète d'outils d'IA conçus pour générer des textes marketing de haute qualité, des articles de blog, du contenu pour les réseaux sociaux, et plus encore, en mettant l'accent sur la cohérence de la marque et la performance.",
-      "es": "Creati.ai ofrece un conjunto completo de herramientas de IA diseñadas para generar textos de marketing de alta calidad, publicaciones de blog, contenido para redes sociales y más, con un enfoque en la coherencia de la marca y el rendimiento."
-    },
-    "category": "LLM",
-    "website": "https://creati.ai/",
-    "imageUrl": "/ai-tools/creati-ai.jpg",
-    "imageKeywords": "content creation",
-    "rating": 4.3,
-    "tags": [
-      "content marketing",
-      "copywriting",
-      "seo"
-    ],
-    "pricing": "Freemium",
-    "features": {
-      "en": [
-        "Multi-format content generation",
-        "SEO optimization tools",
-        "Brand voice analysis",
-        "Team collaboration"
-      ],
-      "fr": [
-        "Génération de contenu multiformat",
-        "Outils d'optimisation SEO",
-        "Analyse de la voix de la marque",
-        "Collaboration d'équipe"
-      ],
-      "es": [
-        "Generación de contenido multiformato",
-        "Herramientas de optimización SEO",
-        "Análisis de la voz de la marca",
-        "Colaboración en equipo"
-      ]
-    }
-  },
-  {
-    "id": "101",
-    "name": "InStories",
-    "description": {
-      "en": "AI-powered mobile app for creating animated stories and video posts for social media.",
-      "fr": "Application mobile par IA pour créer des stories animées et des publications vidéo pour les réseaux sociaux.",
-      "es": "Aplicación móvil con IA para crear historias animadas y publicaciones de video para redes sociales."
-    },
-    "longDescription": {
-      "en": "InStories is a mobile video editor that uses AI to help users create eye-catching content for Instagram Stories, TikTok, and other social platforms with professional templates and effects.",
-      "fr": "InStories est un éditeur vidéo mobile qui utilise l'IA pour aider les utilisateurs à créer du contenu attrayant pour les Stories Instagram, TikTok et d'autres plateformes sociales avec des modèles et des effets professionnels.",
-      "es": "InStories es un editor de video móvil que utiliza IA para ayudar a los usuarios a crear contenido llamativo para Instagram Stories, TikTok y otras plataformas sociales con plantillas y efectos profesionales."
-    },
-    "category": "Video",
-    "website": "https://instories.com/",
-    "imageUrl": "/ai-tools/instories.jpg",
-    "imageKeywords": "social media stories",
-    "rating": 4.6,
-    "tags": [
-      "social media",
-      "video editor",
-      "story maker",
-      "mobile app"
-    ],
-    "pricing": "Freemium",
-    "features": {
-      "en": [
-        "Professional templates",
-        "AI-suggested music",
-        "Animated text and effects",
-        "Easy for beginners"
-      ],
-      "fr": [
-        "Modèles professionnels",
-        "Musique suggérée par IA",
-        "Texte et effets animés",
-        "Facile pour les débutants"
-      ],
-      "es": [
-        "Plantillas profesionales",
-        "Música sugerida por IA",
-        "Texto y efectos animados",
-        "Fácil para principiantes"
-      ]
-    }
-  },
-  {
-    "id": "102",
-    "name": "LTX Studio",
-    "description": {
-      "en": "AI-powered filmmaking platform to turn ideas into complete video stories.",
-      "fr": "Plateforme de réalisation de films par IA pour transformer des idées en histoires vidéo complètes.",
-      "es": "Plataforma de cinematografía con IA para convertir ideas en historias de video completas."
-    },
-    "longDescription": {
-      "en": "LTX Studio by Lightricks is an all-in-one AI platform that guides users from a simple idea to a fully realized video, handling scriptwriting, storyboarding, character generation, and scene editing.",
-      "fr": "LTX Studio de Lightricks est une plateforme d'IA tout-en-un qui guide les utilisateurs d'une simple idée à une vidéo entièrement réalisée, en gérant l'écriture de scénario, le story-board, la génération de personnages et le montage de scènes.",
-      "es": "LTX Studio de Lightricks es una plataforma de IA todo en uno que guía a los usuarios desde una simple idea hasta un video completamente realizado, manejando la escritura de guiones, el guion gráfico, la generación de personajes y la edición de escenas."
-    },
-    "category": "Video",
-    "website": "https://ltx.studio/",
-    "imageUrl": "/ai-tools/ltx-studio.jpg",
-    "imageKeywords": "ai filmmaking",
-    "rating": 4.8,
-    "tags": [
-      "filmmaking",
-      "text-to-video",
-      "storyboarding",
-      "scriptwriting"
-    ],
-    "pricing": "Contact for Pricing",
-    "features": {
-      "en": [
-        "Idea to full video generation",
-        "AI scriptwriting and storyboarding",
-        "Automatic scene editing",
-        "Character and voice control"
-      ],
-      "fr": [
-        "Génération de vidéo complète à partir d'une idée",
-        "Écriture de scénario et story-board par IA",
-        "Montage de scènes automatique",
-        "Contrôle des personnages et des voix"
-      ],
-      "es": [
-        "Generación de video completo a partir de una idea",
-        "Escritura de guiones y guion gráfico con IA",
-        "Edición de escenas automática",
-        "Control de personajes y voces"
-      ]
-    }
-  },
-  {
-    "id": "104",
-    "name": "Artistly.ai",
-    "description": {
-      "en": "AI-powered platform to create illustrated children's books.",
-      "fr": "Plateforme par IA pour créer des livres pour enfants illustrés.",
-      "es": "Plataforma con IA para crear libros infantiles ilustrados."
-    },
-    "longDescription": {
-      "en": "Artistly.ai helps users write and illustrate complete children's storybooks. The AI generates the story, creates illustrations in various styles, and lays out the book, ready for publishing.",
-      "fr": "Artistly.ai aide les utilisateurs à écrire et illustrer des livres d'histoires complets pour enfants. L'IA génère l'histoire, crée des illustrations dans divers styles et met en page le livre, prêt à être publié.",
-      "es": "Artistly.ai ayuda a los usuarios a escribir e ilustrar libros de cuentos infantiles completos. La IA genera la historia, crea ilustraciones en varios estilos y diseña el libro, listo para su publicación."
-    },
-    "category": "Design",
-    "website": "https://artistly.ai/",
-    "imageUrl": "/ai-tools/artistly-ai.jpg",
-    "imageKeywords": "storybook illustration",
-    "rating": 4.4,
-    "tags": [
-      "storybook",
-      "illustration",
-      "writing",
-      "children's book"
-    ],
-    "pricing": "Paid",
-    "features": {
-      "en": [
-        "AI story generation",
-        "Custom illustration styles",
-        "Character consistency",
-        "Full book layout"
-      ],
-      "fr": [
-        "Génération d'histoires par IA",
-        "Styles d'illustration personnalisés",
-        "Cohérence des personnages",
-        "Mise en page complète du livre"
-      ],
-      "es": [
-        "Generación de historias con IA",
-        "Estilos de ilustración personalizados",
-        "Consistencia de personajes",
-        "Diseño completo del libro"
-      ]
-    }
-  },
-  {
-    "id": "106",
-    "name": "PixVerse",
-    "description": {
-      "en": "Free AI video generator that creates stunning videos from text and images.",
-      "fr": "Générateur de vidéos IA gratuit qui crée des vidéos époustouflantes à partir de texte et d'images.",
-      "es": "Generador de video con IA gratuito que crea videos impresionantes a partir de texto e imágenes."
-    },
-    "longDescription": {
-      "en": "PixVerse is a powerful generative AI model for video creation. It allows users to transform text prompts and images into captivating videos with various styles, including realistic and anime.",
-      "fr": "PixVerse est un puissant modèle d'IA générative pour la création de vidéos. Il permet aux utilisateurs de transformer des prompts textuels et des images en vidéos captivantes avec différents styles, y compris réaliste et anime.",
-      "es": "PixVerse es un potente modelo de IA generativa para la creación de videos. Permite a los usuarios transformar indicaciones de texto e imágenes en videos cautivadores con varios estilos, incluyendo realista y anime."
-    },
-    "category": "Gratuit",
-    "website": "https://pixverse.ai/",
-    "imageUrl": "/ai-tools/pixverse.jpg",
-    "imageKeywords": "generative video",
-    "rating": 4.6,
-    "tags": [
-      "text-to-video",
-      "image-to-video",
-      "free",
-      "anime style",
-      "Video"
-    ],
-    "pricing": "Free",
-    "features": {
-      "en": [
-        "High-quality video generation",
-        "Text-to-video and Image-to-video",
-        "Multiple artistic styles",
-        "Free to use"
-      ],
-      "fr": [
-        "Génération de vidéos de haute qualité",
-        "Texte en vidéo et Image en vidéo",
-        "Plusieurs styles artistiques",
-        "Utilisation gratuite"
-      ],
-      "es": [
-        "Generación de video de alta calidad",
-        "Texto a video e Imagen a video",
-        "Múltiples estilos artísticos",
-        "Gratis de usar"
-      ]
-    }
-  },
-  {
-    "id": "109",
-    "name": "Glam.ai",
-    "description": {
-      "en": "AI-powered tool to generate professional-quality product photos.",
-      "fr": "Outil par IA pour générer des photos de produits de qualité professionnelle.",
-      "es": "Herramienta con IA para generar fotos de productos de calidad profesional."
-    },
-    "longDescription": {
-      "en": "Glam.ai is designed for e-commerce, allowing businesses to generate high-quality, consistent, and creative product photos by simply providing an image of their product and describing the desired scene.",
-      "fr": "Glam.ai est conçu pour le commerce électronique, permettant aux entreprises de générer des photos de produits de haute qualité, cohérentes et créatives en fournissant simplement une image de leur produit et en décrivant la scène souhaitée.",
-      "es": "Glam.ai está diseñado para el comercio electrónico, permitiendo a las empresas generar fotos de productos de alta calidad, consistentes y creativas simplemente proporcionando una imagen de su producto y describiendo la escena deseada."
-    },
-    "category": "Photo",
-    "website": "https://glam.ai/",
-    "imageUrl": "/ai-tools/glam-ai.jpg",
-    "imageKeywords": "product photography",
-    "rating": 4.5,
-    "tags": [
-      "product photography",
-      "ecommerce",
-      "background generation"
-    ],
-    "pricing": "Paid",
-    "features": {
-      "en": [
-        "AI-generated scenes",
-        "Professional lighting effects",
-        "Brand consistency tools",
-        "High-resolution output"
-      ],
-      "fr": [
-        "Scènes générées par IA",
-        "Effets d'éclairage professionnels",
-        "Outils de cohérence de marque",
-        "Sortie haute résolution"
-      ],
-      "es": [
-        "Escenas generadas por IA",
-        "Efectos de iluminación profesional",
-        "Herramientas de consistencia de marca",
-        "Salida de alta resolución"
-      ]
-    }
-  },
-  {
-    "id": "111",
-    "name": "Pollo AI",
-    "description": {
-      "en": "Create engaging polls and surveys with AI-generated questions.",
-      "fr": "Créez des sondages et des enquêtes engageants avec des questions générées par IA.",
-      "es": "Crea encuestas y sondeos atractivos con preguntas generadas por IA."
-    },
-    "longDescription": {
-      "en": "Pollo AI helps you quickly create surveys and polls by generating relevant and unbiased questions based on your topic. It's designed to increase engagement and gather more insightful feedback.",
-      "fr": "Pollo AI vous aide à créer rapidement des enquêtes et des sondages en générant des questions pertinentes et impartiales basées sur votre sujet. Il est conçu pour augmenter l'engagement et recueillir des commentaires plus pertinents.",
-      "es": "Pollo AI te ayuda a crear rápidamente encuestas y sondeos generando preguntas relevantes e imparciales basadas en tu tema. Está diseñado para aumentar la participación y recopilar comentarios más perspicaces."
+      "en": "Flowith allows you to create structured mind maps from your ideas and convert them into beautiful, engaging presentations with a single click, using AI to handle the design and layout.",
+      "fr": "Flowith vous permet de créer des cartes mentales structurées à partir de vos idées et de les convertir en présentations attrayantes et esthétiques en un seul clic, en utilisant l'IA pour gérer la conception et la mise en page.",
+      "es": "Flowith le permite crear mapas mentales estructurados a partir de sus ideas y convertirlos en presentaciones hermosas y atractivas con un solo clic, utilizando la IA para gestionar el diseño y la maquetación."
     },
     "category": "Productivity",
-    "website": "https://pollo.ai/",
-    "imageUrl": "/ai-tools/pollo-ai.jpg",
-    "imageKeywords": "survey poll",
-    "rating": 4,
+    "website": "https://flowith.io/",
+    "imageUrl": "/ai-tools/flowith.jpg",
+    "imageKeywords": "mindmap presentation",
+    "rating": 4.4,
     "tags": [
-      "survey",
-      "poll",
-      "feedback",
-      "market research"
+      "mind map",
+      "presentations",
+      "ai slides"
     ],
     "pricing": "Freemium",
     "features": {
       "en": [
-        "AI question generation",
-        "Multiple question types",
+        "AI-powered mind mapping",
+        "One-click presentation generation",
         "Customizable templates",
-        "Result analysis"
+        "Cloud-based collaboration"
       ],
       "fr": [
-        "Génération de questions par IA",
-        "Plusieurs types de questions",
+        "Cartographie mentale par IA",
+        "Génération de présentations en un clic",
         "Modèles personnalisables",
-        "Analyse des résultats"
+        "Collaboration basée sur le cloud"
       ],
       "es": [
-        "Generación de preguntas con IA",
-        "Múltiples tipos de preguntas",
+        "Mapas mentales con IA",
+        "Generación de presentaciones con un clic",
         "Plantillas personalizables",
-        "Análisis de resultados"
+        "Colaboración en la nube"
       ]
     }
   },
   {
-    "id": "113",
-    "name": "HIX.AI",
+    "id": "116",
+    "name": "GenTub",
     "description": {
-      "en": "All-in-one AI writing copilot with a suite of tools for content creation.",
-      "fr": "Copilote d'écriture IA tout-en-un avec une suite d'outils pour la création de contenu.",
-      "es": "Copiloto de escritura con IA todo en uno con un conjunto de herramientas para la creación de contenido."
+      "en": "AI-powered tool to summarize YouTube videos.",
+      "fr": "Outil alimenté par l'IA pour résumer les vidéos YouTube.",
+      "es": "Herramienta con IA para resumir videos de YouTube."
     },
     "longDescription": {
-      "en": "HIX.AI provides a wide array of writing tools, including an article writer, paraphraser, summarizer, and email generator, all powered by advanced language models like GPT-3.5 and GPT-4.",
-      "fr": "HIX.AI fournit une large gamme d'outils d'écriture, y compris un rédacteur d'articles, un reformulateur, un résumeur et un générateur d'e-mails, tous alimentés par des modèles de langage avancés comme GPT-3.5 et GPT-4.",
-      "es": "HIX.AI proporciona una amplia gama de herramientas de escritura, incluyendo un redactor de artículos, un parafraseador, un resumidor y un generador de correos electrónicos, todos impulsados por modelos de lenguaje avanzados como GPT-3.5 y GPT-4."
+      "en": "GenTub saves you time by using AI to generate concise summaries and key takeaways from any YouTube video. It's perfect for quickly grasping the content of long lectures, tutorials, or podcasts.",
+      "fr": "GenTub vous fait gagner du temps en utilisant l'IA pour générer des résumés concis et les points clés de n'importe quelle vidéo YouTube. C'est parfait pour saisir rapidement le contenu de longues conférences, tutoriels ou podcasts.",
+      "es": "GenTub le ahorra tiempo al utilizar la IA para generar resúmenes concisos y puntos clave de cualquier video de YouTube. Es perfecto para captar rápidamente el contenido de largas conferencias, tutoriales o podcasts."
     },
-    "category": "LLM",
-    "website": "https://hix.ai/",
-    "imageUrl": "/ai-tools/hix-ai.jpg",
-    "imageKeywords": "ai writing",
-    "rating": 4.5,
+    "category": "Productivity",
+    "website": "https://gentub.com/",
+    "imageUrl": "/ai-tools/gentub.jpg",
+    "imageKeywords": "youtube summary",
+    "rating": 4.2,
     "tags": [
-      "writing assistant",
-      "content generation",
-      "seo",
+      "youtube",
+      "summarizer",
+      "video summary",
       "productivity"
     ],
     "pricing": "Freemium",
     "features": {
       "en": [
-        "120+ AI writing tools",
-        "Long-form article writer",
-        "Chrome extension",
+        "Summarize any YouTube video",
+        "Extract key points",
+        "Supports multiple languages",
+        "Browser extension available"
+      ],
+      "fr": [
+        "Résumez n'importe quelle vidéo YouTube",
+        "Extrayez les points clés",
+        "Prend en charge plusieurs langues",
+        "Extension de navigateur disponible"
+      ],
+      "es": [
+        "Resuma cualquier video de YouTube",
+        "Extraiga los puntos clave",
+        "Admite múltiples idiomas",
+        "Extensión de navegador disponible"
+      ]
+    }
+  },
+  {
+    "id": "117",
+    "name": "Decktopus",
+    "description": {
+      "en": "AI presentation maker for creating professional decks in minutes.",
+      "fr": "Créateur de présentations IA pour réaliser des diaporamas professionnels en quelques minutes.",
+      "es": "Creador de presentaciones con IA para crear diapositivas profesionales en minutos."
+    },
+    "longDescription": {
+      "en": "Decktopus is an AI-powered presentation tool that assists in content creation, design, and layout, enabling users to build stunning and consistent presentations without design skills.",
+      "fr": "Decktopus est un outil de présentation alimenté par l'IA qui aide à la création de contenu, à la conception et à la mise en page, permettant aux utilisateurs de créer des présentations éblouissantes et cohérentes sans compétences en design.",
+      "es": "Decktopus es una herramienta de presentación con IA que ayuda en la creación de contenido, el diseño y la maquetación, permitiendo a los usuarios crear presentaciones impresionantes y consistentes sin habilidades de diseño."
+    },
+    "category": "Design",
+    "website": "https://www.decktopus.com/",
+    "imageUrl": "/ai-tools/decktopus.jpg",
+    "imageKeywords": "presentation maker",
+    "rating": 4.6,
+    "tags": [
+      "presentations",
+      "ai slides",
+      "deck builder"
+    ],
+    "pricing": "Paid",
+    "features": {
+      "en": [
+        "AI-assisted content writing",
+        "Automatic design and layout",
+        "Interactive forms and embeds",
+        "Analytics and lead generation"
+      ],
+      "fr": [
+        "Rédaction de contenu assistée par IA",
+        "Conception et mise en page automatiques",
+        "Formulaires et intégrations interactifs",
+        "Analyses et génération de leads"
+      ],
+      "es": [
+        "Redacción de contenido asistida por IA",
+        "Diseño y maquetación automáticos",
+        "Formularios e incrustaciones interactivos",
+        "Análisis y generación de leads"
+      ]
+    }
+  },
+  {
+    "id": "118",
+    "name": "Simplified",
+    "description": {
+      "en": "All-in-one AI platform for marketing teams to design, write, and collaborate.",
+      "fr": "Plateforme IA tout-en-un pour les équipes marketing pour concevoir, rédiger et collaborer.",
+      "es": "Plataforma de IA todo en uno para que los equipos de marketing diseñen, escriban y colaboren."
+    },
+    "longDescription": {
+      "en": "Simplified brings together AI-powered graphic design, video editing, copywriting, and social media management in a single platform, streamlining the entire marketing workflow.",
+      "fr": "Simplified regroupe la conception graphique, le montage vidéo, la rédaction publicitaire et la gestion des médias sociaux alimentés par l'IA sur une seule plateforme, rationalisant l'ensemble du flux de travail marketing.",
+      "es": "Simplified reúne diseño gráfico, edición de video, redacción publicitaria y gestión de redes sociales con IA en una sola plataforma, agilizando todo el flujo de trabajo de marketing."
+    },
+    "category": "Productivity",
+    "website": "https://simplified.com/",
+    "imageUrl": "/ai-tools/simplified.jpg",
+    "imageKeywords": "marketing platform",
+    "rating": 4.7,
+    "tags": [
+      "marketing",
+      "content creation",
+      "graphic design",
+      "video editing"
+    ],
+    "pricing": "Freemium",
+    "features": {
+      "en": [
+        "AI graphic designer",
+        "AI copywriter",
+        "AI video editor",
+        "Social media scheduler"
+      ],
+      "fr": [
+        "Concepteur graphique IA",
+        "Rédacteur IA",
+        "Monteur vidéo IA",
+        "Planificateur de médias sociaux"
+      ],
+      "es": [
+        "Diseñador gráfico con IA",
+        "Redactor con IA",
+        "Editor de video con IA",
+        "Programador de redes sociales"
+      ]
+    }
+  },
+  {
+    "id": "119",
+    "name": "Prezi AI",
+    "description": {
+      "en": "Create engaging, dynamic presentations with the power of AI.",
+      "fr": "Créez des présentations engageantes et dynamiques grâce à la puissance de l'IA.",
+      "es": "Cree presentaciones atractivas y dinámicas con el poder de la IA."
+    },
+    "longDescription": {
+      "en": "Prezi AI extends the platform's signature non-linear, conversational presenting style with AI capabilities to help generate outlines, content, and visuals for more impactful presentations.",
+      "fr": "Prezi AI étend le style de présentation non linéaire et conversationnel caractéristique de la plateforme avec des capacités d'IA pour aider à générer des plans, du contenu et des visuels pour des présentations plus percutantes.",
+      "es": "Prezi AI amplía el estilo de presentación conversacional y no lineal característico de la plataforma con capacidades de IA para ayudar a generar esquemas, contenido y elementos visuales para presentaciones más impactantes."
+    },
+    "category": "Design",
+    "website": "https://prezi.com/ai",
+    "imageUrl": "/ai-tools/prezi-ai.jpg",
+    "imageKeywords": "prezi presentation",
+    "rating": 4.5,
+    "tags": [
+      "presentations",
+      "conversational presenting",
+      "ai slides"
+    ],
+    "pricing": "Paid",
+    "features": {
+      "en": [
+        "AI presentation generator",
+        "Non-linear zoom animations",
+        "Designer templates",
+        "Prezi Video integration"
+      ],
+      "fr": [
+        "Générateur de présentations IA",
+        "Animations de zoom non linéaires",
+        "Modèles de designers",
+        "Intégration de Prezi Video"
+      ],
+      "es": [
+        "Generador de presentaciones con IA",
+        "Animaciones de zoom no lineales",
+        "Plantillas de diseñador",
+        "Integración de Prezi Video"
+      ]
+    }
+  },
+  {
+    "id": "120",
+    "name": "Slidespeak",
+    "description": {
+      "en": "AI tool that generates a spoken presentation from your slides.",
+      "fr": "Outil d'IA qui génère une présentation orale à partir de vos diapositives.",
+      "es": "Herramienta de IA que genera una presentación oral a partir de sus diapositivas."
+    },
+    "longDescription": {
+      "en": "Slidespeak takes your PowerPoint or PDF slides and uses AI to generate a script and a natural-sounding voiceover, turning your static deck into a ready-to-share video presentation.",
+      "fr": "Slidespeak prend vos diapositives PowerPoint ou PDF et utilise l'IA pour générer un script et une voix off naturelle, transformant votre diaporama statique en une présentation vidéo prête à être partagée.",
+      "es": "Slidespeak toma sus diapositivas de PowerPoint o PDF y utiliza IA para generar un guion y una voz en off de sonido natural, convirtiendo su mazo estático en una presentación de video lista para compartir."
+    },
+    "category": "Productivity",
+    "website": "https://slidespeak.co/",
+    "imageUrl": "/ai-tools/slidespeak.jpg",
+    "imageKeywords": "presentation voiceover",
+    "rating": 4.2,
+    "tags": [
+      "presentations",
+      "voiceover",
+      "video presentation",
+      "text-to-speech"
+    ],
+    "pricing": "Paid",
+    "features": {
+      "en": [
+        "PPT/PDF to video presentation",
+        "AI-generated script",
+        "Natural voiceovers",
         "Multi-language support"
       ],
       "fr": [
-        "+120 outils d'écriture IA",
-        "Rédacteur d'articles longs",
-        "Extension Chrome",
+        "PPT/PDF en présentation vidéo",
+        "Script généré par IA",
+        "Voix off naturelles",
         "Support multilingue"
       ],
       "es": [
-        "+120 herramientas de escritura con IA",
-        "Redactor de artículos largos",
-        "Extensión de Chrome",
+        "PPT/PDF a presentación de video",
+        "Guion generado por IA",
+        "Locuciones naturales",
         "Soporte multilingüe"
       ]
     }
   },
   {
-    "id": "114",
-    "name": "Lovart.ai",
+    "id": "121",
+    "name": "Plus AI",
     "description": {
-      "en": "AI-powered platform to generate high-quality anime art and characters.",
-      "fr": "Plateforme par IA pour générer de l'art et des personnages d'anime de haute qualité.",
-      "es": "Plataforma con IA para generar arte y personajes de anime de alta calidad."
+      "en": "Create and edit Google Slides and PowerPoint presentations with AI.",
+      "fr": "Créez et modifiez des présentations Google Slides et PowerPoint avec l'IA.",
+      "es": "Cree y edite presentaciones de Google Slides y PowerPoint con IA."
     },
     "longDescription": {
-      "en": "Lovart.ai specializes in creating anime-style images from text prompts. It offers fine-tuned models for different anime aesthetics and allows for detailed character customization.",
-      "fr": "Lovart.ai se spécialise dans la création d'images de style anime à partir de prompts textuels. Il propose des modèles affinés pour différentes esthétiques d'anime et permet une personnalisation détaillée des personnages.",
-      "es": "Lovart.ai se especializa en la creación de imágenes de estilo anime a partir de indicaciones de texto. Ofrece modelos afinados para diferentes estéticas de anime y permite una personalización detallada de los personajes."
+      "en": "Plus AI is an add-on for Google Slides and PowerPoint that uses generative AI to create presentations from a text prompt, insert new slides, and rewrite or summarize content directly within your workflow.",
+      "fr": "Plus AI est un module complémentaire pour Google Slides et PowerPoint qui utilise l'IA générative pour créer des présentations à partir d'un prompt, insérer de nouvelles diapositives, et réécrire ou résumer du contenu directement dans votre flux de travail.",
+      "es": "Plus AI es un complemento para Google Slides y PowerPoint que utiliza IA generativa para crear presentaciones a partir de una indicación de texto, insertar nuevas diapositivas y reescribir o resumir contenido directamente en su flujo de trabajo."
     },
-    "category": "Photo",
-    "website": "https://lovart.ai/",
-    "imageUrl": "/ai-tools/lovart-ai.jpg",
-    "imageKeywords": "anime art generator",
-    "rating": 4.3,
+    "category": "Productivity",
+    "website": "https://www.plusai.com/",
+    "imageUrl": "/ai-tools/plus-ai.jpg",
+    "imageKeywords": "google slides",
+    "rating": 4.6,
     "tags": [
-      "anime art",
-      "character design",
-      "image generation",
-      "waifu"
+      "google slides",
+      "powerpoint",
+      "presentations",
+      "add-on"
     ],
     "pricing": "Freemium",
     "features": {
       "en": [
-        "Specialized anime models",
-        "Detailed character prompts",
-        "Pose and style control",
-        "Community gallery"
+        "Generate full presentations from prompts",
+        "Integrates with Google Slides & PowerPoint",
+        "Rewrite and summarize text",
+        "Customizable themes"
       ],
       "fr": [
-        "Modèles d'anime spécialisés",
-        "Prompts de personnages détaillés",
-        "Contrôle de la pose et du style",
-        "Galerie communautaire"
+        "Générez des présentations complètes à partir de prompts",
+        "S'intègre à Google Slides & PowerPoint",
+        "Réécrivez et résumez du texte",
+        "Thèmes personnalisables"
       ],
       "es": [
-        "Modelos de anime especializados",
-        "Prompts de personajes detallados",
-        "Control de pose y estilo",
-        "Galería de la comunidad"
+        "Genere presentaciones completas a partir de prompts",
+        "Se integra con Google Slides y PowerPoint",
+        "Reescriba y resuma texto",
+        "Temas personalizables"
+      ]
+    }
+  },
+  {
+    "id": "122",
+    "name": "PopAi",
+    "description": {
+      "en": "AI-powered chatbot and reading assistant for documents, articles, and more.",
+      "fr": "Chatbot et assistant de lecture par IA pour les documents, articles, et plus.",
+      "es": "Chatbot y asistente de lectura con IA para documentos, artículos y más."
+    },
+    "longDescription": {
+      "en": "PopAi acts as your personal AI workspace. You can chat with your documents (PDFs, Docs), ask questions, get summaries, and generate new content, all driven by models like GPT-4.",
+      "fr": "PopAi agit comme votre espace de travail IA personnel. Vous pouvez discuter avec vos documents (PDF, Docs), poser des questions, obtenir des résumés et générer du nouveau contenu, le tout alimenté par des modèles comme GPT-4.",
+      "es": "PopAi actúa como su espacio de trabajo personal de IA. Puede chatear con sus documentos (PDF, Docs), hacer preguntas, obtener resúmenes y generar nuevo contenido, todo impulsado por modelos como GPT-4."
+    },
+    "category": "Productivity",
+    "website": "https://www.popai.pro/",
+    "imageUrl": "/ai-tools/popai.jpg",
+    "imageKeywords": "document chatbot",
+    "rating": 4.5,
+    "tags": [
+      "chatbot",
+      "document analysis",
+      "summarizer",
+      "research"
+    ],
+    "pricing": "Freemium",
+    "features": {
+      "en": [
+        "Chat with PDFs and documents",
+        "AI-powered summarization",
+        "Create presentations from documents",
+        "Uses GPT-4"
+      ],
+      "fr": [
+        "Discutez avec des PDF et des documents",
+        "Résumé par IA",
+        "Créez des présentations à partir de documents",
+        "Utilise GPT-4"
+      ],
+      "es": [
+        "Chatee con PDF y documentos",
+        "Resumen con IA",
+        "Cree presentaciones a partir de documentos",
+        "Utiliza GPT-4"
       ]
     }
   }
