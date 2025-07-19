@@ -5,7 +5,7 @@ import { useLanguage } from "@/hooks/use-language";
 import { translations } from "@/lib/translations";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { BookUser, Compass, Sparkles, Star, UserCog, Info, Home } from "lucide-react";
+import { BookUser, Compass, Sparkles, Star, UserCog, Info, Home, Rocket } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { useAuth } from "@/hooks/use-auth";
@@ -39,15 +39,20 @@ export default function UserManualPage() {
         </CardHeader>
         <CardContent className="space-y-6 prose prose-sm max-w-none text-foreground/90">
             <section>
-                <h2 className="font-semibold text-lg flex items-center gap-2"><Compass className="h-5 w-5 text-primary" />{t.discoverTitle}</h2>
-                <p dangerouslySetInnerHTML={{ __html: t.discoverText1 }} />
-                <div className="text-sm" dangerouslySetInnerHTML={{ __html: t.discoverText2 }} />
-            </section>
-
-            <section>
                 <h2 className="font-semibold text-lg flex items-center gap-2"><Sparkles className="h-5 w-5 text-primary" />{t.aiSearchTitle}</h2>
                 <p>{t.aiSearchText1}</p>
                 <p dangerouslySetInnerHTML={{ __html: t.aiSearchText2 }} />
+            </section>
+
+            <section>
+                <h2 className="font-semibold text-lg flex items-center gap-2"><Star className="h-5 w-5 text-primary" />{t.featuredTitle}</h2>
+                <p>{t.featuredText}</p>
+            </section>
+
+            <section>
+                <h2 className="font-semibold text-lg flex items-center gap-2"><Compass className="h-5 w-5 text-primary" />{t.discoverTitle}</h2>
+                <p dangerouslySetInnerHTML={{ __html: t.discoverText1 }} />
+                <div className="text-sm" dangerouslySetInnerHTML={{ __html: t.discoverText2 }} />
             </section>
 
             <section>
@@ -65,6 +70,12 @@ export default function UserManualPage() {
                 <Info className="h-4 w-4" />
                 <AlertTitle>{t.tipTitle}</AlertTitle>
                 <AlertDescription>{t.tipText}</AlertDescription>
+            </Alert>
+
+            <Alert className="border-accent text-accent">
+                <Rocket className="h-4 w-4 text-accent" />
+                <AlertTitle>{t.comingSoonTitle}</AlertTitle>
+                <AlertDescription>{t.comingSoonText}</AlertDescription>
             </Alert>
         </CardContent>
       </Card>

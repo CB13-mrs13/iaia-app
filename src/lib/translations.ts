@@ -262,12 +262,14 @@ type PageTranslations = {
     subtitle: string;
     introTitle: string;
     introText: string;
-    discoverTitle: string;
-    discoverText1: string;
-    discoverText2: string;
     aiSearchTitle: string;
     aiSearchText1: string;
     aiSearchText2: string;
+    featuredTitle: string;
+    featuredText: string;
+    discoverTitle: string;
+    discoverText1: string;
+    discoverText2: string;
     favoritesTitle: string;
     favoritesText1: string;
     favoritesText2: string;
@@ -275,6 +277,8 @@ type PageTranslations = {
     accountText1: string;
     tipTitle: string;
     tipText: string;
+    comingSoonTitle: string;
+    comingSoonText: string;
   },
   contactPage: {
     title: string;
@@ -327,7 +331,7 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       step2Title: "2. IAIA analyzes and selects",
       step2Text: "e.g., ElevenLabs with the right voice setting",
       step3Title: "3. You take action",
-      step3Text: "...without getting lost in 100 tools.",
+      stepText: "...without getting lost in 100 tools.",
       section3Benefit: "🎯 Gain: time, clarity, creative efficiency.",
       section4Title: "Why is IAIA different?",
       feature1: "IAIA doesn't replace you: it amplifies you",
@@ -560,19 +564,23 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       subtitle: "How to get the most out of your IAIA experience.",
       introTitle: "Welcome to IAIA!",
       introText: "This guide will walk you through the main features of the application to help you discover and manage the best AI tools for your needs.",
-      discoverTitle: "1. Discovering Tools",
-      discoverText1: "The main 'Discover' page is your gateway to our entire catalog of AI tools. You can:",
-      discoverText2: "<ul><li><b>Browse</b> the full list of curated tools.</li><li><b>Filter</b> by category (e.g., 'Photo', 'Coding') to narrow down your search.</li><li><b>Use the search bar</b> to find tools by name, keyword, or description.</li></ul>",
-      aiSearchTitle: "2. AI-Powered Search",
-      aiSearchText1: "Don't know which tool you need? Let our AI help! In the 'AI-Powered Tool Finder' section, simply describe your task or goal in plain language.",
+      aiSearchTitle: "1. AI-Powered Search",
+      aiSearchText1: "Don't know which tool you need? Let our AI help! At the top of the 'Discover' page, simply describe your task or goal in plain language.",
       aiSearchText2: "For example, you could write: <i>'I need to make a video from a blog post'</i>. The AI will analyze your request and suggest the most suitable tool, along with its reasoning.",
-      favoritesTitle: "3. Managing Your Favorites",
+      featuredTitle: "2. Featured AIs",
+      featuredText: "Just below the AI search, you'll find our selection of 'Featured AIs'. This is a curated list of the most popular, innovative, or noteworthy tools of the moment. It's a great place to find inspiration!",
+      discoverTitle: "3. Discovering All Tools",
+      discoverText1: "The main tool listing is your gateway to our entire catalog. You can:",
+      discoverText2: "<ul><li><b>Browse</b> the full list of curated tools.</li><li><b>Filter</b> by category (e.g., 'Photo', 'Coding') to narrow down your search.</li><li><b>Use the search bar</b> to find tools by name, keyword, or description.</li></ul>",
+      favoritesTitle: "4. Managing Your Favorites",
       favoritesText1: "To keep track of tools you find interesting, you can add them to your favorites. You must be logged in to use this feature.",
       favoritesText2: "Simply click the <b>star icon (☆)</b> on any tool card or tool page. To view all your saved tools, navigate to 'My Favorites' from the user menu in the top-right corner.",
-      accountTitle: "4. Managing Your Account",
+      accountTitle: "5. Managing Your Account",
       accountText1: "In the 'Account Settings' page, you can easily update your display name and change your password to keep your account secure.",
       tipTitle: "Pro Tip",
-      tipText: "This application supports multiple languages! You can switch between English, French, and Spanish at any time using the globe icon in the navigation bar."
+      tipText: "This application supports multiple languages! You can switch between English, French, and Spanish at any time using the globe icon in the navigation bar.",
+      comingSoonTitle: "Coming Soon: IAIA Studio",
+      comingSoonText: "We are preparing a creative space where you can directly use certain AIs, such as for image generation. Stay tuned for new features that will further expand your capabilities!",
     },
     contactPage: {
       title: "Contact Us",
@@ -623,7 +631,7 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       step2Title: "2. IAIA analyse et sélectionne",
       step2Text: "Ex : ElevenLabs avec le bon réglage vocal",
       step3Title: "3. Tu passes à l’action",
-      step3Text: "...sans te perdre dans 100 outils.",
+      stepText: "...sans te perdre dans 100 outils.",
       section3Benefit: "🎯 Gain : temps, clarté, efficacité créative.",
       section4Title: "Pourquoi IAIA est différent ?",
       feature1: "IAIA ne te remplace pas : il t’amplifie",
@@ -855,19 +863,23 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       subtitle: "Comment tirer le meilleur parti de votre expérience IAIA.",
       introTitle: "Bienvenue sur IAIA !",
       introText: "Ce guide vous présente les principales fonctionnalités de l'application pour vous aider à découvrir et à gérer les meilleurs outils d'IA pour vos besoins.",
-      discoverTitle: "1. Découvrir les outils",
-      discoverText1: "La page principale 'Découvrir' est votre porte d'entrée vers notre catalogue complet d'outils d'IA.<br /><br />Vous pouvez :",
-      discoverText2: "<ul><li><b>Parcourir</b> la liste complète des outils sélectionnés.</li><li><b>Filtrer</b> par catégorie (par ex., 'Photo', 'Codage') pour affiner votre recherche.</li><li><b>Utiliser la barre de recherche</b> pour trouver des outils par nom, mot-clé ou description.</li></ul>",
-      aiSearchTitle: "2. Recherche par IA",
-      aiSearchText1: "Vous ne savez pas quel outil il vous faut ? Laissez notre IA vous aider ! Dans la section 'Découverte d'outils par IA', décrivez simplement votre tâche ou votre objectif en langage clair.",
+      aiSearchTitle: "1. Recherche par IA",
+      aiSearchText1: "Vous ne savez pas quel outil il vous faut ? Laissez notre IA vous aider ! En haut de la page 'Découvrir', décrivez simplement votre tâche ou votre objectif en langage clair.",
       aiSearchText2: "Par exemple, vous pourriez écrire : <i>'Je dois faire une vidéo à partir d'un article de blog'</i>. L'IA analysera votre demande et vous suggérera l'outil le plus approprié, ainsi que son raisonnement.",
-      favoritesTitle: "3. Gérer vos favoris",
+      featuredTitle: "2. Les IA à la Une",
+      featuredText: "Juste en dessous de la recherche par IA, vous trouverez notre sélection d'« IA à la Une ». C'est une liste organisée des outils les plus populaires, innovants ou remarquables du moment. C'est un excellent point de départ pour trouver l'inspiration !",
+      discoverTitle: "3. Découvrir tous les outils",
+      discoverText1: "La liste d'outils principale est votre porte d'entrée vers notre catalogue complet. Vous pouvez :",
+      discoverText2: "<ul><li><b>Parcourir</b> la liste complète des outils sélectionnés.</li><li><b>Filtrer</b> par catégorie (par ex., 'Photo', 'Codage') pour affiner votre recherche.</li><li><b>Utiliser la barre de recherche</b> pour trouver des outils par nom, mot-clé ou description.</li></ul>",
+      favoritesTitle: "4. Gérer vos favoris",
       favoritesText1: "Pour garder une trace des outils que vous trouvez intéressants, vous pouvez les ajouter à vos favoris. Vous devez être connecté pour utiliser cette fonctionnalité.",
       favoritesText2: "Cliquez simplement sur l'icône <b>étoile (☆)</b> sur n'importe quelle carte d'outil ou page d'outil. Pour voir tous vos outils enregistrés, accédez à 'Mes Favoris' depuis le menu utilisateur en haut à droite.",
-      accountTitle: "4. Gérer votre compte",
+      accountTitle: "5. Gérer votre compte",
       accountText1: "Sur la page 'Paramètres du compte', vous pouvez facilement mettre à jour votre nom d'affichage et changer votre mot de passe pour sécuriser votre compte.",
       tipTitle: "Astuce de pro",
-      tipText: "Cette application prend en charge plusieurs langues ! Vous pouvez basculer entre l'anglais, le français et l'espagnol à tout moment en utilisant l'icône du globe dans la barre de navigation."
+      tipText: "Cette application prend en charge plusieurs langues ! Vous pouvez basculer entre l'anglais, le français et l'espagnol à tout moment en utilisant l'icône du globe dans la barre de navigation.",
+      comingSoonTitle: "Bientôt disponible : Le Studio IAIA",
+      comingSoonText: "Nous préparons un espace créatif où vous pourrez directement utiliser certaines IA, comme pour la génération d'images. Restez à l'écoute pour de nouvelles fonctionnalités qui décupleront vos capacités !",
     },
     contactPage: {
       title: "Contactez-nous",
@@ -918,7 +930,7 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       step2Title: "2. IAIA analiza y selecciona",
       step2Text: "Ej: ElevenLabs con la configuración de voz correcta",
       step3Title: "3. Pasas a la acción",
-      step3Text: "...sin perderte en 100 herramientas.",
+      stepText: "...sin perderte en 100 herramientas.",
       section3Benefit: "🎯 Ganancia: tiempo, claridad, eficiencia creativa.",
       section4Title: "¿Por qué IAIA es diferente?",
       feature1: "IAIA no te reemplaza: te amplifica",
@@ -1150,19 +1162,23 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       subtitle: "Cómo aprovechar al máximo tu experiencia en IAIA.",
       introTitle: "¡Bienvenido a IAIA!",
       introText: "Esta guía te mostrará las características principales de la aplicación para ayudarte a descubrir y gestionar las mejores herramientas de IA para tus necesidades.",
-      discoverTitle: "1. Descubrir Herramientas",
-      discoverText1: "La página principal 'Descubrir' es tu puerta de entrada a nuestro catálogo completo de herramientas de IA. Puedes:",
-      discoverText2: "<ul><li><b>Explorar</b> la lista completa de herramientas seleccionadas.</li><li><b>Filtrar</b> por categoría (p. ej., 'Foto', 'Codificación') para acotar tu búsqueda.</li><li><b>Usar la barra de búsqueda</b> para encontrar herramientas por nombre, palabra clave o descripción.</li></ul>",
-      aiSearchTitle: "2. Búsqueda con IA",
-      aiSearchText1: "¿No sabes qué herramienta necesitas? ¡Deja que nuestra IA te ayude! En la sección 'Buscador de Herramientas con IA', simplemente describe tu tarea u objetivo en lenguaje sencillo.",
+      aiSearchTitle: "1. Búsqueda con IA",
+      aiSearchText1: "¿No sabes qué herramienta necesitas? ¡Deja que nuestra IA te ayude! En la parte superior de la página 'Descubrir', simplemente describe tu tarea u objetivo en lenguaje sencillo.",
       aiSearchText2: "Por ejemplo, podrías escribir: <i>'Necesito hacer un video a partir de una publicación de blog'</i>. La IA analizará tu solicitud y te sugerirá la herramienta más adecuada, junto con su razonamiento.",
-      favoritesTitle: "3. Gestionar tus Favoritos",
+      featuredTitle: "2. IA Destacadas",
+      featuredText: "Justo debajo de la búsqueda con IA, encontrarás nuestra selección de 'IA Destacadas'. Esta es una lista curada de las herramientas más populares, innovadoras o notables del momento. ¡Es un gran lugar para encontrar inspiración!",
+      discoverTitle: "3. Descubrir Todas las Herramientas",
+      discoverText1: "El listado principal de herramientas es tu puerta de entrada a nuestro catálogo completo. Puedes:",
+      discoverText2: "<ul><li><b>Explorar</b> la lista completa de herramientas seleccionadas.</li><li><b>Filtrar</b> por categoría (p. ej., 'Foto', 'Codificación') para acotar tu búsqueda.</li><li><b>Usar la barra de búsqueda</b> para encontrar herramientas por nombre, palabra clave o descripción.</li></ul>",
+      favoritesTitle: "4. Gestionar tus Favoritos",
       favoritesText1: "Para hacer un seguimiento de las herramientas que te parecen interesantes, puedes agregarlas a tus favoritos. Debes iniciar sesión para usar esta función.",
       favoritesText2: "Simplemente haz clic en el icono de la <b>estrella (☆)</b> en cualquier tarjeta de herramienta o página de herramienta. Para ver todas tus herramientas guardadas, ve a 'Mis Favoritos' desde el menú de usuario en la esquina superior derecha.",
-      accountTitle: "4. Gestionar tu Cuenta",
+      accountTitle: "5. Gestionar tu Cuenta",
       accountText1: "En la página 'Configuración de la cuenta', puedes actualizar fácilmente tu nombre de usuario y cambiar tu contraseña para mantener tu cuenta segura.",
       tipTitle: "Consejo profesional",
-      tipText: "¡Esta aplicación es compatible con varios idiomas! Puedes cambiar entre inglés, francés y español en cualquier momento usando el icono del globo en la barra de navegación."
+      tipText: "¡Esta aplicación es compatible con varios idiomas! Puedes cambiar entre inglés, francés y español en cualquier momento usando el icono del globo en la barra de navegación.",
+      comingSoonTitle: "Próximamente: Estudio IAIA",
+      comingSoonText: "Estamos preparando un espacio creativo donde podrás usar directamente ciertas IA, como para la generación de imágenes. ¡Mantente atento a las nuevas funciones que ampliarán aún más tus capacidades!",
     },
     contactPage: {
       title: "Contáctanos",
