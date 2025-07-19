@@ -8,10 +8,12 @@ import { Loader2, Star, Home } from "lucide-react";
 import { useLanguage } from "@/hooks/use-language";
 import { translations } from "@/lib/translations";
 import { useFavorites } from "@/hooks/use-favorites";
-import { aiTools } from "@/lib/data";
 import AiToolCard from "@/components/ai-tool-card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { useQuery } from "@tanstack/react-query";
+import { getAiTools } from "@/lib/firebase/firestore";
+import type { AiTool } from "@/types";
 
 export default function FavoritesPage() {
   const { user, loading: authLoading } = useAuth();
@@ -20,13 +22,19 @@ export default function FavoritesPage() {
   const t = translations[language].favoritesPage;
   const { favorites, isLoading: favoritesLoading } = useFavorites();
 
+  const { data: allAiTools = [], isLoading: toolsLoading } = useQuery<AiTool[]>({
+    queryKey: ['aiTools'],
+    queryFn: getAiTools,
+    staleTime: 1000 * 60 * 60, // 1 hour
+  });
+
   useEffect(() => {
     if (!authLoading && !user) {
       router.push("/login");
     }
   }, [user, authLoading, router]);
 
-  const isLoading = authLoading || favoritesLoading;
+  const isLoading = authLoading || favoritesLoading || toolsLoading;
 
   if (isLoading || !user) {
     return (
@@ -36,7 +44,7 @@ export default function FavoritesPage() {
     );
   }
 
-  const favoriteTools = aiTools.filter(tool => favorites.includes(tool.id));
+  const favoriteTools = allAiTools.filter(tool => favorites.includes(tool.id));
 
   return (
     <div className="space-y-8 max-w-5xl mx-auto animate-fadeIn">
