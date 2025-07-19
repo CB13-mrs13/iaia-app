@@ -1155,7 +1155,7 @@
     "longDescription": {
       "en": "Cody by Sourcegraph is an AI coding assistant that uses your codebase context to provide accurate code generation, explanations, and answers to questions about your code.",
       "fr": "Cody de Sourcegraph est un assistant de codage IA qui utilise le contexte de votre base de code pour fournir une génération de code précise, des explications et des réponses aux questions sur votre code.",
-      "es": "Cody de Sourcegraph es un asistente de codificación de IA que utiliza el contexto de tu base de código para proporcionar generación de código precisa, explicaciones y respuestas a preguntas sobre tu código."
+      "es": "Cody de Sourcegraph es un asistente de codificación de IA que utiliza el contexto de tu base de código para proporcionar generación de código precisa, explicaciones y respuestas a preguntas sobre tu code."
     },
     "category": "Coding",
     "website": "https://sourcegraph.com/cody",
