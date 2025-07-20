@@ -1,5 +1,6 @@
 
 import type { Metadata } from 'next';
+import { Poppins } from 'next/font/google';
 import './globals.css';
 import { AuthProvider } from '@/contexts/auth-context';
 import Navbar from '@/components/layout/navbar';
@@ -8,6 +9,13 @@ import { Toaster } from '@/components/ui/toaster';
 import { LanguageProvider } from '@/contexts/language-context';
 import QueryProvider from '@/contexts/query-provider';
 import CookieConsentBanner from '@/components/layout/cookie-consent-banner';
+
+// Optimized font loading with next/font
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-poppins',
+});
 
 export const metadata: Metadata = {
   title: 'IAIA - Your AI Tool Companion',
@@ -21,12 +29,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-      </head>
-      <body className="font-body antialiased flex flex-col min-h-screen" suppressHydrationWarning>
+      <body className={`${poppins.variable} font-body antialiased flex flex-col min-h-screen`} suppressHydrationWarning>
         <QueryProvider>
           <LanguageProvider>
             <AuthProvider>

@@ -53,11 +53,10 @@ const HeroSlideshow = ({ items }: { items: HeroItem[] }) => {
       }
     });
 
-    const timer = setTimeout(() => {
-        if (items[currentIndex].type === 'image') {
-            handleVideoEnded(); // Manually advance for images
-        }
-    }, 5000); // 5 second timer for images
+    let timer: NodeJS.Timeout;
+    if (items[currentIndex].type === 'image') {
+       timer = setTimeout(handleVideoEnded, 5000); // Manually advance for images
+    }
 
     return () => clearTimeout(timer);
 
@@ -212,7 +211,7 @@ export default function LandingPage() {
                             alt={item.caption}
                             width={1920}
                             height={1080}
-                            className="w-full h-full object-contain"
+                            className="w-full h-full object-cover"
                             data-ai-hint={item.hint}
                           />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
