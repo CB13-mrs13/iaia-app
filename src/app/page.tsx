@@ -128,10 +128,10 @@ export default function LandingPage() {
 
 
   const carouselItems = [
-    { image: '/images/summit.jpg', caption: t.carouselCaption1, hint: 'mountain conquest success' },
-    { image: '/images/recipe.jpg', caption: t.carouselCaption2, hint: 'master chef cooking' },
-    { image: '/images/ambiance.jpg', caption: t.carouselCaption3, hint: 'dj mixing music' },
-    { image: '/images/market.jpg', caption: t.carouselCaption4, hint: 'finance domination business' },
+    { image: '/images/conquete-montagne-iaia.jpg', caption: t.carouselCaption1, hint: 'mountain conquest success' },
+    { image: '/images/maitre-cuisine-iaia.jpg', caption: t.carouselCaption2, hint: 'master chef cooking' },
+    { image: '/images/DJ-iaia.jpg', caption: t.carouselCaption3, hint: 'dj mixing music' },
+    { image: '/images/domination-finance-iaia.jpg', caption: t.carouselCaption4, hint: 'finance domination business' },
   ];
 
   const heroItems: HeroItem[] = [
@@ -179,7 +179,7 @@ export default function LandingPage() {
               className="relative h-64 md:h-96 w-full rounded-lg overflow-hidden shadow-xl flex items-center justify-center p-8 bg-primary group-hover:bg-accent transition-colors duration-300"
               data-ai-hint="iaia logo abstract"
             >
-              <Image src="/iaia-logo.png" alt="IAIA Logo" width={200} height={200} className="w-40 h-40 md:w-52 md:h-52 object-contain transition-transform duration-300 group-hover:scale-75" />
+              <Image src="/images/logo-iaia-sstxt.jpg" alt="IAIA Logo" width={200} height={200} className="w-40 h-40 md:w-52 md:h-52 object-contain transition-transform duration-300 group-hover:scale-75" />
               <div className="absolute inset-0 flex items-center justify-center p-8">
                 <p className="text-center text-2xl md:text-3xl font-bold text-white leading-relaxed drop-shadow-lg opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                   {t.logoSlogan}
