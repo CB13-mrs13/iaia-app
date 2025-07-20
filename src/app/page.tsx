@@ -179,7 +179,7 @@ export default function LandingPage() {
               className="relative h-64 md:h-96 w-full rounded-lg overflow-hidden shadow-xl flex items-center justify-center p-8 bg-primary group-hover:bg-accent transition-colors duration-300"
               data-ai-hint="iaia logo abstract"
             >
-              <Image src="/images/logo-iaia-sstxt.jpg" alt="IAIA Logo" width={200} height={200} className="w-40 h-40 md:w-52 md:h-52 object-contain transition-transform duration-300 group-hover:scale-75" />
+              <Image src="/iaia-logo.png" alt="IAIA Logo" width={200} height={200} className="w-40 h-40 md:w-52 md:h-52 object-contain transition-transform duration-300 group-hover:scale-75" />
               <div className="absolute inset-0 flex items-center justify-center p-8">
                 <p className="text-center text-2xl md:text-3xl font-bold text-white leading-relaxed drop-shadow-lg opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                   {t.logoSlogan}
@@ -265,7 +265,7 @@ export default function LandingPage() {
               <CardContent className="p-6">
                 <div className="text-5xl font-extrabold text-primary mb-4">3.</div>
                 <h3 className="text-xl font-semibold mb-2">{t.step3Title}</h3>
-                <p className="text-muted-foreground bg-muted p-3 rounded-md italic">{t.step3Text}</p>
+                <p className="text-muted-foreground bg-muted p-3 rounded-md italic">{t.stepText}</p>
               </CardContent>
             </Card>
           </div>
@@ -326,3 +326,5 @@ export default function LandingPage() {
     </div>
   );
 }
+
+    
