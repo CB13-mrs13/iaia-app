@@ -560,7 +560,7 @@
       "es": "Stable Diffusion XL (SDXL) es un modelo avanzado de código abierto de Stability AI, capaz de generar imágenes de alta resolución con fotorrealismo y composición mejorados en comparación con versiones anteriores."
     },
     "category": "Gratuit",
-    "website": "https://stability.ai/stablediffusion",
+    "website": "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0",
     "imageUrl": "/ai-tools/stable-diffusion-xl.jpg",
     "imageKeywords": "Stable Diffusion",
     "rating": 4.7,
