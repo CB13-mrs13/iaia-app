@@ -85,10 +85,10 @@ export default function DiscoverClient({ aiTools, featuredToolsList }: DiscoverC
 
   // Infinite scroll effect
   useEffect(() => {
-    if (inView) {
+    if (inView && visibleCount < filteredTools.length) {
       setVisibleCount(prevCount => Math.min(prevCount + ITEMS_PER_PAGE, filteredTools.length));
     }
-  }, [inView, filteredTools.length]);
+  }, [inView, filteredTools.length, visibleCount]);
   
   // Reset visible count when filters change
   useEffect(() => {
