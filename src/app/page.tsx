@@ -265,7 +265,7 @@ export default function LandingPage() {
               <CardContent className="p-6">
                 <div className="text-5xl font-extrabold text-primary mb-4">3.</div>
                 <h3 className="text-xl font-semibold mb-2">{t.step3Title}</h3>
-                <p className="text-muted-foreground bg-muted p-3 rounded-md italic">{t.step3Text}</p>
+                <p className="text-muted-foreground bg-muted p-3 rounded-md italic">{t.stepText}</p>
               </CardContent>
             </Card>
           </div>
