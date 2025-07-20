@@ -17,11 +17,14 @@ import { useAuth } from '@/hooks/use-auth';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, type CarouselApi } from '@/components/ui/carousel';
 import { cn } from '@/lib/utils';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { useInView } from 'react-intersection-observer';
 
 interface DiscoverClientProps {
   aiTools: AiTool[];
   featuredToolsList: AiTool[];
 }
+
+const ITEMS_PER_PAGE = 12;
 
 export default function DiscoverClient({ aiTools, featuredToolsList }: DiscoverClientProps) {
   const [selectedCategory, setSelectedCategory] = useState<AiToolCategory | null>(null);
@@ -32,6 +35,65 @@ export default function DiscoverClient({ aiTools, featuredToolsList }: DiscoverC
   const router = useRouter();
   const [carouselApi, setCarouselApi] = useState<CarouselApi | null>(null);
   const isMobile = useIsMobile();
+  const [visibleCount, setVisibleCount] = useState(ITEMS_PER_PAGE);
+
+  const { ref: loadMoreRef, inView } = useInView({
+    threshold: 0,
+    triggerOnce: false,
+  });
+
+  const priorityOrder: AiToolCategory[] = ['Gratuit', 'Photo', 'Video', 'LLM'];
+
+  const sortedTools = useMemo(() => {
+    const sponsoredTools = aiTools.filter(tool => tool.isSponsored);
+    const nonSponsoredTools = aiTools.filter(tool => !tool.isSponsored);
+
+    nonSponsoredTools.sort((a, b) => {
+      const aPriority = priorityOrder.indexOf(a.category);
+      const bPriority = priorityOrder.indexOf(b.category);
+
+      // Both have priority: sort by priority order
+      if (aPriority !== -1 && bPriority !== -1) {
+        if (aPriority < bPriority) return -1;
+        if (aPriority > bPriority) return 1;
+      }
+      // Only A has priority: A comes first
+      if (aPriority !== -1) return -1;
+      // Only B has priority: B comes first
+      if (bPriority !== -1) return 1;
+      
+      // No priority for either, sort by ID (newest first)
+      return parseInt(b.id, 10) - parseInt(a.id, 10);
+    });
+
+    return [...sponsoredTools, ...nonSponsoredTools];
+  }, [aiTools]);
+
+
+  const filteredTools = useMemo(() => {
+    return sortedTools
+      .filter(tool => selectedCategory ? tool.category === selectedCategory : true)
+      .filter(tool => {
+        const description = tool.description[language] || tool.description.en;
+        return (
+          tool.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          (tool.tags && tool.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase())))
+        );
+      });
+  }, [selectedCategory, searchTerm, language, sortedTools]);
+
+  // Infinite scroll effect
+  useEffect(() => {
+    if (inView) {
+      setVisibleCount(prevCount => Math.min(prevCount + ITEMS_PER_PAGE, filteredTools.length));
+    }
+  }, [inView, filteredTools.length]);
+  
+  // Reset visible count when filters change
+  useEffect(() => {
+    setVisibleCount(ITEMS_PER_PAGE);
+  }, [selectedCategory, searchTerm]);
 
   const applyCarouselStyles = useCallback((api: CarouselApi) => {
     api.slideNodes().forEach((slide, index) => {
@@ -84,20 +146,7 @@ export default function DiscoverClient({ aiTools, featuredToolsList }: DiscoverC
 }, [carouselApi, isMobile, applyCarouselStyles, resetCarouselStyles]);
 
   
-  const filteredTools = useMemo(() => {
-    return aiTools
-      .filter(tool => selectedCategory ? tool.category === selectedCategory : true)
-      .filter(tool => {
-        const description = tool.description[language] || tool.description.en;
-        return (
-          tool.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          (tool.tags && tool.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase())))
-        );
-      });
-  }, [selectedCategory, searchTerm, language, aiTools]);
-  
-  if (loading || !user) {
+  if (loading && !user) { // Show loader only during the initial auth check
     return (
       <div className="flex min-h-[calc(100vh-theme(spacing.32))] items-center justify-center">
         <Loader2 className="h-8 w-8 animate-spin text-primary" />
@@ -187,15 +236,20 @@ export default function DiscoverClient({ aiTools, featuredToolsList }: DiscoverC
         </div>
 
         {filteredTools.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredTools.map((tool, index) => (
-              <div key={tool.id} className="animate-slideInUp" style={{ animationDelay: `${index * 50}ms`, animationFillMode: 'backwards' }}>
-                  <AiToolCard 
-                    tool={tool} 
-                  />
+          <>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {filteredTools.slice(0, visibleCount).map((tool, index) => (
+                <div key={tool.id} className="animate-slideInUp" style={{ animationDelay: `${index * 50}ms`, animationFillMode: 'backwards' }}>
+                    <AiToolCard tool={tool} />
+                </div>
+              ))}
+            </div>
+            {visibleCount < filteredTools.length && (
+              <div ref={loadMoreRef} className="flex justify-center items-center py-10">
+                <Loader2 className="h-8 w-8 animate-spin text-primary" />
               </div>
-            ))}
-          </div>
+            )}
+          </>
         ) : (
           <div className="text-center py-12 flex flex-col items-center gap-4 border-2 border-dashed rounded-lg">
             <PackageSearch className="h-16 w-16 text-muted-foreground" />

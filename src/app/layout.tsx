@@ -13,8 +13,9 @@ import CookieConsentBanner from '@/components/layout/cookie-consent-banner';
 // Optimized font loading with next/font
 const poppins = Poppins({
   subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700'],
+  weight: ['300', '400', '500', '600', '700', '800', '900'],
   variable: '--font-poppins',
+  display: 'swap', // Important for performance
 });
 
 export const metadata: Metadata = {
@@ -28,8 +29,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${poppins.variable} font-body antialiased flex flex-col min-h-screen`} suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className={poppins.variable}>
+      <body className={`font-body antialiased flex flex-col min-h-screen`} suppressHydrationWarning>
         <QueryProvider>
           <LanguageProvider>
             <AuthProvider>
