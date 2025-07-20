@@ -129,10 +129,10 @@ export default function LandingPage() {
 
 
   const carouselItems = [
-    { image: '/ai-tools/hula-ai.jpg', caption: t.carouselCaption1, hint: 'mountain conquest success' },
-    { image: '/ai-tools/ai-mirror.jpg', caption: t.carouselCaption2, hint: 'master chef cooking' },
-    { image: '/ai-tools/kp-ai-music.jpg', caption: t.carouselCaption3, hint: 'dj mixing music' },
-    { image: '/ai-tools/mytunes.jpg', caption: t.carouselCaption4, hint: 'finance domination business' },
+    { image: '/images/summit.jpg', caption: t.carouselCaption1, hint: 'mountain conquest success' },
+    { image: '/images/recipe.jpg', caption: t.carouselCaption2, hint: 'master chef cooking' },
+    { image: '/images/ambiance.jpg', caption: t.carouselCaption3, hint: 'dj mixing music' },
+    { image: '/images/market.jpg', caption: t.carouselCaption4, hint: 'finance domination business' },
   ];
 
   const heroItems: HeroItem[] = [
@@ -327,5 +327,3 @@ export default function LandingPage() {
     </div>
   );
 }
-
-    
