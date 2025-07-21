@@ -1,4 +1,9 @@
+
 /** @type {import('next').NextConfig} */
+
+// This line is essential for Next.js to load environment variables from .env files
+require('dotenv').config({ path: './.env.local' });
+
 const nextConfig = {
   /* config options here */
   typescript: {
@@ -27,5 +32,3 @@ const nextConfig = {
 };
 
 module.exports = nextConfig;
-
-    
