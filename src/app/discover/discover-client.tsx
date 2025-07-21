@@ -275,5 +275,3 @@ export default function DiscoverClient({ aiTools, featuredToolsList }: DiscoverC
     </div>
   );
 }
-
-    
