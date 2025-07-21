@@ -44,9 +44,12 @@ Cette clé est utilisée pour envoyer l'e-mail depuis votre formulaire de contac
 
 1.  **Connectez-vous à votre compte Resend :** [https://resend.com/login](https://resend.com/login)
 2.  Dans le menu de gauche, cliquez sur **"API Keys"**.
-3.  Vous pouvez **copier une clé existante** (si vous ne l'avez pas sauvegardée, vous ne pourrez pas la voir entièrement) ou en créer une nouvelle en cliquant sur **"+ Create API Key"**.
-4.  Donnez-lui un nom (ex: `IAIA App`) et laissez les permissions sur "Full access". Cliquez sur "Add".
-5.  **Important :** Resend n'affiche la clé complète qu'une seule fois. Copiez-la immédiatement et collez-la pour la variable `RESEND_API_KEY` dans votre `.env.local`.
+3.  Cliquez sur le bouton **"+ Create API Key"** en haut à droite.
+4.  Une petite fenêtre va apparaître. C'est ici que vous pouvez :
+    *   **Donner un nom à votre clé :** Dans le champ "Name", écrivez par exemple `IAIA App`.
+    *   **Définir les permissions :** Laissez le champ "Permission" sur **"Full access"**.
+    *   Cliquez ensuite sur le bouton **"Add"**.
+5.  **Important :** Resend n'affiche la clé complète qu'une seule fois, sur l'écran suivant (celui de votre capture d'écran). Copiez-la immédiatement et collez-la pour la variable `RESEND_API_KEY` dans votre `.env.local`. Si vous avez déjà une clé mais que vous ne l'avez pas copiée, vous devrez en créer une nouvelle.
 
 ---
 
