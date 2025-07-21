@@ -13,8 +13,8 @@ const contactSchema = z.object({
 
 type ContactFormValues = z.infer<typeof contactSchema>;
 
-// Initialize Resend with the correct environment variable
-const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
+// Initialize Resend with the SERVER-SIDE environment variable
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function sendContactEmail(formData: ContactFormValues) {
   const validatedFields = contactSchema.safeParse(formData);
@@ -25,9 +25,9 @@ export async function sendContactEmail(formData: ContactFormValues) {
 
   const { name, email, feedbackType, message } = validatedFields.data;
 
-  // Check for the correctly prefixed API key
-  if (!process.env.NEXT_PUBLIC_RESEND_API_KEY || process.env.NEXT_PUBLIC_RESEND_API_KEY.includes("paste_your")) {
-      console.error('NEXT_PUBLIC_RESEND_API_KEY is not set. Email will not be sent.');
+  // Check for the Resend API key on the server
+  if (!process.env.RESEND_API_KEY || process.env.RESEND_API_KEY.includes("paste_your")) {
+      console.error('RESEND_API_KEY is not set on the server. Email will not be sent.');
       return { error: "Server configuration error: cannot send email." };
   }
   
