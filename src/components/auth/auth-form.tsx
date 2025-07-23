@@ -116,7 +116,7 @@ export default function AuthForm({ mode, onSubmit }: AuthFormProps) {
     <Card className="w-full max-w-md shadow-xl">
       <CardHeader className="text-center">
         <div className="mx-auto mb-4">
-          <Image src="/iaia-logo.png" alt="IAIA Logo" width={48} height={48} className="h-12 w-12" />
+          <Image src="/iaia-logo.png" alt="IAIA Logo" width={48} height={48} className="h-12 w-12" priority />
         </div>
         <CardTitle className="text-2xl font-bold">
           {mode === 'login' ? t.loginTitle : t.signupTitle}
