@@ -46,16 +46,16 @@ export default function Footer() {
             </Button>
           </div>
           <LanguageSwitcher />
-           <Link href="/contact" className="text-muted-foreground hover:text-foreground transition-colors px-2">
+           <Link href="/contact" className="text-muted-foreground hover:text-accent transition-colors px-2">
             {t.footerContact}
           </Link>
-          <Link href="/terms-of-service" className="text-muted-foreground hover:text-foreground transition-colors px-2">
+          <Link href="/terms-of-service" className="text-muted-foreground hover:text-accent transition-colors px-2">
             {t.termsOfService}
           </Link>
-          <Link href="/privacy-policy" className="text-muted-foreground hover:text-foreground transition-colors px-2">
+          <Link href="/privacy-policy" className="text-muted-foreground hover:text-accent transition-colors px-2">
             {t.privacyPolicy}
           </Link>
-          <Link href="/user-manual" className="text-muted-foreground hover:text-foreground transition-colors px-2">
+          <Link href="/user-manual" className="text-muted-foreground hover:text-accent transition-colors px-2">
             {t.userManual}
           </Link>
         </div>
