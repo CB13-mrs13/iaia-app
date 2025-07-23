@@ -28,10 +28,7 @@ export default function Footer() {
 
   return (
     <footer className="border-t border-border/40 py-6 md:py-8">
-      <div className="container flex flex-col items-center justify-center gap-4 md:flex-row md:justify-between">
-        <p className="text-center text-sm leading-loose text-muted-foreground md:text-left">
-          Built by CB13 - Cousinbruno. &copy; {new Date().getFullYear()} IAIA. All rights reserved.
-        </p>
+      <div className="container flex flex-col items-center justify-center gap-4">
         <div className="flex flex-wrap justify-center items-center gap-x-2 gap-y-2 text-sm">
           <div className="flex items-center gap-x-2">
             <Button asChild variant="ghost" size="icon">
@@ -59,6 +56,9 @@ export default function Footer() {
             {t.userManual}
           </Link>
         </div>
+        <p className="text-center text-sm leading-loose text-muted-foreground pt-4">
+          Built by CB13 - Cousinbruno. &copy; {new Date().getFullYear()} IAIA. All rights reserved.
+        </p>
       </div>
     </footer>
   );
