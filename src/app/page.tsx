@@ -168,11 +168,6 @@ export default function LandingPage() {
             <p className="text-xl font-semibold text-primary">
               {t.section1Text2}
             </p>
-             <Button variant="secondary" asChild>
-                <Link href="#how-it-works">
-                  {t.section1Button}
-                </Link>
-            </Button>
           </div>
            <Link href="/signup" className="group block transition-transform duration-300 hover:scale-105">
             <div 
