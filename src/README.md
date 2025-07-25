@@ -45,7 +45,7 @@ Le moyen le plus simple et le plus rentable de déployer cette application est d
 Ce service est conçu pour fonctionner de manière transparente avec votre backend Firebase existant.
 
 **Prérequis :**
-- Vous avez un projet Firebase créé. [Accédez à votre console Firebase ici](https://console.firebase.google.com/).
+- Vous avez un projet Firebase créé. [Accédez à votre console Firebase ici](https://console.firebase.google.com/project/iaia-5ecf3/overview).
 - Vous avez Node.js installé sur votre machine.
 
 **Étapes :**
@@ -62,7 +62,7 @@ Ce service est conçu pour fonctionner de manière transparente avec votre backe
 
 3.  **Déployez :** Le backend est déjà créé. Déployez simplement votre application avec cette commande.
     ```bash
-    firebase apphosting:backends:deploy
+    firebase deploy
     ```
 
     Firebase construira votre application Next.js et la déploiera. Après quelques minutes, il vous fournira une URL publique pour accéder à votre application en direct.
