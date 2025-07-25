@@ -1,83 +1,83 @@
-# IAIA - Your AI Tool Companion
+# IAIA - Votre Compagnon d'Outils IA
 
-This is a Next.js starter project built in Firebase Studio. It's a curated directory of AI tools, designed to help users discover and learn about the latest in artificial intelligence.
+Ceci est un projet de démarrage Next.js construit dans Firebase Studio. C'est un annuaire d'outils d'IA, conçu pour aider les utilisateurs à découvrir et à se familiariser avec les dernières nouveautés en matière d'intelligence artificielle.
 
-## Features
+## Fonctionnalités
 
-- **Curated List of AI Tools:** A comprehensive list of over 90 AI tools, categorized for easy browsing.
-- **AI-Powered Search:** Users can describe their needs in natural language, and the app's AI will suggest the most suitable tool.
-- **Featured Section:** Highlights the most popular or sponsored AI tools.
-- **Multi-language Support:** Content is available in English, French, and Spanish.
-- **User Authentication:** Users can sign up and log in to manage their account.
+- **Liste d'outils IA** : Une liste complète de plus de 90 outils d'IA, classés par catégories pour une navigation facile.
+- **Recherche par IA** : Les utilisateurs peuvent décrire leurs besoins en langage naturel, et l'IA de l'application suggérera l'outil le plus approprié.
+- **Section "À la une"** : Met en avant les outils d'IA les plus populaires ou sponsorisés.
+- **Support multilingue** : Le contenu est disponible en anglais, français et espagnol.
+- **Authentification des utilisateurs** : Les utilisateurs peuvent s'inscrire et se connecter pour gérer leur compte.
 
-## Tech Stack
+## Stack Technique
 
-- **Framework:** Next.js (with App Router)
-- **UI:** React, ShadCN UI, Tailwind CSS
-- **Generative AI:** Google Gemini via Genkit
-- **Backend & Auth:** Firebase
-
----
-
-## Code Quality
-
-This project is configured with tools to ensure code quality and consistency:
-
-- **ESLint:** For identifying and fixing problems in JavaScript/TypeScript code.
-- **Prettier:** For automatically formatting code to maintain a consistent style.
-- **TypeScript:** For static type checking.
-
-You can run the following commands to maintain code quality:
-
-- `npm run lint`: Check for linting errors.
-- `npm run lint:fix`: Automatically fix linting errors.
-- `npm run format`: Format all files with Prettier.
-- `npm run typecheck`: Run the TypeScript compiler to check for type errors.
+- **Framework :** Next.js (avec App Router)
+- **UI :** React, ShadCN UI, Tailwind CSS
+- **IA Générative :** Google Gemini via Genkit
+- **Backend & Auth :** Firebase
 
 ---
 
-## Deployment
+## Qualité du Code
 
-The simplest and most cost-effective way to deploy this application is using **Firebase App Hosting**. The project is already configured for it.
+Ce projet est configuré avec des outils pour garantir la qualité et la cohérence du code :
 
-### Firebase App Hosting (Recommended)
+- **ESLint :** Pour identifier et corriger les problèmes dans le code JavaScript/TypeScript.
+- **Prettier :** Pour formater automatiquement le code afin de maintenir un style cohérent.
+- **TypeScript :** Pour la vérification statique des types.
 
-This service is designed to work seamlessly with your existing Firebase backend.
+Vous pouvez exécuter les commandes suivantes pour maintenir la qualité du code :
 
-**Prerequisites:**
-- You have a Firebase project created. [Access your Firebase Console here](https://console.firebase.google.com/).
-- You have Node.js installed on your machine.
+- `npm run lint` : Vérifier les erreurs de linting.
+- `npm run lint:fix` : Corriger automatiquement les erreurs de linting.
+- `npm run format` : Formater tous les fichiers avec Prettier.
+- `npm run typecheck` : Exécuter le compilateur TypeScript pour vérifier les erreurs de type.
 
-**Steps:**
+---
 
-1.  **Install Firebase CLI:** If you don't have it, install it globally.
+## Déploiement
+
+Le moyen le plus simple et le plus rentable de déployer cette application est d'utiliser **Firebase App Hosting**. Le projet est déjà configuré pour cela.
+
+### Firebase App Hosting (Recommandé)
+
+Ce service est conçu pour fonctionner de manière transparente avec votre backend Firebase existant.
+
+**Prérequis :**
+- Vous avez un projet Firebase créé. [Accédez à votre console Firebase ici](https://console.firebase.google.com/).
+- Vous avez Node.js installé sur votre machine.
+
+**Étapes :**
+
+1.  **Installez Firebase CLI :** Si vous ne l'avez pas, installez-le globalement.
     ```bash
     npm install -g firebase-tools
     ```
 
-2.  **Login to Firebase:**
+2.  **Connectez-vous à Firebase :**
     ```bash
     firebase login
     ```
 
-3.  **Initialize App Hosting:** In your project's root directory, run this command. It will associate your code with your Firebase project and set up the backend.
+3.  **Initialisez App Hosting :** Dans le répertoire racine de votre projet, exécutez cette commande. Elle associera votre code à votre projet Firebase et configurera le backend.
     ```bash
     firebase apphosting:backends:create
     ```
-    Follow the prompts to select your Firebase project and choose a region for the backend.
+    Suivez les invites pour sélectionner votre projet Firebase et choisir une région pour le backend.
 
-4.  **Deploy:** Once the backend is created, deploy your application with this command.
+4.  **Déployez :** Une fois le backend créé, déployez votre application avec cette commande.
     ```bash
     firebase apphosting:backends:deploy
     ```
 
-    Firebase will build your Next.js application and deploy it. After a few minutes, it will provide you with a public URL to access your live application.
+    Firebase construira votre application Next.js et la déploiera. Après quelques minutes, il vous fournira une URL publique pour accéder à votre application en direct.
 
-### Alternative: Vercel
+### Alternative : Vercel
 
-Vercel is another excellent choice, known for its seamless integration with Next.js.
+Vercel est un autre excellent choix, connu pour son intégration transparente avec Next.js.
 
-1. Push your code to a Git repository (GitHub, GitLab, Bitbucket).
-2. Sign up for a free Vercel account.
-3. Import your Git repository into Vercel.
-4. Vercel will automatically detect that it's a Next.js project and deploy it. You will need to add your Firebase environment variables to the Vercel project settings.
+1. Poussez votre code vers un dépôt Git (GitHub, GitLab, Bitbucket).
+2. Créez un compte Vercel gratuit.
+3. Importez votre dépôt Git dans Vercel.
+4. Vercel détectera automatiquement qu'il s'agit d'un projet Next.js et le déploiera. Vous devrez ajouter vos variables d'environnement Firebase dans les paramètres du projet Vercel.
