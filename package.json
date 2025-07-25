@@ -12,8 +12,7 @@
     "lint:fix": "next lint --fix",
     "format": "prettier --write \"**/*.{ts,tsx,md,json}\" --ignore-path .prettierignore",
     "typecheck": "tsc --noEmit",
-    "import-firestore": "node scripts/import-firestore.js",
-    "post-checkout": "patch-package"
+    "import-firestore": "node scripts/import-firestore.js"
   },
   "dependencies": {
     "@genkit-ai/googleai": "1.1.0",
