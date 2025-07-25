@@ -60,13 +60,7 @@ Ce service est conçu pour fonctionner de manière transparente avec votre backe
     firebase login
     ```
 
-3.  **Initialisez App Hosting :** Dans le répertoire racine de votre projet, exécutez cette commande. Elle associera votre code à votre projet Firebase et configurera le backend.
-    ```bash
-    firebase apphosting:backends:create
-    ```
-    Suivez les invites pour sélectionner votre projet Firebase et choisir une région pour le backend.
-
-4.  **Déployez :** Une fois le backend créé, déployez votre application avec cette commande.
+3.  **Déployez :** Le backend est déjà créé. Déployez simplement votre application avec cette commande.
     ```bash
     firebase apphosting:backends:deploy
     ```
