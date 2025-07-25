@@ -27,6 +27,8 @@ const nextConfig = {
     outputFileTracingIncludes: {
       '/**': ['./public/**/*'],
     },
+    // This explicitly disables the new Next.js Dev Toolbar.
+    devTools: false,
   },
 };
 
