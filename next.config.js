@@ -1,3 +1,4 @@
+
 // This line is essential for Next.js to load environment variables from .env files
 // It MUST be the very first line of this file.
 require('dotenv').config({ path: './.env.local' });
