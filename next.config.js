@@ -21,7 +21,6 @@ const nextConfig = {
       },
     ],
   },
-  // We need to opt-in to this experimental feature to allow local images.
   experimental: {
     // This explicitly disables the new Next.js Dev Toolbar.
     devTools: false,
