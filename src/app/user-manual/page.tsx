@@ -72,8 +72,8 @@ export default function UserManualPage() {
                 <AlertDescription>{t.tipText}</AlertDescription>
             </Alert>
 
-            <Alert className="border-accent text-accent">
-                <Rocket className="h-4 w-4 text-accent" />
+            <Alert className="bg-primary text-primary-foreground border-primary/50">
+                <Rocket className="h-4 w-4 text-primary-foreground" />
                 <AlertTitle>{t.comingSoonTitle}</AlertTitle>
                 <AlertDescription>{t.comingSoonText}</AlertDescription>
             </Alert>
