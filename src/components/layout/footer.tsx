@@ -57,7 +57,11 @@ export default function Footer() {
           </Link>
         </div>
         <p className="text-center text-sm leading-loose text-muted-foreground pt-4">
-          Built by CB13 - Cousinbruno. &copy; {new Date().getFullYear()} IAIA. All rights reserved.
+          Built by CB13 - Cousinbruno. const [year, setYear] = useState<number | null>(null);
+useEffect(() => { setYear(new Date().getFullYear()); }, []);
+// ...
+&copy; {year ?? ""} IAIA. All rights reserved.
+
         </p>
       </div>
     </footer>
