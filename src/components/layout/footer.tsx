@@ -1,12 +1,10 @@
-
-"use client";
-
 import Link from "next/link";
-import { useLanguage } from "@/hooks/use-language";
+import { useEffect, useState } from "react";
 import { translations } from "@/lib/translations";
+import { useLanguage } from "@/hooks/use-language";
 import LanguageSwitcher from "./language-switcher";
+import { Button } from "@/components/ui/button";
 import { Linkedin } from "lucide-react";
-import { Button } from "../ui/button";
 
 // X Logo SVG component
 const XLogo = () => (
@@ -21,10 +19,15 @@ const XLogo = () => (
   </svg>
 );
 
-
 export default function Footer() {
   const { language } = useLanguage();
   const t = translations[language].legal;
+
+  // Correction pour l'année dynamique côté client (évite l'hydratation mismatch)
+  const [year, setYear] = useState<number | null>(null);
+  useEffect(() => {
+    setYear(new Date().getFullYear());
+  }, []);
 
   return (
     <footer className="border-t border-border/40 py-6 md:py-8">
@@ -32,14 +35,14 @@ export default function Footer() {
         <div className="flex flex-wrap justify-center items-center gap-x-2 gap-y-2 text-sm">
           <div className="flex items-center gap-x-2">
             <Button asChild variant="ghost" size="icon">
-              <Link href="https://x.com/iaia_app" target="_blank" rel="noopener noreferrer" aria-label="Follow us on X">
+              <a href="https://x.com/iaia_app" target="_blank" rel="noopener noreferrer" aria-label="Follow us on X">
                 <XLogo />
-              </Link>
+              </a>
             </Button>
             <Button asChild variant="ghost" size="icon">
-              <Link href="https://www.linkedin.com/company/iaia-app/" target="_blank" rel="noopener noreferrer" aria-label="Follow us on LinkedIn">
+              <a href="https://www.linkedin.com/company/iaia-app/" target="_blank" rel="noopener noreferrer" aria-label="Follow us on LinkedIn">
                 <Linkedin className="h-5 w-5" />
-              </Link>
+              </a>
             </Button>
           </div>
           <LanguageSwitcher />
@@ -57,11 +60,7 @@ export default function Footer() {
           </Link>
         </div>
         <p className="text-center text-sm leading-loose text-muted-foreground pt-4">
-          Built by CB13 - Cousinbruno. const [year, setYear] = useState<number | null>(null);
-useEffect(() => { setYear(new Date().getFullYear()); }, []);
-// ...
-&copy; {year ?? ""} IAIA. All rights reserved.
-
+          Built by CB13 - Cousinbruno. &copy; {year ?? ""} IAIA. All rights reserved.
         </p>
       </div>
     </footer>
