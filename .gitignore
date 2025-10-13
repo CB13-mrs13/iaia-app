@@ -43,7 +43,9 @@ next-env.d.ts
 .genkit/*
 
 # firebase
-firebase-debug.log
-firestore-debug.log
 .firebase/
+.firebaserc
+.firebase*.json
+firebase-debug.log*
+firestore-debug.log
 functions/.firebase/

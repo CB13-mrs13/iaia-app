@@ -30,6 +30,7 @@ type PageTranslations = {
     step2Text: string;
     step3Title: string;
     step3Text: string;
+    stepText: string;
     section3Benefit: string;
     section4Title: string;
     feature1: string;
@@ -326,12 +327,13 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       section2Text2: "IAIA arms you. IAIA propels you. IAIA elevates you.",
       section2Text3: "Now, take command.",
       section3Title: "How does it work?",
+      stepText: "...without getting lost in 100 tools.",
       step1Title: "1. You say what you want to create",
       step1Text: "“I want to generate a realistic female voice for a podcast”",
       step2Title: "2. IAIA analyzes and selects",
       step2Text: "e.g., ElevenLabs with the right voice setting",
       step3Title: "3. You take action",
-      stepText: "...without getting lost in 100 tools.",
+      step3Text: "3. You take action",
       section3Benefit: "🎯 Gain: time, clarity, creative efficiency.",
       section4Title: "Why is IAIA different?",
       feature1: "IAIA doesn't replace you: it amplifies you",
@@ -631,6 +633,7 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       step2Title: "2. IAIA analyse et sélectionne",
       step2Text: "Ex : ElevenLabs avec le bon réglage vocal",
       step3Title: "3. Tu passes à l’action",
+      step3Text: "3. Tu passes à l’action",
       stepText: "...sans te perdre dans 100 outils.",
       section3Benefit: "🎯 Gain : temps, clarté, efficacité créative.",
       section4Title: "Pourquoi IAIA est différent ?",
@@ -930,7 +933,8 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       step2Title: "2. IAIA analiza y selecciona",
       step2Text: "Ej: ElevenLabs con la configuración de voz correcta",
       step3Title: "3. Pasas a la acción",
-      stepText: "...sin perderte en 100 herramientas.",
+      step3Text: "3. Pasas a la acción",
+      stepText: "Sin perderte en 100 herramientas.",
       section3Benefit: "🎯 Ganancia: tiempo, claridad, eficiencia creativa.",
       section4Title: "¿Por qué IAIA es diferente?",
       feature1: "IAIA no te reemplaza: te amplifica",
