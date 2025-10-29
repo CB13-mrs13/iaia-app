@@ -91,17 +91,15 @@ export async function getAiTools(): Promise<AiTool[]> {
 // Function to get a single AI tool by its slug
 export async function getAiToolBySlug(slug: string): Promise<AiTool | null> {
   try {
-    // This function relies on getAiTools which now has robust error handling.
-    // We can fetch all and filter, which is efficient enough for a few hundred tools
-    // and avoids complex queries.
     const allTools = await getAiTools();
     if (allTools.length === 0) {
       return null;
     }
-    
+    // DEBUG: log all generated slugs
+    console.log('[DEBUG] Slugs générés:', allTools.map(tool => createSlug(tool.name)));
+    console.log('[DEBUG] Slug recherché:', slug);
     const foundTool = allTools.find(tool => createSlug(tool.name) === slug);
     return foundTool || null;
-
   } catch (error) {
     console.error(`Error fetching tool with slug '${slug}':`, error);
     return null;

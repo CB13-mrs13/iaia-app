@@ -48,13 +48,10 @@ export default function ToolPageClient({ tool }: ToolPageClientProps) {
           {/* Image Section */}
           <div className="relative h-64 md:h-full">
             {tool.imageUrl ? (
-              <Image
+              <img
                 src={tool.imageUrl}
                 alt={tool.name}
-                fill
-                style={{ objectFit: 'cover' }}
-                sizes="(max-width: 768px) 100vw, 50vw"
-                priority
+                style={{ objectFit: 'cover', width: '100%', height: '100%' }}
               />
             ) : (
               <div className="flex items-center justify-center h-full bg-muted">
@@ -86,7 +83,7 @@ export default function ToolPageClient({ tool }: ToolPageClientProps) {
                     ) : (
                       <Star className={cn(
                         "h-5 w-5 transition-all",
-                        isToolFavorite ? "text-primary fill-primary" : "text-muted-foreground"
+                        isToolFavorite ? "text-[#FACC15] fill-[#FACC15]" : "text-muted-foreground fill-transparent"
                       )} />
                     )}
                   </Button>
@@ -122,11 +119,14 @@ export default function ToolPageClient({ tool }: ToolPageClientProps) {
             </CardContent>
 
             <div className="pt-6 mt-auto">
-              <Button asChild className="w-full">
-                <a href={tool.website} target="_blank" rel="noopener noreferrer">
-                  {t.visitWebsite} <ArrowUpRight className="ml-2 h-4 w-4" />
-                </a>
-              </Button>
+              <a 
+                href={tool.website} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="btn-yellow w-full text-center"
+              >
+                {t.visitWebsite} <ArrowUpRight className="ml-2 h-4 w-4 inline-block" />
+              </a>
             </div>
           </div>
         </div>

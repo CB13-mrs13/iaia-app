@@ -95,20 +95,21 @@ const HeroSlideshow = ({ items }: { items: HeroItem[] }) => {
            )}
          </div>
       ))}
-       <div className="absolute inset-0 bg-black/40 z-10" />
-        <div className="relative z-20 p-4 animate-fadeIn text-center">
-          <h1 className="text-6xl md:text-9xl font-bold leading-none mb-4 animate-slideInUp" style={{ animationDelay: '0.2s' }}>
-            {currentItem.title}
-          </h1>
-          <h2 className="text-4xl md:text-7xl font-extrabold text-primary animate-slideInUp" style={{ animationDelay: '0.5s' }}>
-            {currentItem.subtitle}
-          </h2>
-          <Button asChild size="lg" className="mt-8 text-lg animate-slideInUp" style={{ animationDelay: '0.8s' }}>
-            <Link href="/signup">
-              {t.heroButton}
-            </Link>
-          </Button>
-        </div>
+      <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/60 to-black/70 z-10" />
+      <div className="relative z-20 flex flex-col items-center justify-center px-4 text-center">
+        <h1 className="hero-title mb-4">
+          {currentItem.title}
+        </h1>
+        <h2 className="hero-subtitle mb-10">
+          {currentItem.subtitle}
+        </h2>
+        <Link 
+          href="/discover"
+          className="btn-yellow text-base md:text-lg px-8 py-3"
+        >
+          {t.heroButton}
+        </Link>
+      </div>
     </>
   );
 };
@@ -160,23 +161,23 @@ export default function LandingPage() {
       {/* Section 1: What is IAIA? */}
       <section className="py-20 px-4 bg-card">
         <div className="container mx-auto grid md:grid-cols-2 gap-12 items-center">
-          <div className="space-y-4">
-            <h2 className="text-4xl font-bold">{t.section1Title}</h2>
-            <p className="text-lg text-muted-foreground">
+          <div className="space-y-6">
+            <h2 className="text-4xl md:text-5xl font-bold leading-tight">{t.section1Title}</h2>
+            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
               {t.section1Text1}
             </p>
-            <p className="text-xl font-semibold text-primary">
+            <p className="text-xl md:text-2xl font-bold text-primary">
               {t.section1Text2}
             </p>
           </div>
-           <Link href="/signup" className="group block transition-transform duration-300 hover:scale-105">
+           <Link href="/signup" className="logo-card group block transition-all duration-400 hover:scale-105">
             <div 
-              className="relative h-64 md:h-96 w-full rounded-lg overflow-hidden shadow-xl flex items-center justify-center p-8 bg-primary group-hover:bg-accent transition-colors duration-300"
+              className="relative h-64 md:h-96 w-full rounded-xl overflow-hidden shadow-2xl flex items-center justify-center p-8"
               data-ai-hint="iaia logo abstract"
             >
-              <Image src="/iaia-logo.png" alt="IAIA Logo" width={200} height={200} className="w-40 h-40 md:w-52 md:h-52 object-contain transition-transform duration-300 group-hover:scale-75" />
-              <div className="absolute inset-0 flex items-center justify-center p-8">
-                <p className="text-center text-2xl md:text-3xl font-bold text-white leading-relaxed drop-shadow-lg opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+              <Image src="/iaia-logo.png" alt="IAIA Logo" width={200} height={200} className="w-40 h-40 md:w-52 md:h-52 object-contain" />
+              <div className="absolute inset-0 flex items-center justify-center p-8 logo-text">
+                <p className="text-center text-2xl md:text-3xl font-bold leading-relaxed">
                   {t.logoSlogan}
                 </p>
               </div>
@@ -186,7 +187,7 @@ export default function LandingPage() {
       </section>
 
       {/* Section 2: Storytelling */}
-       <section className="py-20 bg-background text-center">
+       <section className="py-20 bg-transparent text-center">
         <div className="container mx-auto max-w-5xl px-4 md:px-12">
           <h2 className="text-4xl font-bold mb-12 px-4">{t.section2Title}</h2>
           <ShadcnCarousel
@@ -230,7 +231,7 @@ export default function LandingPage() {
             {t.section2Text2}
           </p>
           <Link href="/signup" className="block transition-transform duration-300 hover:scale-105">
-            <p className="text-lg font-medium bg-accent text-accent-foreground p-4 rounded-lg shadow-md">
+            <p className="text-lg font-medium bg-orange text-white p-4 rounded-lg shadow-md">
               {t.section2Text3}
             </p>
           </Link>
@@ -240,36 +241,36 @@ export default function LandingPage() {
       {/* Section 3: How it works? */}
       <section id="how-it-works" className="py-20 px-4 bg-card">
         <div className="container mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-12">{t.section3Title}</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-16">{t.section3Title}</h2>
           <div className="grid md:grid-cols-3 gap-8 text-left">
-            <Card>
-              <CardContent className="p-6">
-                <div className="text-5xl font-extrabold text-primary mb-4">1.</div>
-                <h3 className="text-xl font-semibold mb-2">{t.step1Title}</h3>
-                <p className="text-muted-foreground bg-muted p-3 rounded-md italic">{t.step1Text}</p>
+            <Card className="border-none shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+              <CardContent className="p-8">
+                <div className="step-badge mb-6">1</div>
+                <h3 className="text-xl font-bold mb-3">{t.step1Title}</h3>
+                <p className="text-muted-foreground bg-muted/50 p-4 rounded-lg italic leading-relaxed">{t.step1Text}</p>
               </CardContent>
             </Card>
-             <Card>
-              <CardContent className="p-6">
-                <div className="text-5xl font-extrabold text-primary mb-4">2.</div>
-                <h3 className="text-xl font-semibold mb-2">{t.step2Title}</h3>
-                <p className="text-muted-foreground bg-muted p-3 rounded-md italic">{t.step2Text}</p>
+             <Card className="border-none shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+              <CardContent className="p-8">
+                <div className="step-badge mb-6">2</div>
+                <h3 className="text-xl font-bold mb-3">{t.step2Title}</h3>
+                <p className="text-muted-foreground bg-muted/50 p-4 rounded-lg italic leading-relaxed">{t.step2Text}</p>
               </CardContent>
             </Card>
-             <Card>
-              <CardContent className="p-6">
-                <div className="text-5xl font-extrabold text-primary mb-4">3.</div>
-                <h3 className="text-xl font-semibold mb-2">{t.step3Title}</h3>
-                <p className="text-muted-foreground bg-muted p-3 rounded-md italic">{t.stepText}</p>
+             <Card className="border-none shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+              <CardContent className="p-8">
+                <div className="step-badge mb-6">3</div>
+                <h3 className="text-xl font-bold mb-3">{t.step3Title}</h3>
+                <p className="text-muted-foreground bg-muted/50 p-4 rounded-lg italic leading-relaxed">{t.stepText}</p>
               </CardContent>
             </Card>
           </div>
-          <p className="mt-8 text-xl font-bold text-primary">{t.section3Benefit}</p>
+          <p className="mt-12 text-xl md:text-2xl font-bold text-primary">{t.section3Benefit}</p>
         </div>
       </section>
 
       {/* Section 4: Why IAIA is different? */}
-      <section className="py-20 px-4">
+      <section className="py-20 px-4 bg-transparent">
         <div className="container mx-auto max-w-3xl">
           <h2 className="text-4xl font-bold text-center mb-12">{t.section4Title}</h2>
           <ul className="space-y-4 text-lg">
@@ -287,10 +288,10 @@ export default function LandingPage() {
       </section>
 
       {/* Section 5: Final CTA */}
-      <section className="py-20 px-4 bg-accent text-accent-foreground">
+      <section className="py-24 px-4 bg-orange">
         <div className="container mx-auto text-center max-w-2xl">
-          <h2 className="text-5xl font-extrabold mb-8">{t.section5Title}</h2>
-          <div className="bg-card text-card-foreground p-8 rounded-lg shadow-2xl">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-10 text-white drop-shadow-lg">{t.section5Title}</h2>
+          <div className="bg-white text-card-foreground p-10 rounded-2xl shadow-2xl">
             {/* The beta sign-up form is temporarily hidden */}
             <div className="hidden">
               <form onSubmit={(e) => e.preventDefault()} className="space-y-4">
@@ -310,11 +311,9 @@ export default function LandingPage() {
               </div>
             </div>
             
-             <Button asChild size="lg" className="w-full text-lg">
-                <Link href="/signup">
-                  {t.formButton2}
-                </Link>
-             </Button>
+             <Link href="/signup" className="btn-yellow text-xl w-full block text-center">
+                {t.formButton2}
+             </Link>
           </div>
         </div>
       </section>

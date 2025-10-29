@@ -42,6 +42,13 @@ export default function DiscoverClient({ aiTools, featuredToolsList }: DiscoverC
     triggerOnce: false,
   });
 
+  // Redirect unauthenticated users to signup
+  useEffect(() => {
+    if (!loading && !user) {
+      router.push('/signup');
+    }
+  }, [user, loading, router]);
+
   const priorityOrder: AiToolCategory[] = ['Gratuit', 'Photo', 'Video', 'LLM'];
 
   const sortedTools = useMemo(() => {
@@ -96,6 +103,7 @@ export default function DiscoverClient({ aiTools, featuredToolsList }: DiscoverC
   }, [selectedCategory, searchTerm]);
 
   const applyCarouselStyles = useCallback((api: CarouselApi) => {
+    if (!api) return;
     api.slideNodes().forEach((slide, index) => {
       const distance = Math.abs(api.selectedScrollSnap() - index);
       const scale = 1 - distance * 0.1;
@@ -110,6 +118,7 @@ export default function DiscoverClient({ aiTools, featuredToolsList }: DiscoverC
   }, []);
   
   const resetCarouselStyles = useCallback((api: CarouselApi) => {
+      if (!api) return;
       api.slideNodes().forEach((slide) => {
           const slideEl = slide as HTMLElement;
           slideEl.style.transform = '';
@@ -155,7 +164,7 @@ export default function DiscoverClient({ aiTools, featuredToolsList }: DiscoverC
   }
 
   return (
-    <div className="space-y-12 animate-fadeIn">
+    <div className="space-y-12 animate-fadeIn bg-transparent">
       <section id="ai-search" className="pt-8">
         <AiSearchForm />
       </section>
@@ -177,15 +186,15 @@ export default function DiscoverClient({ aiTools, featuredToolsList }: DiscoverC
               align: isMobile ? "center" : "start",
               loop: true,
             }}
-            className="w-full max-w-sm sm:max-w-xl md:max-w-2xl lg:max-w-4xl xl:max-w-6xl mx-auto"
+            className="w-full mx-auto px-2 sm:px-0 sm:max-w-xl md:max-w-2xl lg:max-w-4xl xl:max-w-6xl"
           >
-            <CarouselContent className={cn(isMobile && "-ml-4 h-[450px]")}>
+            <CarouselContent className={cn(isMobile && "-ml-2 h-auto min-h-[520px]")}>
               {featuredToolsList.map((tool) => (
                 <CarouselItem key={tool.id} className={cn(
                   "transition-all duration-300 relative",
-                  isMobile ? "basis-3/4 pl-4" : "sm:basis-1/2 lg:basis-1/3"
+                  isMobile ? "basis-full pl-2 pr-2" : "sm:basis-1/2 lg:basis-1/3"
                 )}>
-                  <div className="p-1 h-full">
+                  <div className={cn("h-full", isMobile ? "px-2" : "p-1")}>
                     <AiToolCard tool={tool} featured />
                   </div>
                 </CarouselItem>
@@ -197,17 +206,15 @@ export default function DiscoverClient({ aiTools, featuredToolsList }: DiscoverC
         )}
 
         <div className="text-center mt-8">
-          <Button asChild variant="outline">
-            <Link href="/discover/featured">
-              {t.viewFeaturedButton}
-            </Link>
-          </Button>
+          <Link href="/discover/featured" className="btn-yellow inline-flex items-center justify-center">
+            {t.viewFeaturedButton}
+          </Link>
         </div>
       </section>
 
       {/* Beta Toolbox Section */}
       <section id="toolbox-beta">
-        <div className="bg-accent text-accent-foreground rounded-lg p-8 shadow-lg text-center flex flex-col items-center gap-2">
+        <div className="bg-orange text-white rounded-xl p-8 shadow-lg text-center flex flex-col items-center gap-2">
           <Wrench className="h-8 w-8" />
           <h3 className="text-2xl font-bold">{t.toolboxTitle}</h3>
           <p className="mt-1 text-lg">{t.toolboxText}</p>
@@ -225,13 +232,14 @@ export default function DiscoverClient({ aiTools, featuredToolsList }: DiscoverC
         <AiToolFilters selectedCategory={selectedCategory} onSelectCategory={setSelectedCategory} />
 
         <div className="relative mb-8">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground pointer-events-none z-10" />
           <Input
             type="text"
             placeholder={t.searchPlaceholder}
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="pl-10 pr-4 py-2 text-base h-12 rounded-md shadow-sm focus:border-primary"
+            className="pl-10 pr-4 py-2 text-base h-12 rounded-lg shadow-sm focus:border-primary focus:ring-2 focus:ring-primary/20"
+            aria-label="Search AI tools"
           />
         </div>
 

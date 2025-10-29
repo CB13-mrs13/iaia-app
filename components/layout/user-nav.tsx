@@ -66,7 +66,7 @@ export default function UserNav({ user }: UserNavProps) {
           </Avatar>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-56" align="end" forceMount>
+      <DropdownMenuContent className="bg-white border border-gray-200 shadow-lg min-w-[240px] rounded-lg z-50" align="end" forceMount>
         <DropdownMenuLabel className="font-normal">
           <div className="flex flex-col space-y-1">
             <p className="text-sm font-medium leading-none">{user.displayName || t.user}</p>

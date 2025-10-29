@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { updateUserPassword } from '@/lib/firebase/auth';
+import { useAuth } from '@/hooks/use-auth';
 import { useToast } from '@/hooks/use-toast';
 import { useState, useTransition, useEffect } from 'react';
 import { Loader2, Eye, EyeOff } from 'lucide-react';
@@ -28,6 +29,7 @@ const passwordSchema = z.object({
 type PasswordFormValues = z.infer<typeof passwordSchema>;
 
 export default function PasswordSettings() {
+  const { user } = useAuth();
   const { toast } = useToast();
   const [isPending, startTransition] = useTransition();
   const [showConfetti, setShowConfetti] = useState(false);
@@ -57,6 +59,14 @@ export default function PasswordSettings() {
 
   const onSubmit: SubmitHandler<PasswordFormValues> = async (data) => {
     startTransition(async () => {
+      if (!user) {
+        toast({
+          variant: "destructive",
+          title: t.updateFailedToastTitle,
+          description: t.updateFailedToastDesc + ' (Utilisateur non connecté)'
+        });
+        return;
+      }
       try {
         await updateUserPassword(data.newPassword);
         toast({ title: t.passwordUpdatedToastTitle, description: t.passwordUpdatedToastDesc });
@@ -82,8 +92,6 @@ export default function PasswordSettings() {
             recycle={false}
             numberOfPieces={800}
             gravity={0.1}
-            spread={360}
-            origin={{ x: 0.5, y: 0.5 }}
           />
       )}
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">

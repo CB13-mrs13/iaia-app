@@ -25,10 +25,14 @@ const commonSchema = {
 
 const signUpSchema = z.object({
   ...commonSchema,
-  displayName: z.string().min(2, "Display name must be at least 2 characters.").optional(),
+  displayName: z.string().min(2, "Display name must be at least 2 characters."),
 });
 
 const signInSchema = z.object(commonSchema);
+
+type SignUpFormValues = z.infer<typeof signUpSchema>;
+type SignInFormValues = z.infer<typeof signInSchema>;
+type FormValues = SignUpFormValues | SignInFormValues;
 
 type AuthFormProps = {
   mode: 'login' | 'signup';
@@ -44,14 +48,13 @@ export default function AuthForm({ mode, onSubmit }: AuthFormProps) {
   const t = translations[language].auth;
 
   const schema = mode === 'signup' ? signUpSchema : signInSchema;
-  type FormValues = z.infer<typeof schema>;
 
   const form = useForm<FormValues>({
-    resolver: zodResolver(schema),
+    resolver: zodResolver(schema) as any, // eslint-disable-line @typescript-eslint/no-explicit-any
     defaultValues: {
       email: "",
       password: "",
-      displayName: "",
+      ...(mode === 'signup' && { displayName: "" }),
     }
   });
 
@@ -95,8 +98,8 @@ export default function AuthForm({ mode, onSubmit }: AuthFormProps) {
     });
   };
 
-  const getTranslatedError = (field: keyof FormValues) => {
-    const error = form.formState.errors[field];
+  const getTranslatedError = (field: string) => {
+    const error = (form.formState.errors as any)[field]; // eslint-disable-line @typescript-eslint/no-explicit-any
     if (!error) return null;
 
     switch (field) {
@@ -113,7 +116,7 @@ export default function AuthForm({ mode, onSubmit }: AuthFormProps) {
 
 
   return (
-    <Card className="w-full max-w-md shadow-xl">
+    <Card className="w-full max-w-md shadow-xl border-none">
       <CardHeader className="text-center">
         <div className="mx-auto mb-4">
           <Image src="/iaia-logo.png" alt="IAIA Logo" width={48} height={48} className="h-12 w-12" priority />
@@ -132,9 +135,9 @@ export default function AuthForm({ mode, onSubmit }: AuthFormProps) {
               <Label htmlFor="displayName">{t.displayNameLabel}</Label>
                <div className="relative">
                 <User className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                <Input id="displayName" type="text" {...form.register('displayName')} placeholder={t.displayNamePlaceholder} className="pl-10" />
+                <Input id="displayName" type="text" {...form.register('displayName' as any)} placeholder={t.displayNamePlaceholder} className="pl-10" />
               </div>
-              {form.formState.errors.displayName && (
+              {(form.formState.errors as any).displayName && (
                 <p className="text-sm text-destructive">{getTranslatedError('displayName')}</p>
               )}
             </div>
@@ -182,10 +185,10 @@ export default function AuthForm({ mode, onSubmit }: AuthFormProps) {
                 </AlertDescription>
             </Alert>
           )}
-          <Button type="submit" className="w-full" disabled={isPending}>
+          <button type="submit" className="btn-yellow w-full" disabled={isPending}>
             {isPending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
             {mode === 'login' ? t.loginButton : t.signupButton}
-          </Button>
+          </button>
         </form>
       </CardContent>
       <CardFooter className="flex flex-col items-center space-y-2">

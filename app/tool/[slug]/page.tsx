@@ -2,7 +2,7 @@ export const dynamic = "force-dynamic";
 
 import { notFound } from 'next/navigation';
 import { getAiTools, getAiToolBySlug } from '@/lib/firebase/firestore';
-import ToolPageClient from './[slug]/tool-page-client';
+import ToolPageClient from './tool-page-client';
 import { createSlug } from '@/lib/utils';
 
 export const revalidate = 3600; // Revalidate at most every hour
@@ -21,7 +21,7 @@ export async function generateStaticParams() {
 }
 
 export default async function ToolPage({ params }: ToolPageProps) {
-  const { slug } = await params;
+  const { slug } = params;
   const tool = await getAiToolBySlug(slug);
 
   if (!tool) {

@@ -7,16 +7,7 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
-  images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'placehold.co',
-        port: '',
-        pathname: '/**',
-      },
-    ],
-  },
+  images: {},
   // SUPPRIME la section "experimental" ou du moins "devTools"
   // experimental: {
   //   devTools: false,

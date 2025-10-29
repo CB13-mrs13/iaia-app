@@ -20,28 +20,46 @@ export default function AiToolFilters({ selectedCategory, onSelectCategory }: Ai
   return (
     <div className="mb-8">
       <h2 className="text-lg font-semibold mb-3">{t.title}</h2>
-      <ScrollArea className="w-full whitespace-nowrap rounded-md">
+      <div className="grid grid-cols-3 gap-2 md:hidden">
+        <button
+          onClick={() => onSelectCategory(null)}
+          className={`filter-btn ${selectedCategory === null ? 'filter-btn-active' : ''}`}
+        >
+          {t.allToolsButton}
+        </button>
+        {aiToolCategories.map((category) => {
+          const Icon = getCategoryIcon(category);
+          return (
+            <button
+              key={category}
+              onClick={() => onSelectCategory(category)}
+              className={`filter-btn ${selectedCategory === category ? 'filter-btn-active' : ''}`}
+            >
+              <Icon className="mr-1 h-4 w-4" />
+              <span className="truncate">{category}</span>
+            </button>
+          );
+        })}
+      </div>
+      <ScrollArea className="w-full whitespace-nowrap rounded-md hidden md:block">
         <div className="flex space-x-2 pb-2">
-          <Button
-            variant={selectedCategory === null ? 'default' : 'outline'}
+          <button
             onClick={() => onSelectCategory(null)}
-            className="transition-all duration-200"
+            className={`filter-btn ${selectedCategory === null ? 'filter-btn-active' : ''}`}
           >
             {t.allToolsButton}
-          </Button>
+          </button>
           {aiToolCategories.map((category) => {
             const Icon = getCategoryIcon(category);
-            // Category names themselves are data and not translated in this simple setup
             return (
-              <Button
+              <button
                 key={category}
-                variant={selectedCategory === category ? 'default' : 'outline'}
                 onClick={() => onSelectCategory(category)}
-                className="transition-all duration-200"
+                className={`filter-btn ${selectedCategory === category ? 'filter-btn-active' : ''}`}
               >
                 <Icon className="mr-2 h-4 w-4" />
                 {category} 
-              </Button>
+              </button>
             );
           })}
         </div>

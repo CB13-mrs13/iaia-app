@@ -46,75 +46,91 @@ export default function AiToolCard({ tool, featured = false }: AiToolCardProps) 
   return (
     <Link href={`/tool/${slug}`} className="flex h-full">
       <Card className={cn(
-          "flex flex-col h-full w-full overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-lg relative group",
-          featured && "border-2 border-primary shadow-primary/20",
-          tool.pricing === 'Free' && "bg-accent/10 border-accent"
+          "ai-tool-card flex flex-col h-full w-full overflow-hidden transition-all duration-300 relative group",
+          featured && "featured",
+          tool.pricing === 'Free' && "bg-gradient-to-br from-green-50/50 to-emerald-50/50"
         )}>
         {user && (
           <Button
             variant="ghost"
             size="icon"
-            className="absolute top-2 right-2 z-10 h-8 w-8 rounded-full bg-background/70 hover:bg-background"
+            className="absolute top-3 right-3 z-10 h-9 w-9 rounded-full bg-white/90 hover:bg-white shadow-md hover:shadow-lg transition-all duration-300"
             onClick={handleFavoriteClick}
             disabled={isToggling}
             aria-label="Toggle Favorite"
           >
             <Star className={cn(
-              "h-5 w-5 transition-all",
-              isToolFavorite ? "text-primary fill-primary" : "text-muted-foreground"
+              "h-5 w-5 transition-all duration-300",
+              isToolFavorite ? "text-[#FACC15] fill-[#FACC15] scale-110" : "text-muted-foreground fill-transparent"
             )} />
           </Button>
         )}
-        <CardHeader className="flex-shrink-0 p-4">
+        <CardHeader className="flex-shrink-0 p-5">
           {tool.imageUrl && (
-            <div className="relative w-full h-40 mb-4 overflow-hidden rounded-md">
-              <Image
+            <div className="relative w-full h-44 mb-4 overflow-hidden rounded-lg group-hover:scale-[1.02] transition-transform duration-300">
+              {/* Test temporaire : img natif pour debug chemin */}
+              <img
                 src={tool.imageUrl}
                 alt={tool.name}
-                fill
-                style={{ objectFit: 'cover' }}
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                style={{ objectFit: 'cover', width: '100%', height: '100%' }}
                 data-ai-hint={aiHint}
-                priority={featured}
-                className="transition-transform duration-300 group-hover:scale-105"
+                className="brightness-95 group-hover:brightness-100 transition-all duration-300"
               />
+              {/* Remettre <Image ... /> après debug */}
             </div>
           )}
-          <div className="flex items-start justify-between">
-            <CardTitle className="text-xl font-semibold pr-8">{tool.name}</CardTitle>
-            {CategoryIcon && <CategoryIcon className="h-6 w-6 text-primary flex-shrink-0" />}
+          <div className="flex items-start justify-between gap-3">
+            <CardTitle className="text-xl font-bold leading-tight">{tool.name}</CardTitle>
+            {CategoryIcon && <CategoryIcon className="h-7 w-7 text-primary flex-shrink-0 mt-0.5" />}
           </div>
-          <div className="flex flex-wrap gap-2 pt-2 min-h-[2.25rem]">
+          <div className="flex flex-wrap gap-2 pt-3 min-h-[2.25rem]">
              {(featured || tool.isSponsored) && (
-              <Badge variant="default" className={cn(featured && !tool.isSponsored && "bg-primary text-primary-foreground")}>
+              <Badge variant="default" className={cn(
+                "font-semibold shadow-sm",
+                featured && !tool.isSponsored && "bg-primary text-primary-foreground hover:bg-primary/90"
+              )}>
                 {tool.isSponsored ? toolT.sponsored : (featured ? badgesT.featured : "")}
               </Badge>
             )}
             {tool.pricing === 'Free' && (
-               <Badge variant="default" className="bg-accent text-accent-foreground hover:bg-accent/80">
+               <Badge variant="default" className="bg-green-600 text-white hover:bg-green-700 font-semibold shadow-sm">
                 {badgesT.free}
               </Badge>
             )}
           </div>
-          <CardDescription className="text-sm text-muted-foreground min-h-[3rem] pt-1">{description}</CardDescription>
+          <CardDescription className="text-sm text-muted-foreground min-h-[3rem] pt-2 leading-relaxed">{description}</CardDescription>
         </CardHeader>
-        <CardContent className="flex-grow flex flex-col justify-end p-4 pt-0">
-           <div className="space-y-2 mt-auto">
+        <CardContent className="flex-grow flex flex-col justify-end p-5 pt-0">
+           <div className="space-y-3 mt-auto">
             {tool.tags && tool.tags.length > 0 && (
-              <div className="flex flex-wrap gap-1">
+              <div className="flex flex-wrap gap-1.5">
                 {tool.tags.slice(0, 3).map((tag) => (
-                  <Badge key={tag} variant="secondary" className="text-xs">{tag}</Badge>
+                  <span key={tag} className="inline-flex items-center px-2.5 py-0.5 rounded-md text-xs font-medium border border-black bg-transparent">
+                    {tag}
+                  </span>
                 ))}
               </div>
             )}
-            <div className="flex items-center justify-between text-xs text-muted-foreground pt-2">
+            <div className="flex items-center justify-between text-xs text-muted-foreground pt-2 border-t border-border/50">
               {tool.pricing && (
-                <p>{toolT.pricingLabel}: <Badge variant="outline" className="text-xs">{tool.pricing}</Badge></p>
+                <p className="font-medium pt-2">
+                  {toolT.pricingLabel}: 
+                  <span className={cn(
+                    "inline-flex items-center px-2.5 py-0.5 rounded-md text-xs font-semibold ml-1.5",
+                    tool.pricing === 'Free' 
+                      ? "bg-green-600 text-white" 
+                      : "border border-black text-black bg-transparent"
+                  )}>
+                    {tool.pricing}
+                  </span>
+                </p>
               )}
               {tool.rating && (
-                <div className="flex items-center">
-                  <Star className="h-4 w-4 fill-primary text-primary mr-1" />
-                  <span>{tool.rating.toFixed(1)} / 5.0</span>
+                <div className="flex items-center font-medium pt-2">
+                  <Star className="h-4 w-4 fill-primary text-primary mr-1.5" />
+                  <span className="text-foreground">{tool.rating.toFixed(1)}</span>
+                  <span className="mx-0.5">/</span>
+                  <span>5.0</span>
                 </div>
               )}
             </div>

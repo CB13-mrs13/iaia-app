@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
 // Add paths that require authentication
-const protectedPaths = ['/account'];
+const protectedPaths = ['/account', '/discover'];
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
@@ -11,7 +11,7 @@ export function middleware(request: NextRequest) {
   const isAccessingProtectedPath = protectedPaths.some(path => pathname.startsWith(path));
 
   if (isAccessingProtectedPath) {
-    // Client-side checks in /app/account/page.tsx will handle redirection
+    // Client-side checks in the protected pages will handle redirection
     // if the user is not authenticated. For this iteration, we are simplifying
     // server-side middleware checks.
     // A robust server-side check would involve verifying a session cookie
@@ -23,6 +23,6 @@ export function middleware(request: NextRequest) {
 
 // Specify which paths the middleware should run on
 export const config = {
-  matcher: ['/account/:path*'],
+  matcher: ['/account/:path*', '/discover/:path*'],
 };
 

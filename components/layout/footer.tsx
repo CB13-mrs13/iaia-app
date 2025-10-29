@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { translations } from "@/lib/translations";
@@ -30,36 +31,39 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer className="border-t border-border/40 py-6 md:py-8">
-      <div className="container flex flex-col items-center justify-center gap-4">
-        <div className="flex flex-wrap justify-center items-center gap-x-2 gap-y-2 text-sm">
+    <footer className="bg-card py-8 md:py-10">
+      <div className="container flex flex-col items-center justify-center gap-6">
+        <div className="flex flex-wrap justify-center items-center gap-x-4 gap-y-3 text-sm">
           <div className="flex items-center gap-x-2">
-            <Button asChild variant="ghost" size="icon">
+            <Button asChild variant="ghost" size="icon" className="hover:bg-primary/10 hover:text-primary transition-colors">
               <a href="https://x.com/iaia_app" target="_blank" rel="noopener noreferrer" aria-label="Follow us on X">
                 <XLogo />
               </a>
             </Button>
-            <Button asChild variant="ghost" size="icon">
+            <Button asChild variant="ghost" size="icon" className="hover:bg-primary/10 hover:text-primary transition-colors">
               <a href="https://www.linkedin.com/company/iaia-app/" target="_blank" rel="noopener noreferrer" aria-label="Follow us on LinkedIn">
                 <Linkedin className="h-5 w-5" />
               </a>
             </Button>
           </div>
+          <div className="h-4 w-px bg-border hidden md:block"></div>
           <LanguageSwitcher />
-           <Link href="/contact" className="text-muted-foreground hover:text-accent transition-colors px-2">
+          <div className="h-4 w-px bg-border hidden md:block"></div>
+          <Link href="/contact" className="text-muted-foreground hover:text-primary transition-colors duration-300 px-2 font-medium">
             {t.footerContact}
           </Link>
-          <Link href="/terms-of-service" className="text-muted-foreground hover:text-accent transition-colors px-2">
+          <Link href="/terms-of-service" className="text-muted-foreground hover:text-primary transition-colors duration-300 px-2 font-medium">
             {t.termsOfService}
           </Link>
-          <Link href="/privacy-policy" className="text-muted-foreground hover:text-accent transition-colors px-2">
+          <Link href="/privacy-policy" className="text-muted-foreground hover:text-primary transition-colors duration-300 px-2 font-medium">
             {t.privacyPolicy}
           </Link>
-          <Link href="/user-manual" className="text-muted-foreground hover:text-accent transition-colors px-2">
+          <Link href="/user-manual" className="text-muted-foreground hover:text-primary transition-colors duration-300 px-2 font-medium">
             {t.userManual}
           </Link>
         </div>
-        <p className="text-center text-sm leading-loose text-muted-foreground pt-4">
+        <div className="h-px w-32 bg-border"></div>
+        <p className="text-center text-xs md:text-sm leading-loose text-muted-foreground">
           Built by CB13 - Cousinbruno. &copy; {year ?? ""} IAIA. All rights reserved.
         </p>
       </div>

@@ -55,7 +55,7 @@ export default function AiSearchForm() {
   };
 
   return (
-    <Card className="mb-12 shadow-lg border border-primary/20">
+    <Card className="mb-12 shadow-lg border-none">
       <CardHeader>
         <CardTitle className="text-3xl font-bold tracking-tight">{t.title}</CardTitle>
         <CardDescription>{t.description}</CardDescription>
@@ -73,14 +73,19 @@ export default function AiSearchForm() {
               <p className="text-sm text-destructive mt-1">{form.formState.errors.prompt.message}</p>
             )}
           </div>
-          <Button type="submit" disabled={isPending} className="w-full sm:w-auto">
+          <button type="submit" disabled={isPending} className="btn-yellow w-full sm:w-auto">
             {isPending ? (
-              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+              <>
+                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                {t.button}
+              </>
             ) : (
-              <Search className="mr-2 h-4 w-4" />
+              <>
+                <Search className="mr-2 h-4 w-4" />
+                {t.button}
+              </>
             )}
-            {t.button}
-          </Button>
+          </button>
         </form>
         {error && <p className="mt-4 text-sm text-destructive">{error}</p>}
         {searchResult && <AiSearchResults result={searchResult} />}

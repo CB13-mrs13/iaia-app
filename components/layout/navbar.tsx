@@ -13,42 +13,49 @@ export default function Navbar() {
   const { user, loading } = useAuth();
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="flex h-16 items-center px-4 md:px-6">
-        <Link
-          href="/"
-          className="mr-2 flex items-center space-x-2 sm:mr-6"
-          aria-label="Homepage"
-        >
-          <Image src="/iaia-logo.png" alt="IAIA Logo" width={32} height={32} className="h-8 w-8" />
-          <span className="hidden font-bold text-2xl sm:inline-block">IAIA</span>
+    <header className="sticky top-0 z-50 w-full bg-white/98 backdrop-blur-md shadow-sm">
+      <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
+        <Link href="/" className="flex items-center gap-2 transition-transform duration-300 hover:scale-105" aria-label="Homepage">
+          <Image src="/iaia-logo.png" alt="IAIA Logo" width={40} height={40} className="h-10 w-10" />
         </Link>
 
-        <nav className="flex flex-1 items-center space-x-2">
-          {/* The Studio link has been removed as requested. */}
-        </nav>
-        <div className="flex items-center space-x-1 sm:space-x-2">
-          <Button variant="ghost" size="icon" asChild>
-              <Link href="/user-manual" aria-label="User Manual">
-                  <Wrench className="h-5 w-5" />
-              </Link>
+        <div className="flex items-center gap-2 md:gap-6">
+          <Button 
+            variant="ghost" 
+            size="icon" 
+            asChild 
+            className="text-black hover:text-primary hover:bg-primary/10 transition-all duration-300"
+          >
+            <Link href="/user-manual" aria-label="User Manual">
+              <Wrench className="h-5 w-5 md:h-6 md:w-6 stroke-[2]" />
+            </Link>
           </Button>
+          
           <LanguageSwitcher />
+          
           {loading ? (
-            <div className="h-9 w-24 animate-pulse rounded-md bg-muted"></div>
+            <div className="h-9 w-24 animate-pulse rounded-lg bg-muted"></div>
           ) : user ? (
             <UserNav user={user} />
           ) : (
             <>
-              <Button variant="ghost" asChild>
+              <Button 
+                variant="ghost" 
+                size="icon" 
+                asChild 
+                className="text-black hover:text-primary hover:bg-primary/10 transition-all duration-300"
+              >
                 <Link href="/login" aria-label="Login">
-                  <LogIn className="h-5 w-5 sm:mr-2" />
-                  <span className="hidden sm:inline">Login</span>
+                  <LogIn className="h-5 w-5 md:h-6 md:w-6 stroke-[2]" />
                 </Link>
               </Button>
-              <Button asChild>
-                <Link href="/signup">Sign Up</Link>
-              </Button>
+              
+              <Link 
+                href="/signup"
+                className="btn-yellow text-xs md:text-base px-4 md:px-8 py-2 md:py-2.5"
+              >
+                Sign Up
+              </Link>
             </>
           )}
         </div>

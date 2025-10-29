@@ -30,7 +30,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning className={poppins.variable}>
-      <body className={`font-body antialiased flex flex-col min-h-screen`} suppressHydrationWarning>
+      <body className={`font-body antialiased flex flex-col min-h-screen bg-background`} suppressHydrationWarning>
         <QueryProvider>
           <LanguageProvider>
             <AuthProvider>
