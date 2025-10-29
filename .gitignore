@@ -49,3 +49,12 @@ next-env.d.ts
 firebase-debug.log*
 firestore-debug.log
 functions/.firebase/service-account-key.json
+
+# Environment variables (contains sensitive data)
+.env
+.env.local
+.env*.local
+
+# Service account keys (all locations)
+service-account-key.json
+**/service-account-key.json
