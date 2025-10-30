@@ -22,10 +22,6 @@ const nextConfig = {
       },
     ],
   },
-  experimental: {
-    // This explicitly disables the new Next.js Dev Toolbar.
-    devTools: false,
-  },
 };
 
 module.exports = nextConfig;

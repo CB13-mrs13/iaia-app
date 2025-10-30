@@ -253,6 +253,10 @@ type PageTranslations = {
     dataSecurityText: string;
     yourRightsTitle: string;
     yourRightsText: string;
+    intellectualPropertyTitle: string;
+    intellectualPropertyText: string;
+    trademarkTitle: string;
+    trademarkText: string;
   },
   cookieConsent: {
     message: string;
@@ -522,7 +526,7 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       privacySubtitle: "How we handle your data.",
       termsTitle: "Terms of Service",
       termsSubtitle: "The rules for using our application.",
-      lastUpdated: "Last updated: October 26, 2023",
+      lastUpdated: "Last updated: October 30, 2025",
       disclaimer: "Disclaimer",
       disclaimerText: "This is a template and not legal advice. Please consult with a legal professional to ensure compliance with all applicable laws and regulations.",
       introductionTitle: "Introduction",
@@ -556,6 +560,10 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       dataSecurityText: "We use commercially reasonable safeguards to help keep the information collected through the Service secure and take reasonable steps (such as requesting a unique password) to verify your identity before granting you access to your account.",
       yourRightsTitle: "Your Data Rights",
       yourRightsText: "You have the right to access, update, or delete the information we have on you. You can update your profile information and change your password directly within your account settings. If you wish to delete your account, you may do so from the account settings page.",
+      intellectualPropertyTitle: "Intellectual Property Rights",
+      intellectualPropertyText: "The Service and its original content, features, and functionality are and will remain the exclusive property of IAIA and its licensors. The Service is protected by copyright, trademark, and other laws of both France and foreign countries. Our trademarks and trade dress may not be used in connection with any product or service without the prior written consent of IAIA. All rights not expressly granted are reserved.",
+      trademarkTitle: "Trademark Notice",
+      trademarkText: "The name 'IAIA', our logo, and all related names, logos, product and service names, designs, and slogans are trademarks of IAIA or its affiliates. These marks are registered or in the process of being registered with the INPI (French National Institute of Industrial Property) and are protected under French and international trademark laws. You must not use such marks without our prior written permission. All other names, logos, product and service names, designs, and slogans on this Service are the trademarks of their respective owners.",
     },
     cookieConsent: {
       message: "We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies.",
@@ -822,7 +830,7 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       privacySubtitle: "Comment nous traitons vos données.",
       termsTitle: "Conditions d'utilisation",
       termsSubtitle: "Les règles d'utilisation de notre application.",
-      lastUpdated: "Dernière mise à jour : 26 octobre 2023",
+      lastUpdated: "Dernière mise à jour : 30 octobre 2025",
       disclaimer: "Avertissement",
       disclaimerText: "Ceci est un modèle et non un conseil juridique. Veuillez consulter un professionnel du droit pour garantir la conformité avec toutes les lois et réglementations applicables.",
       introductionTitle: "Introduction",
@@ -856,6 +864,10 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       dataSecurityText: "Nous utilisons des mesures de protection commercialement raisonnables pour aider à sécuriser les informations collectées via le Service et prenons des mesures raisonnables (telles que la demande d'un mot de passe unique) pour vérifier votre identité avant de vous accorder l'accès à votre compte.",
       yourRightsTitle: "Vos droits sur les données",
       yourRightsText: "Vous avez le droit d'accéder, de mettre à jour ou de supprimer les informations que nous avons sur vous. Vous pouvez mettre à jour les informations de votre profil et changer votre mot de passe directement dans les paramètres de votre compte. Si vous souhaitez supprimer votre compte, vous pouvez le faire depuis la page des paramètres du compte.",
+      intellectualPropertyTitle: "Propriété Intellectuelle",
+      intellectualPropertyText: "Le Service et son contenu original, ses fonctionnalités et sa fonctionnalité sont et resteront la propriété exclusive d'IAIA et de ses concédants de licence. Le Service est protégé par le droit d'auteur, les marques déposées et d'autres lois françaises et étrangères. Nos marques et habillage commercial ne peuvent être utilisés en relation avec un produit ou service sans le consentement écrit préalable d'IAIA. Tous les droits non expressément accordés sont réservés.",
+      trademarkTitle: "Notice de Marque Déposée",
+      trademarkText: "Le nom 'IAIA', notre logo et tous les noms, logos, noms de produits et services, conceptions et slogans associés sont des marques commerciales d'IAIA ou de ses affiliés. Ces marques sont déposées ou en cours de dépôt auprès de l'INPI (Institut National de la Propriété Industrielle) et sont protégées par les lois françaises et internationales sur les marques. Vous ne devez pas utiliser ces marques sans notre autorisation écrite préalable. Tous les autres noms, logos, noms de produits et services, conceptions et slogans sur ce Service sont les marques commerciales de leurs propriétaires respectifs.",
     },
     cookieConsent: {
       message: "Nous utilisons des cookies pour améliorer votre expérience. En continuant à visiter ce site, vous acceptez notre utilisation des cookies.",
@@ -1122,7 +1134,7 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       privacySubtitle: "Cómo manejamos tus datos.",
       termsTitle: "Términos de servicio",
       termsSubtitle: "Las reglas para usar nuestra aplicación.",
-      lastUpdated: "Última actualización: 26 de octubre de 2023",
+      lastUpdated: "Última actualización: 30 de octubre de 2025",
       disclaimer: "Aviso legal",
       disclaimerText: "Esto es una plantilla y no un consejo legal. Por favor, consulte con un profesional legal para asegurar el cumplimiento con todas las leyes y regulaciones aplicables.",
       introductionTitle: "Introducción",
@@ -1156,6 +1168,10 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       dataSecurityText: "Utilizamos medidas de seguridad comercialmente razonables para ayudar a mantener segura la información recopilada a través del Servicio y tomamos medidas razonables (como solicitar una contraseña única) para verificar tu identidad antes de otorgarte acceso a tu cuenta.",
       yourRightsTitle: "Tus Derechos sobre los Datos",
       yourRightsText: "Tienes derecho a acceder, actualizar o eliminar la información que tenemos sobre ti. Puedes actualizar la información de tu perfil y cambiar tu contraseña directamente en la configuración de tu cuenta. Si deseas eliminar tu cuenta, puedes hacerlo desde la página de configuración de la cuenta.",
+      intellectualPropertyTitle: "Derechos de Propiedad Intelectual",
+      intellectualPropertyText: "El Servicio y su contenido original, características y funcionalidad son y seguirán siendo propiedad exclusiva de IAIA y sus licenciantes. El Servicio está protegido por derechos de autor, marcas comerciales y otras leyes tanto de Francia como de países extranjeros. Nuestras marcas comerciales y presentación comercial no pueden utilizarse en relación con ningún producto o servicio sin el consentimiento previo por escrito de IAIA. Todos los derechos no otorgados expresamente están reservados.",
+      trademarkTitle: "Aviso de Marca Registrada",
+      trademarkText: "El nombre 'IAIA', nuestro logotipo y todos los nombres, logotipos, nombres de productos y servicios, diseños y eslóganes relacionados son marcas comerciales de IAIA o sus afiliados. Estas marcas están registradas o en proceso de registro ante el INPI (Instituto Nacional de la Propiedad Industrial de Francia) y están protegidas por las leyes de marcas francesas e internacionales. No debe utilizar dichas marcas sin nuestro permiso previo por escrito. Todos los demás nombres, logotipos, nombres de productos y servicios, diseños y eslóganes en este Servicio son marcas comerciales de sus respectivos propietarios.",
     },
     cookieConsent: {
       message: "Usamos cookies para mejorar tu experiencia. Al continuar visitando este sitio, aceptas nuestro uso de cookies.",

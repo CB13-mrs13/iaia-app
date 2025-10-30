@@ -67,6 +67,16 @@ export default function TermsOfServicePage() {
             </section>
 
             <section>
+                <h2 className="font-semibold text-lg">{t.intellectualPropertyTitle}</h2>
+                <p>{t.intellectualPropertyText}</p>
+            </section>
+
+            <section>
+                <h2 className="font-semibold text-lg">{t.trademarkTitle}</h2>
+                <p>{t.trademarkText}</p>
+            </section>
+
+            <section>
                 <h2 className="font-semibold text-lg">{t.terminationTitle}</h2>
                 <p>{t.terminationText}</p>
             </section>
