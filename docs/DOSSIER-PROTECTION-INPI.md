@@ -24,16 +24,20 @@
 - **Type de service :** Plateforme web de recommandation d'outils IA
 
 ### URLs et Présence en Ligne
-- **Site web de production :** https://iaia-5ecf3.web.app
+- **Nom de domaine :** iaia.app (acheté le 1er novembre 2025 - Hostinger)
+- **Site web de production :** https://iaia.app (domaine personnalisé)
+- **URL Firebase :** https://iaia-5ecf3.web.app (URL technique)
 - **Dépôt GitHub :** https://github.com/CB13-mrs13/iaia-app (privé)
 - **Backend :** Firebase (Google Cloud Platform)
 - **Projet GCP :** iaia-5ecf3
+- **Hébergement :** Firebase App Hosting + Hostinger (DNS)
 
 ### Dates Importantes
 - **Début du développement :** Septembre 2024
 - **Premier commit Git :** [Date disponible dans l'historique Git]
 - **Déploiement production :** 29 octobre 2025
 - **Mise en place protection PI :** 30 octobre 2025
+- **Achat nom de domaine iaia.app :** 1er novembre 2025 (Hostinger)
 
 ---
 
@@ -138,8 +142,9 @@
    - Rechercher marques similaires dans classes 9, 42
 
 3. **Noms de domaine**
-   - Vérifier disponibilité : iaia.com, iaia.fr, iaia.ai
-   - Actuellement utilisé : sous-domaine Firebase
+   - ✅ **iaia.app** : Acheté et sécurisé (Hostinger, 1er novembre 2025)
+   - Vérifier disponibilité : iaia.com, iaia.fr, iaia.ai (extensions complémentaires)
+   - Anciennement utilisé : sous-domaine Firebase (https://iaia-5ecf3.web.app)
 
 ### Risques Potentiels
 - Nom court et générique (4 lettres)
@@ -151,6 +156,21 @@
 ---
 
 ## 💼 DÉMARCHES À EFFECTUER
+
+### Étape 0 : Enveloppe Soleau (Optionnel mais Recommandé)
+- **Coût :** 15€
+- **Délai :** Dépôt en ligne immédiat
+- **URL :** https://www.inpi.fr/deposer-une-enveloppe-soleau
+- **Documents à inclure :**
+  - Captures d'écran complètes du site iaia-5ecf3.web.app
+  - Logo IAIA en haute résolution
+  - Description du concept et fonctionnalités
+  - Copie du fichier LICENSE
+  - Premiers commits Git (export PDF)
+- **Validité :** 5 ans (preuve de date certaine)
+- **Avantage :** Sécurise votre antériorité avant configuration domaine
+
+**⚠️ Note :** Cette étape est optionnelle car vos commits Git et LICENSE fournissent déjà une preuve d'antériorité. L'enveloppe Soleau ajoute une certification officielle INPI.
 
 ### Étape 1 : Recherche d'Antériorité Professionnelle
 - **Qui contacter :** Conseil en propriété industrielle ou avocat spécialisé PI
@@ -201,14 +221,18 @@
 ### Court Terme (0-3 mois)
 1. ✅ **Protection du code** : Fichier LICENSE créé
 2. ✅ **Mentions légales** : Terms of Service et Privacy Policy à jour
-3. 🔄 **Recherche d'antériorité** : À faire en priorité
-4. 🔄 **Dépôt marque française** : Classes 9 et 42
+3. ✅ **Nom de domaine** : iaia.app acheté (Hostinger)
+4. 🔄 **Enveloppe Soleau** : Optionnel (15€) - Certification antériorité INPI
+5. 🔄 **Configuration domaine** : iaia.app → Firebase (après Soleau ou immédiatement)
+6. 🔄 **Recherche d'antériorité** : À faire en priorité
+7. 🔄 **Dépôt marque française** : Classes 9 et 42
 
 ### Moyen Terme (3-12 mois)
 1. **Surveillance marque** : Service d'alerte INPI (optionnel)
 2. **Marque européenne** : Si déploiement international
-3. **Dépôt nom de domaine** : Sécuriser iaia.fr, iaia.com
-4. **Extension classes** : Classe 35 si marketplace développée
+3. ✅ **Nom de domaine principal** : iaia.app sécurisé
+4. **Extensions domaines complémentaires** : iaia.com, iaia.fr, iaia.ai (optionnel)
+5. **Extension classes** : Classe 35 si marketplace développée
 
 ### Long Terme (1-3 ans)
 1. **Renouvellement marque** : À prévoir tous les 10 ans
@@ -226,14 +250,16 @@
 | Recherche d'antériorité professionnelle | 200-500€ | ⭐⭐⭐ Haute |
 | Dépôt marque INPI (2 classes) | 250€ | ⭐⭐⭐ Haute |
 | Consultation avocat PI (1h) | 200-400€ | ⭐⭐ Moyenne |
-| **TOTAL Essentiel** | **650-1150€** | |
+| Enveloppe Soleau (optionnel) | 15€ | ⭐ Basse |
+| **TOTAL Essentiel** | **665-1165€** | |
 
 ### Protections Optionnelles
 | Action | Coût | Priorité |
 |--------|------|----------|
 | Marque Union Européenne | 850€ | ⭐ Basse |
 | Surveillance marque (annuel) | 100-300€/an | ⭐ Basse |
-| Noms de domaine (5 ans) | 50-200€ | ⭐⭐ Moyenne |
+| ✅ Nom de domaine iaia.app (fait) | 0€ (déjà payé) | ✅ Fait |
+| Extensions domaines (.com, .fr, .ai) | 50-200€ | ⭐ Basse |
 | Classe supplémentaire (35) | 40€ | ⭐ Basse |
 
 ---
@@ -352,10 +378,19 @@ Toute reproduction, distribution ou utilisation non autorisée est interdite.
 
 ## 📌 PROCHAINES ÉTAPES IMMÉDIATES
 
-1. **Recherche d'antériorité** sur https://bases-marques.inpi.fr
-2. **Prise de rendez-vous** avec un avocat PI
-3. **Préparation des visuels** (logo haute résolution)
-4. **Validation du budget** protection PI
-5. **Planification du dépôt** INPI
+### Option A : Sécurité Maximale (Recommandée)
+1. ✅ **Domaine acheté** : iaia.app sécurisé
+2. 🔄 **Enveloppe Soleau** : Dépôt sur https://www.inpi.fr/enveloppe-soleau (15€, 1h)
+3. 🔄 **Configuration domaine** : Après réception confirmation Soleau (24-48h)
+4. 🔄 **Recherche d'antériorité** : Sous 2 semaines
+5. 🔄 **Dépôt marque INPI** : Sous 1 mois
+
+### Option B : Configuration Immédiate
+1. ✅ **Protections existantes suffisantes** : LICENSE + Git + Terms
+2. 🔄 **Configuration iaia.app** : Immédiatement
+3. 🔄 **Recherche d'antériorité** : Cette semaine
+4. 🔄 **Dépôt marque INPI** : Sous 3 semaines
+
+**🎯 Mon conseil : Option A (15€ pour la tranquillité d'esprit)**
 
 **🎯 Objectif : Dépôt de marque effectué avant fin 2025**
