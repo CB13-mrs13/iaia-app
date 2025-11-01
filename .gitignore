@@ -58,3 +58,7 @@ functions/.firebase/service-account-key.json
 # Service account keys (all locations)
 service-account-key.json
 **/service-account-key.json
+
+# Enveloppe Soleau - Documents personnels sensibles
+docs/SOLEAU-ANNEXES/*
+!docs/SOLEAU-ANNEXES/README.md
