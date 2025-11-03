@@ -159,9 +159,9 @@ export default function LandingPage() {
       </section>
 
       {/* Section 1: What is IAIA? */}
-      <section className="py-20 px-4 bg-card">
-        <div className="container mx-auto grid md:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6">
+      <section className="py-16 px-4 bg-card">
+        <div className="container mx-auto grid md:grid-cols-2 gap-8 items-center">
+          <div className="space-y-4">
             <h2 className="text-4xl md:text-5xl font-bold leading-tight">{t.section1Title}</h2>
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
               {t.section1Text1}
@@ -187,7 +187,7 @@ export default function LandingPage() {
       </section>
 
       {/* Section 2: Storytelling */}
-       <section className="py-20 bg-transparent text-center">
+       <section className="py-16 bg-transparent text-center">
         <div className="container mx-auto max-w-5xl px-4 md:px-12">
           <h2 className="text-4xl font-bold mb-12 px-4">{t.section2Title}</h2>
           <ShadcnCarousel
@@ -223,8 +223,8 @@ export default function LandingPage() {
             <CarouselNext className="absolute right-[-50px] top-1/2 -translate-y-1/2" />
           </ShadcnCarousel>
         </div>
-        <div className="container mx-auto mt-12 max-w-3xl space-y-4">
-          <p className="text-lg text-muted-foreground">
+        <div className="container mx-auto mt-8 max-w-3xl space-y-3">
+          <p className="text-lg text-muted-foreground whitespace-pre-line">
             {t.section2Text1}
           </p>
           <p className="text-2xl font-semibold">
@@ -239,9 +239,9 @@ export default function LandingPage() {
       </section>
       
       {/* Section 3: How it works? */}
-      <section id="how-it-works" className="py-20 px-4 bg-card">
+      <section id="how-it-works" className="py-16 px-4 bg-card">
         <div className="container mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-16">{t.section3Title}</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-12">{t.section3Title}</h2>
           <div className="grid md:grid-cols-3 gap-8 text-left">
             <Card className="border-none shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
               <CardContent className="p-8">
@@ -270,9 +270,9 @@ export default function LandingPage() {
       </section>
 
       {/* Section 4: Why IAIA is different? */}
-      <section className="py-20 px-4 bg-transparent">
+      <section className="py-16 px-4 bg-transparent">
         <div className="container mx-auto max-w-3xl">
-          <h2 className="text-4xl font-bold text-center mb-12">{t.section4Title}</h2>
+          <h2 className="text-4xl font-bold text-center mb-10">{t.section4Title}</h2>
           <ul className="space-y-4 text-lg">
             <li className="flex items-start"><Check className="h-6 w-6 text-green-500 mr-3 mt-1 flex-shrink-0" /><span>{t.feature1}</span></li>
             <li className="flex items-start"><Check className="h-6 w-6 text-green-500 mr-3 mt-1 flex-shrink-0" /><span>{t.feature2}</span></li>

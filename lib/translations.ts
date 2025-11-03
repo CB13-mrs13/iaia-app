@@ -327,7 +327,7 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       carouselCaption2: "“Master any recipe.”",
       carouselCaption3: "“Create any atmosphere.”",
       carouselCaption4: "“Dominate any market.”",
-      section2Text1: "Each image is a metaphor for what IAIA does for you.",
+      section2Text1: "Each image is a metaphor\nfor what IAIA does for you.",
       section2Text2: "IAIA arms you. IAIA propels you. IAIA elevates you.",
       section2Text3: "Now, take command.",
       section3Title: "How does it work?",
@@ -632,7 +632,7 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       carouselCaption2: "“Maîtrisez n'importe quelle recette.”",
       carouselCaption3: "“Créez n'importe quelle ambiance.”",
       carouselCaption4: "“Dominez n'importe quel marché.”",
-      section2Text1: "Chaque image est une métaphore de ce que fait IAIA pour toi.",
+      section2Text1: "Chaque image est une métaphore\nde ce que fait IAIA pour toi.",
       section2Text2: "IAIA t’arme. IAIA te propulse. IAIA t’élève.",
       section2Text3: "Maintenant prends les commandes.",
       section3Title: "Comment ça marche ?",
@@ -784,7 +784,7 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       favoriteErrorToastDesc: "Impossible de mettre à jour les favoris. Vérifiez vos règles Firestore pour vous assurer que vous avez les droits d'écriture.",
     },
     userNav: {
-      home: "Accueil",
+      home: "Retour Accueil",
       accountSettings: "Paramètres du compte",
       signOut: "Se déconnecter",
       user: "Utilisateur",
@@ -916,7 +916,7 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
       toastSuccessTitle: "Message envoyé !",
       toastSuccessDescription: "Merci pour votre retour. Nous avons bien reçu votre message.",
       infoTitle: "Note",
-      infoDescription: "La soumission de ce formulaire déclenchera désormais un e-mail vers nos services.",
+      infoDescription: "La soumission de ce formulaire déclenchera désormais un\ne-mail vers nos services.",
     }
   },
   es: {

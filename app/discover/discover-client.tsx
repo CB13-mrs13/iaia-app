@@ -222,7 +222,7 @@ export default function DiscoverClient({ aiTools, featuredToolsList }: DiscoverC
       </section>
       
       <section id="tool-listing">
-        <header className="mb-8 text-center">
+        <header className="mb-6 text-center">
           <h1 className="text-3xl font-bold tracking-tight mb-2 text-foreground">{t.discoverTitle}</h1>
           <p className="text-lg text-muted-foreground">
             {t.discoverSubtitle}
@@ -238,7 +238,7 @@ export default function DiscoverClient({ aiTools, featuredToolsList }: DiscoverC
             placeholder={t.searchPlaceholder}
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="pl-10 pr-4 py-2 text-base h-12 rounded-lg shadow-sm focus:border-primary focus:ring-2 focus:ring-primary/20"
+            className="pl-10 pr-4 py-3 text-lg h-14 rounded-lg shadow-sm focus:border-primary focus:ring-2 focus:ring-primary/20 placeholder:text-base"
             aria-label="Search AI tools"
           />
         </div>

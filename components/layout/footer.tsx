@@ -31,8 +31,8 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer className="bg-card py-8 md:py-10">
-      <div className="container flex flex-col items-center justify-center gap-6">
+    <footer className="bg-card py-6 md:py-8">
+      <div className="container flex flex-col items-center justify-center gap-4">
         <div className="flex flex-wrap justify-center items-center gap-x-4 gap-y-3 text-sm">
           <div className="flex items-center gap-x-2">
             <Button asChild variant="ghost" size="icon" className="hover:bg-primary/10 hover:text-primary transition-colors">
@@ -63,7 +63,7 @@ export default function Footer() {
           </Link>
         </div>
         <div className="h-px w-32 bg-border"></div>
-        <p className="text-center text-xs md:text-sm leading-loose text-muted-foreground">
+        <p className="text-center text-xs md:text-sm leading-loose text-muted-foreground mt-2">
           Built by CB13 - Cousinbruno. &copy; {year ?? ""} IAIA. All rights reserved.
         </p>
       </div>
