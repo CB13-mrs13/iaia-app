@@ -55,10 +55,10 @@ export default function AiSearchForm() {
   };
 
   return (
-    <Card className="mb-12 shadow-lg border-none">
-      <CardHeader>
-        <CardTitle className="text-3xl font-bold tracking-tight">{t.title}</CardTitle>
-        <CardDescription>{t.description}</CardDescription>
+    <Card className="mb-12 shadow-2xl border-2 border-primary/20 bg-gradient-to-br from-card to-card/50">
+      <CardHeader className="pb-4">
+        <CardTitle className="text-3xl md:text-4xl font-bold tracking-tight">{t.title}</CardTitle>
+        <CardDescription className="text-base md:text-lg font-medium mt-2">{t.description}</CardDescription>
       </CardHeader>
       <CardContent>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
@@ -66,7 +66,7 @@ export default function AiSearchForm() {
             <Textarea
               placeholder={t.promptPlaceholder}
               {...form.register('prompt')}
-              className="min-h-[100px] focus:border-primary"
+              className="min-h-[120px] text-base focus:border-primary focus:ring-2 focus:ring-primary/20"
               aria-invalid={form.formState.errors.prompt ? "true" : "false"}
             />
             {form.formState.errors.prompt && (

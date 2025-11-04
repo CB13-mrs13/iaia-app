@@ -180,29 +180,49 @@ export default function DiscoverClient({ aiTools, featuredToolsList }: DiscoverC
         </div>
         
         {featuredToolsList.length > 0 && (
-          <Carousel
-            setApi={setCarouselApi}
-            opts={{
-              align: isMobile ? "center" : "start",
-              loop: true,
-            }}
-            className="w-full mx-auto px-2 sm:px-0 sm:max-w-xl md:max-w-2xl lg:max-w-4xl xl:max-w-6xl"
-          >
-            <CarouselContent className={cn(isMobile && "-ml-2 h-auto min-h-[520px]")}>
-              {featuredToolsList.map((tool) => (
-                <CarouselItem key={tool.id} className={cn(
-                  "transition-all duration-300 relative",
-                  isMobile ? "basis-full pl-2 pr-2" : "sm:basis-1/2 lg:basis-1/3"
-                )}>
-                  <div className={cn("h-full", isMobile ? "px-2" : "p-1")}>
-                    <AiToolCard tool={tool} featured />
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
-          </Carousel>
+          <>
+            <Carousel
+              setApi={setCarouselApi}
+              opts={{
+                align: isMobile ? "center" : "start",
+                loop: true,
+              }}
+              className="w-full mx-auto px-2 sm:px-0 sm:max-w-xl md:max-w-2xl lg:max-w-4xl xl:max-w-6xl"
+            >
+              <CarouselContent className={cn(isMobile && "-ml-2 h-auto min-h-[520px]")}>
+                {featuredToolsList.map((tool) => (
+                  <CarouselItem key={tool.id} className={cn(
+                    "transition-all duration-300 relative",
+                    isMobile ? "basis-[90%] pl-2 pr-2" : "sm:basis-1/2 lg:basis-1/3"
+                  )}>
+                    <div className={cn("h-full", isMobile ? "px-2" : "p-1")}>
+                      <AiToolCard tool={tool} featured />
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <div className="hidden md:block">
+                <CarouselPrevious />
+                <CarouselNext />
+              </div>
+            </Carousel>
+            
+            {/* Indicateurs de pagination pour mobile */}
+            {isMobile && (
+              <div className="flex justify-center gap-2 mt-4">
+                {featuredToolsList.map((_, index) => (
+                  <div
+                    key={index}
+                    className={cn(
+                      "w-2 h-2 rounded-full transition-all duration-300",
+                      "bg-muted-foreground/30"
+                    )}
+                    aria-label={`Slide ${index + 1}`}
+                  />
+                ))}
+              </div>
+            )}
+          </>
         )}
 
         <div className="text-center mt-8">

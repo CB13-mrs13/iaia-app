@@ -189,19 +189,19 @@ export default function LandingPage() {
       {/* Section 2: Storytelling */}
        <section className="py-16 bg-transparent text-center">
         <div className="container mx-auto max-w-5xl px-4 md:px-12">
-          <h2 className="text-4xl font-bold mb-12 px-4">{t.section2Title}</h2>
+          <h2 className="text-4xl font-bold mb-8 px-4">{t.section2Title}</h2>
           <ShadcnCarousel
             opts={{
-              align: "start",
+              align: "center",
               loop: true,
             }}
             className="w-full"
           >
-            <CarouselContent>
+            <CarouselContent className="-ml-2 md:-ml-4">
               {carouselItems.map((item, index) => (
-                <CarouselItem key={index}>
+                <CarouselItem key={index} className="pl-2 md:pl-4 basis-[85%] sm:basis-[70%] md:basis-1/2 lg:basis-1/3">
                   <div className="p-1">
-                    <div className="relative w-full overflow-hidden rounded-lg bg-black aspect-video">
+                    <div className="relative w-full overflow-hidden rounded-lg bg-black aspect-video shadow-xl hover:shadow-2xl transition-shadow duration-300">
                        <Image
                             src={item.image}
                             alt={item.caption}
@@ -210,18 +210,30 @@ export default function LandingPage() {
                             className="w-full h-full object-cover"
                             data-ai-hint={item.hint}
                           />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                      <div className="absolute bottom-0 left-0 p-4 md:p-8">
-                         <h3 className="text-white text-xl md:text-2xl font-bold drop-shadow-lg text-left">{item.caption}</h3>
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                      <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6">
+                         <h3 className="text-white text-lg md:text-xl font-bold drop-shadow-lg text-left">{item.caption}</h3>
                       </div>
                     </div>
                   </div>
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="absolute left-[-50px] top-1/2 -translate-y-1/2" />
-            <CarouselNext className="absolute right-[-50px] top-1/2 -translate-y-1/2" />
+            <div className="hidden md:block">
+              <CarouselPrevious className="absolute left-[-50px] top-1/2 -translate-y-1/2" />
+              <CarouselNext className="absolute right-[-50px] top-1/2 -translate-y-1/2" />
+            </div>
           </ShadcnCarousel>
+          {/* Indicateurs de pagination pour mobile */}
+          <div className="flex justify-center gap-2 mt-6 md:hidden">
+            {carouselItems.map((_, index) => (
+              <div
+                key={index}
+                className="w-2 h-2 rounded-full bg-muted-foreground/30 transition-colors"
+                aria-label={`Slide ${index + 1}`}
+              />
+            ))}
+          </div>
         </div>
         <div className="container mx-auto mt-8 max-w-3xl space-y-3">
           <p className="text-lg text-muted-foreground whitespace-pre-line">
