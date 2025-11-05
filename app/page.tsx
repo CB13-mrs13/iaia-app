@@ -95,7 +95,7 @@ const HeroSlideshow = ({ items }: { items: HeroItem[] }) => {
            )}
          </div>
       ))}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/60 to-black/70 z-10" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/30 to-black/40 z-10" />
       <div className="relative z-20 flex flex-col items-center justify-center px-4 text-center">
         <h1 className="hero-title mb-4">
           {currentItem.title}
