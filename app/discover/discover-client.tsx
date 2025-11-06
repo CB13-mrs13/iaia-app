@@ -34,6 +34,7 @@ export default function DiscoverClient({ aiTools, featuredToolsList }: DiscoverC
   const { user, loading } = useAuth();
   const router = useRouter();
   const [carouselApi, setCarouselApi] = useState<CarouselApi | null>(null);
+  const [currentSlide, setCurrentSlide] = useState(0);
   const isMobile = useIsMobile();
   const [visibleCount, setVisibleCount] = useState(ITEMS_PER_PAGE);
 
@@ -132,6 +133,9 @@ export default function DiscoverClient({ aiTools, featuredToolsList }: DiscoverC
     if (!carouselApi) return;
 
     const handleSelect = () => {
+        // Update current slide index
+        setCurrentSlide(carouselApi.selectedScrollSnap());
+        
         if (isMobile) {
             applyCarouselStyles(carouselApi);
         } else {
@@ -191,7 +195,7 @@ export default function DiscoverClient({ aiTools, featuredToolsList }: DiscoverC
               className="w-full mx-auto px-2 sm:px-0 sm:max-w-xl md:max-w-2xl lg:max-w-4xl xl:max-w-6xl"
             >
               <CarouselContent className={cn(isMobile && "-ml-4 h-auto min-h-[520px]")}>
-                {featuredToolsList.map((tool) => (
+                {featuredToolsList.map((tool, index) => (
                   <CarouselItem key={tool.id} className={cn(
                     "transition-all duration-300 relative",
                     isMobile ? "basis-[85%] pl-4 pr-4" : "sm:basis-1/2 lg:basis-1/3"
@@ -199,26 +203,60 @@ export default function DiscoverClient({ aiTools, featuredToolsList }: DiscoverC
                     <div className={cn("h-full", isMobile ? "px-1" : "p-1")}>
                       <AiToolCard tool={tool} featured />
                     </div>
+                    {/* Numéro de carte visible sur mobile */}
+                    {isMobile && (
+                      <div className="absolute top-2 left-6 bg-black/70 text-white text-xs font-medium px-2 py-1 rounded-full z-10">
+                        {index + 1} / {featuredToolsList.length}
+                      </div>
+                    )}
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <div className="hidden md:block">
-                <CarouselPrevious />
-                <CarouselNext />
-              </div>
+              
+              {/* Navigation visible partout, style adapté mobile/desktop */}
+              {isMobile ? (
+                <>
+                  <button
+                    onClick={() => carouselApi?.scrollPrev()}
+                    className="absolute left-2 top-1/2 -translate-y-1/2 z-20 bg-white/90 hover:bg-white shadow-lg rounded-full p-3 transition-all"
+                    aria-label="Carte précédente"
+                  >
+                    <svg className="w-5 h-5 text-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                    </svg>
+                  </button>
+                  <button
+                    onClick={() => carouselApi?.scrollNext()}
+                    className="absolute right-2 top-1/2 -translate-y-1/2 z-20 bg-white/90 hover:bg-white shadow-lg rounded-full p-3 transition-all"
+                    aria-label="Carte suivante"
+                  >
+                    <svg className="w-5 h-5 text-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </button>
+                </>
+              ) : (
+                <div className="hidden md:block">
+                  <CarouselPrevious />
+                  <CarouselNext />
+                </div>
+              )}
             </Carousel>
             
-            {/* Indicateurs de pagination pour mobile */}
+            {/* Indicateurs de pagination interactifs pour mobile */}
             {isMobile && (
-              <div className="flex justify-center gap-2 mt-4">
+              <div className="flex justify-center gap-2 mt-6">
                 {featuredToolsList.map((_, index) => (
-                  <div
+                  <button
                     key={index}
+                    onClick={() => carouselApi?.scrollTo(index)}
                     className={cn(
-                      "w-2 h-2 rounded-full transition-all duration-300",
-                      "bg-muted-foreground/30"
+                      "transition-all duration-300 rounded-full",
+                      currentSlide === index
+                        ? "w-8 h-2 bg-primary"
+                        : "w-2 h-2 bg-muted-foreground/30 hover:bg-muted-foreground/50"
                     )}
-                    aria-label={`Slide ${index + 1}`}
+                    aria-label={`Aller à la carte ${index + 1}`}
                   />
                 ))}
               </div>
