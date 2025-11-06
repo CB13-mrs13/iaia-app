@@ -3,6 +3,7 @@
 
 import * as z from 'zod';
 import { Resend } from 'resend';
+import { saveContactMessage } from './actions-firestore';
 
 const contactSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
@@ -20,15 +21,26 @@ export async function sendContactEmail(formData: ContactFormValues) {
   const validatedFields = contactSchema.safeParse(formData);
 
   if (!validatedFields.success) {
-    return { error: "Invalid form data." };
+    return { success: false, error: "Invalid form data." };
   }
 
   const { name, email, feedbackType, message } = validatedFields.data;
 
+  // Always save to Firestore first as backup
+  const firestoreResult = await saveContactMessage(formData);
+  
+  if (!firestoreResult.success) {
+    console.error('Failed to save to Firestore:', firestoreResult.error);
+  }
+
   // Check for the Resend API key on the server
   if (!process.env.RESEND_API_KEY || process.env.RESEND_API_KEY.includes("paste_your")) {
-      console.error('RESEND_API_KEY is not set on the server. Email will not be sent.');
-      return { error: "Server configuration error: cannot send email." };
+      console.error('RESEND_API_KEY is not set on the server. Message saved to Firestore only.');
+      return { 
+        success: true, 
+        message: "Votre message a été enregistré. Nous vous contacterons bientôt !",
+        firestoreOnly: true 
+      };
   }
   
   try {
@@ -44,17 +56,32 @@ export async function sendContactEmail(formData: ContactFormValues) {
         <hr>
         <h2>Message:</h2>
         <p>${message.replace(/\n/g, '<br>')}</p>
+        <hr>
+        <p><small>Firestore ID: ${firestoreResult.messageId || 'N/A'}</small></p>
       `,
     });
 
     if (data.error) {
         console.error("Resend error:", data.error);
-        return { error: data.error.message };
+        // Email failed but saved to Firestore
+        return { 
+          success: true, 
+          message: "Votre message a été enregistré. Nous vous contacterons bientôt !",
+          warning: `Email not sent: ${data.error.message}`,
+          firestoreOnly: true 
+        };
     }
 
-    return { success: "Email sent successfully!" };
+    console.log("Email sent successfully:", data);
+    return { success: true, message: "Message envoyé avec succès !", emailSent: true };
   } catch (error) {
     console.error("Failed to send email:", error);
-    return { error: "An unexpected error occurred while sending the email." };
+    // Email failed but saved to Firestore
+    return { 
+      success: true, 
+      message: "Votre message a été enregistré. Nous vous contacterons bientôt !",
+      warning: error instanceof Error ? error.message : "Email sending failed",
+      firestoreOnly: true 
+    };
   }
 }

@@ -64,7 +64,7 @@ export default function ContactPage() {
       if (result.success) {
         toast({
           title: t.toastSuccessTitle,
-          description: t.toastSuccessDescription,
+          description: result.message || t.toastSuccessDescription,
         });
         form.reset({
           name: data.name,
@@ -75,8 +75,8 @@ export default function ContactPage() {
       } else {
         toast({
           variant: 'destructive',
-          title: 'Error',
-          description: result.error || 'Failed to send message. Please try again.',
+          title: 'Erreur',
+          description: result.error || 'Échec de l\'envoi du message. Veuillez réessayer.',
         });
       }
     });
