@@ -316,6 +316,21 @@ button[type="submit"]:not(.btn-orange):not([class*="destructive"]):disabled,
   cursor: pointer;
   transition: all 0.2s ease;
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+/* Version mobile: permettre le retour à la ligne si nécessaire */
+@media (max-width: 767px) {
+  .filter-btn {
+    font-size: 0.75rem;
+    padding: 0.5rem 0.75rem;
+    white-space: normal;
+    text-align: center;
+    line-height: 1.2;
+    min-height: 2.5rem;
+  }
 }
 
 .filter-btn:hover {

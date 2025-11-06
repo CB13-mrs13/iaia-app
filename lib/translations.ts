@@ -1028,7 +1028,7 @@ export const translations: Record<SupportedLanguage, PageTranslations> = {
     },
     filters: {
       title: "Filtrar por Categoría",
-      allToolsButton: "Todas las Herramientas",
+      allToolsButton: "Todas",
     },
     toolPage: {
       backToAllTools: "Volver a todas las herramientas",
