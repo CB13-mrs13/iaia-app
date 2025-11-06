@@ -189,23 +189,23 @@ export default function DiscoverClient({ aiTools, featuredToolsList }: DiscoverC
             <Carousel
               setApi={setCarouselApi}
               opts={{
-                align: isMobile ? "center" : "start",
+                align: "center", // Toujours centré
                 loop: true,
               }}
-              className="w-full mx-auto px-2 sm:px-0 sm:max-w-xl md:max-w-2xl lg:max-w-4xl xl:max-w-6xl"
+              className="w-full mx-auto px-4 sm:px-0 sm:max-w-xl md:max-w-2xl lg:max-w-4xl xl:max-w-6xl"
             >
-              <CarouselContent className={cn(isMobile && "-ml-4 h-auto min-h-[520px]")}>
+              <CarouselContent className={cn(isMobile ? "h-auto min-h-[520px]" : "")}>
                 {featuredToolsList.map((tool, index) => (
                   <CarouselItem key={tool.id} className={cn(
                     "transition-all duration-300 relative",
-                    isMobile ? "basis-[85%] pl-4 pr-4" : "sm:basis-1/2 lg:basis-1/3"
+                    isMobile ? "basis-[90%] px-2" : "sm:basis-1/2 lg:basis-1/3 px-2"
                   )}>
-                    <div className={cn("h-full", isMobile ? "px-1" : "p-1")}>
+                    <div className="h-full">
                       <AiToolCard tool={tool} featured />
                     </div>
                     {/* Numéro de carte visible sur mobile */}
                     {isMobile && (
-                      <div className="absolute top-2 left-6 bg-black/70 text-white text-xs font-medium px-2 py-1 rounded-full z-10">
+                      <div className="absolute top-2 left-4 bg-black/70 text-white text-xs font-medium px-2 py-1 rounded-full z-10">
                         {index + 1} / {featuredToolsList.length}
                       </div>
                     )}
