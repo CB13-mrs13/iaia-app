@@ -1,0 +1,796 @@
+[
+  {
+    "id": "123",
+    "name": "Claude 3.5 Sonnet",
+    "description": {
+      "en": "Anthropic's most intelligent AI model with advanced reasoning and coding capabilities.",
+      "fr": "Le modèle IA le plus intelligent d'Anthropic avec des capacités avancées de raisonnement et de codage.",
+      "es": "El modelo de IA más inteligente de Anthropic con capacidades avanzadas de razonamiento y codificación."
+    },
+    "longDescription": {
+      "en": "Claude 3.5 Sonnet sets new industry benchmarks for graduate-level reasoning (GPQA), undergraduate-level knowledge (MMLU), and coding proficiency (HumanEval). It operates at twice the speed of Claude 3 Opus with superior intelligence.",
+      "fr": "Claude 3.5 Sonnet établit de nouveaux standards pour le raisonnement de niveau universitaire (GPQA), les connaissances de premier cycle (MMLU) et la maîtrise du codage (HumanEval). Il fonctionne deux fois plus vite que Claude 3 Opus avec une intelligence supérieure.",
+      "es": "Claude 3.5 Sonnet establece nuevos estándares para el razonamiento de nivel universitario (GPQA), conocimientos de pregrado (MMLU) y competencia en codificación (HumanEval). Opera al doble de velocidad que Claude 3 Opus con inteligencia superior."
+    },
+    "category": "LLM",
+    "website": "https://www.anthropic.com/claude",
+    "imageUrl": "/ai-tools/claude-3-5.jpg",
+    "imageKeywords": "Claude AI logo",
+    "rating": 4.9,
+    "tags": ["reasoning", "coding", "analysis", "200k context"],
+    "pricing": "Freemium",
+    "features": {
+      "en": ["200k context window", "Advanced coding", "Vision capabilities", "Artifacts feature"],
+      "fr": ["Fenêtre de contexte de 200k", "Codage avancé", "Capacités de vision", "Fonctionnalité Artifacts"],
+      "es": ["Ventana de contexto de 200k", "Codificación avanzada", "Capacidades de visión", "Función Artifacts"]
+    }
+  },
+  {
+    "id": "124",
+    "name": "Gemini 2.0 Flash",
+    "description": {
+      "en": "Google's next-generation AI model with multimodal capabilities and agentic features.",
+      "fr": "Le modèle IA de nouvelle génération de Google avec des capacités multimodales et agentiques.",
+      "es": "El modelo de IA de próxima generación de Google con capacidades multimodales y agénticas."
+    },
+    "longDescription": {
+      "en": "Gemini 2.0 Flash is Google's most capable model yet, designed for the agentic era. It delivers breakthrough multimodal understanding and generation, with native image and audio output, plus enhanced speed.",
+      "fr": "Gemini 2.0 Flash est le modèle le plus performant de Google à ce jour, conçu pour l'ère agentique. Il offre une compréhension et une génération multimodale révolutionnaires, avec sortie native d'images et d'audio, et une vitesse améliorée.",
+      "es": "Gemini 2.0 Flash es el modelo más capaz de Google hasta la fecha, diseñado para la era agéntica. Ofrece comprensión y generación multimodal revolucionaria, con salida nativa de imágenes y audio, además de velocidad mejorada."
+    },
+    "category": "LLM",
+    "website": "https://deepmind.google/technologies/gemini/",
+    "imageUrl": "/ai-tools/gemini-2.jpg",
+    "imageKeywords": "Gemini AI logo",
+    "rating": 4.8,
+    "tags": ["multimodal", "agent", "google", "1M context"],
+    "pricing": "Freemium",
+    "features": {
+      "en": ["1M context window", "Native image generation", "Audio output", "Live API"],
+      "fr": ["Fenêtre de contexte de 1M", "Génération d'images native", "Sortie audio", "API en direct"],
+      "es": ["Ventana de contexto de 1M", "Generación de imágenes nativa", "Salida de audio", "API en vivo"]
+    }
+  },
+  {
+    "id": "125",
+    "name": "Grok 2",
+    "description": {
+      "en": "xAI's powerful LLM with real-time web access and image generation capabilities.",
+      "fr": "Le LLM puissant de xAI avec accès web en temps réel et capacités de génération d'images.",
+      "es": "El potente LLM de xAI con acceso web en tiempo real y capacidades de generación de imágenes."
+    },
+    "longDescription": {
+      "en": "Grok 2 is xAI's frontier language model with state-of-the-art reasoning capabilities. It has real-time access to information on X (Twitter) and can generate images through FLUX.1, making it ideal for current events and creative tasks.",
+      "fr": "Grok 2 est le modèle de langage de pointe de xAI avec des capacités de raisonnement de premier ordre. Il a un accès en temps réel aux informations sur X (Twitter) et peut générer des images via FLUX.1, ce qui le rend idéal pour l'actualité et les tâches créatives.",
+      "es": "Grok 2 es el modelo de lenguaje de vanguardia de xAI con capacidades de razonamiento de última generación. Tiene acceso en tiempo real a información en X (Twitter) y puede generar imágenes a través de FLUX.1, lo que lo hace ideal para eventos actuales y tareas creativas."
+    },
+    "category": "LLM",
+    "website": "https://x.ai/",
+    "imageUrl": "/ai-tools/grok-2.jpg",
+    "imageKeywords": "Grok xAI logo",
+    "rating": 4.7,
+    "tags": ["real-time", "twitter", "image generation", "reasoning"],
+    "pricing": "Paid",
+    "features": {
+      "en": ["Real-time X access", "Image generation via FLUX.1", "Advanced reasoning", "128k context"],
+      "fr": ["Accès X en temps réel", "Génération d'images via FLUX.1", "Raisonnement avancé", "Contexte 128k"],
+      "es": ["Acceso a X en tiempo real", "Generación de imágenes via FLUX.1", "Razonamiento avanzado", "Contexto 128k"]
+    }
+  },
+  {
+    "id": "126",
+    "name": "DeepSeek V3",
+    "description": {
+      "en": "Chinese open-source LLM rivaling GPT-4 with exceptional efficiency.",
+      "fr": "LLM open-source chinois rivalisant avec GPT-4 avec une efficacité exceptionnelle.",
+      "es": "LLM de código abierto chino que rivaliza con GPT-4 con eficiencia excepcional."
+    },
+    "longDescription": {
+      "en": "DeepSeek V3 is a Mixture-of-Experts (MoE) language model with 671B parameters, achieving performance comparable to GPT-4 while being significantly more cost-effective. It excels in mathematics, coding, and multilingual tasks.",
+      "fr": "DeepSeek V3 est un modèle de langage Mixture-of-Experts (MoE) avec 671B de paramètres, atteignant des performances comparables à GPT-4 tout en étant nettement plus rentable. Il excelle en mathématiques, codage et tâches multilingues.",
+      "es": "DeepSeek V3 es un modelo de lenguaje Mixture-of-Experts (MoE) con 671B parámetros, logrando un rendimiento comparable a GPT-4 siendo significativamente más rentable. Sobresale en matemáticas, codificación y tareas multilingües."
+    },
+    "category": "LLM",
+    "website": "https://www.deepseek.com/",
+    "imageUrl": "/ai-tools/deepseek-v3.jpg",
+    "imageKeywords": "DeepSeek logo",
+    "rating": 4.7,
+    "tags": ["open-source", "moe", "coding", "cost-effective"],
+    "pricing": "Free",
+    "features": {
+      "en": ["671B parameters", "MoE architecture", "Open source", "128k context"],
+      "fr": ["671B paramètres", "Architecture MoE", "Open source", "Contexte 128k"],
+      "es": ["671B parámetros", "Arquitectura MoE", "Código abierto", "Contexto 128k"]
+    }
+  },
+  {
+    "id": "127",
+    "name": "FLUX.1 Pro",
+    "description": {
+      "en": "State-of-the-art text-to-image model with photorealistic quality and prompt adherence.",
+      "fr": "Modèle texte-vers-image de pointe avec qualité photoréaliste et respect des prompts.",
+      "es": "Modelo de texto a imagen de última generación con calidad fotorrealista y adherencia al prompt."
+    },
+    "longDescription": {
+      "en": "FLUX.1 Pro by Black Forest Labs is a 12 billion parameter rectified flow transformer that generates high-quality images with exceptional prompt following, visual quality, and detail. It surpasses Midjourney v6 and DALL·E 3 in many benchmarks.",
+      "fr": "FLUX.1 Pro de Black Forest Labs est un transformateur à flux rectifié de 12 milliards de paramètres qui génère des images de haute qualité avec un suivi exceptionnel des prompts, une qualité visuelle et des détails. Il surpasse Midjourney v6 et DALL·E 3 dans de nombreux benchmarks.",
+      "es": "FLUX.1 Pro de Black Forest Labs es un transformador de flujo rectificado de 12 mil millones de parámetros que genera imágenes de alta calidad con un seguimiento excepcional del prompt, calidad visual y detalle. Supera a Midjourney v6 y DALL·E 3 en muchos benchmarks."
+    },
+    "category": "Photo",
+    "website": "https://blackforestlabs.ai/",
+    "imageUrl": "/ai-tools/flux-1-pro.jpg",
+    "imageKeywords": "FLUX AI generated art",
+    "rating": 4.9,
+    "tags": ["photorealistic", "text-to-image", "high quality", "prompt following"],
+    "pricing": "Paid",
+    "features": {
+      "en": ["12B parameters", "Photorealistic output", "Excellent prompt adherence", "Fast generation"],
+      "fr": ["12B paramètres", "Sortie photoréaliste", "Excellente adhérence aux prompts", "Génération rapide"],
+      "es": ["12B parámetros", "Salida fotorrealista", "Excelente adherencia al prompt", "Generación rápida"]
+    }
+  },
+  {
+    "id": "128",
+    "name": "Ideogram 2.0",
+    "description": {
+      "en": "Advanced AI image generator with exceptional text rendering in images.",
+      "fr": "Générateur d'images IA avancé avec rendu de texte exceptionnel dans les images.",
+      "es": "Generador de imágenes de IA avanzado con renderizado de texto excepcional en imágenes."
+    },
+    "longDescription": {
+      "en": "Ideogram 2.0 excels at generating images with text, making it perfect for logos, posters, and designs requiring typography. It offers unprecedented photorealism and supports various aspect ratios and styles.",
+      "fr": "Ideogram 2.0 excelle dans la génération d'images avec du texte, ce qui le rend parfait pour les logos, affiches et designs nécessitant de la typographie. Il offre un photoréalisme sans précédent et prend en charge divers rapports d'aspect et styles.",
+      "es": "Ideogram 2.0 sobresale en la generación de imágenes con texto, lo que lo hace perfecto para logotipos, carteles y diseños que requieren tipografía. Ofrece un fotorrealismo sin precedentes y admite varios aspectos y estilos."
+    },
+    "category": "Design",
+    "website": "https://ideogram.ai/",
+    "imageUrl": "/ai-tools/ideogram-2.jpg",
+    "imageKeywords": "Ideogram AI logo design",
+    "rating": 4.8,
+    "tags": ["text rendering", "logo design", "typography", "photorealistic"],
+    "pricing": "Freemium",
+    "features": {
+      "en": ["Perfect text rendering", "Magic Prompt", "Multiple aspect ratios", "Style presets"],
+      "fr": ["Rendu de texte parfait", "Magic Prompt", "Multiples rapports d'aspect", "Préréglages de style"],
+      "es": ["Renderizado de texto perfecto", "Magic Prompt", "Múltiples relaciones de aspecto", "Preajustes de estilo"]
+    }
+  },
+  {
+    "id": "129",
+    "name": "Recraft V3",
+    "description": {
+      "en": "AI design tool with vector generation and brand consistency features.",
+      "fr": "Outil de design IA avec génération vectorielle et fonctionnalités de cohérence de marque.",
+      "es": "Herramienta de diseño de IA con generación vectorial y funciones de coherencia de marca."
+    },
+    "longDescription": {
+      "en": "Recraft V3 (Red Panda) is the world's best image generator for designers, offering text placement, vector generation, and brand style consistency. It's tailored for professional design work with precise control.",
+      "fr": "Recraft V3 (Red Panda) est le meilleur générateur d'images au monde pour les designers, offrant le placement de texte, la génération vectorielle et la cohérence du style de marque. Il est adapté au travail de design professionnel avec un contrôle précis.",
+      "es": "Recraft V3 (Red Panda) es el mejor generador de imágenes del mundo para diseñadores, ofreciendo colocación de texto, generación vectorial y coherencia de estilo de marca. Está diseñado para trabajo de diseño profesional con control preciso."
+    },
+    "category": "Design",
+    "website": "https://www.recraft.ai/",
+    "imageUrl": "/ai-tools/recraft-v3.jpg",
+    "imageKeywords": "Recraft design tool",
+    "rating": 4.8,
+    "tags": ["vector", "brand consistency", "professional design", "text placement"],
+    "pricing": "Freemium",
+    "features": {
+      "en": ["Vector generation", "Brand style control", "Text placement", "High resolution"],
+      "fr": ["Génération vectorielle", "Contrôle du style de marque", "Placement de texte", "Haute résolution"],
+      "es": ["Generación vectorial", "Control de estilo de marca", "Colocación de texto", "Alta resolución"]
+    }
+  },
+  {
+    "id": "130",
+    "name": "Runway Gen-3 Alpha",
+    "description": {
+      "en": "Next-generation AI video model with photorealistic motion and cinematic quality.",
+      "fr": "Modèle vidéo IA de nouvelle génération avec mouvement photoréaliste et qualité cinématographique.",
+      "es": "Modelo de video de IA de próxima generación con movimiento fotorrealista y calidad cinematográfica."
+    },
+    "longDescription": {
+      "en": "Gen-3 Alpha Turbo is Runway's fastest and most consistent video generation model, producing high-fidelity video with fine details, smooth motion, and cinematic quality from text or image prompts.",
+      "fr": "Gen-3 Alpha Turbo est le modèle de génération vidéo le plus rapide et le plus cohérent de Runway, produisant des vidéos haute fidélité avec des détails fins, un mouvement fluide et une qualité cinématographique à partir de prompts texte ou image.",
+      "es": "Gen-3 Alpha Turbo es el modelo de generación de video más rápido y consistente de Runway, produciendo video de alta fidelidad con detalles finos, movimiento suave y calidad cinematográfica a partir de prompts de texto o imagen."
+    },
+    "category": "Video",
+    "website": "https://runwayml.com/",
+    "imageUrl": "/ai-tools/runway-gen3.jpg",
+    "imageKeywords": "Runway video generation",
+    "rating": 4.8,
+    "tags": ["video generation", "cinematic", "photorealistic", "fast"],
+    "pricing": "Paid",
+    "features": {
+      "en": ["10-second clips", "Photorealistic motion", "Text & image to video", "Cinematic quality"],
+      "fr": ["Clips de 10 secondes", "Mouvement photoréaliste", "Texte et image vers vidéo", "Qualité cinématographique"],
+      "es": ["Clips de 10 segundos", "Movimiento fotorrealista", "Texto e imagen a video", "Calidad cinematográfica"]
+    }
+  },
+  {
+    "id": "131",
+    "name": "Luma Dream Machine",
+    "description": {
+      "en": "Fast, high-quality AI video generator accessible to everyone.",
+      "fr": "Générateur vidéo IA rapide et de haute qualité accessible à tous.",
+      "es": "Generador de video de IA rápido y de alta calidad accesible para todos."
+    },
+    "longDescription": {
+      "en": "Dream Machine by Luma AI generates 5-second video clips in 120 seconds, making high-quality video creation accessible to everyone. It understands physics and produces smooth, realistic motion.",
+      "fr": "Dream Machine de Luma AI génère des clips vidéo de 5 secondes en 120 secondes, rendant la création vidéo de haute qualité accessible à tous. Il comprend la physique et produit des mouvements fluides et réalistes.",
+      "es": "Dream Machine de Luma AI genera clips de video de 5 segundos en 120 segundos, haciendo la creación de video de alta calidad accesible para todos. Comprende la física y produce movimiento suave y realista."
+    },
+    "category": "Video",
+    "website": "https://lumalabs.ai/dream-machine",
+    "imageUrl": "/ai-tools/luma-dream.jpg",
+    "imageKeywords": "Luma AI video",
+    "rating": 4.7,
+    "tags": ["fast generation", "accessible", "realistic motion", "physics"],
+    "pricing": "Freemium",
+    "features": {
+      "en": ["120-second generation", "5-second clips", "Physics understanding", "Smooth motion"],
+      "fr": ["Génération en 120 secondes", "Clips de 5 secondes", "Compréhension de la physique", "Mouvement fluide"],
+      "es": ["Generación en 120 segundos", "Clips de 5 segundos", "Comprensión de física", "Movimiento suave"]
+    }
+  },
+  {
+    "id": "132",
+    "name": "Kling AI",
+    "description": {
+      "en": "Chinese AI video generator with impressive motion quality and length.",
+      "fr": "Générateur vidéo IA chinois avec une qualité de mouvement et une durée impressionnantes.",
+      "es": "Generador de video de IA chino con impresionante calidad de movimiento y duración."
+    },
+    "longDescription": {
+      "en": "Kling AI by Kuaishou Technology can generate videos up to 2 minutes long with 1080p quality at 30fps. It excels at realistic motion, complex scenes, and cinematic camera movements.",
+      "fr": "Kling AI de Kuaishou Technology peut générer des vidéos jusqu'à 2 minutes avec une qualité 1080p à 30fps. Il excelle dans les mouvements réalistes, les scènes complexes et les mouvements de caméra cinématographiques.",
+      "es": "Kling AI de Kuaishou Technology puede generar videos de hasta 2 minutos con calidad 1080p a 30fps. Sobresale en movimiento realista, escenas complejas y movimientos de cámara cinematográficos."
+    },
+    "category": "Video",
+    "website": "https://klingai.com/",
+    "imageUrl": "/ai-tools/kling-ai.jpg",
+    "imageKeywords": "Kling AI video",
+    "rating": 4.7,
+    "tags": ["long videos", "1080p", "cinematic", "realistic"],
+    "pricing": "Freemium",
+    "features": {
+      "en": ["2-minute videos", "1080p 30fps", "Cinematic camera", "Realistic physics"],
+      "fr": ["Vidéos de 2 minutes", "1080p 30fps", "Caméra cinématographique", "Physique réaliste"],
+      "es": ["Videos de 2 minutos", "1080p 30fps", "Cámara cinematográfica", "Física realista"]
+    }
+  },
+  {
+    "id": "133",
+    "name": "Cursor",
+    "description": {
+      "en": "AI-first code editor with powerful autocomplete and chat features.",
+      "fr": "Éditeur de code IA avec des fonctionnalités puissantes d'autocomplétion et de chat.",
+      "es": "Editor de código de IA con potentes funciones de autocompletado y chat."
+    },
+    "longDescription": {
+      "en": "Cursor is the AI-first code editor built to make you extraordinarily productive. It features Copilot++, which predicts your next edit, and AI chat that understands your entire codebase.",
+      "fr": "Cursor est l'éditeur de code IA conçu pour vous rendre extraordinairement productif. Il dispose de Copilot++, qui prédit votre prochaine modification, et d'un chat IA qui comprend toute votre base de code.",
+      "es": "Cursor es el editor de código de IA diseñado para hacerte extraordinariamente productivo. Cuenta con Copilot++, que predice tu próxima edición, y chat de IA que entiende toda tu base de código."
+    },
+    "category": "Coding",
+    "website": "https://cursor.sh/",
+    "imageUrl": "/ai-tools/cursor.jpg",
+    "imageKeywords": "Cursor code editor",
+    "rating": 4.9,
+    "tags": ["code editor", "ai assistant", "autocomplete", "productivity"],
+    "pricing": "Freemium",
+    "features": {
+      "en": ["Copilot++ predictions", "Codebase chat", "Terminal integration", "VSCode fork"],
+      "fr": ["Prédictions Copilot++", "Chat base de code", "Intégration terminal", "Fork de VSCode"],
+      "es": ["Predicciones Copilot++", "Chat de base de código", "Integración de terminal", "Fork de VSCode"]
+    }
+  },
+  {
+    "id": "134",
+    "name": "Windsurf",
+    "description": {
+      "en": "Agentic IDE by Codeium with autonomous coding capabilities.",
+      "fr": "IDE agentique de Codeium avec capacités de codage autonomes.",
+      "es": "IDE agéntico de Codeium con capacidades de codificación autónomas."
+    },
+    "longDescription": {
+      "en": "Windsurf is the world's first agentic IDE that combines copilot and agent capabilities in one unified workflow. It can autonomously write, edit, and debug code across multiple files.",
+      "fr": "Windsurf est le premier IDE agentique au monde qui combine les capacités de copilote et d'agent dans un flux de travail unifié. Il peut écrire, éditer et déboguer du code de manière autonome sur plusieurs fichiers.",
+      "es": "Windsurf es el primer IDE agéntico del mundo que combina capacidades de copiloto y agente en un flujo de trabajo unificado. Puede escribir, editar y depurar código de forma autónoma en múltiples archivos."
+    },
+    "category": "Coding",
+    "website": "https://codeium.com/windsurf",
+    "imageUrl": "/ai-tools/windsurf.jpg",
+    "imageKeywords": "Windsurf IDE",
+    "rating": 4.8,
+    "tags": ["agentic", "autonomous", "multi-file", "debugging"],
+    "pricing": "Freemium",
+    "features": {
+      "en": ["Autonomous coding", "Multi-file editing", "Cascade mode", "Context awareness"],
+      "fr": ["Codage autonome", "Édition multi-fichiers", "Mode Cascade", "Conscience du contexte"],
+      "es": ["Codificación autónoma", "Edición multi-archivo", "Modo Cascade", "Conciencia del contexto"]
+    }
+  },
+  {
+    "id": "135",
+    "name": "Replit Agent",
+    "description": {
+      "en": "AI that builds complete applications from natural language descriptions.",
+      "fr": "IA qui construit des applications complètes à partir de descriptions en langage naturel.",
+      "es": "IA que construye aplicaciones completas a partir de descripciones en lenguaje natural."
+    },
+    "longDescription": {
+      "en": "Replit Agent can build, deploy, and even debug entire applications from a simple prompt. It handles project setup, dependencies, and deployment automatically, making app creation accessible to everyone.",
+      "fr": "Replit Agent peut construire, déployer et même déboguer des applications entières à partir d'un simple prompt. Il gère la configuration du projet, les dépendances et le déploiement automatiquement, rendant la création d'applications accessible à tous.",
+      "es": "Replit Agent puede construir, implementar e incluso depurar aplicaciones completas a partir de un simple prompt. Maneja la configuración del proyecto, dependencias y despliegue automáticamente, haciendo la creación de aplicaciones accesible para todos."
+    },
+    "category": "Coding",
+    "website": "https://replit.com/agent",
+    "imageUrl": "/ai-tools/replit-agent.jpg",
+    "imageKeywords": "Replit coding platform",
+    "rating": 4.7,
+    "tags": ["no-code", "deployment", "full-stack", "automated"],
+    "pricing": "Paid",
+    "features": {
+      "en": ["Natural language to app", "Auto deployment", "Debugging", "Multi-language support"],
+      "fr": ["Langage naturel vers app", "Déploiement auto", "Débogage", "Support multi-langages"],
+      "es": ["Lenguaje natural a app", "Despliegue automático", "Depuración", "Soporte multi-lenguaje"]
+    }
+  },
+  {
+    "id": "136",
+    "name": "ElevenLabs Reader",
+    "description": {
+      "en": "AI text-to-speech app that reads any text, article, or document aloud.",
+      "fr": "Application IA de synthèse vocale qui lit à haute voix tout texte, article ou document.",
+      "es": "Aplicación de IA de texto a voz que lee en voz alta cualquier texto, artículo o documento."
+    },
+    "longDescription": {
+      "en": "ElevenLabs Reader transforms any written content into immersive audio with ultra-realistic voices in 32 languages. Perfect for listening to articles, PDFs, ePubs while commuting or multitasking.",
+      "fr": "ElevenLabs Reader transforme tout contenu écrit en audio immersif avec des voix ultra-réalistes dans 32 langues. Parfait pour écouter des articles, PDF, ePubs pendant vos déplacements ou en multitâche.",
+      "es": "ElevenLabs Reader transforma cualquier contenido escrito en audio inmersivo con voces ultra realistas en 32 idiomas. Perfecto para escuchar artículos, PDF, ePubs mientras viajas o haces múltiples tareas."
+    },
+    "category": "Audio",
+    "website": "https://elevenlabs.io/reader",
+    "imageUrl": "/ai-tools/elevenlabs-reader.jpg",
+    "imageKeywords": "ElevenLabs audio",
+    "rating": 4.8,
+    "tags": ["text-to-speech", "multilingual", "realistic voices", "reading"],
+    "pricing": "Freemium",
+    "features": {
+      "en": ["32 languages", "Ultra-realistic voices", "PDF & ePub support", "Offline listening"],
+      "fr": ["32 langues", "Voix ultra-réalistes", "Support PDF et ePub", "Écoute hors ligne"],
+      "es": ["32 idiomas", "Voces ultra realistas", "Soporte PDF y ePub", "Escucha sin conexión"]
+    }
+  },
+  {
+    "id": "137",
+    "name": "NotebookLM Audio",
+    "description": {
+      "en": "Google's AI that turns your documents into engaging podcast-style discussions.",
+      "fr": "IA de Google qui transforme vos documents en discussions style podcast engageantes.",
+      "es": "IA de Google que convierte tus documentos en discusiones estilo podcast atractivas."
+    },
+    "longDescription": {
+      "en": "NotebookLM's Audio Overview feature generates two AI hosts discussing your uploaded content in a natural, engaging podcast format. It's perfect for reviewing research, understanding complex topics, or getting different perspectives.",
+      "fr": "La fonctionnalité Audio Overview de NotebookLM génère deux hôtes IA discutant de votre contenu téléchargé dans un format podcast naturel et engageant. C'est parfait pour réviser des recherches, comprendre des sujets complexes ou obtenir différentes perspectives.",
+      "es": "La función Audio Overview de NotebookLM genera dos anfitriones de IA discutiendo tu contenido cargado en un formato de podcast natural y atractivo. Es perfecto para revisar investigaciones, entender temas complejos u obtener diferentes perspectivas."
+    },
+    "category": "Audio",
+    "website": "https://notebooklm.google/",
+    "imageUrl": "/ai-tools/notebooklm.jpg",
+    "imageKeywords": "NotebookLM podcast",
+    "rating": 4.9,
+    "tags": ["podcast", "document analysis", "learning", "google"],
+    "pricing": "Free",
+    "features": {
+      "en": ["Podcast generation", "Document analysis", "Natural dialogue", "Multiple sources"],
+      "fr": ["Génération de podcast", "Analyse de documents", "Dialogue naturel", "Sources multiples"],
+      "es": ["Generación de podcast", "Análisis de documentos", "Diálogo natural", "Múltiples fuentes"]
+    }
+  },
+  {
+    "id": "138",
+    "name": "Perplexity Pro",
+    "description": {
+      "en": "AI-powered search engine with real-time information and cited sources.",
+      "fr": "Moteur de recherche alimenté par l'IA avec informations en temps réel et sources citées.",
+      "es": "Motor de búsqueda impulsado por IA con información en tiempo real y fuentes citadas."
+    },
+    "longDescription": {
+      "en": "Perplexity Pro combines the power of GPT-4, Claude, and real-time web search to deliver accurate answers with citations. It's ideal for research, staying updated on current events, and deep dives into complex topics.",
+      "fr": "Perplexity Pro combine la puissance de GPT-4, Claude et la recherche web en temps réel pour fournir des réponses précises avec citations. C'est idéal pour la recherche, rester informé de l'actualité et approfondir des sujets complexes.",
+      "es": "Perplexity Pro combina el poder de GPT-4, Claude y búsqueda web en tiempo real para entregar respuestas precisas con citas. Es ideal para investigación, mantenerse actualizado en eventos actuales y profundizar en temas complejos."
+    },
+    "category": "Productivity",
+    "website": "https://www.perplexity.ai/",
+    "imageUrl": "/ai-tools/perplexity.jpg",
+    "imageKeywords": "Perplexity search",
+    "rating": 4.8,
+    "tags": ["search", "research", "citations", "real-time"],
+    "pricing": "Freemium",
+    "features": {
+      "en": ["GPT-4 & Claude access", "Unlimited searches", "Image generation", "API access"],
+      "fr": ["Accès GPT-4 et Claude", "Recherches illimitées", "Génération d'images", "Accès API"],
+      "es": ["Acceso GPT-4 y Claude", "Búsquedas ilimitadas", "Generación de imágenes", "Acceso API"]
+    }
+  },
+  {
+    "id": "139",
+    "name": "Jasper AI",
+    "description": {
+      "en": "AI writing assistant for marketing teams and content creators.",
+      "fr": "Assistant d'écriture IA pour équipes marketing et créateurs de contenu.",
+      "es": "Asistente de escritura de IA para equipos de marketing y creadores de contenido."
+    },
+    "category": "Writing",
+    "website": "https://www.jasper.ai/",
+    "imageUrl": "/ai-tools/jasper.jpg",
+    "imageKeywords": "Jasper AI writing",
+    "rating": 4.7,
+    "tags": ["marketing", "copywriting", "content creation", "seo"],
+    "pricing": "Paid",
+    "features": {
+      "en": ["Brand voice", "SEO optimization", "Team collaboration", "50+ templates"],
+      "fr": ["Voix de marque", "Optimisation SEO", "Collaboration d'équipe", "50+ modèles"],
+      "es": ["Voz de marca", "Optimización SEO", "Colaboración en equipo", "50+ plantillas"]
+    }
+  },
+  {
+    "id": "140",
+    "name": "Copy.ai",
+    "description": {
+      "en": "AI-powered copywriting tool for sales and marketing content.",
+      "fr": "Outil de rédaction IA pour contenu de vente et marketing.",
+      "es": "Herramienta de redacción de IA para contenido de ventas y marketing."
+    },
+    "category": "Writing",
+    "website": "https://www.copy.ai/",
+    "imageUrl": "/ai-tools/copyai.jpg",
+    "imageKeywords": "Copy.ai writing",
+    "rating": 4.6,
+    "tags": ["copywriting", "sales", "marketing", "automation"],
+    "pricing": "Freemium",
+    "features": {
+      "en": ["Sales workflows", "Email sequences", "Product descriptions", "Social media"],
+      "fr": ["Flux de vente", "Séquences email", "Descriptions produits", "Réseaux sociaux"],
+      "es": ["Flujos de venta", "Secuencias de email", "Descripciones de productos", "Redes sociales"]
+    }
+  },
+  {
+    "id": "141",
+    "name": "Writesonic",
+    "description": {
+      "en": "AI writing platform with SEO optimization and fact-checking.",
+      "fr": "Plateforme d'écriture IA avec optimisation SEO et vérification des faits.",
+      "es": "Plataforma de escritura de IA con optimización SEO y verificación de hechos."
+    },
+    "category": "Writing",
+    "website": "https://writesonic.com/",
+    "imageUrl": "/ai-tools/writesonic.jpg",
+    "imageKeywords": "Writesonic AI",
+    "rating": 4.6,
+    "tags": ["seo", "blogging", "fact-checking", "content"],
+    "pricing": "Freemium",
+    "features": {
+      "en": ["SEO articles", "Fact-checked content", "Brand voice", "Chatsonic"],
+      "fr": ["Articles SEO", "Contenu vérifié", "Voix de marque", "Chatsonic"],
+      "es": ["Artículos SEO", "Contenido verificado", "Voz de marca", "Chatsonic"]
+    }
+  },
+  {
+    "id": "142",
+    "name": "OpusClip",
+    "description": {
+      "en": "AI video editor that turns long videos into viral short clips.",
+      "fr": "Éditeur vidéo IA qui transforme les longues vidéos en clips courts viraux.",
+      "es": "Editor de video de IA que convierte videos largos en clips cortos virales."
+    },
+    "category": "Social Media",
+    "website": "https://www.opus.pro/",
+    "imageUrl": "/ai-tools/opusclip.jpg",
+    "imageKeywords": "OpusClip video editing",
+    "rating": 4.7,
+    "tags": ["video editing", "shorts", "social media", "viral"],
+    "pricing": "Freemium",
+    "features": {
+      "en": ["Auto-clipping", "Viral score", "AI captions", "Multi-platform"],
+      "fr": ["Découpage auto", "Score viral", "Sous-titres IA", "Multi-plateforme"],
+      "es": ["Recorte automático", "Puntuación viral", "Subtítulos IA", "Multi-plataforma"]
+    }
+  },
+  {
+    "id": "143",
+    "name": "Descript",
+    "description": {
+      "en": "All-in-one video and podcast editor with AI transcription and voice cloning.",
+      "fr": "Éditeur vidéo et podcast tout-en-un avec transcription IA et clonage vocal.",
+      "es": "Editor de video y podcast todo en uno con transcripción de IA y clonación de voz."
+    },
+    "category": "Social Media",
+    "website": "https://www.descript.com/",
+    "imageUrl": "/ai-tools/descript.jpg",
+    "imageKeywords": "Descript editing",
+    "rating": 4.8,
+    "tags": ["video editing", "podcast", "transcription", "voice cloning"],
+    "pricing": "Freemium",
+    "features": {
+      "en": ["Text-based editing", "Overdub", "Studio Sound", "Screen recording"],
+      "fr": ["Édition par texte", "Overdub", "Studio Sound", "Enregistrement d'écran"],
+      "es": ["Edición basada en texto", "Overdub", "Studio Sound", "Grabación de pantalla"]
+    }
+  },
+  {
+    "id": "144",
+    "name": "Hootsuite AI",
+    "description": {
+      "en": "Social media management platform with AI-powered content creation and scheduling.",
+      "fr": "Plateforme de gestion de réseaux sociaux avec création de contenu et planification par IA.",
+      "es": "Plataforma de gestión de redes sociales con creación de contenido y programación impulsada por IA."
+    },
+    "category": "Social Media",
+    "website": "https://www.hootsuite.com/",
+    "imageUrl": "/ai-tools/hootsuite.jpg",
+    "imageKeywords": "Hootsuite social media",
+    "rating": 4.5,
+    "tags": ["social media", "scheduling", "analytics", "content creation"],
+    "pricing": "Paid",
+    "features": {
+      "en": ["Multi-platform posting", "AI captions", "Analytics", "Team collaboration"],
+      "fr": ["Publication multi-plateforme", "Légendes IA", "Analytique", "Collaboration équipe"],
+      "es": ["Publicación multiplataforma", "Subtítulos IA", "Análisis", "Colaboración en equipo"]
+    }
+  },
+  {
+    "id": "145",
+    "name": "Synthesia",
+    "description": {
+      "en": "Create AI videos with digital avatars from text in minutes.",
+      "fr": "Créez des vidéos IA avec des avatars numériques à partir de texte en quelques minutes.",
+      "es": "Crea videos de IA con avatares digitales a partir de texto en minutos."
+    },
+    "category": "Social Media",
+    "website": "https://www.synthesia.io/",
+    "imageUrl": "/ai-tools/synthesia.jpg",
+    "imageKeywords": "Synthesia avatar video",
+    "rating": 4.6,
+    "tags": ["avatar", "video creation", "text-to-video", "multilingual"],
+    "pricing": "Paid",
+    "features": {
+      "en": ["150+ avatars", "140+ languages", "Custom avatars", "No filming needed"],
+      "fr": ["150+ avatars", "140+ langues", "Avatars personnalisés", "Pas de tournage"],
+      "es": ["150+ avatares", "140+ idiomas", "Avatares personalizados", "Sin filmación"]
+    }
+  },
+  {
+    "id": "146",
+    "name": "Surfer SEO",
+    "description": {
+      "en": "AI-powered SEO tool for content optimization and keyword research.",
+      "fr": "Outil SEO alimenté par l'IA pour l'optimisation de contenu et la recherche de mots-clés.",
+      "es": "Herramienta SEO impulsada por IA para optimización de contenido e investigación de palabras clave."
+    },
+    "category": "Marketing",
+    "website": "https://surferseo.com/",
+    "imageUrl": "/ai-tools/surfer-seo.jpg",
+    "imageKeywords": "Surfer SEO dashboard",
+    "rating": 4.7,
+    "tags": ["seo", "content optimization", "keyword research", "ranking"],
+    "pricing": "Paid",
+    "features": {
+      "en": ["Content editor", "Keyword research", "SERP analyzer", "AI outline"],
+      "fr": ["Éditeur de contenu", "Recherche de mots-clés", "Analyseur SERP", "Plan IA"],
+      "es": ["Editor de contenido", "Investigación de palabras clave", "Analizador SERP", "Esquema IA"]
+    }
+  },
+  {
+    "id": "147",
+    "name": "Semrush AI",
+    "description": {
+      "en": "Comprehensive digital marketing toolkit with AI-powered insights.",
+      "fr": "Boîte à outils marketing numérique complète avec insights alimentés par l'IA.",
+      "es": "Kit de herramientas de marketing digital completo con información impulsada por IA."
+    },
+    "category": "Marketing",
+    "website": "https://www.semrush.com/",
+    "imageUrl": "/ai-tools/semrush.jpg",
+    "imageKeywords": "Semrush marketing",
+    "rating": 4.8,
+    "tags": ["seo", "ppc", "competitor analysis", "marketing"],
+    "pricing": "Paid",
+    "features": {
+      "en": ["SEO toolkit", "Content AI", "Market research", "Advertising"],
+      "fr": ["Boîte à outils SEO", "Contenu IA", "Étude de marché", "Publicité"],
+      "es": ["Kit de herramientas SEO", "Contenido IA", "Investigación de mercado", "Publicidad"]
+    }
+  },
+  {
+    "id": "148",
+    "name": "ChatSpot",
+    "description": {
+      "en": "HubSpot's AI assistant for sales, marketing, and customer service.",
+      "fr": "Assistant IA de HubSpot pour les ventes, le marketing et le service client.",
+      "es": "Asistente de IA de HubSpot para ventas, marketing y servicio al cliente."
+    },
+    "category": "Marketing",
+    "website": "https://www.hubspot.com/products/chatspot",
+    "imageUrl": "/ai-tools/chatspot.jpg",
+    "imageKeywords": "ChatSpot HubSpot",
+    "rating": 4.6,
+    "tags": ["crm", "sales", "marketing automation", "chatbot"],
+    "pricing": "Freemium",
+    "features": {
+      "en": ["CRM integration", "Lead generation", "Email campaigns", "Analytics"],
+      "fr": ["Intégration CRM", "Génération de leads", "Campagnes email", "Analytique"],
+      "es": ["Integración CRM", "Generación de leads", "Campañas de email", "Análisis"]
+    }
+  },
+  {
+    "id": "149",
+    "name": "Duolingo Max",
+    "description": {
+      "en": "Language learning app with AI-powered conversation practice and explanations.",
+      "fr": "Application d'apprentissage des langues avec pratique de conversation et explications par IA.",
+      "es": "Aplicación de aprendizaje de idiomas con práctica de conversación y explicaciones impulsadas por IA."
+    },
+    "category": "Education",
+    "website": "https://www.duolingo.com/",
+    "imageUrl": "/ai-tools/duolingo.jpg",
+    "imageKeywords": "Duolingo language learning",
+    "rating": 4.7,
+    "tags": ["language learning", "education", "conversation", "gamified"],
+    "pricing": "Freemium",
+    "features": {
+      "en": ["AI conversations", "Explain mistakes", "40+ languages", "Gamification"],
+      "fr": ["Conversations IA", "Expliquer les erreurs", "40+ langues", "Gamification"],
+      "es": ["Conversaciones IA", "Explicar errores", "40+ idiomas", "Gamificación"]
+    }
+  },
+  {
+    "id": "150",
+    "name": "Khan Academy Khanmigo",
+    "description": {
+      "en": "AI tutor for personalized learning across all subjects.",
+      "fr": "Tuteur IA pour l'apprentissage personnalisé dans toutes les matières.",
+      "es": "Tutor de IA para aprendizaje personalizado en todas las materias."
+    },
+    "category": "Education",
+    "website": "https://www.khanacademy.org/khanmigo",
+    "imageUrl": "/ai-tools/khanmigo.jpg",
+    "imageKeywords": "Khanmigo tutor",
+    "rating": 4.8,
+    "tags": ["tutoring", "education", "personalized learning", "all subjects"],
+    "pricing": "Paid",
+    "features": {
+      "en": ["Socratic tutoring", "All subjects", "Homework help", "Safe for students"],
+      "fr": ["Tutorat socratique", "Toutes matières", "Aide aux devoirs", "Sûr pour étudiants"],
+      "es": ["Tutoría socrática", "Todas las materias", "Ayuda con tareas", "Seguro para estudiantes"]
+    }
+  },
+  {
+    "id": "151",
+    "name": "Quizlet AI",
+    "description": {
+      "en": "Study tool with AI-generated flashcards and practice tests.",
+      "fr": "Outil d'étude avec flashcards et tests pratiques générés par IA.",
+      "es": "Herramienta de estudio con tarjetas didácticas y pruebas de práctica generadas por IA."
+    },
+    "category": "Education",
+    "website": "https://quizlet.com/",
+    "imageUrl": "/ai-tools/quizlet.jpg",
+    "imageKeywords": "Quizlet study",
+    "rating": 4.6,
+    "tags": ["study", "flashcards", "practice tests", "learning"],
+    "pricing": "Freemium",
+    "features": {
+      "en": ["AI flashcards", "Practice tests", "Learn mode", "Match games"],
+      "fr": ["Flashcards IA", "Tests pratiques", "Mode apprentissage", "Jeux de correspondance"],
+      "es": ["Tarjetas IA", "Pruebas de práctica", "Modo de aprendizaje", "Juegos de emparejamiento"]
+    }
+  },
+  {
+    "id": "152",
+    "name": "Ada Health",
+    "description": {
+      "en": "AI-powered symptom checker and health assessment app.",
+      "fr": "Application d'évaluation de santé et vérificateur de symptômes alimenté par l'IA.",
+      "es": "Aplicación de evaluación de salud y verificador de síntomas impulsado por IA."
+    },
+    "category": "Health",
+    "website": "https://ada.com/",
+    "imageUrl": "/ai-tools/ada-health.jpg",
+    "imageKeywords": "Ada Health app",
+    "rating": 4.5,
+    "tags": ["health", "symptom checker", "medical", "diagnosis"],
+    "pricing": "Free",
+    "features": {
+      "en": ["Symptom assessment", "Health insights", "Medical knowledge", "Privacy-focused"],
+      "fr": ["Évaluation des symptômes", "Aperçus santé", "Connaissances médicales", "Axé sur la vie privée"],
+      "es": ["Evaluación de síntomas", "Información de salud", "Conocimiento médico", "Enfocado en privacidad"]
+    }
+  },
+  {
+    "id": "153",
+    "name": "Woebot Health",
+    "description": {
+      "en": "AI mental health chatbot providing CBT-based emotional support.",
+      "fr": "Chatbot IA de santé mentale fournissant un soutien émotionnel basé sur la TCC.",
+      "es": "Chatbot de IA de salud mental que proporciona apoyo emocional basado en TCC."
+    },
+    "category": "Health",
+    "website": "https://woebothealth.com/",
+    "imageUrl": "/ai-tools/woebot.jpg",
+    "imageKeywords": "Woebot mental health",
+    "rating": 4.6,
+    "tags": ["mental health", "cbt", "emotional support", "therapy"],
+    "pricing": "Freemium",
+    "features": {
+      "en": ["CBT techniques", "Mood tracking", "24/7 availability", "Evidence-based"],
+      "fr": ["Techniques TCC", "Suivi de l'humeur", "Disponibilité 24/7", "Basé sur preuves"],
+      "es": ["Técnicas TCC", "Seguimiento del estado de ánimo", "Disponibilidad 24/7", "Basado en evidencia"]
+    }
+  },
+  {
+    "id": "154",
+    "name": "QuantConnect",
+    "description": {
+      "en": "Algorithmic trading platform with AI-powered strategy development.",
+      "fr": "Plateforme de trading algorithmique avec développement de stratégies alimenté par l'IA.",
+      "es": "Plataforma de trading algorítmico con desarrollo de estrategias impulsado por IA."
+    },
+    "category": "Finance",
+    "website": "https://www.quantconnect.com/",
+    "imageUrl": "/ai-tools/quantconnect.jpg",
+    "imageKeywords": "QuantConnect trading",
+    "rating": 4.7,
+    "tags": ["algorithmic trading", "quant", "backtesting", "finance"],
+    "pricing": "Freemium",
+    "features": {
+      "en": ["Algorithm development", "Backtesting", "Live trading", "Data library"],
+      "fr": ["Développement d'algorithmes", "Backtesting", "Trading en direct", "Bibliothèque de données"],
+      "es": ["Desarrollo de algoritmos", "Backtesting", "Trading en vivo", "Biblioteca de datos"]
+    }
+  },
+  {
+    "id": "155",
+    "name": "Trade Ideas",
+    "description": {
+      "en": "AI stock scanner and trading platform with pattern recognition.",
+      "fr": "Scanner d'actions IA et plateforme de trading avec reconnaissance de motifs.",
+      "es": "Escáner de acciones de IA y plataforma de trading con reconocimiento de patrones."
+    },
+    "category": "Finance",
+    "website": "https://www.trade-ideas.com/",
+    "imageUrl": "/ai-tools/trade-ideas.jpg",
+    "imageKeywords": "Trade Ideas stock",
+    "rating": 4.6,
+    "tags": ["stock trading", "pattern recognition", "alerts", "scanner"],
+    "pricing": "Paid",
+    "features": {
+      "en": ["Holly AI", "Real-time scanning", "Backtesting", "Trade alerts"],
+      "fr": ["Holly IA", "Scan en temps réel", "Backtesting", "Alertes de trading"],
+      "es": ["Holly IA", "Escaneo en tiempo real", "Backtesting", "Alertas de trading"]
+    }
+  },
+  {
+    "id": "156",
+    "name": "TipRanks",
+    "description": {
+      "en": "AI-powered stock analysis and financial insights platform.",
+      "fr": "Plateforme d'analyse d'actions et d'informations financières alimentée par l'IA.",
+      "es": "Plataforma de análisis de acciones e información financiera impulsada por IA."
+    },
+    "category": "Finance",
+    "website": "https://www.tipranks.com/",
+    "imageUrl": "/ai-tools/tipranks.jpg",
+    "imageKeywords": "TipRanks finance",
+    "rating": 4.5,
+    "tags": ["stock analysis", "financial data", "investing", "research"],
+    "pricing": "Freemium",
+    "features": {
+      "en": ["Analyst ratings", "Smart scores", "Portfolio analysis", "Stock screener"],
+      "fr": ["Notes d'analystes", "Scores intelligents", "Analyse de portefeuille", "Filtre d'actions"],
+      "es": ["Calificaciones de analistas", "Puntuaciones inteligentes", "Análisis de cartera", "Filtro de acciones"]
+    }
+  }
+]

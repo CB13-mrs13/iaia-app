@@ -8,16 +8,10 @@ export const revalidate = 3600; // Revalidate at most every hour
 async function DiscoverData() {
   const aiTools = await getAiTools();
   
-  // The full history of featured tools by their ID, newest at the end.
-  const fullFeaturedList = ['91', '92', '93', '94', '28', '95', '96'];
-  
-  // The list of tools to actually feature, limited to the latest 6.
-  const featuredToolIds = fullFeaturedList.slice(-6);
-
-  // Get the full tool objects for the featured list
+  // Get all tools marked as sponsored/featured
   const featuredTools = aiTools
-    .filter(tool => featuredToolIds.includes(tool.id))
-    .sort((a, b) => featuredToolIds.indexOf(b.id) - featuredToolIds.indexOf(a.id)); // Newest first
+    .filter(tool => tool.isSponsored === true)
+    .sort((a, b) => parseInt(b.id) - parseInt(a.id)); // Newest first by ID
 
   return (
     <DiscoverClient

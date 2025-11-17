@@ -10,6 +10,12 @@ export type AiToolCategory =
   | 'Audio'
   | 'Productivity'
   | 'Design'
+  | 'Writing'
+  | 'Social Media'
+  | 'Marketing'
+  | 'Education'
+  | 'Health'
+  | 'Finance'
   | 'Gratuit'
   | 'Other';
 

@@ -18,7 +18,7 @@ const path = require('path');
 
 // --- IMPORTANT: Path to your service account key file ---
 const serviceAccountKeyPath = path.resolve(__dirname, '../service-account-key.json');
-const aiToolDataPath = path.resolve(__dirname, '../src/ai-tool-data.json');
+const aiToolDataPath = path.resolve(__dirname, '../ai-tool-data.json');
 
 // Check if service account key exists
 if (!fs.existsSync(serviceAccountKeyPath)) {
@@ -29,7 +29,7 @@ if (!fs.existsSync(serviceAccountKeyPath)) {
 
 // Check if tool data file exists
 if (!fs.existsSync(aiToolDataPath)) {
-    console.error('\x1b[31m%s\x1b[0m', `ERROR: \`src/ai-tool-data.json\` not found.`);
+    console.error('\x1b[31m%s\x1b[0m', `ERROR: \`ai-tool-data.json\` not found.`);
     process.exit(1);
 }
 

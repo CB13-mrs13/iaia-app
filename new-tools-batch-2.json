@@ -1,0 +1,314 @@
+[
+  {
+    "id": "157",
+    "name": "Microtakt",
+    "description": {
+      "en": "AI-powered music generation tool for creating royalty-free tracks.",
+      "fr": "Outil de génération musicale par IA pour créer des pistes libres de droits.",
+      "es": "Herramienta de generación musical con IA para crear pistas libres de derechos."
+    },
+    "longDescription": {
+      "en": "Microtakt is an AI music generation platform that allows users to create custom, royalty-free music tracks. Perfect for content creators, filmmakers, and podcasters who need original music without licensing concerns.",
+      "fr": "Microtakt est une plateforme de génération musicale par IA qui permet aux utilisateurs de créer des pistes musicales personnalisées et libres de droits. Parfait pour les créateurs de contenu, les cinéastes et les podcasteurs qui ont besoin de musique originale sans soucis de licence.",
+      "es": "Microtakt es una plataforma de generación musical con IA que permite a los usuarios crear pistas musicales personalizadas y libres de derechos. Perfecto para creadores de contenido, cineastas y podcasters que necesitan música original sin preocupaciones de licencia."
+    },
+    "category": "Audio",
+    "website": "https://microtakt.app",
+    "imageUrl": "/ai-tools/microtakt.jpg",
+    "imageKeywords": "Microtakt AI music",
+    "rating": 4.4,
+    "tags": ["music generation", "royalty-free", "audio", "content creation"],
+    "pricing": "Freemium",
+    "features": {
+      "en": ["AI music generation", "Royalty-free tracks", "Multiple genres", "Custom duration"],
+      "fr": ["Génération musicale IA", "Pistes libres de droits", "Genres multiples", "Durée personnalisée"],
+      "es": ["Generación musical IA", "Pistas libres de derechos", "Géneros múltiples", "Duración personalizada"]
+    }
+  },
+  {
+    "id": "158",
+    "name": "Gamma",
+    "description": {
+      "en": "AI-powered presentation and document creation platform.",
+      "fr": "Plateforme de création de présentations et documents alimentée par l'IA.",
+      "es": "Plataforma de creación de presentaciones y documentos impulsada por IA."
+    },
+    "longDescription": {
+      "en": "Gamma is an innovative platform that uses AI to help you create beautiful presentations, documents, and webpages in seconds. Just provide a topic and Gamma will generate professional slides with content, images, and formatting.",
+      "fr": "Gamma est une plateforme innovante qui utilise l'IA pour vous aider à créer de belles présentations, documents et pages web en quelques secondes. Il suffit de fournir un sujet et Gamma générera des diapositives professionnelles avec contenu, images et mise en forme.",
+      "es": "Gamma es una plataforma innovadora que usa IA para ayudarte a crear hermosas presentaciones, documentos y páginas web en segundos. Solo proporciona un tema y Gamma generará diapositivas profesionales con contenido, imágenes y formato."
+    },
+    "category": "Productivity",
+    "website": "https://gamma.app",
+    "imageUrl": "/ai-tools/gamma.jpg",
+    "imageKeywords": "Gamma presentation AI",
+    "rating": 4.7,
+    "tags": ["presentations", "productivity", "design", "documents"],
+    "pricing": "Freemium",
+    "features": {
+      "en": ["AI-generated slides", "Beautiful templates", "One-click design", "Collaboration tools"],
+      "fr": ["Diapositives générées par IA", "Modèles magnifiques", "Design en un clic", "Outils de collaboration"],
+      "es": ["Diapositivas generadas por IA", "Plantillas hermosas", "Diseño de un clic", "Herramientas de colaboración"]
+    }
+  },
+  {
+    "id": "159",
+    "name": "String",
+    "description": {
+      "en": "AI-powered analytics and insights platform for data analysis.",
+      "fr": "Plateforme d'analyse et d'insights alimentée par l'IA pour l'analyse de données.",
+      "es": "Plataforma de análisis e insights impulsada por IA para análisis de datos."
+    },
+    "longDescription": {
+      "en": "String is an AI analytics platform that transforms complex data into actionable insights. It uses natural language processing to help teams understand their data and make data-driven decisions faster.",
+      "fr": "String est une plateforme d'analyse par IA qui transforme des données complexes en insights exploitables. Elle utilise le traitement du langage naturel pour aider les équipes à comprendre leurs données et à prendre des décisions basées sur les données plus rapidement.",
+      "es": "String es una plataforma de análisis con IA que transforma datos complejos en insights accionables. Utiliza procesamiento de lenguaje natural para ayudar a los equipos a comprender sus datos y tomar decisiones basadas en datos más rápido."
+    },
+    "category": "Productivity",
+    "website": "https://string.com",
+    "imageUrl": "/ai-tools/string.jpg",
+    "imageKeywords": "String analytics AI",
+    "rating": 4.5,
+    "tags": ["analytics", "data analysis", "insights", "business intelligence"],
+    "pricing": "Paid",
+    "features": {
+      "en": ["Natural language queries", "AI-powered insights", "Data visualization", "Team collaboration"],
+      "fr": ["Requêtes en langage naturel", "Insights alimentés par IA", "Visualisation de données", "Collaboration d'équipe"],
+      "es": ["Consultas en lenguaje natural", "Insights impulsados por IA", "Visualización de datos", "Colaboración en equipo"]
+    }
+  },
+  {
+    "id": "160",
+    "name": "OpenArt",
+    "description": {
+      "en": "AI art generator with millions of styles and models for creative image generation.",
+      "fr": "Générateur d'art IA avec des millions de styles et modèles pour la génération d'images créatives.",
+      "es": "Generador de arte IA con millones de estilos y modelos para generación creativa de imágenes."
+    },
+    "longDescription": {
+      "en": "OpenArt is a comprehensive AI art platform offering access to millions of AI models and styles. Create stunning artwork, train custom models, and explore endless creative possibilities with various AI art generators including Stable Diffusion and DALL-E.",
+      "fr": "OpenArt est une plateforme d'art IA complète offrant l'accès à des millions de modèles et styles IA. Créez des œuvres d'art époustouflantes, entraînez des modèles personnalisés et explorez des possibilités créatives infinies avec divers générateurs d'art IA incluant Stable Diffusion et DALL-E.",
+      "es": "OpenArt es una plataforma de arte IA completa que ofrece acceso a millones de modelos y estilos de IA. Crea obras de arte impresionantes, entrena modelos personalizados y explora infinitas posibilidades creativas con varios generadores de arte IA incluyendo Stable Diffusion y DALL-E."
+    },
+    "category": "Photo",
+    "website": "https://openart.ai",
+    "imageUrl": "/ai-tools/openart.jpg",
+    "imageKeywords": "OpenArt AI generator",
+    "rating": 4.6,
+    "tags": ["art generation", "image creation", "stable diffusion", "creative"],
+    "pricing": "Freemium",
+    "features": {
+      "en": ["Millions of models", "Custom training", "Multiple AI engines", "Community gallery"],
+      "fr": ["Des millions de modèles", "Entraînement personnalisé", "Moteurs IA multiples", "Galerie communautaire"],
+      "es": ["Millones de modelos", "Entrenamiento personalizado", "Múltiples motores IA", "Galería comunitaria"]
+    }
+  },
+  {
+    "id": "161",
+    "name": "Dreamina",
+    "description": {
+      "en": "AI-powered creative platform for image and video generation.",
+      "fr": "Plateforme créative alimentée par l'IA pour la génération d'images et de vidéos.",
+      "es": "Plataforma creativa impulsada por IA para generación de imágenes y videos."
+    },
+    "longDescription": {
+      "en": "Dreamina is an all-in-one AI creative suite that combines image generation, video creation, and editing tools. Create stunning visuals with AI-powered tools designed for content creators, marketers, and designers.",
+      "fr": "Dreamina est une suite créative IA tout-en-un qui combine la génération d'images, la création vidéo et les outils d'édition. Créez des visuels époustouflants avec des outils alimentés par IA conçus pour les créateurs de contenu, marketeurs et designers.",
+      "es": "Dreamina es una suite creativa IA todo en uno que combina generación de imágenes, creación de videos y herramientas de edición. Crea visuales impresionantes con herramientas impulsadas por IA diseñadas para creadores de contenido, mercadólogos y diseñadores."
+    },
+    "category": "Design",
+    "website": "https://dreamina.ai",
+    "imageUrl": "/ai-tools/dreamina.jpg",
+    "imageKeywords": "Dreamina AI creative",
+    "rating": 4.5,
+    "tags": ["image generation", "video creation", "design", "creative suite"],
+    "pricing": "Freemium",
+    "features": {
+      "en": ["AI image generation", "Video creation", "Image editing", "Multiple styles"],
+      "fr": ["Génération d'images IA", "Création vidéo", "Édition d'images", "Styles multiples"],
+      "es": ["Generación de imágenes IA", "Creación de videos", "Edición de imágenes", "Estilos múltiples"]
+    }
+  },
+  {
+    "id": "162",
+    "name": "Opal",
+    "description": {
+      "en": "AI-powered video conferencing and screen recording tool with professional quality.",
+      "fr": "Outil de visioconférence et d'enregistrement d'écran alimenté par l'IA avec qualité professionnelle.",
+      "es": "Herramienta de videoconferencia y grabación de pantalla impulsada por IA con calidad profesional."
+    },
+    "longDescription": {
+      "en": "Opal uses AI to enhance video quality, improve lighting, and optimize audio for professional video calls and recordings. Transform any webcam into a professional-grade camera with AI-powered image processing.",
+      "fr": "Opal utilise l'IA pour améliorer la qualité vidéo, optimiser l'éclairage et perfectionner l'audio pour les appels vidéo et enregistrements professionnels. Transformez n'importe quelle webcam en caméra de qualité professionnelle avec le traitement d'image alimenté par IA.",
+      "es": "Opal usa IA para mejorar la calidad de video, optimizar la iluminación y perfeccionar el audio para videollamadas y grabaciones profesionales. Transforma cualquier webcam en una cámara de calidad profesional con procesamiento de imagen impulsado por IA."
+    },
+    "category": "Video",
+    "website": "https://opal.ai",
+    "imageUrl": "/ai-tools/opal.jpg",
+    "imageKeywords": "Opal video AI",
+    "rating": 4.6,
+    "tags": ["video conferencing", "screen recording", "video enhancement", "professional"],
+    "pricing": "Paid",
+    "features": {
+      "en": ["AI video enhancement", "Professional lighting", "Audio optimization", "4K recording"],
+      "fr": ["Amélioration vidéo IA", "Éclairage professionnel", "Optimisation audio", "Enregistrement 4K"],
+      "es": ["Mejora de video IA", "Iluminación profesional", "Optimización de audio", "Grabación 4K"]
+    }
+  },
+  {
+    "id": "163",
+    "name": "Gemma 3",
+    "description": {
+      "en": "Google's lightweight open-source language model for efficient AI applications.",
+      "fr": "Modèle de langage open-source léger de Google pour des applications IA efficaces.",
+      "es": "Modelo de lenguaje de código abierto ligero de Google para aplicaciones de IA eficientes."
+    },
+    "longDescription": {
+      "en": "Gemma 3 is Google's latest open-source language model, designed to be lightweight and efficient while maintaining high performance. Perfect for developers who need a powerful LLM that can run on consumer hardware.",
+      "fr": "Gemma 3 est le dernier modèle de langage open-source de Google, conçu pour être léger et efficace tout en maintenant une haute performance. Parfait pour les développeurs qui ont besoin d'un LLM puissant pouvant fonctionner sur du matériel grand public.",
+      "es": "Gemma 3 es el último modelo de lenguaje de código abierto de Google, diseñado para ser ligero y eficiente mientras mantiene alto rendimiento. Perfecto para desarrolladores que necesitan un LLM poderoso que pueda ejecutarse en hardware de consumo."
+    },
+    "category": "LLM",
+    "website": "https://ai.google.dev/gemma",
+    "imageUrl": "/ai-tools/gemma-3.jpg",
+    "imageKeywords": "Gemma 3 Google AI",
+    "rating": 4.5,
+    "tags": ["open-source", "language model", "google", "lightweight"],
+    "pricing": "Free",
+    "features": {
+      "en": ["Open-source", "Lightweight design", "High performance", "Local deployment"],
+      "fr": ["Open-source", "Conception légère", "Haute performance", "Déploiement local"],
+      "es": ["Código abierto", "Diseño ligero", "Alto rendimiento", "Implementación local"]
+    }
+  },
+  {
+    "id": "164",
+    "name": "Argil AI",
+    "description": {
+      "en": "AI video generation platform for creating personalized video content at scale.",
+      "fr": "Plateforme de génération vidéo IA pour créer du contenu vidéo personnalisé à grande échelle.",
+      "es": "Plataforma de generación de video IA para crear contenido de video personalizado a escala."
+    },
+    "longDescription": {
+      "en": "Argil AI enables businesses and creators to generate personalized video content using AI avatars and voice cloning. Create hundreds of customized videos from a single template, perfect for marketing, training, and customer communications.",
+      "fr": "Argil AI permet aux entreprises et créateurs de générer du contenu vidéo personnalisé en utilisant des avatars IA et le clonage vocal. Créez des centaines de vidéos personnalisées à partir d'un seul modèle, parfait pour le marketing, la formation et les communications clients.",
+      "es": "Argil AI permite a empresas y creadores generar contenido de video personalizado usando avatares IA y clonación de voz. Crea cientos de videos personalizados desde una sola plantilla, perfecto para marketing, capacitación y comunicaciones con clientes."
+    },
+    "category": "Video",
+    "website": "https://app.argil.ai",
+    "imageUrl": "/ai-tools/argil.jpg",
+    "imageKeywords": "Argil AI video",
+    "rating": 4.4,
+    "tags": ["video generation", "AI avatars", "voice cloning", "personalization"],
+    "pricing": "Paid",
+    "features": {
+      "en": ["AI avatars", "Voice cloning", "Bulk video creation", "Template customization"],
+      "fr": ["Avatars IA", "Clonage vocal", "Création vidéo en masse", "Personnalisation de modèles"],
+      "es": ["Avatares IA", "Clonación de voz", "Creación de video masiva", "Personalización de plantillas"]
+    }
+  },
+  {
+    "id": "165",
+    "name": "Praktika",
+    "description": {
+      "en": "AI language learning app with immersive conversation practice.",
+      "fr": "Application d'apprentissage des langues par IA avec pratique conversationnelle immersive.",
+      "es": "Aplicación de aprendizaje de idiomas con IA con práctica conversacional inmersiva."
+    },
+    "longDescription": {
+      "en": "Praktika uses advanced AI to provide personalized language learning through realistic conversations. Practice speaking with AI tutors that adapt to your level and provide instant feedback, making language learning more accessible and effective.",
+      "fr": "Praktika utilise l'IA avancée pour offrir un apprentissage des langues personnalisé à travers des conversations réalistes. Pratiquez l'expression orale avec des tuteurs IA qui s'adaptent à votre niveau et fournissent des retours instantanés, rendant l'apprentissage des langues plus accessible et efficace.",
+      "es": "Praktika usa IA avanzada para proporcionar aprendizaje de idiomas personalizado a través de conversaciones realistas. Practica hablar con tutores IA que se adaptan a tu nivel y proporcionan retroalimentación instantánea, haciendo el aprendizaje de idiomas más accesible y efectivo."
+    },
+    "category": "Education",
+    "website": "https://praktika.ai",
+    "imageUrl": "/ai-tools/praktika.jpg",
+    "imageKeywords": "Praktika language learning",
+    "rating": 4.6,
+    "tags": ["language learning", "conversation practice", "education", "AI tutor"],
+    "pricing": "Freemium",
+    "features": {
+      "en": ["AI conversation partners", "Instant feedback", "Personalized lessons", "Multiple languages"],
+      "fr": ["Partenaires de conversation IA", "Retours instantanés", "Leçons personnalisées", "Langues multiples"],
+      "es": ["Compañeros de conversación IA", "Retroalimentación instantánea", "Lecciones personalizadas", "Múltiples idiomas"]
+    }
+  },
+  {
+    "id": "166",
+    "name": "LTX Studio",
+    "description": {
+      "en": "AI-powered video production platform for creating cinematic content.",
+      "fr": "Plateforme de production vidéo alimentée par l'IA pour créer du contenu cinématographique.",
+      "es": "Plataforma de producción de video impulsada por IA para crear contenido cinematográfico."
+    },
+    "longDescription": {
+      "en": "LTX Studio is a revolutionary AI video platform that transforms ideas into complete video productions. From script to screen, generate storyboards, scenes, and final videos with consistent characters and professional quality.",
+      "fr": "LTX Studio est une plateforme vidéo IA révolutionnaire qui transforme les idées en productions vidéo complètes. Du scénario à l'écran, générez des storyboards, des scènes et des vidéos finales avec des personnages cohérents et une qualité professionnelle.",
+      "es": "LTX Studio es una plataforma de video IA revolucionaria que transforma ideas en producciones de video completas. Del guion a la pantalla, genera storyboards, escenas y videos finales con personajes consistentes y calidad profesional."
+    },
+    "category": "Video",
+    "website": "https://ltx.studio",
+    "imageUrl": "/ai-tools/ltx-studio.jpg",
+    "imageKeywords": "LTX Studio AI video",
+    "rating": 4.7,
+    "tags": ["video production", "cinematic", "storyboard", "AI filmmaking"],
+    "pricing": "Freemium",
+    "features": {
+      "en": ["End-to-end video creation", "Consistent characters", "Storyboard generation", "Professional quality"],
+      "fr": ["Création vidéo de bout en bout", "Personnages cohérents", "Génération de storyboard", "Qualité professionnelle"],
+      "es": ["Creación de video de principio a fin", "Personajes consistentes", "Generación de storyboard", "Calidad profesional"]
+    }
+  },
+  {
+    "id": "167",
+    "name": "Meshy",
+    "description": {
+      "en": "AI-powered 3D model generator for creating game assets and 3D content.",
+      "fr": "Générateur de modèles 3D alimenté par l'IA pour créer des assets de jeux et du contenu 3D.",
+      "es": "Generador de modelos 3D impulsado por IA para crear recursos de juegos y contenido 3D."
+    },
+    "longDescription": {
+      "en": "Meshy transforms text and images into high-quality 3D models in minutes. Perfect for game developers, designers, and 3D artists who need to rapidly prototype or create 3D assets without extensive modeling skills.",
+      "fr": "Meshy transforme le texte et les images en modèles 3D de haute qualité en quelques minutes. Parfait pour les développeurs de jeux, designers et artistes 3D qui ont besoin de prototyper rapidement ou de créer des assets 3D sans compétences approfondies en modélisation.",
+      "es": "Meshy transforma texto e imágenes en modelos 3D de alta calidad en minutos. Perfecto para desarrolladores de juegos, diseñadores y artistas 3D que necesitan prototipar rápidamente o crear recursos 3D sin habilidades extensas de modelado."
+    },
+    "category": "Design",
+    "website": "https://meshy.ai",
+    "imageUrl": "/ai-tools/meshy.jpg",
+    "imageKeywords": "Meshy 3D AI",
+    "rating": 4.5,
+    "tags": ["3D modeling", "game development", "design", "text-to-3D"],
+    "pricing": "Freemium",
+    "features": {
+      "en": ["Text-to-3D", "Image-to-3D", "Game-ready assets", "Fast generation"],
+      "fr": ["Texte vers 3D", "Image vers 3D", "Assets prêts pour jeux", "Génération rapide"],
+      "es": ["Texto a 3D", "Imagen a 3D", "Recursos listos para juegos", "Generación rápida"]
+    }
+  },
+  {
+    "id": "168",
+    "name": "Nanobanana",
+    "description": {
+      "en": "AI-powered creative tool for generating unique visual content and designs.",
+      "fr": "Outil créatif alimenté par l'IA pour générer du contenu visuel et des designs uniques.",
+      "es": "Herramienta creativa impulsada por IA para generar contenido visual y diseños únicos."
+    },
+    "longDescription": {
+      "en": "Nanobanana is an innovative AI creative platform that helps artists and designers generate unique visual content. With advanced AI models and intuitive controls, create stunning artwork and designs for any project.",
+      "fr": "Nanobanana est une plateforme créative IA innovante qui aide les artistes et designers à générer du contenu visuel unique. Avec des modèles IA avancés et des contrôles intuitifs, créez des œuvres d'art et designs époustouflants pour tout projet.",
+      "es": "Nanobanana es una plataforma creativa IA innovadora que ayuda a artistas y diseñadores a generar contenido visual único. Con modelos IA avanzados y controles intuitivos, crea obras de arte y diseños impresionantes para cualquier proyecto."
+    },
+    "category": "Design",
+    "website": "https://nanobanana.com",
+    "imageUrl": "/ai-tools/nanobanana.jpg",
+    "imageKeywords": "Nanobanana AI design",
+    "rating": 4.3,
+    "tags": ["design", "visual content", "creative", "art generation"],
+    "pricing": "Freemium",
+    "features": {
+      "en": ["AI art generation", "Design templates", "Creative controls", "Export options"],
+      "fr": ["Génération d'art IA", "Modèles de design", "Contrôles créatifs", "Options d'export"],
+      "es": ["Generación de arte IA", "Plantillas de diseño", "Controles creativos", "Opciones de exportación"]
+    }
+  }
+]

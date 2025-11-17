@@ -6,7 +6,8 @@
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "import-firestore": "node scripts/import-firestore.js"
   },
   "dependencies": {
     "@genkit-ai/googleai": "^1.21.0",
