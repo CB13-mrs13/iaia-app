@@ -5,3 +5,68 @@ runConfig:
   # Increase this value if you'd like to automatically spin up
   # more instances in response to increased traffic.
   maxInstances: 1
+  
+  # Environment variables for the deployed app
+  env:
+    # Google AI API Key for suggestions
+    - variable: NEXT_PUBLIC_GOOGLE_AI_API_KEY
+      value: AIzaSyC7MXymQQ3j3HyZL_hZ9qZ2a5fK2xhZfGY
+      availability:
+        - BUILD
+        - RUNTIME
+    
+    # Firebase configuration (these are already public in your client code)
+    - variable: NEXT_PUBLIC_FIREBASE_API_KEY
+      value: AIzaSyDUTT99g5Zft1oOvF6X_V6VG12ppTOVyNA
+      availability:
+        - BUILD
+        - RUNTIME
+    
+    - variable: NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN
+      value: iaia-5ecf3.firebaseapp.com
+      availability:
+        - BUILD
+        - RUNTIME
+    
+    - variable: NEXT_PUBLIC_FIREBASE_PROJECT_ID
+      value: iaia-5ecf3
+      availability:
+        - BUILD
+        - RUNTIME
+    
+    - variable: NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET
+      value: iaia-5ecf3.firebasestorage.app
+      availability:
+        - BUILD
+        - RUNTIME
+    
+    - variable: NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID
+      value: "1010796626264"
+      availability:
+        - BUILD
+        - RUNTIME
+    
+    - variable: NEXT_PUBLIC_FIREBASE_APP_ID
+      value: 1:1010796626264:web:c37bc54c96ed803a55652d
+      availability:
+        - BUILD
+        - RUNTIME
+    
+    - variable: NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID
+      value: G-3F0VHFZYF7
+      availability:
+        - BUILD
+        - RUNTIME
+    
+    # Resend API Key (server-side only, for contact form)
+    - variable: RESEND_API_KEY
+      value: re_WhjBL2pe_pHhL4yuM6cPNV6QGXppGEgpP
+      availability:
+        - RUNTIME
+    
+    # Whitelist emails
+    - variable: NEXT_PUBLIC_WHITELIST_EMAILS
+      value: cb13fr@gmail.com,cousinb13@gmail.com,quidnew@gmail.com,magalidelorme.esthetique@gmail.com,corinnegruber18@gmail.com
+      availability:
+        - BUILD
+        - RUNTIME
