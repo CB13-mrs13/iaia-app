@@ -31,7 +31,7 @@ const languageMap: Record<SupportedLanguage, string> = {
 };
 
 export async function suggestAiTool(input: SuggestAiToolInput): Promise<SuggestAiToolOutput> {
-  const apiKey = process.env.NEXT_PUBLIC_GOOGLE_AI_API_KEY;
+  const apiKey = process.env.GOOGLE_AI_API_KEY;
   
   if (!apiKey || apiKey.includes("paste_your")) {
     throw new Error("Google AI API key is not configured");
