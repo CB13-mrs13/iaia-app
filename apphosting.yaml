@@ -1,11 +1,12 @@
 # Settings to manage and configure a Firebase App Hosting backend.
 # https://firebase.google.com/docs/app-hosting/configure
 
-# IMPORTANT: Do NOT put sensitive API keys here!
-# Use Firebase Console to configure environment variables securely:
-# https://console.firebase.google.com/project/iaia-5ecf3/apphosting
-
 runConfig:
   # Increase this value if you'd like to automatically spin up
   # more instances in response to increased traffic.
   maxInstances: 1
+  
+  # Environment variables using Secret Manager (secure!)
+  env:
+    - variable: GOOGLE_AI_API_KEY
+      secret: GOOGLE_AI_API_KEY
