@@ -1,5 +1,5 @@
 
-import { Brain, Image as ImageIcon, Video as VideoIcon, Code2, Music, Briefcase, Palette, Shapes, Bot, Edit3, Film, Mic2, Zap, LayoutDashboard, PackageCheck, Pen, Share2, TrendingUp, GraduationCap, Heart, DollarSign } from 'lucide-react';
+import { Brain, Image as ImageIcon, Video as VideoIcon, Code2, Music, Briefcase, Palette, Shapes, Bot, Edit3, Film, Mic2, Zap, LayoutDashboard, PackageCheck, Pen, Share2, TrendingUp, GraduationCap, Heart, DollarSign, MessageCircleHeart } from 'lucide-react';
 import type { AiToolCategory } from '@/types';
 import type { LucideIcon } from 'lucide-react';
 
@@ -18,6 +18,7 @@ export const aiToolCategories: AiToolCategory[] = [
   'Education',
   'Health',
   'Finance',
+  'Companion',
   'Other',
 ];
 
@@ -35,6 +36,7 @@ export const categoryIcons: Record<AiToolCategory, LucideIcon> = {
   Education: GraduationCap,
   Health: Heart,
   Finance: DollarSign,
+  Companion: MessageCircleHeart,
   Gratuit: PackageCheck,
   Other: LayoutDashboard, // Changed Shapes to a more generic 'dashboard' or 'various' icon
 };

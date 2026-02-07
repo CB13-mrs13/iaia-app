@@ -6934,5 +6934,1505 @@
         "Tareas creativas"
       ]
     }
+  },
+  {
+    "id": "177",
+    "name": "Kimi",
+    "description": {
+      "en": "Chinese AI assistant with long context understanding and multilingual support.",
+      "fr": "Assistant IA chinois avec compréhension de contexte long et support multilingue.",
+      "es": "Asistente IA chino con comprensión de contexto largo y soporte multilingüe."
+    },
+    "longDescription": {
+      "en": "Kimi is a powerful Chinese AI assistant developed by Moonshot AI, featuring exceptional long-context understanding capabilities. It excels at processing lengthy documents, research papers, and complex conversations while maintaining coherence across multiple languages.",
+      "fr": "Kimi est un puissant assistant IA chinois développé par Moonshot AI, doté de capacités exceptionnelles de compréhension de contexte long. Il excelle dans le traitement de documents volumineux, articles de recherche et conversations complexes tout en maintenant la cohérence dans plusieurs langues.",
+      "es": "Kimi es un potente asistente IA chino desarrollado por Moonshot AI, con capacidades excepcionales de comprensión de contexto largo. Sobresale en el procesamiento de documentos extensos, artículos de investigación y conversaciones complejas mientras mantiene la coherencia en múltiples idiomas."
+    },
+    "category": "LLM",
+    "website": "https://kimi.moonshot.cn",
+    "imageUrl": "/ai-tools/kimi.jpg",
+    "imageKeywords": "Kimi AI assistant",
+    "rating": 4.6,
+    "tags": [
+      "llm",
+      "chatbot",
+      "multilingual",
+      "long context",
+      "chinese"
+    ],
+    "pricing": "Free",
+    "features": {
+      "en": [
+        "Long context window",
+        "Multilingual support",
+        "Document analysis",
+        "Research assistance",
+        "Conversational AI"
+      ],
+      "fr": [
+        "Fenêtre de contexte longue",
+        "Support multilingue",
+        "Analyse de documents",
+        "Assistance recherche",
+        "IA conversationnelle"
+      ],
+      "es": [
+        "Ventana de contexto largo",
+        "Soporte multilingüe",
+        "Análisis de documentos",
+        "Asistencia de investigación",
+        "IA conversacional"
+      ]
+    }
+  },
+  {
+    "id": "179",
+    "name": "Photoroom",
+    "description": {
+      "en": "AI background remover and photo editor for e-commerce and product photography.",
+      "fr": "Suppresseur de fond IA et éditeur photo pour e-commerce et photographie produit.",
+      "es": "Eliminador de fondo IA y editor de fotos para comercio electrónico y fotografía de productos."
+    },
+    "longDescription": {
+      "en": "Photoroom is the go-to AI tool for product photography and e-commerce. Instantly remove backgrounds, create professional product images, add shadows, and generate marketing visuals. Perfect for online sellers, marketers, and content creators.",
+      "fr": "Photoroom est l'outil IA incontournable pour la photographie produit et l'e-commerce. Supprimez instantanément les fonds, créez des images produits professionnelles, ajoutez des ombres et générez des visuels marketing. Parfait pour les vendeurs en ligne, marketeurs et créateurs de contenu.",
+      "es": "Photoroom es la herramienta IA ideal para fotografía de productos y comercio electrónico. Elimina fondos instantáneamente, crea imágenes de productos profesionales, añade sombras y genera visuales de marketing. Perfecto para vendedores en línea, especialistas en marketing y creadores de contenido."
+    },
+    "category": "Photo",
+    "website": "https://photoroom.com",
+    "imageUrl": "/ai-tools/photoroom.jpg",
+    "imageKeywords": "Photoroom background removal",
+    "rating": 4.8,
+    "tags": [
+      "background removal",
+      "e-commerce",
+      "product photography",
+      "photo editing",
+      "marketing"
+    ],
+    "pricing": "Freemium",
+    "features": {
+      "en": [
+        "AI background removal",
+        "Product photography",
+        "Shadow generation",
+        "Batch processing",
+        "Templates"
+      ],
+      "fr": [
+        "Suppression fond IA",
+        "Photographie produit",
+        "Génération d'ombres",
+        "Traitement par lots",
+        "Modèles"
+      ],
+      "es": [
+        "Eliminación de fondo IA",
+        "Fotografía de productos",
+        "Generación de sombras",
+        "Procesamiento por lotes",
+        "Plantillas"
+      ]
+    }
+  },
+  {
+    "id": "180",
+    "name": "Monica",
+    "description": {
+      "en": "All-in-one AI assistant powered by GPT-4 for browsing, writing, and searching.",
+      "fr": "Assistant IA tout-en-un alimenté par GPT-4 pour naviguer, écrire et rechercher.",
+      "es": "Asistente IA todo en uno impulsado por GPT-4 para navegar, escribir y buscar."
+    },
+    "longDescription": {
+      "en": "Monica is your AI copilot for the web. Powered by GPT-4, Claude, and other leading models, Monica helps you browse smarter, write better, and search faster. Available as a browser extension, it provides instant AI assistance across all websites.",
+      "fr": "Monica est votre copilote IA pour le web. Alimentée par GPT-4, Claude et d'autres modèles leaders, Monica vous aide à naviguer plus intelligemment, écrire mieux et rechercher plus rapidement. Disponible comme extension navigateur, elle fournit une assistance IA instantanée sur tous les sites web.",
+      "es": "Monica es tu copiloto IA para la web. Impulsada por GPT-4, Claude y otros modelos líderes, Monica te ayuda a navegar de manera más inteligente, escribir mejor y buscar más rápido. Disponible como extensión de navegador, proporciona asistencia IA instantánea en todos los sitios web."
+    },
+    "category": "Productivity",
+    "website": "https://monica.im",
+    "imageUrl": "/ai-tools/monica.jpg",
+    "imageKeywords": "Monica AI assistant",
+    "rating": 4.7,
+    "tags": [
+      "browser extension",
+      "productivity",
+      "gpt-4",
+      "writing",
+      "search"
+    ],
+    "pricing": "Freemium",
+    "features": {
+      "en": [
+        "Browser extension",
+        "GPT-4 powered",
+        "Writing assistant",
+        "Smart search",
+        "Web summarization"
+      ],
+      "fr": [
+        "Extension navigateur",
+        "Alimenté par GPT-4",
+        "Assistant d'écriture",
+        "Recherche intelligente",
+        "Résumé web"
+      ],
+      "es": [
+        "Extensión de navegador",
+        "Impulsado por GPT-4",
+        "Asistente de escritura",
+        "Búsqueda inteligente",
+        "Resumen web"
+      ]
+    }
+  },
+  {
+    "id": "181",
+    "name": "Hailuo AI",
+    "description": {
+      "en": "AI video generation tool for creating videos from text and images.",
+      "fr": "Outil de génération vidéo IA pour créer des vidéos à partir de texte et d'images.",
+      "es": "Herramienta de generación de video IA para crear videos desde texto e imágenes."
+    },
+    "longDescription": {
+      "en": "Hailuo AI (also known as MiniMax) is a Chinese AI video generation platform that creates stunning videos from text prompts and images. Features realistic motion, natural transitions, and high-quality output for creative and professional video projects.",
+      "fr": "Hailuo AI (également connu sous le nom de MiniMax) est une plateforme chinoise de génération vidéo IA qui crée des vidéos époustouflantes à partir de prompts texte et d'images. Fonctionnalités de mouvement réaliste, transitions naturelles et sortie de haute qualité pour des projets vidéo créatifs et professionnels.",
+      "es": "Hailuo AI (también conocido como MiniMax) es una plataforma china de generación de video IA que crea videos impresionantes desde prompts de texto e imágenes. Cuenta con movimiento realista, transiciones naturales y salida de alta calidad para proyectos de video creativos y profesionales."
+    },
+    "category": "Video",
+    "website": "https://hailuoai.com",
+    "imageUrl": "/ai-tools/hailuo-ai.jpg",
+    "imageKeywords": "Hailuo AI video",
+    "rating": 4.5,
+    "tags": [
+      "video generation",
+      "text to video",
+      "image to video",
+      "chinese",
+      "creative"
+    ],
+    "pricing": "Free",
+    "features": {
+      "en": [
+        "Text to video",
+        "Image to video",
+        "Realistic motion",
+        "Natural transitions",
+        "High quality output"
+      ],
+      "fr": [
+        "Texte vers vidéo",
+        "Image vers vidéo",
+        "Mouvement réaliste",
+        "Transitions naturelles",
+        "Sortie haute qualité"
+      ],
+      "es": [
+        "Texto a video",
+        "Imagen a video",
+        "Movimiento realista",
+        "Transiciones naturales",
+        "Salida de alta calidad"
+      ]
+    }
+  },
+  {
+    "id": "182",
+    "name": "Moescape AI",
+    "description": {
+      "en": "AI-powered anime and manga character generator with customization options.",
+      "fr": "Générateur de personnages anime et manga IA avec options de personnalisation.",
+      "es": "Generador de personajes de anime y manga IA con opciones de personalización."
+    },
+    "longDescription": {
+      "en": "Moescape AI specializes in creating anime-style characters and artwork. Generate unique anime characters, customize their appearance, poses, and styles. Perfect for manga artists, game developers, and anime enthusiasts.",
+      "fr": "Moescape AI se spécialise dans la création de personnages et d'œuvres d'art de style anime. Générez des personnages anime uniques, personnalisez leur apparence, poses et styles. Parfait pour les artistes manga, développeurs de jeux et passionnés d'anime.",
+      "es": "Moescape AI se especializa en crear personajes y arte estilo anime. Genera personajes de anime únicos, personaliza su apariencia, poses y estilos. Perfecto para artistas de manga, desarrolladores de juegos y entusiastas del anime."
+    },
+    "category": "Photo",
+    "website": "https://moescape.ai",
+    "imageUrl": "/ai-tools/moescape-ai.jpg",
+    "imageKeywords": "Moescape anime",
+    "rating": 4.4,
+    "tags": [
+      "anime",
+      "manga",
+      "character design",
+      "illustration",
+      "customization"
+    ],
+    "pricing": "Freemium",
+    "features": {
+      "en": [
+        "Anime character generation",
+        "Style customization",
+        "Pose control",
+        "High resolution",
+        "Multiple art styles"
+      ],
+      "fr": [
+        "Génération personnages anime",
+        "Personnalisation style",
+        "Contrôle de pose",
+        "Haute résolution",
+        "Styles d'art multiples"
+      ],
+      "es": [
+        "Generación de personajes anime",
+        "Personalización de estilo",
+        "Control de pose",
+        "Alta resolución",
+        "Múltiples estilos de arte"
+      ]
+    }
+  },
+  {
+    "id": "183",
+    "name": "Hugging Face",
+    "description": {
+      "en": "Platform for sharing and deploying AI models, datasets, and applications.",
+      "fr": "Plateforme de partage et déploiement de modèles IA, datasets et applications.",
+      "es": "Plataforma para compartir y desplegar modelos IA, conjuntos de datos y aplicaciones."
+    },
+    "longDescription": {
+      "en": "Hugging Face is the leading platform for the AI community. Access thousands of pre-trained models, datasets, and AI applications. Build, train, and deploy machine learning models. Popular for NLP, computer vision, and multimodal AI.",
+      "fr": "Hugging Face est la plateforme leader pour la communauté IA. Accédez à des milliers de modèles pré-entraînés, datasets et applications IA. Construisez, entraînez et déployez des modèles de machine learning. Populaire pour le NLP, vision par ordinateur et IA multimodale.",
+      "es": "Hugging Face es la plataforma líder para la comunidad IA. Accede a miles de modelos preentrenados, conjuntos de datos y aplicaciones IA. Construye, entrena y despliega modelos de aprendizaje automático. Popular para PLN, visión por computadora e IA multimodal."
+    },
+    "category": "Coding",
+    "website": "https://huggingface.co",
+    "imageUrl": "/ai-tools/hugging-face.jpg",
+    "imageKeywords": "Hugging Face models",
+    "rating": 4.9,
+    "tags": [
+      "machine learning",
+      "models",
+      "datasets",
+      "nlp",
+      "open source"
+    ],
+    "pricing": "Freemium",
+    "features": {
+      "en": [
+        "Model repository",
+        "Dataset hosting",
+        "Model deployment",
+        "Spaces for demos",
+        "Transformers library"
+      ],
+      "fr": [
+        "Dépôt de modèles",
+        "Hébergement datasets",
+        "Déploiement modèles",
+        "Spaces pour démos",
+        "Bibliothèque Transformers"
+      ],
+      "es": [
+        "Repositorio de modelos",
+        "Alojamiento de datasets",
+        "Despliegue de modelos",
+        "Spaces para demos",
+        "Biblioteca Transformers"
+      ]
+    }
+  },
+  {
+    "id": "184",
+    "name": "Sora",
+    "description": {
+      "en": "OpenAI's text-to-video AI model creating realistic and imaginative videos.",
+      "fr": "Modèle IA texte-vers-vidéo d'OpenAI créant des vidéos réalistes et imaginatives.",
+      "es": "Modelo IA de texto a video de OpenAI que crea videos realistas e imaginativos."
+    },
+    "longDescription": {
+      "en": "Sora is OpenAI's groundbreaking text-to-video AI model. Create up to 60-second videos from text descriptions with realistic motion, complex scenes, and multiple characters. Represents a major leap in AI video generation technology.",
+      "fr": "Sora est le modèle IA texte-vers-vidéo révolutionnaire d'OpenAI. Créez des vidéos jusqu'à 60 secondes à partir de descriptions textuelles avec mouvement réaliste, scènes complexes et personnages multiples. Représente un bond majeur dans la technologie de génération vidéo IA.",
+      "es": "Sora es el revolucionario modelo IA de texto a video de OpenAI. Crea videos de hasta 60 segundos desde descripciones de texto con movimiento realista, escenas complejas y múltiples personajes. Representa un gran salto en la tecnología de generación de video IA."
+    },
+    "category": "Video",
+    "website": "https://openai.com/sora",
+    "imageUrl": "/ai-tools/sora.jpg",
+    "imageKeywords": "Sora OpenAI video",
+    "rating": 4.9,
+    "tags": [
+      "video generation",
+      "openai",
+      "text to video",
+      "realistic",
+      "creative"
+    ],
+    "pricing": "Paid",
+    "features": {
+      "en": [
+        "Text to video",
+        "Up to 60 seconds",
+        "Realistic motion",
+        "Complex scenes",
+        "Multiple characters"
+      ],
+      "fr": [
+        "Texte vers vidéo",
+        "Jusqu'à 60 secondes",
+        "Mouvement réaliste",
+        "Scènes complexes",
+        "Personnages multiples"
+      ],
+      "es": [
+        "Texto a video",
+        "Hasta 60 segundos",
+        "Movimiento realista",
+        "Escenas complejas",
+        "Múltiples personajes"
+      ]
+    }
+  },
+  {
+    "id": "185",
+    "name": "Poe",
+    "description": {
+      "en": "Access multiple AI chatbots (ChatGPT, Claude, GPT-4) in one platform.",
+      "fr": "Accédez à plusieurs chatbots IA (ChatGPT, Claude, GPT-4) sur une seule plateforme.",
+      "es": "Accede a múltiples chatbots IA (ChatGPT, Claude, GPT-4) en una plataforma."
+    },
+    "longDescription": {
+      "en": "Poe by Quora gives you instant access to leading AI chatbots including ChatGPT, Claude, GPT-4, and more. Compare responses, create custom bots, and chat with different AI models all in one place. Perfect for exploring various AI capabilities.",
+      "fr": "Poe par Quora vous donne un accès instantané aux chatbots IA leaders incluant ChatGPT, Claude, GPT-4 et plus. Comparez les réponses, créez des bots personnalisés et discutez avec différents modèles IA en un seul endroit. Parfait pour explorer diverses capacités IA.",
+      "es": "Poe de Quora te da acceso instantáneo a chatbots IA líderes incluyendo ChatGPT, Claude, GPT-4 y más. Compara respuestas, crea bots personalizados y chatea con diferentes modelos IA en un solo lugar. Perfecto para explorar varias capacidades de IA."
+    },
+    "category": "LLM",
+    "website": "https://poe.com",
+    "imageUrl": "/ai-tools/poe.jpg",
+    "imageKeywords": "Poe chatbots",
+    "rating": 4.7,
+    "tags": [
+      "chatbots",
+      "multi-model",
+      "gpt-4",
+      "claude",
+      "comparison"
+    ],
+    "pricing": "Freemium",
+    "features": {
+      "en": [
+        "Multiple AI models",
+        "Compare responses",
+        "Custom bots",
+        "Fast responses",
+        "Mobile apps"
+      ],
+      "fr": [
+        "Modèles IA multiples",
+        "Comparer réponses",
+        "Bots personnalisés",
+        "Réponses rapides",
+        "Apps mobiles"
+      ],
+      "es": [
+        "Múltiples modelos IA",
+        "Comparar respuestas",
+        "Bots personalizados",
+        "Respuestas rápidas",
+        "Apps móviles"
+      ]
+    }
+  },
+  {
+    "id": "186",
+    "name": "Crushon AI",
+    "description": {
+      "en": "AI character chatbot platform for immersive roleplay conversations.",
+      "fr": "Plateforme de chatbot de personnages IA pour conversations roleplay immersives.",
+      "es": "Plataforma de chatbot de personajes IA para conversaciones de juego de rol inmersivas."
+    },
+    "longDescription": {
+      "en": "Crushon AI offers unrestricted conversations with AI characters. Create custom characters, engage in roleplay, and chat without filters. Features emotional AI, memory retention, and diverse character personalities for engaging interactions.",
+      "fr": "Crushon AI offre des conversations sans restriction avec des personnages IA. Créez des personnages personnalisés, engagez-vous dans le roleplay et discutez sans filtres. Fonctionnalités d'IA émotionnelle, rétention de mémoire et personnalités de personnages diverses pour des interactions engageantes.",
+      "es": "Crushon AI ofrece conversaciones sin restricciones con personajes IA. Crea personajes personalizados, participa en juegos de rol y chatea sin filtros. Cuenta con IA emocional, retención de memoria y personalidades de personajes diversas para interacciones atractivas."
+    },
+    "category": "Companion",
+    "website": "https://crushon.ai",
+    "imageUrl": "/ai-tools/crushon-ai.jpg",
+    "imageKeywords": "Crushon AI roleplay",
+    "rating": 4.2,
+    "tags": [
+      "chatbot",
+      "roleplay",
+      "character ai",
+      "companion",
+      "conversations"
+    ],
+    "pricing": "Freemium",
+    "features": {
+      "en": [
+        "Unrestricted chat",
+        "Custom characters",
+        "Roleplay scenarios",
+        "Memory retention",
+        "Emotional AI"
+      ],
+      "fr": [
+        "Chat sans restriction",
+        "Personnages personnalisés",
+        "Scénarios roleplay",
+        "Rétention mémoire",
+        "IA émotionnelle"
+      ],
+      "es": [
+        "Chat sin restricciones",
+        "Personajes personalizados",
+        "Escenarios de rol",
+        "Retención de memoria",
+        "IA emocional"
+      ]
+    }
+  },
+  {
+    "id": "187",
+    "name": "Candy AI",
+    "description": {
+      "en": "AI girlfriend chatbot with realistic conversations and customizable personalities.",
+      "fr": "Chatbot petite-amie IA avec conversations réalistes et personnalités personnalisables.",
+      "es": "Chatbot de novia IA con conversaciones realistas y personalidades personalizables."
+    },
+    "longDescription": {
+      "en": "Candy AI provides AI companion experiences with customizable virtual girlfriends. Features realistic conversations, adaptive personalities, voice messages, and image generation. Designed for those seeking AI companionship and interactive relationships.",
+      "fr": "Candy AI fournit des expériences de compagnon IA avec petites-amies virtuelles personnalisables. Fonctionnalités de conversations réalistes, personnalités adaptatives, messages vocaux et génération d'images. Conçu pour ceux qui recherchent une compagnie IA et des relations interactives.",
+      "es": "Candy AI proporciona experiencias de compañía IA con novias virtuales personalizables. Cuenta con conversaciones realistas, personalidades adaptativas, mensajes de voz y generación de imágenes. Diseñado para quienes buscan compañía IA y relaciones interactivas."
+    },
+    "category": "Companion",
+    "website": "https://candy.ai",
+    "imageUrl": "/ai-tools/candy-ai.jpg",
+    "imageKeywords": "Candy AI companion",
+    "rating": 4.0,
+    "tags": [
+      "ai girlfriend",
+      "companion",
+      "chatbot",
+      "roleplay",
+      "customization"
+    ],
+    "pricing": "Freemium",
+    "features": {
+      "en": [
+        "Customizable companions",
+        "Realistic conversations",
+        "Voice messages",
+        "Image generation",
+        "Adaptive personality"
+      ],
+      "fr": [
+        "Compagnons personnalisables",
+        "Conversations réalistes",
+        "Messages vocaux",
+        "Génération d'images",
+        "Personnalité adaptive"
+      ],
+      "es": [
+        "Compañeras personalizables",
+        "Conversaciones realistas",
+        "Mensajes de voz",
+        "Generación de imágenes",
+        "Personalidad adaptativa"
+      ]
+    }
+  },
+  {
+    "id": "188",
+    "name": "Chub",
+    "description": {
+      "en": "Character AI platform for creating and chatting with custom AI personalities.",
+      "fr": "Plateforme IA de personnages pour créer et discuter avec des personnalités IA personnalisées.",
+      "es": "Plataforma IA de personajes para crear y chatear con personalidades IA personalizadas."
+    },
+    "longDescription": {
+      "en": "Chub is a community-driven platform for AI character creation and interaction. Browse thousands of user-created characters, create your own, and engage in immersive conversations. Features advanced customization, lorebooks, and scenario building.",
+      "fr": "Chub est une plateforme communautaire pour la création et l'interaction de personnages IA. Parcourez des milliers de personnages créés par les utilisateurs, créez les vôtres et engagez-vous dans des conversations immersives. Fonctionnalités de personnalisation avancée, livres de lore et construction de scénarios.",
+      "es": "Chub es una plataforma impulsada por la comunidad para la creación e interacción de personajes IA. Navega por miles de personajes creados por usuarios, crea los tuyos y participa en conversaciones inmersivas. Cuenta con personalización avanzada, libros de lore y construcción de escenarios."
+    },
+    "category": "Companion",
+    "website": "https://chub.ai",
+    "imageUrl": "/ai-tools/chub.jpg",
+    "imageKeywords": "Chub AI characters",
+    "rating": 4.3,
+    "tags": [
+      "character ai",
+      "community",
+      "roleplay",
+      "customization",
+      "chatbot"
+    ],
+    "pricing": "Free",
+    "features": {
+      "en": [
+        "Character creation",
+        "Community library",
+        "Lorebooks",
+        "Scenario builder",
+        "Advanced customization"
+      ],
+      "fr": [
+        "Création de personnages",
+        "Bibliothèque communautaire",
+        "Livres de lore",
+        "Constructeur de scénarios",
+        "Personnalisation avancée"
+      ],
+      "es": [
+        "Creación de personajes",
+        "Biblioteca comunitaria",
+        "Libros de lore",
+        "Constructor de escenarios",
+        "Personalización avanzada"
+      ]
+    }
+  },
+  {
+    "id": "189",
+    "name": "Janitor AI",
+    "description": {
+      "en": "Character AI chatbot platform with diverse personalities and roleplay options.",
+      "fr": "Plateforme chatbot IA de personnages avec personnalités diverses et options roleplay.",
+      "es": "Plataforma de chatbot IA de personajes con personalidades diversas y opciones de roleplay."
+    },
+    "longDescription": {
+      "en": "Janitor AI offers a vast collection of AI characters for engaging conversations and roleplay. Features both SFW and NSFW content, custom character creation, and various AI models. Popular for its diverse character library and flexible chat options.",
+      "fr": "Janitor AI offre une vaste collection de personnages IA pour conversations engageantes et roleplay. Fonctionnalités de contenu SFW et NSFW, création de personnages personnalisés et divers modèles IA. Populaire pour sa bibliothèque de personnages diverse et ses options de chat flexibles.",
+      "es": "Janitor AI ofrece una vasta colección de personajes IA para conversaciones atractivas y juegos de rol. Cuenta con contenido SFW y NSFW, creación de personajes personalizados y varios modelos IA. Popular por su diversa biblioteca de personajes y opciones de chat flexibles."
+    },
+    "category": "Companion",
+    "website": "https://janitorai.com",
+    "imageUrl": "/ai-tools/janitor-ai.jpg",
+    "imageKeywords": "Janitor AI chatbot",
+    "rating": 4.4,
+    "tags": [
+      "character ai",
+      "chatbot",
+      "roleplay",
+      "customization",
+      "community"
+    ],
+    "pricing": "Freemium",
+    "features": {
+      "en": [
+        "Character library",
+        "Custom characters",
+        "Multiple AI models",
+        "Roleplay scenarios",
+        "Memory system"
+      ],
+      "fr": [
+        "Bibliothèque personnages",
+        "Personnages personnalisés",
+        "Modèles IA multiples",
+        "Scénarios roleplay",
+        "Système de mémoire"
+      ],
+      "es": [
+        "Biblioteca de personajes",
+        "Personajes personalizados",
+        "Múltiples modelos IA",
+        "Escenarios de roleplay",
+        "Sistema de memoria"
+      ]
+    }
+  },
+  {
+    "id": "190",
+    "name": "Adot",
+    "description": {
+      "en": "AI-powered personal assistant for task management and productivity.",
+      "fr": "Assistant personnel IA pour gestion des tâches et productivité.",
+      "es": "Asistente personal IA para gestión de tareas y productividad."
+    },
+    "longDescription": {
+      "en": "Adot is an intelligent personal assistant that helps manage your tasks, schedule, and productivity. Features smart task organization, calendar integration, reminders, and AI-powered suggestions to optimize your workflow and time management.",
+      "fr": "Adot est un assistant personnel intelligent qui aide à gérer vos tâches, calendrier et productivité. Fonctionnalités d'organisation intelligente des tâches, intégration calendrier, rappels et suggestions IA pour optimiser votre workflow et gestion du temps.",
+      "es": "Adot es un asistente personal inteligente que ayuda a gestionar tus tareas, agenda y productividad. Cuenta con organización inteligente de tareas, integración de calendario, recordatorios y sugerencias IA para optimizar tu flujo de trabajo y gestión del tiempo."
+    },
+    "category": "Productivity",
+    "website": "https://adot.ai",
+    "imageUrl": "/ai-tools/adot.jpg",
+    "imageKeywords": "Adot productivity",
+    "rating": 4.2,
+    "tags": [
+      "productivity",
+      "task management",
+      "assistant",
+      "calendar",
+      "organization"
+    ],
+    "pricing": "Freemium",
+    "features": {
+      "en": [
+        "Task management",
+        "Calendar integration",
+        "Smart reminders",
+        "AI suggestions",
+        "Productivity tracking"
+      ],
+      "fr": [
+        "Gestion des tâches",
+        "Intégration calendrier",
+        "Rappels intelligents",
+        "Suggestions IA",
+        "Suivi productivité"
+      ],
+      "es": [
+        "Gestión de tareas",
+        "Integración de calendario",
+        "Recordatorios inteligentes",
+        "Sugerencias IA",
+        "Seguimiento de productividad"
+      ]
+    }
+  },
+  {
+    "id": "191",
+    "name": "Zeemo",
+    "description": {
+      "en": "AI-powered automatic subtitle and caption generator for videos.",
+      "fr": "Générateur automatique de sous-titres et légendes IA pour vidéos.",
+      "es": "Generador automático de subtítulos y leyendas IA para videos."
+    },
+    "longDescription": {
+      "en": "Zeemo uses AI to automatically generate accurate subtitles and captions for videos in multiple languages. Perfect for content creators, marketers, and educators. Features auto-transcription, translation, and stylish subtitle templates.",
+      "fr": "Zeemo utilise l'IA pour générer automatiquement des sous-titres et légendes précis pour vidéos en plusieurs langues. Parfait pour créateurs de contenu, marketeurs et éducateurs. Fonctionnalités de transcription automatique, traduction et modèles de sous-titres stylisés.",
+      "es": "Zeemo utiliza IA para generar automáticamente subtítulos y leyendas precisos para videos en múltiples idiomas. Perfecto para creadores de contenido, especialistas en marketing y educadores. Cuenta con auto-transcripción, traducción y plantillas de subtítulos con estilo."
+    },
+    "category": "Video",
+    "website": "https://zeemo.ai",
+    "imageUrl": "/ai-tools/zeemo.jpg",
+    "imageKeywords": "Zeemo subtitles",
+    "rating": 4.6,
+    "tags": [
+      "subtitles",
+      "captions",
+      "transcription",
+      "translation",
+      "video"
+    ],
+    "pricing": "Freemium",
+    "features": {
+      "en": [
+        "Auto-transcription",
+        "Multi-language support",
+        "Subtitle templates",
+        "Translation",
+        "Video editing"
+      ],
+      "fr": [
+        "Transcription automatique",
+        "Support multi-langues",
+        "Modèles sous-titres",
+        "Traduction",
+        "Édition vidéo"
+      ],
+      "es": [
+        "Auto-transcripción",
+        "Soporte multiidioma",
+        "Plantillas de subtítulos",
+        "Traducción",
+        "Edición de video"
+      ]
+    }
+  },
+  {
+    "id": "192",
+    "name": "Clipchamp",
+    "description": {
+      "en": "Microsoft's online video editor with AI-powered features and templates.",
+      "fr": "Éditeur vidéo en ligne de Microsoft avec fonctionnalités IA et modèles.",
+      "es": "Editor de video en línea de Microsoft con funciones IA y plantillas."
+    },
+    "longDescription": {
+      "en": "Clipchamp by Microsoft is an easy-to-use online video editor with AI features. Create professional videos with auto-captions, text-to-speech, background removal, and ready-made templates. Perfect for social media, marketing, and business videos.",
+      "fr": "Clipchamp par Microsoft est un éditeur vidéo en ligne facile à utiliser avec fonctionnalités IA. Créez des vidéos professionnelles avec sous-titres automatiques, synthèse vocale, suppression d'arrière-plan et modèles prêts à l'emploi. Parfait pour réseaux sociaux, marketing et vidéos d'entreprise.",
+      "es": "Clipchamp de Microsoft es un editor de video en línea fácil de usar con funciones IA. Crea videos profesionales con subtítulos automáticos, texto a voz, eliminación de fondo y plantillas listas para usar. Perfecto para redes sociales, marketing y videos empresariales."
+    },
+    "category": "Video",
+    "website": "https://clipchamp.com",
+    "imageUrl": "/ai-tools/clipchamp.jpg",
+    "imageKeywords": "Clipchamp video editor",
+    "rating": 4.5,
+    "tags": [
+      "video editing",
+      "microsoft",
+      "templates",
+      "captions",
+      "text-to-speech"
+    ],
+    "pricing": "Freemium",
+    "features": {
+      "en": [
+        "Video editing",
+        "Auto-captions",
+        "Text-to-speech",
+        "Templates",
+        "Background removal"
+      ],
+      "fr": [
+        "Édition vidéo",
+        "Sous-titres automatiques",
+        "Synthèse vocale",
+        "Modèles",
+        "Suppression arrière-plan"
+      ],
+      "es": [
+        "Edición de video",
+        "Subtítulos automáticos",
+        "Texto a voz",
+        "Plantillas",
+        "Eliminación de fondo"
+      ]
+    }
+  },
+  {
+    "id": "193",
+    "name": "Eden AI",
+    "description": {
+      "en": "Unified API platform for accessing multiple AI engines and models.",
+      "fr": "Plateforme API unifiée pour accéder à plusieurs moteurs et modèles IA.",
+      "es": "Plataforma API unificada para acceder a múltiples motores y modelos IA."
+    },
+    "longDescription": {
+      "en": "Eden AI provides a single API to access dozens of AI engines for text, image, video, and speech processing. Compare providers, switch models easily, and build AI applications faster. Perfect for developers and businesses integrating multiple AI services.",
+      "fr": "Eden AI fournit une API unique pour accéder à des dizaines de moteurs IA pour le traitement de texte, image, vidéo et parole. Comparez les fournisseurs, changez de modèles facilement et construisez des applications IA plus rapidement. Parfait pour développeurs et entreprises intégrant plusieurs services IA.",
+      "es": "Eden AI proporciona una API única para acceder a docenas de motores IA para procesamiento de texto, imagen, video y voz. Compara proveedores, cambia modelos fácilmente y construye aplicaciones IA más rápido. Perfecto para desarrolladores y empresas que integran múltiples servicios IA."
+    },
+    "category": "Coding",
+    "website": "https://edenai.co",
+    "imageUrl": "/ai-tools/eden-ai.jpg",
+    "imageKeywords": "Eden AI API",
+    "rating": 4.6,
+    "tags": [
+      "api",
+      "multi-model",
+      "integration",
+      "developers",
+      "ai engines"
+    ],
+    "pricing": "Freemium",
+    "features": {
+      "en": [
+        "Unified API",
+        "Multiple AI providers",
+        "Easy switching",
+        "Cost optimization",
+        "Developer tools"
+      ],
+      "fr": [
+        "API unifiée",
+        "Fournisseurs IA multiples",
+        "Changement facile",
+        "Optimisation coûts",
+        "Outils développeurs"
+      ],
+      "es": [
+        "API unificada",
+        "Múltiples proveedores IA",
+        "Cambio fácil",
+        "Optimización de costos",
+        "Herramientas de desarrollador"
+      ]
+    }
+  },
+  {
+    "id": "194",
+    "name": "Deep AI",
+    "description": {
+      "en": "Collection of AI tools for image generation, enhancement, and editing.",
+      "fr": "Collection d'outils IA pour génération, amélioration et édition d'images.",
+      "es": "Colección de herramientas IA para generación, mejora y edición de imágenes."
+    },
+    "longDescription": {
+      "en": "Deep AI offers various AI tools for image processing including text-to-image generation, style transfer, image colorization, and super-resolution. Easy-to-use API access for developers and web interface for casual users.",
+      "fr": "Deep AI offre divers outils IA pour le traitement d'images incluant génération texte-vers-image, transfert de style, colorisation d'images et super-résolution. Accès API facile pour développeurs et interface web pour utilisateurs occasionnels.",
+      "es": "Deep AI ofrece varias herramientas IA para procesamiento de imágenes incluyendo generación de texto a imagen, transferencia de estilo, colorización de imágenes y super-resolución. Acceso API fácil para desarrolladores e interfaz web para usuarios casuales."
+    },
+    "category": "Photo",
+    "website": "https://deepai.org",
+    "imageUrl": "/ai-tools/deep-ai.jpg",
+    "imageKeywords": "Deep AI tools",
+    "rating": 4.3,
+    "tags": [
+      "image generation",
+      "style transfer",
+      "api",
+      "enhancement",
+      "tools"
+    ],
+    "pricing": "Freemium",
+    "features": {
+      "en": [
+        "Image generation",
+        "Style transfer",
+        "Colorization",
+        "Super-resolution",
+        "API access"
+      ],
+      "fr": [
+        "Génération d'images",
+        "Transfert de style",
+        "Colorisation",
+        "Super-résolution",
+        "Accès API"
+      ],
+      "es": [
+        "Generación de imágenes",
+        "Transferencia de estilo",
+        "Colorización",
+        "Super-resolución",
+        "Acceso API"
+      ]
+    }
+  },
+  {
+    "id": "195",
+    "name": "Meta AI",
+    "description": {
+      "en": "Meta's AI assistant powered by Llama for chat, search, and image generation.",
+      "fr": "Assistant IA de Meta alimenté par Llama pour chat, recherche et génération d'images.",
+      "es": "Asistente IA de Meta impulsado por Llama para chat, búsqueda y generación de imágenes."
+    },
+    "longDescription": {
+      "en": "Meta AI is Meta's official AI assistant powered by Llama models. Available across Facebook, Instagram, WhatsApp, and Messenger. Features conversational AI, web search, and image generation. Free to use with integration across Meta's ecosystem.",
+      "fr": "Meta AI est l'assistant IA officiel de Meta alimenté par les modèles Llama. Disponible sur Facebook, Instagram, WhatsApp et Messenger. Fonctionnalités d'IA conversationnelle, recherche web et génération d'images. Gratuit avec intégration dans l'écosystème Meta.",
+      "es": "Meta AI es el asistente IA oficial de Meta impulsado por modelos Llama. Disponible en Facebook, Instagram, WhatsApp y Messenger. Cuenta con IA conversacional, búsqueda web y generación de imágenes. Gratis con integración en el ecosistema Meta."
+    },
+    "category": "LLM",
+    "website": "https://meta.ai",
+    "imageUrl": "/ai-tools/meta-ai.jpg",
+    "imageKeywords": "Meta AI assistant",
+    "rating": 4.5,
+    "tags": [
+      "meta",
+      "llama",
+      "chatbot",
+      "image generation",
+      "free"
+    ],
+    "pricing": "Free",
+    "features": {
+      "en": [
+        "Llama powered",
+        "Cross-platform",
+        "Image generation",
+        "Web search",
+        "Conversational AI"
+      ],
+      "fr": [
+        "Alimenté par Llama",
+        "Multi-plateforme",
+        "Génération d'images",
+        "Recherche web",
+        "IA conversationnelle"
+      ],
+      "es": [
+        "Impulsado por Llama",
+        "Multiplataforma",
+        "Generación de imágenes",
+        "Búsqueda web",
+        "IA conversacional"
+      ]
+    }
+  },
+  {
+    "id": "196",
+    "name": "Quillbot",
+    "description": {
+      "en": "AI-powered paraphrasing and writing tool for improving text quality.",
+      "fr": "Outil de paraphrase et d'écriture IA pour améliorer la qualité des textes.",
+      "es": "Herramienta de parafraseo y escritura IA para mejorar la calidad del texto."
+    },
+    "longDescription": {
+      "en": "Quillbot is a comprehensive writing assistant with AI paraphrasing, grammar checking, plagiarism detection, and summarization. Perfect for students, writers, and professionals. Improve clarity, tone, and originality of your writing.",
+      "fr": "Quillbot est un assistant d'écriture complet avec paraphrase IA, vérification grammaticale, détection de plagiat et résumé. Parfait pour étudiants, écrivains et professionnels. Améliorez la clarté, le ton et l'originalité de votre écriture.",
+      "es": "Quillbot es un asistente de escritura completo con parafraseo IA, corrección gramatical, detección de plagio y resumen. Perfecto para estudiantes, escritores y profesionales. Mejora la claridad, tono y originalidad de tu escritura."
+    },
+    "category": "Writing",
+    "website": "https://quillbot.com",
+    "imageUrl": "/ai-tools/quillbot.jpg",
+    "imageKeywords": "Quillbot paraphrasing",
+    "rating": 4.7,
+    "tags": [
+      "paraphrasing",
+      "writing",
+      "grammar",
+      "plagiarism",
+      "students"
+    ],
+    "pricing": "Freemium",
+    "features": {
+      "en": [
+        "AI paraphrasing",
+        "Grammar checker",
+        "Plagiarism detection",
+        "Summarizer",
+        "Citation generator"
+      ],
+      "fr": [
+        "Paraphrase IA",
+        "Vérificateur grammaire",
+        "Détection plagiat",
+        "Résumé",
+        "Générateur citations"
+      ],
+      "es": [
+        "Parafraseo IA",
+        "Corrector gramatical",
+        "Detección de plagio",
+        "Resumidor",
+        "Generador de citas"
+      ]
+    }
+  },
+  {
+    "id": "197",
+    "name": "PolyBuzz",
+    "description": {
+      "en": "AI-powered content creation and social media management platform.",
+      "fr": "Plateforme de création de contenu et gestion des réseaux sociaux alimentée par l'IA.",
+      "es": "Plataforma de creación de contenido y gestión de redes sociales impulsada por IA."
+    },
+    "longDescription": {
+      "en": "PolyBuzz helps create engaging social media content using AI. Generate posts, captions, hashtags, and visual content for multiple platforms. Features scheduling, analytics, and trend tracking to optimize your social media presence.",
+      "fr": "PolyBuzz aide à créer du contenu engageant pour réseaux sociaux avec l'IA. Générez des posts, légendes, hashtags et contenu visuel pour plusieurs plateformes. Fonctionnalités de planification, analytique et suivi des tendances pour optimiser votre présence sur réseaux sociaux.",
+      "es": "PolyBuzz ayuda a crear contenido atractivo para redes sociales usando IA. Genera publicaciones, leyendas, hashtags y contenido visual para múltiples plataformas. Cuenta con programación, análisis y seguimiento de tendencias para optimizar tu presencia en redes sociales."
+    },
+    "category": "Social Media",
+    "website": "https://polybuzz.com",
+    "imageUrl": "/ai-tools/polybuzz.jpg",
+    "imageKeywords": "PolyBuzz social media",
+    "rating": 4.2,
+    "tags": [
+      "social media",
+      "content creation",
+      "scheduling",
+      "analytics",
+      "marketing"
+    ],
+    "pricing": "Paid",
+    "features": {
+      "en": [
+        "AI content generation",
+        "Multi-platform support",
+        "Post scheduling",
+        "Analytics dashboard",
+        "Hashtag suggestions"
+      ],
+      "fr": [
+        "Génération contenu IA",
+        "Support multi-plateformes",
+        "Planification posts",
+        "Tableau de bord analytique",
+        "Suggestions hashtags"
+      ],
+      "es": [
+        "Generación de contenido IA",
+        "Soporte multiplataforma",
+        "Programación de posts",
+        "Panel de análisis",
+        "Sugerencias de hashtags"
+      ]
+    }
+  },
+  {
+    "id": "198",
+    "name": "StudyX",
+    "description": {
+      "en": "AI homework helper and study assistant for students.",
+      "fr": "Assistant IA pour devoirs et études pour étudiants.",
+      "es": "Asistente IA para tareas y estudios para estudiantes."
+    },
+    "longDescription": {
+      "en": "StudyX is an AI-powered study assistant that helps students with homework, assignments, and learning. Features step-by-step solutions, explanations, and study guides across multiple subjects. Perfect for high school and college students.",
+      "fr": "StudyX est un assistant d'études IA qui aide les étudiants avec devoirs, assignations et apprentissage. Fonctionnalités de solutions pas-à-pas, explications et guides d'étude pour plusieurs matières. Parfait pour lycéens et étudiants universitaires.",
+      "es": "StudyX es un asistente de estudio IA que ayuda a estudiantes con tareas, asignaciones y aprendizaje. Cuenta con soluciones paso a paso, explicaciones y guías de estudio en múltiples materias. Perfecto para estudiantes de secundaria y universidad."
+    },
+    "category": "Education",
+    "website": "https://studyx.ai",
+    "imageUrl": "/ai-tools/studyx.jpg",
+    "imageKeywords": "StudyX homework",
+    "rating": 4.5,
+    "tags": [
+      "education",
+      "homework",
+      "study",
+      "students",
+      "learning"
+    ],
+    "pricing": "Freemium",
+    "features": {
+      "en": [
+        "Homework help",
+        "Step-by-step solutions",
+        "Multi-subject support",
+        "Explanations",
+        "Study guides"
+      ],
+      "fr": [
+        "Aide aux devoirs",
+        "Solutions pas-à-pas",
+        "Support multi-matières",
+        "Explications",
+        "Guides d'étude"
+      ],
+      "es": [
+        "Ayuda con tareas",
+        "Soluciones paso a paso",
+        "Soporte multi-materia",
+        "Explicaciones",
+        "Guías de estudio"
+      ]
+    }
+  },
+  {
+    "id": "199",
+    "name": "SeaArt AI",
+    "description": {
+      "en": "AI art generator with anime, realistic, and fantasy styles.",
+      "fr": "Générateur d'art IA avec styles anime, réaliste et fantastique.",
+      "es": "Generador de arte IA con estilos anime, realista y fantasía."
+    },
+    "longDescription": {
+      "en": "SeaArt AI is a powerful AI image generator specializing in anime, realistic portraits, and fantasy art. Features thousands of models, LoRAs, and customization options. Free daily credits and active community for sharing creations.",
+      "fr": "SeaArt AI est un puissant générateur d'images IA spécialisé dans l'anime, portraits réalistes et art fantastique. Fonctionnalités avec milliers de modèles, LoRAs et options de personnalisation. Crédits quotidiens gratuits et communauté active pour partager créations.",
+      "es": "SeaArt AI es un potente generador de imágenes IA especializado en anime, retratos realistas y arte fantástico. Cuenta con miles de modelos, LoRAs y opciones de personalización. Créditos diarios gratuitos y comunidad activa para compartir creaciones."
+    },
+    "category": "Photo",
+    "website": "https://seaart.ai",
+    "imageUrl": "/ai-tools/seaart-ai.jpg",
+    "imageKeywords": "SeaArt AI anime",
+    "rating": 4.6,
+    "tags": [
+      "ai art",
+      "anime",
+      "realistic",
+      "fantasy",
+      "free"
+    ],
+    "pricing": "Freemium",
+    "features": {
+      "en": [
+        "Multiple art styles",
+        "Thousands of models",
+        "LoRA support",
+        "Daily free credits",
+        "Community sharing"
+      ],
+      "fr": [
+        "Styles d'art multiples",
+        "Milliers de modèles",
+        "Support LoRA",
+        "Crédits gratuits quotidiens",
+        "Partage communautaire"
+      ],
+      "es": [
+        "Múltiples estilos de arte",
+        "Miles de modelos",
+        "Soporte LoRA",
+        "Créditos diarios gratis",
+        "Compartir en comunidad"
+      ]
+    }
+  },
+  {
+    "id": "200",
+    "name": "Spicychat AI",
+    "description": {
+      "en": "Uncensored AI chatbot platform for roleplay and adult conversations.",
+      "fr": "Plateforme chatbot IA non-censurée pour roleplay et conversations adultes.",
+      "es": "Plataforma de chatbot IA sin censura para juegos de rol y conversaciones adultas."
+    },
+    "longDescription": {
+      "en": "Spicychat AI offers uncensored conversations with AI characters. Create custom characters, engage in roleplay scenarios, and chat without content restrictions. Features diverse character personalities and NSFW content support.",
+      "fr": "Spicychat AI offre des conversations non-censurées avec personnages IA. Créez des personnages personnalisés, engagez-vous dans scénarios roleplay et discutez sans restrictions de contenu. Fonctionnalités de personnalités diverses et support contenu NSFW.",
+      "es": "Spicychat AI ofrece conversaciones sin censura con personajes IA. Crea personajes personalizados, participa en escenarios de roleplay y chatea sin restricciones de contenido. Cuenta con personalidades de personajes diversas y soporte de contenido NSFW."
+    },
+    "category": "Companion",
+    "website": "https://spicychat.ai",
+    "imageUrl": "/ai-tools/spicychat-ai.jpg",
+    "imageKeywords": "Spicychat AI chatbot",
+    "rating": 4.1,
+    "tags": [
+      "chatbot",
+      "roleplay",
+      "uncensored",
+      "nsfw",
+      "companion"
+    ],
+    "pricing": "Freemium",
+    "features": {
+      "en": [
+        "Uncensored chat",
+        "Custom characters",
+        "Roleplay scenarios",
+        "NSFW support",
+        "Character library"
+      ],
+      "fr": [
+        "Chat non-censuré",
+        "Personnages personnalisés",
+        "Scénarios roleplay",
+        "Support NSFW",
+        "Bibliothèque personnages"
+      ],
+      "es": [
+        "Chat sin censura",
+        "Personajes personalizados",
+        "Escenarios de roleplay",
+        "Soporte NSFW",
+        "Biblioteca de personajes"
+      ]
+    }
+  },
+  {
+    "id": "201",
+    "name": "Liner",
+    "description": {
+      "en": "AI-powered research assistant for highlighting and organizing web content.",
+      "fr": "Assistant de recherche IA pour surligner et organiser le contenu web.",
+      "es": "Asistente de investigación IA para resaltar y organizar contenido web."
+    },
+    "longDescription": {
+      "en": "Liner is an AI research tool that helps you highlight, annotate, and organize information from the web. Features AI-powered summaries, citation management, and collaborative research tools. Perfect for students, researchers, and knowledge workers.",
+      "fr": "Liner est un outil de recherche IA qui aide à surligner, annoter et organiser informations du web. Fonctionnalités de résumés IA, gestion des citations et outils de recherche collaborative. Parfait pour étudiants, chercheurs et travailleurs du savoir.",
+      "es": "Liner es una herramienta de investigación IA que ayuda a resaltar, anotar y organizar información de la web. Cuenta con resúmenes IA, gestión de citas y herramientas de investigación colaborativa. Perfecto para estudiantes, investigadores y trabajadores del conocimiento."
+    },
+    "category": "Productivity",
+    "website": "https://getliner.com",
+    "imageUrl": "/ai-tools/liner.jpg",
+    "imageKeywords": "Liner research",
+    "rating": 4.5,
+    "tags": [
+      "research",
+      "highlighting",
+      "organization",
+      "summarization",
+      "students"
+    ],
+    "pricing": "Freemium",
+    "features": {
+      "en": [
+        "Web highlighting",
+        "AI summaries",
+        "Citation management",
+        "Collaborative research",
+        "Browser extension"
+      ],
+      "fr": [
+        "Surlignage web",
+        "Résumés IA",
+        "Gestion citations",
+        "Recherche collaborative",
+        "Extension navigateur"
+      ],
+      "es": [
+        "Resaltado web",
+        "Resúmenes IA",
+        "Gestión de citas",
+        "Investigación colaborativa",
+        "Extensión de navegador"
+      ]
+    }
+  },
+  {
+    "id": "202",
+    "name": "Cutout Pro",
+    "description": {
+      "en": "AI-powered background removal and image editing platform.",
+      "fr": "Plateforme de suppression d'arrière-plan et édition d'images IA.",
+      "es": "Plataforma de eliminación de fondo y edición de imágenes IA."
+    },
+    "longDescription": {
+      "en": "Cutout Pro offers AI-powered image and video editing tools including background removal, photo enhancement, video upscaling, and object removal. Features batch processing and API access for businesses. Perfect for e-commerce and content creators.",
+      "fr": "Cutout Pro offre des outils d'édition d'images et vidéos IA incluant suppression d'arrière-plan, amélioration photo, upscaling vidéo et suppression d'objets. Fonctionnalités de traitement par lots et accès API pour entreprises. Parfait pour e-commerce et créateurs de contenu.",
+      "es": "Cutout Pro ofrece herramientas de edición de imágenes y video IA incluyendo eliminación de fondo, mejora de fotos, mejora de video y eliminación de objetos. Cuenta con procesamiento por lotes y acceso API para empresas. Perfecto para comercio electrónico y creadores de contenido."
+    },
+    "category": "Photo",
+    "website": "https://cutout.pro",
+    "imageUrl": "/ai-tools/cutout-pro.jpg",
+    "imageKeywords": "Cutout Pro editing",
+    "rating": 4.6,
+    "tags": [
+      "background removal",
+      "photo editing",
+      "video editing",
+      "e-commerce",
+      "api"
+    ],
+    "pricing": "Freemium",
+    "features": {
+      "en": [
+        "Background removal",
+        "Photo enhancement",
+        "Video upscaling",
+        "Batch processing",
+        "API access"
+      ],
+      "fr": [
+        "Suppression arrière-plan",
+        "Amélioration photo",
+        "Upscaling vidéo",
+        "Traitement par lots",
+        "Accès API"
+      ],
+      "es": [
+        "Eliminación de fondo",
+        "Mejora de fotos",
+        "Mejora de video",
+        "Procesamiento por lotes",
+        "Acceso API"
+      ]
+    }
+  },
+  {
+    "id": "203",
+    "name": "Talkie",
+    "description": {
+      "en": "AI character chatbot app for interactive roleplay conversations.",
+      "fr": "Application chatbot de personnages IA pour conversations roleplay interactives.",
+      "es": "App de chatbot de personajes IA para conversaciones de juego de rol interactivas."
+    },
+    "longDescription": {
+      "en": "Talkie is a mobile-first AI chatbot platform featuring diverse AI characters for conversation and roleplay. Create custom characters, explore community creations, and engage in immersive dialogues. Features voice chat and emotional responses.",
+      "fr": "Talkie est une plateforme chatbot IA mobile-first avec personnages IA divers pour conversation et roleplay. Créez des personnages personnalisés, explorez créations communautaires et engagez-vous dans dialogues immersifs. Fonctionnalités de chat vocal et réponses émotionnelles.",
+      "es": "Talkie es una plataforma de chatbot IA móvil con personajes IA diversos para conversación y juegos de rol. Crea personajes personalizados, explora creaciones de la comunidad y participa en diálogos inmersivos. Cuenta con chat de voz y respuestas emocionales."
+    },
+    "category": "Companion",
+    "website": "https://talkie-ai.com",
+    "imageUrl": "/ai-tools/talkie.jpg",
+    "imageKeywords": "Talkie AI chatbot",
+    "rating": 4.3,
+    "tags": [
+      "chatbot",
+      "roleplay",
+      "mobile",
+      "voice chat",
+      "companion"
+    ],
+    "pricing": "Freemium",
+    "features": {
+      "en": [
+        "AI characters",
+        "Voice chat",
+        "Custom creation",
+        "Community library",
+        "Emotional AI"
+      ],
+      "fr": [
+        "Personnages IA",
+        "Chat vocal",
+        "Création personnalisée",
+        "Bibliothèque communautaire",
+        "IA émotionnelle"
+      ],
+      "es": [
+        "Personajes IA",
+        "Chat de voz",
+        "Creación personalizada",
+        "Biblioteca comunitaria",
+        "IA emocional"
+      ]
+    }
+  },
+  {
+    "id": "204",
+    "name": "PicWish",
+    "description": {
+      "en": "AI photo editor for background removal and image enhancement.",
+      "fr": "Éditeur photo IA pour suppression d'arrière-plan et amélioration d'images.",
+      "es": "Editor de fotos IA para eliminación de fondo y mejora de imágenes."
+    },
+    "longDescription": {
+      "en": "PicWish offers AI-powered photo editing tools including automatic background removal, image unblurring, object removal, and photo enhancement. Easy-to-use interface with batch processing. Perfect for product photography and personal photos.",
+      "fr": "PicWish offre des outils d'édition photo IA incluant suppression automatique d'arrière-plan, déblocage d'images, suppression d'objets et amélioration photo. Interface facile avec traitement par lots. Parfait pour photographie produit et photos personnelles.",
+      "es": "PicWish ofrece herramientas de edición de fotos IA incluyendo eliminación automática de fondo, desenfoque de imágenes, eliminación de objetos y mejora de fotos. Interfaz fácil de usar con procesamiento por lotes. Perfecto para fotografía de productos y fotos personales."
+    },
+    "category": "Photo",
+    "website": "https://picwish.com",
+    "imageUrl": "/ai-tools/picwish.jpg",
+    "imageKeywords": "PicWish photo editor",
+    "rating": 4.5,
+    "tags": [
+      "photo editing",
+      "background removal",
+      "enhancement",
+      "batch processing",
+      "e-commerce"
+    ],
+    "pricing": "Freemium",
+    "features": {
+      "en": [
+        "Background removal",
+        "Image unblurring",
+        "Object removal",
+        "Photo enhancement",
+        "Batch processing"
+      ],
+      "fr": [
+        "Suppression arrière-plan",
+        "Déblocage d'images",
+        "Suppression d'objets",
+        "Amélioration photo",
+        "Traitement par lots"
+      ],
+      "es": [
+        "Eliminación de fondo",
+        "Desenfoque de imágenes",
+        "Eliminación de objetos",
+        "Mejora de fotos",
+        "Procesamiento por lotes"
+      ]
+    }
+  },
+  {
+    "id": "205",
+    "name": "Brainly",
+    "description": {
+      "en": "AI-powered homework help and learning platform for students.",
+      "fr": "Plateforme d'aide aux devoirs et d'apprentissage IA pour étudiants.",
+      "es": "Plataforma de ayuda con tareas y aprendizaje IA para estudiantes."
+    },
+    "longDescription": {
+      "en": "Brainly is a peer-to-peer learning platform enhanced with AI. Get homework help, explanations, and study resources across all subjects. Features community answers, expert verification, and AI-powered solutions for millions of students worldwide.",
+      "fr": "Brainly est une plateforme d'apprentissage pair-à-pair améliorée avec l'IA. Obtenez aide aux devoirs, explications et ressources d'étude pour toutes matières. Fonctionnalités de réponses communautaires, vérification experte et solutions IA pour millions d'étudiants mondialement.",
+      "es": "Brainly es una plataforma de aprendizaje entre pares mejorada con IA. Obtén ayuda con tareas, explicaciones y recursos de estudio en todas las materias. Cuenta con respuestas de la comunidad, verificación de expertos y soluciones IA para millones de estudiantes en todo el mundo."
+    },
+    "category": "Education",
+    "website": "https://brainly.com",
+    "imageUrl": "/ai-tools/brainly.jpg",
+    "imageKeywords": "Brainly homework",
+    "rating": 4.4,
+    "tags": [
+      "education",
+      "homework",
+      "community",
+      "students",
+      "learning"
+    ],
+    "pricing": "Freemium",
+    "features": {
+      "en": [
+        "Homework help",
+        "Community answers",
+        "Expert verification",
+        "AI solutions",
+        "Multi-subject"
+      ],
+      "fr": [
+        "Aide aux devoirs",
+        "Réponses communautaires",
+        "Vérification experte",
+        "Solutions IA",
+        "Multi-matières"
+      ],
+      "es": [
+        "Ayuda con tareas",
+        "Respuestas comunitarias",
+        "Verificación de expertos",
+        "Soluciones IA",
+        "Multi-materia"
+      ]
+    }
+  },
+  {
+    "id": "206",
+    "name": "Pix AI",
+    "description": {
+      "en": "AI anime art generator with high-quality character creation.",
+      "fr": "Générateur d'art anime IA avec création de personnages haute qualité.",
+      "es": "Generador de arte anime IA con creación de personajes de alta calidad."
+    },
+    "longDescription": {
+      "en": "Pix AI specializes in generating high-quality anime artwork and characters. Features advanced customization, multiple art styles, and real-time generation. Perfect for anime fans, artists, and content creators seeking professional anime illustrations.",
+      "fr": "Pix AI se spécialise dans la génération d'œuvres d'art anime et personnages haute qualité. Fonctionnalités de personnalisation avancée, styles d'art multiples et génération temps réel. Parfait pour fans d'anime, artistes et créateurs de contenu cherchant illustrations anime professionnelles.",
+      "es": "Pix AI se especializa en generar arte anime y personajes de alta calidad. Cuenta con personalización avanzada, múltiples estilos de arte y generación en tiempo real. Perfecto para fans del anime, artistas y creadores de contenido que buscan ilustraciones anime profesionales."
+    },
+    "category": "Photo",
+    "website": "https://pixai.art",
+    "imageUrl": "/ai-tools/pix-ai.jpg",
+    "imageKeywords": "Pix AI anime",
+    "rating": 4.7,
+    "tags": [
+      "anime",
+      "art generation",
+      "characters",
+      "high quality",
+      "customization"
+    ],
+    "pricing": "Freemium",
+    "features": {
+      "en": [
+        "Anime art generation",
+        "Character creation",
+        "Advanced customization",
+        "Multiple styles",
+        "Real-time generation"
+      ],
+      "fr": [
+        "Génération art anime",
+        "Création personnages",
+        "Personnalisation avancée",
+        "Styles multiples",
+        "Génération temps réel"
+      ],
+      "es": [
+        "Generación de arte anime",
+        "Creación de personajes",
+        "Personalización avanzada",
+        "Múltiples estilos",
+        "Generación en tiempo real"
+      ]
+    }
+  },
+  {
+    "id": "207",
+    "name": "Joyland",
+    "description": {
+      "en": "AI chatbot platform for interactive storytelling and character conversations.",
+      "fr": "Plateforme chatbot IA pour narration interactive et conversations avec personnages.",
+      "es": "Plataforma de chatbot IA para narrativa interactiva y conversaciones con personajes."
+    },
+    "longDescription": {
+      "en": "Joyland offers immersive AI-powered storytelling and character interactions. Create custom scenarios, chat with diverse AI characters, and explore interactive narratives. Features branching storylines, character customization, and community-created content.",
+      "fr": "Joyland offre narration et interactions de personnages IA immersives. Créez des scénarios personnalisés, discutez avec personnages IA divers et explorez récits interactifs. Fonctionnalités de scénarios ramifiés, personnalisation de personnages et contenu créé par communauté.",
+      "es": "Joyland ofrece narrativa e interacciones de personajes IA inmersivas. Crea escenarios personalizados, chatea con personajes IA diversos y explora narrativas interactivas. Cuenta con historias ramificadas, personalización de personajes y contenido creado por la comunidad."
+    },
+    "category": "Companion",
+    "website": "https://joyland.ai",
+    "imageUrl": "/ai-tools/joyland.jpg",
+    "imageKeywords": "Joyland AI storytelling",
+    "rating": 4.4,
+    "tags": [
+      "storytelling",
+      "chatbot",
+      "roleplay",
+      "interactive",
+      "characters"
+    ],
+    "pricing": "Freemium",
+    "features": {
+      "en": [
+        "Interactive storytelling",
+        "Character creation",
+        "Branching narratives",
+        "Community content",
+        "Custom scenarios"
+      ],
+      "fr": [
+        "Narration interactive",
+        "Création personnages",
+        "Récits ramifiés",
+        "Contenu communautaire",
+        "Scénarios personnalisés"
+      ],
+      "es": [
+        "Narrativa interactiva",
+        "Creación de personajes",
+        "Narrativas ramificadas",
+        "Contenido comunitario",
+        "Escenarios personalizados"
+      ]
+    }
   }
 ]

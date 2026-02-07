@@ -80,7 +80,14 @@ export default function DiscoverClient({ aiTools, featuredToolsList }: DiscoverC
 
   const filteredTools = useMemo(() => {
     return sortedTools
-      .filter(tool => selectedCategory ? tool.category === selectedCategory : true)
+      .filter(tool => {
+        if (!selectedCategory) return true;
+        // "Gratuit" est une catégorie virtuelle qui filtre par pricing="Free"
+        if (selectedCategory === 'Gratuit') {
+          return tool.pricing === 'Free';
+        }
+        return tool.category === selectedCategory;
+      })
       .filter(tool => {
         const description = tool.description[language] || tool.description.en;
         return (

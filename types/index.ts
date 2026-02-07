@@ -16,6 +16,7 @@ export type AiToolCategory =
   | 'Education'
   | 'Health'
   | 'Finance'
+  | 'Companion'
   | 'Gratuit'
   | 'Other';
 

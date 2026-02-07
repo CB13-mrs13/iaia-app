@@ -59,7 +59,7 @@ export default function Footer() {
               </a>
             </Button>
             <Button asChild variant="ghost" size="icon" className="hover:bg-primary/10 hover:text-primary transition-colors">
-              <a href="https://www.instagram.com/iaia_app/" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram">
+              <a href="https://www.instagram.com/iaia.initiation/" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram">
                 <Instagram className="h-5 w-5" />
               </a>
             </Button>
