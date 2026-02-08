@@ -105,3 +105,18 @@ export async function getAiToolBySlug(slug: string): Promise<AiTool | null> {
     return null;
   }
 }
+
+// Function to get a single AI tool by its ID
+export async function getAiToolById(toolId: string): Promise<AiTool | null> {
+  try {
+    const toolRef = doc(db, 'tools', toolId);
+    const snapshot = await getDoc(toolRef);
+    if (!snapshot.exists()) {
+      return null;
+    }
+    return snapshot.data() as AiTool;
+  } catch (error) {
+    console.error(`Error fetching tool with id '${toolId}':`, error);
+    return null;
+  }
+}

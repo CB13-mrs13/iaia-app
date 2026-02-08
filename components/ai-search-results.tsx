@@ -36,8 +36,12 @@ export default function AiSearchResults({ result }: AiSearchResultsProps) {
         </div>
         {result.toolSlug && result.suggestedTool && (
           <div className="mt-6 pt-4 border-t">
-            <Link href={`/tool/${result.toolSlug}`}>
-              <Button variant="default" size="lg" className="w-full font-semibold text-sm sm:text-base shadow-lg hover:shadow-xl transition-shadow min-h-[3rem] whitespace-normal">
+            <Link href={`/tool/${result.toolSlug}${result.toolId ? `?id=${encodeURIComponent(result.toolId)}` : ''}`}>
+              <Button
+                variant="default"
+                size="lg"
+                className="w-full font-semibold text-sm sm:text-base shadow-lg hover:shadow-xl transition-shadow whitespace-normal text-center leading-snug h-auto py-3"
+              >
                 {t.learnMoreButton.replace('{toolName}', result.suggestedTool)} →
               </Button>
             </Link>

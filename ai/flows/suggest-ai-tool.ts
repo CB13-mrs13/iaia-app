@@ -24,6 +24,7 @@ export interface SuggestAiToolOutput {
   suggestedTool: string;
   reason: string;
   toolSlug?: string | null;
+  toolId?: string | null;
 }
 
 const languageMap: Record<SupportedLanguage, string> = {
@@ -168,13 +169,15 @@ Suggest ONE tool and explain why (2-3 sentences) in JSON:
 
     const resolvedToolName = matchedTool?.name || suggestedTool;
     const resolvedToolSlug = matchedTool ? createSlug(matchedTool.name) : null;
+    const resolvedToolId = matchedTool?.id || null;
 
-    console.log("[Parsed]", { suggestedTool: resolvedToolName, reason, resolvedToolSlug });
+    console.log("[Parsed]", { suggestedTool: resolvedToolName, reason, resolvedToolSlug, resolvedToolId });
     
     return {
       suggestedTool: resolvedToolName,
       reason,
       toolSlug: resolvedToolSlug,
+      toolId: resolvedToolId,
     };
   } catch (error) {
     console.error("Error calling Google AI:", error);
