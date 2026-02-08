@@ -13,6 +13,7 @@
 
 import type { SupportedLanguage } from '@/contexts/language-context';
 import { getAiTools } from '@/lib/firebase/firestore';
+import { createSlug } from '@/lib/utils';
 
 export interface SuggestAiToolInput {
   prompt: string;
@@ -22,6 +23,7 @@ export interface SuggestAiToolInput {
 export interface SuggestAiToolOutput {
   suggestedTool: string;
   reason: string;
+  toolSlug?: string | null;
 }
 
 const languageMap: Record<SupportedLanguage, string> = {
@@ -39,19 +41,61 @@ export async function suggestAiTool(input: SuggestAiToolInput): Promise<SuggestA
 
   const aiTools = await getAiTools();
   const languageName = languageMap[input.language as SupportedLanguage] || 'English';
-  const toolNames = aiTools.map(tool => tool.name).join(', ');
+  
+  // Pré-filtrer les outils pertinents basé sur des mots-clés du prompt
+  const promptLower = input.prompt.toLowerCase();
+  
+  // Catégories de mots-clés
+  const keywords = {
+    image: ['image', 'photo', 'picture', 'visual', 'graphic', 'logo', 'design', 'illustration'],
+    video: ['video', 'film', 'movie', 'animation', 'montage'],
+    text: ['text', 'writing', 'content', 'article', 'blog', 'copy', 'rédaction', 'écrire'],
+    code: ['code', 'programming', 'developer', 'app', 'website', 'développement'],
+    chat: ['chat', 'conversation', 'assistant', 'talk', 'dialogue'],
+    music: ['music', 'audio', 'sound', 'musique', 'son'],
+  };
+  
+  // Trouver les catégories pertinentes
+  let relevantTools = aiTools;
+  const matchedCategories: string[] = [];
+  
+  for (const [category, words] of Object.entries(keywords)) {
+    if (words.some(word => promptLower.includes(word))) {
+      matchedCategories.push(category);
+    }
+  }
+  
+  // Si on a des catégories matchées, filtrer par catégorie
+  if (matchedCategories.length > 0) {
+    relevantTools = aiTools.filter(tool => {
+      const categoryMatch = matchedCategories.some(cat => tool.category?.toLowerCase().includes(cat));
+      const descFr = tool.description?.fr?.toLowerCase() || '';
+      const descEn = tool.description?.en?.toLowerCase() || '';
+      const descEs = tool.description?.es?.toLowerCase() || '';
+      const descMatch = matchedCategories.some(cat => 
+        descFr.includes(cat) || descEn.includes(cat) || descEs.includes(cat)
+      );
+      return categoryMatch || descMatch;
+    });
+  }
+  
+  // Si le filtrage donne trop peu ou trop de résultats, prendre un échantillon
+  if (relevantTools.length < 20) {
+    relevantTools = aiTools.slice(0, 50); // Top 50 outils
+  } else if (relevantTools.length > 60) {
+    relevantTools = relevantTools.slice(0, 60); // Limiter à 60
+  }
+  
+  const toolNames = relevantTools.map(tool => tool.name).join(', ');
 
-  const promptText = `You are an AI tool suggestion expert. You MUST generate your entire response, including the reasoning, in ${languageName}.
+  const promptText = `AI tool expert. Respond in ${languageName}.
 
-User Prompt: ${input.prompt}
+User: ${input.prompt}
 
-Available AI Tools: ${toolNames}
+Tools: ${toolNames}
 
-Please respond in JSON format with exactly these two fields:
-{
-  "suggestedTool": "exact name of ONE tool from the list above",
-  "reason": "explanation in ${languageName} of why this tool is best"
-}`;
+Suggest ONE tool and explain why (2-3 sentences) in JSON:
+{"suggestedTool":"name","reason":"detailed explanation"}`;
 
   try {
     // Utiliser l'API REST v1beta avec le modèle gemini-2.5-flash
@@ -70,8 +114,7 @@ Please respond in JSON format with exactly these two fields:
           }],
           generationConfig: {
             temperature: 0.7,
-            maxOutputTokens: 1024,
-            responseMimeType: "application/json",
+            maxOutputTokens: 2048,
           }
         })
       }
@@ -92,48 +135,46 @@ Please respond in JSON format with exactly these two fields:
     
     console.log("[AI Response]", text); // Debug log
     
-    // Try to parse JSON from the response - try multiple patterns
-    try {
-      // Pattern 1: JSON code block with ```json
-      let jsonMatch = text.match(/```json\s*([\s\S]*?)```/);
-      if (!jsonMatch) {
-        // Pattern 2: Plain JSON object
-        jsonMatch = text.match(/\{[\s\S]*"suggestedTool"[\s\S]*\}/);
-      }
-      if (!jsonMatch) {
-        // Pattern 3: Any JSON object
-        jsonMatch = text.match(/\{[\s\S]*\}/);
-      }
-      
-      if (jsonMatch) {
-        const jsonStr = jsonMatch[1] || jsonMatch[0];
-        const parsed = JSON.parse(jsonStr);
-        console.log("[Parsed JSON]", parsed); // Debug log
-        
-        return {
-          suggestedTool: parsed.suggestedTool || parsed.tool || parsed.name || '',
-          reason: parsed.reason || parsed.explanation || parsed.description || text
-        };
-      }
-    } catch (parseError) {
-      console.error("[JSON Parse Error]", parseError);
-    }
+    // Extraire tool et reason même si le JSON est tronqué
+    let suggestedTool = 'ChatGPT';
+    let reason = 'Outil polyvalent recommandé.';
     
-    // Fallback: try to extract tool name and reason from text manually
-    console.log("[Fallback parsing]", text);
-    const lines = text.split('\n').filter((line: string) => line.trim());
+    // Nettoyer les code blocks markdown
+    const cleanText = text.replace(/```json\s*/g, '').replace(/```\s*/g, '').trim();
     
-    // Look for tool name in common patterns
-    let toolName = 'ChatGPT';
-    const toolPattern = /"suggestedTool"\s*:\s*"([^"]+)"/;
-    const toolMatch = text.match(toolPattern);
+    // Extraire suggestedTool
+    const toolMatch = cleanText.match(/"suggestedTool"\s*:\s*"([^"]+)"/);
     if (toolMatch) {
-      toolName = toolMatch[1];
+      suggestedTool = toolMatch[1];
     }
+    
+    // Extraire reason (même si tronqué) - capturer jusqu'au " OU jusqu'à la fin
+    const reasonMatch = cleanText.match(/"reason"\s*:\s*"([^"]+)/);
+    if (reasonMatch) {
+      reason = reasonMatch[1];
+      // Si la raison ne se termine pas normalement, ajouter ...
+      if (!cleanText.includes(`"reason": "${reason}"`)) {
+        reason += '...';
+      }
+    }
+    
+    const suggestedToolLower = suggestedTool.toLowerCase();
+    const suggestedSlug = createSlug(suggestedTool);
+    const matchedTool =
+      aiTools.find(tool => tool.name.toLowerCase() === suggestedToolLower) ||
+      aiTools.find(tool => createSlug(tool.name) === suggestedSlug) ||
+      aiTools.find(tool => tool.name.toLowerCase().includes(suggestedToolLower)) ||
+      aiTools.find(tool => suggestedToolLower.includes(tool.name.toLowerCase()));
+
+    const resolvedToolName = matchedTool?.name || suggestedTool;
+    const resolvedToolSlug = matchedTool ? createSlug(matchedTool.name) : null;
+
+    console.log("[Parsed]", { suggestedTool: resolvedToolName, reason, resolvedToolSlug });
     
     return {
-      suggestedTool: toolName,
-      reason: lines.slice(1).join(' ') || text
+      suggestedTool: resolvedToolName,
+      reason,
+      toolSlug: resolvedToolSlug,
     };
   } catch (error) {
     console.error("Error calling Google AI:", error);

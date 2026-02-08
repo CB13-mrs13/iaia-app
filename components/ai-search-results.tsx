@@ -6,7 +6,6 @@ import type { SuggestAiToolOutput } from '@/ai/flows/suggest-ai-tool';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { CheckCircle, Info } from 'lucide-react';
-import { createSlug } from '@/lib/utils';
 import { useLanguage } from '@/hooks/use-language';
 import { translations } from '@/lib/translations';
 
@@ -32,15 +31,17 @@ export default function AiSearchResults({ result }: AiSearchResultsProps) {
           
         </div>
         <div>
-          <h4 className="font-semibold flex items-center"><Info className="h-4 w-4 mr-1 text-primary"/>{t.reasoningLabel}:</h4>
-          <p className="text-sm text-foreground/80 bg-background p-3 rounded-md border">{result.reason}</p>
+          <h4 className="font-semibold flex items-center text-base"><Info className="h-5 w-5 mr-2 text-primary"/>{t.reasoningLabel}:</h4>
+          <p className="text-base text-foreground/90 bg-background p-4 rounded-md border leading-relaxed mt-2">{result.reason}</p>
         </div>
-        {result.suggestedTool && (
-          <Button asChild variant="default" className="mt-2">
-            <Link href={`/tool/${createSlug(result.suggestedTool)}`}>
-              {t.learnMoreButton.replace('{toolName}', result.suggestedTool)}
+        {result.toolSlug && result.suggestedTool && (
+          <div className="mt-6 pt-4 border-t">
+            <Link href={`/tool/${result.toolSlug}`}>
+              <Button variant="default" size="lg" className="w-full font-semibold text-sm sm:text-base shadow-lg hover:shadow-xl transition-shadow min-h-[3rem] whitespace-normal">
+                {t.learnMoreButton.replace('{toolName}', result.suggestedTool)} →
+              </Button>
             </Link>
-          </Button>
+          </div>
         )}
       </CardContent>
     </Card>
