@@ -54,6 +54,9 @@ functions/.firebase/service-account-key.json
 .env
 .env.local
 .env*.local
+.env.production
+.env.production.local
+.env.*
 
 # Service account keys (all locations)
 service-account-key.json
